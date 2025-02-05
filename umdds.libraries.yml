@@ -1,7 +1,0 @@
-design-system:
-  header: true
-  css:
-    theme:
-      css/compiled.css: {}
-  js:
-    js/index.js: {}

@@ -1,9 +1,0 @@
-$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
-
-name: UMD Element Tabs
-props:
-  type: object
-  slots:
-    tabs_slot:
-      title: Tabs Slot
-      description: Slot intended for umd-element-tab types

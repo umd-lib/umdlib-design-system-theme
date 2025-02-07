@@ -1,0 +1,50 @@
+{% if card_title and card_url %}
+<div role="contentinfo" 
+     class="card--overlay c-bg-secondary c-content-primary"
+     aria-label="{{ card_title }}">
+
+  <div class="card--content s-box-small-v s-box-small-h">
+    <div class="card--title">
+      {% if eyebrow %}
+        <p class="card--eyebrow t-eyebrow s-stack-small">
+          {{ eyebrow }}
+        </p>
+      {% endif %}
+
+      <h3 class="card--headline s-stack-default t-title-medium">
+        <a href="{{ card_url }}" {{ app.request.get('_route') == card_url ? 'aria-current="page"' }}>
+          {{ card_title }}
+        </a>
+      </h3>
+    </div>
+
+    <div class="card--details">
+      {% if description %}
+        <p class="card--text t-body-small c-content-secondary s-stack-default">
+          {{ description }}
+        </p>
+      {% endif %}
+
+      {% if card_date %}
+        <div class="card--date t-label c-content-tertiary s-stack-large">
+          <time datetime="{{ card_date|date('Y-m-d') }}" itemprop="datePublished">
+            {{ card_date|date('F d, Y') }}
+          </time>
+        </div>
+      {% endif %}
+    </div>
+
+    {% if button_text %}
+      {% include '@umdlib_umdds/components/umd-libraries-button/umd-libraries-button-secondary.twig' with {
+        'button_text': button_text,
+        'button_link': button_link|default(card_url)
+      } %}
+    {% endif %}
+  </div>
+</div>
+{% else %}
+  {# Error state #}
+  <div class="card--error">
+    Required card properties missing
+  </div>
+{% endif %}

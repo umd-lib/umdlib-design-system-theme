@@ -1,0 +1,43 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: UMD Libraries Card - Standard
+replaces: umdds:umd-element-card
+props:
+  type: object
+  # required:
+  #   - card_title,
+  #   - card_url,
+  #   - card_image,
+  #   - card_image_alt,
+  properties:
+    card_image:
+      type: string
+      title: Card Image (URL)
+    card_image_alt:
+      type: string
+      title: Card Image Alt
+    eyebrow:
+      type: string
+      title: Eyebrow text
+      maxLength: 30
+    card_title:
+      type: string
+      title: Card Title
+      maxLength: 100
+    card_url:
+      type: string
+      title: Card URL
+    description:
+      type: string
+      title: Description
+      maxLength: 400
+    card_date:
+      type: string
+      title: Date
+    button_text:
+      type: string
+      title: Secondary Button Text
+      maxLength: 50
+    button_link:
+      type: string
+      title: Secondary Button Link

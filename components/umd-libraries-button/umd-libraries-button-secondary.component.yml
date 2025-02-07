@@ -1,0 +1,16 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: UMD Libraries Button - Secondary
+props:
+  type: object
+  required:
+    - button_text
+    - button_link
+  properties:
+    button_text:
+      type: string
+      maxLength: 50
+      title: Secondary Button Text (max 50 chars)
+    button_link:
+      type: string
+      title: Secondary Button Link

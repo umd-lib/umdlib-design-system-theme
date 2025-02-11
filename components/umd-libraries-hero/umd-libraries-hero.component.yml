@@ -1,0 +1,25 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: UMD Libraries Hero
+replaces: umdds:umd-element-hero
+props:
+  type: object
+  properties:
+    hero_image:
+      type: string
+      title: Hero Image (URL)
+    hero_image_alt:
+      type: string
+      title: Hero Image Alt
+    eyebrow:
+      type: string
+      title: Eyebrow text
+      maxLength: 30
+    hero_title:
+      type: string
+      title: Card Title
+      maxLength: 100
+    description:
+      type: string
+      title: Description
+      maxLength: 400

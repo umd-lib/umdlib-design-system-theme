@@ -1,0 +1,32 @@
+{% if hero_title %}
+<div class="hero--minimal c-bg-primary c-content-primary">
+  {% if hero_image %}
+  <div class="hero--image">
+    <img alt="{{ hero_image_alt }}" src="{{ hero_image }}">
+  </div>
+  {% endif %}
+  <div class="hero--container s-box-page-default-h s-box-page-default-v s-center">
+    <div class="hero--content s-box-large-h {% if not hero_image %}text-only{% endif %}">
+     {% if eyebrow %}
+        <p class="hero--eyebrow c-content-secondary t-eyebrow s-stack-small">
+          {{ eyebrow }}
+        </p>
+      {% endif %}
+      <h1 class="hero--headline t-display s-stack-default">
+        {{ hero_title }}
+      </h1>
+      {% if description %}
+        <p class="hero--description c-content-secondary t-body-medium">
+          {{ description }}
+        </p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% else %}
+  {# Error state #}
+  <div class="hero--error">
+    Required hero properties - title missing
+  </div>
+{% endif %}

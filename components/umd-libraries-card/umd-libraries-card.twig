@@ -42,7 +42,7 @@
     </div>
 
     {% if button_text %}
-      {% include '@umdlib_umdds/components/umd-libraries-button/umd-libraries-button-secondary.twig' with {
+      {% include '@umdlib_umdds/components/umd-libraries-button/umd-libraries-button-secondary/umd-libraries-button-secondary.twig' with {
         'button_text': button_text,
         'button_link': button_link|default(card_url)
       } %}

@@ -1,14 +1,9 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 
-name: UMD Libraries Card - Standard
+name: UMD Libraries Card
 replaces: umdds:umd-element-card
 props:
   type: object
-  # required:
-  #   - card_title,
-  #   - card_url,
-  #   - card_image,
-  #   - card_image_alt,
   properties:
     card_image:
       type: string

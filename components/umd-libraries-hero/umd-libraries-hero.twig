@@ -1,5 +1,5 @@
 {% if hero_title %}
-<div class="hero--minimal c-bg-primary c-content-primary">
+<div class="hero--minimal c-bg-primary c-content-primary {% if theme == 'Dark' %}dark-theme{% endif %}">
   {% if hero_image %}
   <div class="hero--image">
     <img alt="{{ hero_image_alt }}" src="{{ hero_image }}">

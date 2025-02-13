@@ -5,6 +5,10 @@ replaces: umdds:umd-element-hero
 props:
   type: object
   properties:
+    theme:
+      type: string
+      title: Theme (Light or Dark)
+      description: 'Choose the theme between "Light" and "Dark" for the hero section.'
     hero_image:
       type: string
       title: Hero Image (URL)
@@ -13,11 +17,11 @@ props:
       title: Hero Image Alt
     eyebrow:
       type: string
-      title: Eyebrow text
+      title: Eyebrow Text
       maxLength: 30
     hero_title:
       type: string
-      title: Card Title
+      title: Hero Title
       maxLength: 100
     description:
       type: string

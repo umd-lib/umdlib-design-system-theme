@@ -190,6 +190,7 @@ body {
   color: var(--dark-gray);
   background: var(--white);
   font-family: Interstate, Helvetica, sans-serif;
+  margin: 0rem;
 }
 
 /* typography */
@@ -338,7 +339,7 @@ body {
 }
 
 .c-underline-dark-primary {
-  background-image: linear-gradient(var(--white), var(--white));
+  background-image: linear-gradient(var(--light-gray), var(--light-gray));
 }
 
 .c-bg-primary {

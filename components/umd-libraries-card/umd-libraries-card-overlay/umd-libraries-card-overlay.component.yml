@@ -7,7 +7,7 @@ props:
   properties:
     eyebrow:
       type: string
-      title: Eyebrow text
+      title: Eyebrow Text
       maxLength: 30
     card_title:
       type: string

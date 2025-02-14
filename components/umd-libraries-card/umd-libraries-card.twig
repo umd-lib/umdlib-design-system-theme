@@ -18,7 +18,7 @@
         </p>
       {% endif %}
 
-      <h3 class="card--headline s-stack-default t-title-medium">
+      <h3 class="card--headline s-stack-small t-title-medium">
         <a href="{{ card_url }}" {{ app.request.get('_route') == card_url ? 'aria-current="page"' }}>
           {{ card_title }}
         </a>
@@ -27,7 +27,7 @@
 
     <div class="card--details">
       {% if description %}
-        <p class="card--text t-body-small c-content-secondary s-stack-default">
+        <p class="card--text t-body-small c-content-secondary s-stack-small">
           {{ description }}
         </p>
       {% endif %}

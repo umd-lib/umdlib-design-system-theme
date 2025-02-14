@@ -555,6 +555,16 @@ body {
     padding-right: 2rem;
   }
 
+  .s-box-small-v {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .s-box-small-h {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   .s-box-page-default-v {
     padding-top: 3rem;
     padding-bottom: 3rem;

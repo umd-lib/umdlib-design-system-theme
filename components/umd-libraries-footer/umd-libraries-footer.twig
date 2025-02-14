@@ -1,7 +1,6 @@
 <footer role="contentinfo" class="c-bg-dark-primary c-content-dark-primary">
   <div
-    class="footer--content s-box-page-default-h s-box-page-default-v s-center"
-  >
+    class="footer--content s-box-page-default-h s-box-page-default-v s-center">
     <div class="footer--header s-stack-large">
       <div class="footer--logo">
         <img
@@ -11,7 +10,7 @@
           height="81"
           decoding="async"
           data-nimg="1"
-          src="themes/custom/umdlib_umdds/logo-dark.svg"
+          src="/{{ active_theme_path() }}/logo-dark.svg"
         />
       </div>
       <div class="footer--title">
@@ -22,14 +21,15 @@
           <p class="c-content-dark-primary">
             McKeldin Library, 7649 Library Lane, College Park, MD 20742-7011
           </p>
-          <a href="tel:+13014050800" class="c-content-dark-primary"
-            >301.405.0800</a
-          >
+          <a href="tel:+13014050800" class="c-content-dark-primary">
+            301.405.0800
+          </a>
         </address>
       </div>
     </div>
     <div class="footer--columns t-body-small">
       <div class="footer--columns-main">
+        {% block column_1_slot %}
         <nav aria-labelledby="our-libraries-heading" class="s-stack-large">
           <p
             id="our-libraries-heading"
@@ -80,6 +80,8 @@
             </li>
           </ul>
         </nav>
+        {% endblock %}
+        {% block column_2_slot %}
         <nav aria-labelledby="library-info-heading" class="s-stack-large">
           <p
             id="library-info-heading"
@@ -125,6 +127,8 @@
             </li>
           </ul>
         </nav>
+        {% endblock %}
+        {% block column_3_slot %}
         <nav aria-labelledby="services-support-heading" class="s-stack-large">
           <p
             id="services-support-heading"
@@ -247,6 +251,7 @@
             </li>
           </ul>
         </div>
+        {% endblock %}
       </div>
       <div class="footer--columns-secondary">
         <a
@@ -254,16 +259,16 @@
           href="https://fearlesslyforward.umd.edu/"
           target="_blank"
           rel="noreferrer noopener"
-          aria-label="Link to the Fearlessly Forward Brand website"
-          ><img
+          aria-label="Link to the Fearlessly Forward Brand website">
+          <img
             alt="University Libraries"
             loading="lazy"
             width="156"
             height="67"
             decoding="async"
             data-nimg="1"
-            src="themes/custom/umdlib_umdds/fearlessly-forward.svg"
-        /></a>
+            src="/{{ active_theme_path() }}/fearlessly-forward.svg"/>
+        </a>
         <div class="footer--columns-secondary-item">
           <img
             alt="University Libraries"
@@ -272,8 +277,7 @@
             height="33"
             decoding="async"
             data-nimg="1"
-            src="themes/custom/umdlib_umdds/rfdl.svg"
-          />
+            src="/{{ active_theme_path() }}/rfdl.svg"/>
           <p class="t-body-small c-content-dark-secondary">
             Regional Federal Depository Library
           </p>
@@ -283,23 +287,22 @@
   </div>
   <div class="footer--sub c-bg-dark-secondary">
     <div
-      class="footer--sub-content s-box-page-small-v s-box-page-default-h s-center"
-    >
+      class="footer--sub-content s-box-page-small-v s-box-page-default-h s-center">
       <ul>
         <li>
-          <a href="/" class="ani-underline t-label c-underline-dark-primary"
-            >Give Now</a
-          >
+          <a href="/" class="ani-underline t-label c-underline-dark-primary">
+            Give Now
+          </a>
         </li>
         <li>
-          <a href="/" class="ani-underline t-label c-underline-dark-primary"
-            >Privacy Policy</a
-          >
+          <a href="/" class="ani-underline t-label c-underline-dark-primary">
+            Privacy Policy
+          </a>
         </li>
         <li>
-          <a href="/" class="ani-underline t-label c-underline-dark-primary"
-            >Web Accessibility</a
-          >
+          <a href="/" class="ani-underline t-label c-underline-dark-primary">
+            Web Accessibility
+          </a>
         </li>
       </ul>
       <div>

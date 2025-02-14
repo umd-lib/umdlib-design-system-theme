@@ -2,3 +2,13 @@ $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schema
 
 name: UMD Libraries Footer
 replaces: umdds:umd-element-footer
+slots:
+  column_1_slot:
+    title: Column One Top Slot
+    description: Slot intended for menu
+  column_2_slot:
+    title: Column Two Top Slot
+    description: Slot intended for menu
+  column_3_slot:
+    title: Column Three Top Slot
+    description: Slot intended for menu

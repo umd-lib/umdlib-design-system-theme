@@ -29,7 +29,7 @@
     </div>
     <div class="footer--columns t-body-small">
       <div class="footer--columns-main">
-        {% block column_1_slot %}
+        {% block navigation_menu_slot %}
         <nav aria-labelledby="our-libraries-heading" class="s-stack-large">
           <p
             id="our-libraries-heading"
@@ -80,8 +80,6 @@
             </li>
           </ul>
         </nav>
-        {% endblock %}
-        {% block column_2_slot %}
         <nav aria-labelledby="library-info-heading" class="s-stack-large">
           <p
             id="library-info-heading"
@@ -127,8 +125,6 @@
             </li>
           </ul>
         </nav>
-        {% endblock %}
-        {% block column_3_slot %}
         <nav aria-labelledby="services-support-heading" class="s-stack-large">
           <p
             id="services-support-heading"
@@ -154,6 +150,8 @@
             </li>
           </ul>
         </nav>
+        {% endblock %}
+        {% block social_media_slot %}
         <div aria-labelledby="stay-connected-heading" class="s-stack-large">
           <p
             id="stay-connected-heading"

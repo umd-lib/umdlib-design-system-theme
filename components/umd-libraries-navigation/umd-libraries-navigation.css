@@ -330,10 +330,6 @@
     overflow-y: unset;
   }
 
-  .navigation__rows.is-open {
-    transform: translateX(0);
-  }
-
   /* Menu items - Main & Secondary */
   /* 1st level menu */
   /* general */
@@ -375,7 +371,7 @@
   }
 
   .navigation .navigation__menu-item:hover span.i-chevron-down,
-  .navigation .navigation__menu-item:hover span.i-chevron-down:focus {
+  .navigation .navigation__menu-item:hover span.i-chevron-down {
     transform: rotate(180deg);
   }
 
@@ -429,7 +425,7 @@
 
   /* 2nd level menu animation */
   .navigation__menu-item:hover .navigation__submenu,
-  .navigation__menu-item:focus-within .navigation__submenu {
+  .navigation__menu-item:focus .navigation__submenu {
     display: block;
   }
 

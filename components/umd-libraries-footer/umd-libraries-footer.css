@@ -21,6 +21,7 @@ footer ol {
 
 footer li {
   list-style: none;
+  line-height: 17px;
 }
 
 .footer--content,

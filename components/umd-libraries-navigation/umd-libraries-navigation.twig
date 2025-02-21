@@ -25,9 +25,9 @@
     </button>
     <div class="navigation__rows">
       <div class="navigation__row-main">
+        {% block main_navigation_slot %}
         <nav aria-label="Main navigation" class="navigation__main-menu">
           <ul class="navigation__menu-list">
-             {% block main_navigation_slot %}
             <li class="navigation__menu-item">
               <a href="/visit" class="navigation__menu-link"
                 >Visit &amp; Study</a
@@ -84,15 +84,15 @@
                 </div>
               </div>
             </li>
-            {% endblock %}
           </ul>
         </nav>
+        {% endblock %}
       </div>
       <div class="navigation__row-sec">
       
+        {% block secondary_navigation_slot %}
         <nav aria-label="Secondary navigation" class="navigation__sec-menu">
           <ul class="navigation__secmenu-list">
-            {% block secondary_navigation_slot %}
             <li class="navigation__menu-item">
               <a href="/" class="navigation__menu-link">Locations &amp; Hours</a
               ><button
@@ -134,9 +134,9 @@
                 </div>
               </div>
             </li>
-            {% endblock %}
           </ul>
         </nav>
+        {% endblock %}
         <div class="navigation__site-search">
           <a href="/" class="">Search</a
           ><button class="navigation__site-search-button">

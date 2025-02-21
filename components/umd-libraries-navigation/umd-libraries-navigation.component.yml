@@ -1,0 +1,15 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: UMD Libraries Navigation
+# replaces: umdds:umd-element-navigation-header
+props:
+  type: object
+  properties:
+
+slots:
+  main_navigation_slot:
+    title: Main Navigation Slot
+    description: Slot for the main navigation
+  secondary_navigation_slot:
+    title: Secondary Navigation Slot
+    description: Slot for the secondary navigation

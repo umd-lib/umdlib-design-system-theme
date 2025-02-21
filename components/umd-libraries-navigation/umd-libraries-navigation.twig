@@ -1,0 +1,149 @@
+<div class="navigation">
+  <div
+    class="navigation__content s-box-page-default-h s-box-page-small-v s-center"
+  >
+    <div class="navigation__header">
+      <div class="navigation__logo">
+        <img
+          alt="University Libraries"
+          loading="lazy"
+          width="270"
+          height="81"
+          decoding="async"
+          data-nimg="1"
+          style="color: transparent"
+          src="/{{ active_theme_path() }}/logo.svg"
+        />
+      </div>
+    </div>
+    <button
+      class="navigation__menu-button"
+      aria-expanded="false"
+      aria-controls="navigation"
+    >
+      <span class="navigation__menu-icon"></span>
+    </button>
+    <div class="navigation__rows">
+      <div class="navigation__row-main">
+        <nav aria-label="Main navigation" class="navigation__main-menu">
+          <ul class="navigation__menu-list">
+             {% block main_navigation_slot %}
+            <li class="navigation__menu-item">
+              <a href="/visit" class="navigation__menu-link"
+                >Visit &amp; Study</a
+              ><button
+                class="navigation__submenu-button"
+                aria-expanded="false"
+                aria-controls="submenu-visit"
+              >
+                <span class="i-chevron-down"></span>
+              </button>
+              <div class="navigation__submenu" id="submenu-visit">
+                <div class="navigation__submenu-header">
+                  <button class="navigation__back-button">
+                    <span class="i-chevron-down"></span>
+                    <p class="t-label ani-underline c-underline-secondary">
+                      Back
+                    </p>
+                  </button>
+                </div>
+                <div class="navigation__submenu-content">
+                  <div class="navigation__submenu-title">
+                    <a href="/visit">Visit &amp; Study</a>
+                  </div>
+                  <ul class="navigation__submenu-list">
+                    <li class="navigation__submenu-item">
+                      <a
+                        href="/"
+                        class="navigation__submenu-link ani-underline c-underline-primary t-body-small"
+                        >Our Libraries</a
+                      >
+                    </li>
+                    <li class="navigation__submenu-item">
+                      <a
+                        href="/"
+                        class="navigation__submenu-link ani-underline c-underline-primary t-body-small"
+                        >Find a Space</a
+                      >
+                    </li>
+                    <li class="navigation__submenu-item">
+                      <a
+                        href="/"
+                        class="navigation__submenu-link ani-underline c-underline-primary t-body-small"
+                        >Technology</a
+                      >
+                    </li>
+                    <li class="navigation__submenu-item">
+                      <a
+                        href="/"
+                        class="navigation__submenu-link ani-underline c-underline-primary t-body-small"
+                        >Visit Special Collections</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            {% endblock %}
+          </ul>
+        </nav>
+      </div>
+      <div class="navigation__row-sec">
+      
+        <nav aria-label="Secondary navigation" class="navigation__sec-menu">
+          <ul class="navigation__secmenu-list">
+            {% block secondary_navigation_slot %}
+            <li class="navigation__menu-item">
+              <a href="/" class="navigation__menu-link">Locations &amp; Hours</a
+              ><button
+                class="navigation__submenu-button"
+                aria-expanded="false"
+                aria-controls="submenu-locations"
+              >
+                <span class="i-chevron-down"></span>
+              </button>
+              <div class="navigation__submenu" id="submenu-locations">
+                <div class="navigation__submenu-header">
+                  <button class="navigation__back-button">
+                    <span class="i-chevron-down"></span>
+                    <p class="t-label ani-underline c-underline-secondary">
+                      Back
+                    </p>
+                  </button>
+                </div>
+                <div class="navigation__submenu-content">
+                  <div class="navigation__submenu-title">
+                    <a href="/">Locations &amp; Hours</a>
+                  </div>
+                  <ul class="navigation__submenu-list">
+                    <li class="navigation__submenu-item">
+                      <a
+                        href="/"
+                        class="navigation__submenu-link ani-underline c-underline-primary t-body-small"
+                        >Main Library</a
+                      >
+                    </li>
+                    <li class="navigation__submenu-item">
+                      <a
+                        href="/l"
+                        class="navigation__submenu-link ani-underline c-underline-primary t-body-small"
+                        >Science Library</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            {% endblock %}
+          </ul>
+        </nav>
+        <div class="navigation__site-search">
+          <a href="/" class="">Search</a
+          ><button class="navigation__site-search-button">
+            <span class="i-search"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

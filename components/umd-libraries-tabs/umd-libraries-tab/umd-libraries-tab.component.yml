@@ -1,0 +1,24 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: UMD Libraries Tab
+replaces: umdds:umd-element-tab
+props:
+  type: object
+  properties:
+    tab_value:
+      type: string
+      title: Tab Value
+      description: Unique identifier for connecting this content to its trigger
+    tab_heading:
+      type: string
+      title: Tab Heading
+      description: Optional heading displayed at the top of tab content
+    auto_focus_first:
+      type: boolean
+      title: Auto Focus First Element
+      description: Whether to automatically focus the first interactive element in the tab
+      default: false
+slots:
+  body_slot:
+    title: Body
+    description: Slot intended for WYSIWYG editor content

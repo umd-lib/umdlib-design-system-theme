@@ -1,0 +1,19 @@
+<div class="tab--panel" 
+     data-value="{{ tab_value }}" 
+     role="tabpanel" 
+     id="panel-{{ tab_value }}" 
+     aria-labelledby="tab-{{ tab_value }}"
+     tabindex="0"
+     {% if auto_focus_first %}data-auto-focus="true"{% endif %}
+     hidden>
+  <div class="tab--content">
+    {% if tab_heading %}
+      <h2 class="umd-sans-larger-bold umd-layout-headline-large panel-heading">
+        {{ tab_heading }}
+      </h2>
+    {% endif %}
+    <div class="tab--panel-content">
+      {% block body_slot %}{% endblock %}
+    </div>
+  </div>
+</div>

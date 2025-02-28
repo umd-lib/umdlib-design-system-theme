@@ -1,0 +1,23 @@
+{# Generate a unique ID if one isn't provided #}
+{% set tabs_id = id ?? ('tabs-' ~ random()) %}
+
+<div class="tabs--container c-bg-primary c-content-primary" 
+     data-tabs-container 
+     id="{{ tabs_id }}" 
+     data-default-tab="{{ default_tab }}">
+  
+  {% if label %}
+  <p id="{{ tabs_id }}-label" class="sr-only">{{ label }}</p>
+  {% endif %}
+  
+  <div class="tabs--triggers" 
+       role="tablist"
+       aria-orientation="{{ orientation }}"
+       {% if label %}aria-labelledby="{{ tabs_id }}-label"{% endif %}>
+    {% block tabs_triggers_slot %}{% endblock %}
+  </div>
+  
+  <div class="tabs--content">
+    {% block tabs_content_slot %}{% endblock %}
+  </div>
+</div>

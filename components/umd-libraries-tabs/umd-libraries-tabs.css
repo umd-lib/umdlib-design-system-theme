@@ -1,0 +1,48 @@
+.tabs--triggers {
+  width: fit-content;
+
+  display: flex;
+  flex-direction: row;
+
+  position: relative;
+}
+
+.tabs--triggers.vertical {
+  /* flex-direction: column; */
+}
+
+.tabs--triggers-deco {
+  max-width: 100%;
+  height: 2px;
+
+  background-color: var(--light-gray);
+
+  position: absolute;
+}
+
+.tabs--triggers-deco .tabs--triggers-deco-activeline {
+  width: 50px;
+  height: 2px;
+
+  background-color: var(--maryland-red);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  transition: width 0.5s ease-in-out, height 0.5s ease-in-out,
+    transform 0.5s ease-in-out;
+}
+
+.tab--trigger {
+  padding: 1rem 1.5rem 1rem 1.5rem;
+  width: fit-content;
+}
+
+.tab--trigger.active {
+  color: var(--black);
+}
+
+.tab--trigger-label {
+  white-space: nowrap;
+}

@@ -1,4 +1,4 @@
-<button class="tab--trigger t-interactive" 
+<button class="tab--trigger t-interactive c-content-tertiary" 
         data-value="{{ tab_value }}" 
         role="tab" 
         id="tab-{{ tab_value }}"
@@ -6,8 +6,8 @@
         aria-selected="false"
         tabindex="{{ first_in_list ? '0' : '-1' }}"
         {% if tab_description %}aria-description="{{ tab_description }}"{% endif %}>
-  <span class="tabs--trigger-label">{{ tab_label }}</span>
+  <span class="tab--trigger-label">{{ tab_label }}</span>
   {% if tab_description %}
-  <span class="sr-only">{{ tab_description }}</span>
+    <span class="sr-only">{{ tab_description }}</span>
   {% endif %}
 </button>

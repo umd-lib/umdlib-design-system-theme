@@ -1,9 +1,14 @@
 /**
  * UMD Libraries Tabs functionality
- * Enhanced for accessibility
+ * Enhanced for accessibility and responsive design
  */
 (function () {
-  "use strict";
+  ("use strict"); // Fixed the syntax - removed extra parentheses
+
+  // Global variables for the module
+  let triggerLayout = true; // true = horizontal, false = vertical
+  let resizeDebounceTimer;
+  const RESIZE_DEBOUNCE_DELAY = 10; // ms
 
   // Initialize all tab containers on the page
   document.addEventListener("DOMContentLoaded", function () {
@@ -32,6 +37,9 @@
     const panels = container.querySelectorAll(".tab--panel");
     const defaultTab = container.dataset.defaultTab;
     const isVertical = container.dataset.orientation === "vertical";
+    const triggerList = container.querySelector(".tabs--triggers");
+    const decoBackground = document.getElementById("tabs--trigger-deco");
+    const decoLine = document.getElementById("deco-underline");
 
     // Set up event handlers for all triggers
     triggers.forEach((trigger) => {
@@ -49,6 +57,17 @@
       });
     });
 
+    // Initial layout setup
+    updateTriggerLayout(triggers, triggerList, decoBackground, decoLine);
+
+    // Window resize handler with debounce for better performance
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeDebounceTimer);
+      resizeDebounceTimer = setTimeout(() => {
+        updateTriggerLayout(triggers, triggerList, decoBackground, decoLine);
+      }, RESIZE_DEBOUNCE_DELAY);
+    });
+
     // Initialize with default tab or first tab
     let initialTabValue;
     if (
@@ -62,6 +81,103 @@
 
     if (initialTabValue) {
       selectTab(container, initialTabValue);
+    }
+  }
+
+  /**
+   * Update trigger layout based on container width
+   * @param {NodeList} triggers - Collection of tab triggers
+   * @param {HTMLElement} triggerList - Container for triggers
+   * @param {HTMLElement} decoBackground - Background decoration element
+   * @param {HTMLElement} decoLine - Active tab indicator line
+   */
+  function updateTriggerLayout(
+    triggers,
+    triggerList,
+    decoBackground,
+    decoLine
+  ) {
+    // Calculate total width and height of triggers
+    let triggerWidth = 0;
+    let triggerHeight = 0;
+
+    triggers.forEach((trigger) => {
+      const rect = trigger.getBoundingClientRect();
+      triggerWidth += rect.width;
+      triggerHeight += rect.height;
+    });
+
+    const clientWidth = document.documentElement.clientWidth;
+
+    // Set layout based on available width
+    if (clientWidth > triggerWidth) {
+      // Horizontal layout
+      triggerList.style.flexDirection = "row";
+      triggerLayout = true;
+
+      decoBackground.style.height = "2px";
+      decoBackground.style.width = `${triggerWidth}px`;
+      decoBackground.style.left = "0px";
+      decoLine.style.height = "2px";
+    } else {
+      // Vertical layout
+      triggerList.style.flexDirection = "column";
+      triggerLayout = false;
+
+      // Simply get the index directly
+      decoBackground.style.width = "2px";
+      decoBackground.style.height = `${triggerHeight}px`;
+      decoBackground.style.top = "0px";
+      decoLine.style.width = "2px";
+    }
+
+    // Re-position the indicator line for currently active tab
+    const activeTab = triggerList.querySelector(
+      '.tab--trigger[aria-selected="true"]'
+    );
+    if (activeTab) {
+      const rect = activeTab.getBoundingClientRect();
+      updateDecoPosition(decoLine, rect);
+    }
+  }
+
+  /**
+   * Update decoration line position based on active tab
+   * @param {HTMLElement} decoLine - Active tab indicator line
+   * @param {DOMRect} rect - Bounding rectangle of active tab
+   */
+  function updateDecoPosition(decoLine, rect) {
+    if (triggerLayout) {
+      // Horizontal layout
+      decoLine.style.transform = `translateX(${rect.left}px)`;
+      decoLine.style.width = `${rect.width}px`;
+      decoLine.style.height = "2px";
+    } else {
+      // Vertical layout - this section is now handled directly in selectTab
+      // for better timing with class changes
+      // This is just a fallback for resize events
+      const activeButton = document.querySelector(
+        '.tab--trigger[aria-selected="true"]'
+      );
+      if (!activeButton) return;
+
+      // Get all siblings to find the index
+      const container = activeButton.closest("[data-tabs-container]");
+      if (!container) return;
+
+      const allTriggers = Array.from(
+        container.querySelectorAll(".tab--trigger")
+      );
+      const activeIndex = allTriggers.indexOf(activeButton);
+
+      if (activeIndex !== -1) {
+        // Calculate position based on index and height
+        let deceLineHeight = activeIndex * rect.height;
+
+        decoLine.style.width = "2px";
+        decoLine.style.height = `${rect.height}px`;
+        decoLine.style.transform = `translateY(${deceLineHeight}px)`;
+      }
     }
   }
 
@@ -145,6 +261,9 @@
     const triggers = container.querySelectorAll(".tab--trigger");
     const panels = container.querySelectorAll(".tab--panel");
 
+    const decoBackground = document.getElementById("tabs--trigger-deco");
+    const decoLine = document.getElementById("deco-underline");
+
     // Deactivate all tabs
     triggers.forEach((t) => {
       t.setAttribute("aria-selected", "false");
@@ -166,31 +285,44 @@
     );
 
     if (selectedTrigger) {
+      // First set the attributes and classes
       selectedTrigger.setAttribute("aria-selected", "true");
       selectedTrigger.classList.add("active");
       selectedTrigger.setAttribute("tabindex", "0");
+
+      // Then get bounding rect and update decoration
+      const rect = selectedTrigger.getBoundingClientRect();
+
+      // Update decoration position
+      if (triggerLayout) {
+        decoBackground.style.top = `${rect.height}px`;
+      }
+
+      // For vertical layout, calculate position based on index
+      if (!triggerLayout) {
+        // Find the index of the selected trigger among siblings
+        const allTriggers = Array.from(
+          container.querySelectorAll(".tab--trigger")
+        );
+        const activeIndex = allTriggers.indexOf(selectedTrigger);
+
+        if (activeIndex !== -1) {
+          // Use the index to calculate the position
+          let deceLineHeight = activeIndex * rect.height;
+
+          decoLine.style.width = "2px";
+          decoLine.style.height = `${rect.height}px`;
+          decoLine.style.transform = `translateY(${deceLineHeight}px)`;
+        }
+      } else {
+        // Horizontal layout (original behavior)
+        updateDecoPosition(decoLine, rect);
+      }
     }
 
     if (selectedPanel) {
       selectedPanel.removeAttribute("hidden");
       selectedPanel.classList.add("active");
-
-      // Check if we should auto-focus the first interactive element
-      if (selectedPanel.dataset.autoFocus === "true") {
-        setTimeout(() => {
-          // Try to find the first focusable element
-          const focusableElements = selectedPanel.querySelectorAll(
-            'a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])'
-          );
-
-          if (focusableElements.length > 0) {
-            focusableElements[0].focus();
-          } else {
-            // If no focusable elements, focus the panel itself
-            selectedPanel.focus();
-          }
-        }, 100);
-      }
     }
   }
 

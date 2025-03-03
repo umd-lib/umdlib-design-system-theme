@@ -7,7 +7,7 @@
      data-default-tab="{{ default_tab }}">
   
   {% if label %}
-  <p id="{{ tabs_id }}-label" class="sr-only">{{ label }}</p>
+    <p id="{{ tabs_id }}-label" class="sr-only">{{ label }}</p>
   {% endif %}
   
   <div class="tabs--triggers" 
@@ -15,6 +15,9 @@
        aria-orientation="{{ orientation }}"
        {% if label %}aria-labelledby="{{ tabs_id }}-label"{% endif %}>
     {% block tabs_triggers_slot %}{% endblock %}
+    <div class="tabs--triggers-deco" id="tabs--trigger-deco">
+       <span class="tabs--triggers-deco-activeline" id="deco-underline"></span>
+    </div>
   </div>
   
   <div class="tabs--content">

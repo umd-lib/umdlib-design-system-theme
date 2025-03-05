@@ -8,7 +8,7 @@
 }
 
 .tabs--triggers.vertical {
-  /* flex-direction: column; */
+  flex-direction: column;
 }
 
 .tabs--triggers-deco {

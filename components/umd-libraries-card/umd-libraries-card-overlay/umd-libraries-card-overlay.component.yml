@@ -8,25 +8,21 @@ props:
     eyebrow:
       type: string
       title: Eyebrow Text
-      maxLength: 30
     card_title:
       type: string
       title: Card Title
-      maxLength: 100
     card_url:
       type: string
       title: Card URL
     description:
       type: string
       title: Description
-      maxLength: 400
     card_date:
       type: string
       title: Date
     button_text:
       type: string
       title: Secondary Button Text
-      maxLength: 50
     button_link:
       type: string
       title: Secondary Button Link

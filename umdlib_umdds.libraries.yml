@@ -3,3 +3,9 @@ umdlib:
   css:
     theme:
       css/globals.css: {}
+umd-lib-two-columns:
+  css:
+    theme:
+      css/umd-lib-two-columns.css: {}
+  js:
+    js/umd-lib-two-columns.js: {}

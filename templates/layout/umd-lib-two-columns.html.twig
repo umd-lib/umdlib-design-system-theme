@@ -1,0 +1,35 @@
+{#
+/**
+ * @file
+ * Theme override for a three column layout.
+ *
+ * This template provides a three column 25%-50%-25% display layout, with
+ * additional areas for the top and the bottom.
+ *
+ * Available variables:
+ * - in_preview: Whether the plugin is being rendered in preview mode.
+ * - content: The content for this layout.
+ * - attributes: HTML attributes for the layout <div>.
+ */
+#}
+{%
+  set classes = [
+    'layout',
+    'layout--twocol-25-75',
+  ]
+%}
+{% set column_attribute = 'column'|clean_id %}
+{% if content %}
+  <div {{ attributes.addClass(classes) }}>
+  {% if content.left_column %}
+    <div {{ region_attributes.main.addClass('main-region') }}>
+      {{ content.left_column }}
+    </div>
+  {% endif %}
+  {% if content.right_column %}
+    <div {{ region_attributes.sidebar.addClass('sidebar-region', column_attribute) }}>
+      {{ content.right_column }}
+    </div>
+  {% endif %}
+  </div>
+{% endif %}

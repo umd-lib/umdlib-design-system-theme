@@ -1,0 +1,15 @@
+two_column_padding:
+  label: 'UMD Lib Two Columns'
+  category: 'UMD Lib'
+  template: template/layout/umd-lib-two-columns
+  library: umdlib_umdds/umd-lib-two-columns
+  # If we want to provide config options
+  # class: '\Drupal\path\to\class'
+  regions:
+    left_column:
+      label: Left Column
+    right_column:
+      label: Right Column
+  icon_map:
+    - [rectangle_vertical, rectangle_vertical]
+    - [square_one, square_two]

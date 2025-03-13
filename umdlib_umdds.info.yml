@@ -11,3 +11,5 @@ regions:
   header: Header
   content: Content
   footer: Footer
+dependencies:
+  - umdlib_ds_layout_tools:umdlib_ds_layout_tools

@@ -12,4 +12,4 @@ regions:
   content: Content
   footer: Footer
 dependencies:
-  - umdlib-ds-layout-tools:umdlib-ds-layout-tools
+  - umdlib_ds_layout_tools:umdlib_ds_layout_tools

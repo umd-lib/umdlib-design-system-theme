@@ -4,7 +4,11 @@
   text-decoration: none;
 }
 
-.button--secondary:hover,
-.button--secondary:focus {
-  color: var(--black);
+.button--secondary a {
+  text-decoration: none;
+}
+
+.button--secondary a:hover,
+.button--secondary a:focus {
+  color: initial;
 }

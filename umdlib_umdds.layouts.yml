@@ -3,8 +3,7 @@ two_column_padding:
   category: 'UMD Lib'
   template: template/layout/umd-lib-two-columns
   library: umdlib_umdds/umd-lib-two-columns
-  # If we want to provide config options
-  # class: '\Drupal\path\to\class'
+  class: '\Drupal\umdlib_ds_layout_tools\Plugin\Layout\UMDLibDsLayoutConfig'
   regions:
     left_column:
       label: Left Column

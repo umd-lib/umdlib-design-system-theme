@@ -1,0 +1,9 @@
+/* For two-column layout css */
+.umd-lib-layout {
+  display: flex;
+  flex-direction: row;
+}
+
+.col-child {
+  flex-grow: 1;
+}

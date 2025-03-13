@@ -16,20 +16,15 @@
   set classes = [
     'layout',
     'umd-lib-layout',
-    'layout--twocol',
+    'layout--onecol',
   ]
 %}
 {% set column_attribute = settings.column_attribute|clean_id %}
 {% if content %}
   <div {{ attributes.addClass(classes) }}>
-  {% if content.left_column %}
-    <div {{ region_attributes.left_column.addClass('left-sidebar', 'col-child', column_attribute) }}>
-      {{ content.left_column }}
-    </div>
-  {% endif %}
-  {% if content.right_column %}
-    <div {{ region_attributes.right_column.addClass('right-sidebar', 'col-child', column_attribute) }}>
-      {{ content.right_column }}
+  {% if content.one_column %}
+    <div {{ region_attributes.one_column.addClass('one-column', 'col-child' , column_attribute) }}>
+      {{ content.one_column }}
     </div>
   {% endif %}
   </div>

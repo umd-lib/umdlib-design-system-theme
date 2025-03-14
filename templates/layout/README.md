@@ -13,7 +13,8 @@ This documentation provides an overview of the layout options available in the U
   - [Two Column Layout](#two-column-layout)
   - [Three Column Layout](#three-column-layout)
   - [Four Column Layout](#four-column-layout)
-- [Configuration Examples](#configuration-examples)
+- [CSS Class Implementation](#css-class-implementation)
+- [Customizable Section Layout Option](#customizable-section-layout-option)
 - [Conclusion](#conclusion)
 
 ## Layout Overview
@@ -130,7 +131,6 @@ layout:
     block_spacing: "spaced_blocks" # or "flush_blocks"
     vertical_top: "major_break" # or "minor_break"
     vertical_bottom: "minor_break" # or "major_break"
-    column_option: "equal_columns" # or "navigation_left"
 ```
 
 ### Four Column Layout
@@ -147,74 +147,6 @@ layout:
     block_spacing: "spaced_blocks" # or "flush_blocks"
     vertical_top: "major_break" # or "minor_break"
     vertical_bottom: "minor_break" # or "major_break"
-    column_option: "equal_columns" # or "navigation_left"
-```
-
-## Configuration Examples
-
-Here are some practical examples of how to configure different layouts for common use cases.
-
-### Example 1: Blog Post Layout
-
-```yaml
-layout:
-  type: two_column
-  settings:
-    width_option: "content_width"
-    block_spacing: "spaced_blocks"
-    vertical_top: "major_break"
-    vertical_bottom: "major_break"
-    column_option: "equal_columns"
-```
-
-### Example 2: Section with Sub-Navigation
-
-```yaml
-layout:
-  type: two_column
-  settings:
-    width_option: "content_width"
-    block_spacing: "spaced_blocks"
-    vertical_top: "major_break"
-    vertical_bottom: "major_break"
-    column_option: "navigation_left"
-```
-
-### Example 3: Media Gallery
-
-```yaml
-layout:
-  type: three_column
-  settings:
-    width_option: "full_width"
-    block_spacing: "flush_blocks"
-    vertical_top: "minor_break"
-    vertical_bottom: "minor_break"
-    column_widths: "equal" # Default equal distribution
-```
-
-### Example 4: Featured Content Banner
-
-```yaml
-layout:
-  type: single_column
-  settings:
-    width_option: "full_width"
-    vertical_top: "major_break"
-    vertical_bottom: "minor_break"
-```
-
-### Example 5: Resource Dashboard
-
-```yaml
-layout:
-  type: four_column
-  settings:
-    width_option: "content_width"
-    block_spacing: "spaced_blocks"
-    vertical_top: "major_break"
-    vertical_bottom: "major_break"
-    column_widths: "equal"
 ```
 
 ## CSS Class Implementation
@@ -237,7 +169,95 @@ Each configuration option corresponds to specific CSS classes applied to the lay
 - `vertical_bottom: "minor_break"` → `s-box-small-v-bottom`
 - `column_option: "navigation_left"` → `layout--nav-left`
 
-Note: The class mappings will be updated depending on the layout development.
+Note: The class mappings may be updated as layout development progresses.
+
+## Customizable Section Layout Option
+
+The Customizable Section Layout feature provides content editors with advanced flexibility for creating complex page structures, especially for pages with sidebar navigation.
+
+### Purpose and Functionality
+
+This option allows content editors to configure multi-row layouts within a single section. It specifically addresses the need for more flexible layouts on pages with sidebar navigation, while still adhering to the design system.
+
+The customizable section works in two main modes:
+
+1. **With Sidebar Navigation**: Creates a two-column structure where the left column contains navigation and the right column can have multiple rows with different layouts.
+2. **Without Sidebar Navigation**: Creates a single column that can have multiple rows with different layouts.
+
+### Layout Structure Options
+
+#### Without Sidebar Navigation
+
+The structure is simpler, with direct access to the main content area:
+
+```html
+<div class="layout--custom">
+  <!-- Main column area with multiple row layouts -->
+  <div class="main-column">
+    <!-- Row layouts will be placed here -->
+  </div>
+</div>
+```
+
+#### With Sidebar Navigation
+
+When sidebar navigation is enabled, the structure includes an additional column for navigation:
+
+```html
+<div class="layout--custom">
+  <!-- Fixed-width navigation column -->
+  <div class="sidebar-navigation">
+    <!-- Navigation components -->
+  </div>
+
+  <!-- Main content column -->
+  <div class="main-column">
+    <!-- Row 1: Can be any column layout -->
+    <div class="row layout--two-column">...</div>
+
+    <!-- Row 2: Can be a different column layout -->
+    <div class="row layout--single-column">...</div>
+
+    <!-- Row 3: Can be any other column layout -->
+    <div class="row layout--four-column">...</div>
+  </div>
+</div>
+```
+
+### Configuration Options
+
+Content editors can configure the following aspects of the customizable section:
+
+- **Sidebar Navigation**: Toggle to enable/disable sidebar navigation
+- **Number of Rows**: Select how many layout rows to include in the main column
+- **Row Layout Type**: For each row, select the column layout (single, two, three, or four columns)
+- **Row Configuration**: For each row, configure horizontal and vertical spacing options
+
+### Implementation Notes
+
+The main column section provides additional flexibility with these considerations:
+
+- When sidebar navigation is present, the main column will have appropriate padding to maintain proper spacing between content and navigation.
+- Each row can be configured with any of the standard column layouts (1-4 columns).
+- There is no limit to the number of rows that can be added to the main column.
+
+### Proof of Concept
+
+The initial implementation will focus on:
+
+1. Adding the configuration option to toggle sidebar navigation
+2. Supporting one configurable row in the main column with standard column layout options
+3. Validating that the CSS classes are correctly applied based on configuration
+
+After successful review of this proof of concept, development will proceed to enable multiple rows with independent layout configurations.
+
+### Constraints
+
+When modifying the layout configuration of a customized section:
+
+- All content blocks under the affected section must be removed before updating the configuration to prevent layout conflicts.
+- The system will prompt users to confirm before proceeding with layout changes that might affect existing content.
+- When switching between sidebar and non-sidebar layouts, content will need to be rebuilt in the new structure.
 
 ## Conclusion
 

@@ -57,3 +57,15 @@ four_column:
       label: Right Column
   icon_map:
     - [left_column, middle_left_column, middle_right_column, right_column]
+
+custom:
+  label: "UMD Lib Custom Layout"
+  category: "UMD Lib"
+  template: template/layout/umd-lib-custom
+  library: umdlib_umdds/umd-lib-layout
+  class: '\Drupal\umdlib_ds_layout_tools\Plugin\Layout\UMDLibDsLayoutConfig'
+  regions:
+    main_column:
+      label: Main Column
+  icon_map:
+    - [Main Column]

@@ -1,0 +1,14 @@
+.table--container {
+  width: 100%;
+
+  caption-side: bottom;
+}
+
+.table--header {
+  border-top: 1px solid var(--white);
+}
+
+.table--body-row:hover,
+.table--body-row:focus {
+  background-color: var(--lighest-gray);
+}

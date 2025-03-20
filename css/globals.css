@@ -169,12 +169,14 @@ body {
   color: var(--medium-gray);
 }
 
+/* titles */
 .c-content-dark-primary {
-  color: var(--light-gray);
+  color: var(--white);
 }
 
+/* body text */
 .c-content-dark-secondary {
-  color: var(--white);
+  color: var(--light-gray);
 }
 
 .c-content-interactive-primary {

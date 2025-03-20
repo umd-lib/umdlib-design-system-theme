@@ -20,7 +20,6 @@ footer ol {
 }
 
 footer li {
-  display: flex;
   list-style: none;
 }
 
@@ -136,6 +135,10 @@ ul.social-media-list li {
 
   .footer--sub ul {
     flex-direction: row;
+  }
+
+  .footer--sub ul li {
+    display: flex;
   }
 
   .footer--sub ul li:not(:first-child),

@@ -1,0 +1,12 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: UMD Libraries Table Body
+props:
+  type: object
+  properties:
+
+slots:
+  tabel_content:
+    type: string
+    title: Table Content
+    description: The content of the table body.

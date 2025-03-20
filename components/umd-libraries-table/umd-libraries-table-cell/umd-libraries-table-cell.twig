@@ -1,6 +1,6 @@
 
 {% if table_content %}
 <td class="table--cell s-box-default-v s-box-default-h">
- {{table_content}}
+ {% block table_content %}{% endblock %}
 </td>
 {% endif %}

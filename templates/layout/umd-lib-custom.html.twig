@@ -33,7 +33,7 @@
     {% endif %}
     <div {{ region_attributes.main_column.addClass('main-column') }}>
       {% if row_one_cols > 0 %}
-        <div class="row row--1 columns--{{ row_one_cols }}">
+        <div class="row row--1 layout--{{ row_one_cols }}-column">
           {% for i in 0..row_one_cols %}
             {% set region_key = 'main_1_' ~ i %}
             <div class="col column--{{ i }}">
@@ -43,7 +43,7 @@
         </div>
       {% endif %}
       {% if row_two_cols > 0 %}
-        <div class="row row--2 columns--{{ row_two_cols }}">
+        <div class="row row--2 layout--{{ row_two_cols }}-column">
           {% for i in 0..row_two_cols %}
             {% set region_key = 'main_2_' ~ i %}
             <div class="col column--{{ i }}">
@@ -53,7 +53,7 @@
         </div>
       {% endif %}
       {% if row_three_cols > 0 %}
-        <div class="row row--3 columns--{{ row_three_cols }}">
+        <div class="row row--3 layout--{{ row_three_cols }}-column">
           {% for i in 0..row_three_cols %}
             {% set region_key = 'main_3_' ~ i %}
             <div class="col column--{{ i }}">
@@ -63,7 +63,7 @@
         </div>
       {% endif %}
       {% if row_four_cols > 0 %}
-        <div class="row row--4 columns--{{ row_four_cols }}">
+        <div class="row row--4 layout--{{ row_four_cols }}-column">
           {% for i in 0..row_four_cols %}
             {% set region_key = 'main_4_' ~ i %}
             <div class="col column--{{ i }}">

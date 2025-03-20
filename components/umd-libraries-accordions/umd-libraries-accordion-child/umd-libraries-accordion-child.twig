@@ -1,0 +1,29 @@
+
+{% if accordion_content_slot %}
+<div class="accrodion-child--container">
+  <button class="accordion-child--headline c-bg-secondary" aria-expanded="{{ default_open ? 'true' : 'false' }}">
+    <p class="t-interactive c-content-primary">{{title}}</p>
+  </button>
+  <div
+    class="accordion-child--body-wrapper c-bg-secondary"
+    aria-hidden="{{ default_open ? 'false' : 'true' }}"
+    {% if default_open %} style="height: 100%;" 
+    {% else %} style="display: none;" 
+    {% endif %}
+  >
+    <div class="accordion-child--body t-body-medium s-stack-default">
+      {% block accordion_content_slot %} {% endblock %}
+    </div>
+    <div class="accordion-child--body-button">
+      {% if button_text %}
+        {% include 'umdlib_umdds:umd-libraries-button-secondary' with {
+        'button_text': button_text,
+        'button_link': button_link|default(card_url)
+        } only %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% else %}
+  {{"missing accordion child content"}}
+{% endif %}

@@ -1,0 +1,25 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: UMD Libraries Accordion Child
+props:
+  type: object
+  properties:
+    title:
+      type: string
+      title: Accordion Title
+      description: The title of the accordion item.
+    button_text:
+      type: string
+      title: Secondary Button Text
+    button_link:
+      type: string
+      title: Secondary Button Link
+    default_open:
+      type: boolean
+      title: Default Open
+      description: Set to true if the accordion should be open by default.
+
+slots:
+  accordion_content_slot:
+    title: Accordion Content
+    description: Slot for the accordion content elements

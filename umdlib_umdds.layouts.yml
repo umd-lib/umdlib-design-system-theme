@@ -24,6 +24,20 @@ two_column:
   icon_map:
     - [left_column, right_column]
 
+two_column_padding:
+  label: "UMD Lib Two Columns"
+  category: "UMD Lib"
+  template: template/layout/umd-lib-two-columns
+  library: umdlib_umdds/umd-lib-layout
+  class: '\Drupal\umdlib_ds_layout_tools\Plugin\Layout\UMDLibDsLayoutConfig'
+  regions:
+    left_column:
+      label: Left Column
+    right_column:
+      label: Right Column
+  icon_map:
+    - [left_column, right_column]
+
 three_column:
   label: "UMD Lib Three Columns"
   category: "UMD Lib"
@@ -65,7 +79,39 @@ custom:
   library: umdlib_umdds/umd-lib-layout
   class: '\Drupal\umdlib_ds_layout_tools\Plugin\Layout\UMDLibDsLayoutConfig'
   regions:
-    main_column:
-      label: Main Column
+    left_column:
+      label: Left Column (sidebar)
+    main_1_1:
+      label: Row One, Column One
+    main_1_2:
+      label: Row One, Column Two
+    main_1_3:
+      label: Row One, Column Three
+    main_1_4:
+      label: Row One, Column Four
+    main_2_1:
+      label: Row Two, Column One
+    main_2_2:
+      label: Row Two, Column Two
+    main_2_3:
+      label: Row Two, Column Three
+    main_2_4:
+      label: Row Two, Column Four
+    main_3_1:
+      label: Row Three, Column One
+    main_3_2:
+      label: Row Three, Column Two
+    main_3_3:
+      label: Row Three, Column Three
+    main_3_4:
+      label: Row Three, Column Four
+    main_4_1:
+      label: Row Four, Column One
+    main_4_2:
+      label: Row Four, Column Two
+    main_4_3:
+      label: Row Four, Column Three
+    main_4_4:
+      label: Row Four, Column Four
   icon_map:
     - [Main Column]

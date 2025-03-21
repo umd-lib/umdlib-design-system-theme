@@ -1,0 +1,80 @@
+.person--list {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+}
+
+.person--list-image {
+  display: none;
+}
+
+.person--list-info-core {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.person--list-contact {
+  width: fit-content;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.person--list-contact > a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  text-decoration: none;
+}
+
+.person--list-contact > a > span {
+  width: 1.75rem;
+  height: 1.75rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.person--list-contact a:hover,
+.person--list-contact a:focus {
+  color: var(--black);
+  text-decoration: underline;
+}
+
+.person--list-contact a:hover .ani-icon-interactive path#white,
+.person--list-contact a:focus .ani-icon-interactive path#white {
+  fill: var(--white) !important;
+}
+
+.person--list-contact a:hover .c-bg-interactive-secondary,
+.person--list-contact a:focus .c-bg-interactive-secondary {
+  background-color: var(--dark-gray);
+}
+
+/* breakpoint */
+/* Tablet */
+@media (min-width: 768px) {
+  .person--list-image {
+    display: initial;
+  }
+
+  .person--list-image img {
+    height: 10rem;
+    width: auto;
+
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+}
+
+/* Large Desktop */
+@media (min-width: 1440px) {
+}

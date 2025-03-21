@@ -1,0 +1,34 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: UMD Libraries Person List
+props:
+  type: object
+  properties:
+    name:
+      type: string
+      title: Name
+      description: The name of the person.
+    title:
+      type: string
+      title: Title
+      description: The title of the person.
+    department:
+      type: string
+      title: Department
+      description: The department of the person.
+    phone:
+      type: string
+      title: Phone
+      description: The phone number of the person.
+    email:
+      type: string
+      title: Email
+      description: The email address of the person.
+    image:
+      type: string
+      title: Image
+      description: The image of the person.
+    image_alt:
+      type: string
+      title: Image Alt Text
+      description: The alt text for the image of the person.

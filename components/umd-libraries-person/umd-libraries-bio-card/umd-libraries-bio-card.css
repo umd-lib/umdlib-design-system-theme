@@ -1,0 +1,95 @@
+.person--bio-top {
+  display: flex;
+  flex-direction: column;
+}
+
+.person--bio-image {
+  margin-bottom: 1rem;
+}
+
+.person--bio-image img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.person--bio-info-core {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  border-left: 2px solid var(--maryland-red);
+}
+
+.person--bio-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.person--bio-contact > a,
+.person--bio-contact > p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  text-decoration: none;
+}
+
+.person--bio-contact > a > span,
+.person--bio-contact > p > span {
+  width: 1.75rem;
+  height: 1.75rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.person--bio-contact a:hover,
+.person--bio-contact a:focus,
+.person--bio-contact p:hover,
+.person--bio-contact p:focus {
+  color: var(--black);
+  text-decoration: underline;
+}
+
+.person--bio-contact a:hover .ani-icon-interactive path#white,
+.person--bio-contact a:focus .ani-icon-interactive path#white,
+.person--bio-contact p:hover .ani-icon-interactive path#white,
+.person--bio-contact p:focus .ani-icon-interactive path#white {
+  fill: var(--white) !important;
+}
+
+.person--bio-contact a:hover .c-bg-interactive-secondary,
+.person--bio-contact a:focus .c-bg-interactive-secondary,
+.person--bio-contact p:hover .c-bg-interactive-secondary,
+.person--bio-contact p:focus .c-bg-interactive-secondary {
+  background-color: var(--dark-gray);
+}
+
+/* breakpoint */
+/* Tablet */
+@media (min-width: 768px) {
+  .person--bio-top {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .person--bio-image {
+    margin-bottom: 0;
+    margin-right: 3rem;
+  }
+
+  .person--bio-image img {
+    height: 16rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+}
+
+/* Large Desktop */
+@media (min-width: 1440px) {
+}

@@ -1,0 +1,31 @@
+{% if name %}
+<div class="person--card s-box-default-v s-box-default-h">
+    {% if image %}
+      <div class="person--card-image s-stack-default">
+        <img src="{{ image }}" alt="{{ image_alt }}" />
+      </div>
+    {% endif %}
+    <div class="person--card-info">
+      <div class="person--card-info-core s-stack-small">
+        <h2 class="person--card-name t-title-medium">{{ name }}</h2>
+        {% if title %}
+          <p class="person--card-title t-body-small">{{ title }}</p>
+        {% endif %}
+      </div>
+    </div>
+    {% if link %}
+    <div class="person--card-link">
+      {% include 'umdlib_umdds:umd-libraries-button-secondary' with {
+        'button_text': "View profile",
+        'button_link': link
+      } only %}
+    </div>
+  {% endif %}
+</div>
+
+{% else %}
+  {# Error state #}
+  <div class="person--error">
+    Required properties - name missing
+  </div>
+{% endif %}

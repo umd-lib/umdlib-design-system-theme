@@ -1,0 +1,51 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: UMD Libraries Bio Card
+props:
+  type: object
+  properties:
+    name:
+      type: string
+      title: Name
+      description: The name of the person.
+    title:
+      type: string
+      title: Title
+      description: The title of the person.
+    department:
+      type: string
+      title: Department
+      description: The department of the person.
+    phone:
+      type: string
+      title: Phone
+      description: The phone number of the person.
+    email:
+      type: string
+      title: Email
+      description: The email address of the person.
+    office:
+      type: string
+      title: Office
+      description: The office location of the person.
+    image:
+      type: string
+      title: Image
+      description: The image of the person.
+    image_alt:
+      type: string
+      title: Image Alt Text
+      description: The alt text for the image of the person.
+    link:
+      type: string
+      title: Link
+      description: A link to more information about the person.
+    link_text:
+      type: string
+      title: Link Text
+      description: The text for the link to more information about the person.
+
+slots:
+  bio_description_slot:
+    title: Bio Description
+    description: Slot for the bio description elements

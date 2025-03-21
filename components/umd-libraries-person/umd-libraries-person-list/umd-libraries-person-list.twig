@@ -1,0 +1,50 @@
+{% if name %}
+<div class="person--list s-box-default-v s-box-default-h">
+    {% if image %}
+      <div class="person--list-image s-inline-default">
+        <img src="{{ image }}" alt="{{ image_alt }}" />
+      </div>
+    {% endif %}
+    <div class="person--list-info">
+      <div class="person--list-info-core s-stack-small">
+        <h2 class="person--list-name t-title-medium">{{ name }}</h2>
+        {% if title %}
+          <p class="person--list-title t-body-small">{{ title }}</p>
+        {% endif %}
+        {% if department %}
+          <div class="person--list-department t-body-small">
+            {{ department}}
+          </div>
+        {% endif %}
+      </div>
+      <address class="person--list-contact">
+        {% if phone %}
+          <a class="person--list-phone t-label" href="tel:{{ phone }}">
+            <span class="c-bg-interactive-secondary ani-bg-interactive ani-icon-interactive">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path id="white" d="M10.3402 13.8337C9.2993 13.8337 8.02231 13.3544 6.61544 12.4099C3.77091 10.5012 0.442081 6.58375 0.184079 3.93675C0.101582 3.09018 0.313872 2.40709 0.815195 1.90577L2.55397 0.166992L6.09451 3.70753L5.8114 3.99064C5.35979 4.44233 4.61974 5.1808 4.09064 5.70631C4.57736 6.42109 5.51695 7.47737 6.21021 8.17063C6.86643 8.82627 7.62575 9.4231 8.31009 9.88022C8.80307 9.38398 9.46663 8.71842 10.0093 8.17455L10.2929 7.89119L13.8334 11.4325L12.1157 13.1502C11.6586 13.6073 11.0553 13.8337 10.3402 13.8337Z" fill="black"/>
+              </svg>
+            </span>
+            {{ phone }}
+          </a>
+        {% endif %}
+        {% if email %}
+            <a class="person--list-email t-label" href="mailto:{{ email }}">
+              <span class="c-bg-interactive-secondary ani-bg-interactive ani-icon-interactive">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path id="white" fill-rule="evenodd" clip-rule="evenodd" d="M13.2448 3.5H2.97782L8.01248 8.05794L13.2448 3.5ZM14.8582 3.5L8.01248 9.57679L1.16675 3.5V12.3929H15.0001V3.5H14.8582Z" fill="black"/>
+                </svg>
+              </span>
+              {{ email }}
+            </a>
+        {% endif %}
+      </address>
+    </div>
+</div>
+
+{% else %}
+  {# Error state #}
+  <div class="person--error">
+    Required properties - name missing
+  </div>
+{% endif %}

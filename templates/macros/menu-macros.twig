@@ -1,0 +1,46 @@
+{% macro menu_links(items, attributes, menu_level) %}
+  {% import _self as menus %}
+  {% if items %}
+    {% if menu_level == 0 %}
+      {% for item in items %}
+          <li class="navigation__menu-item">
+          {{ link(item.title, item.url, { 'class':['navigation__menu-link'] }) }}
+          {% if item.below %}
+            <button
+              class="navigation__submenu-button"
+              aria-expanded="false"
+              aria-controls="submenu-{{ item.title|clean_class }}">
+              <span class="i-chevron-down"></span>
+            </button>
+            <div class="navigation__submenu" id="submenu-{{ item.title|clean_class }}">
+              <div class="navigation__submenu-header">
+                <button class="navigation__back-button">
+                  <span class="i-chevron-down"></span>
+                  <p class="t-label ani-underline c-underline-secondary">
+                    Back
+                  </p>
+                </button>
+              </div>
+              <div class="navigation__submenu-content">
+                <div class="navigation__submenu-title">
+                  {{ link(item.title, item.url) }}
+                </div>
+                {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+              </div>
+            </div>
+          {% endif %}
+        </li>
+      {% endfor %}
+    {% else %}
+      {% if items %}
+        <ul class="navigation__submenu-list">
+          {% for item in items %}
+            <li class="navigation__submenu-item">
+              {{ link(item.title, item.url, { 'class':['navigation__submenu-link ani-underline c-underline-primary t-b'] }) }}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endif %}
+  {% endif %}
+{% endmacro %}

@@ -1,0 +1,54 @@
+{#
+/**
+ * @file
+ * UMD Libraries Button component.
+ *
+ * Available variants:
+ * - primary: Primary styled button
+ * - secondary: Secondary styled button with chevron icon
+ *
+ * Variables:
+ * - button_text: The text to display on the button
+ * - button_link: The URL the button links to
+ * - variant: 'primary' or 'secondary'
+ */
+#}
+
+{# Get the variant, defaulting to primary if not specified #}
+{% set selectedVariant = variant | default('primary') %}
+
+{# Only render the button if we have both a link and text #}
+{% if button_link is defined and button_text is defined %}
+  {# Render the appropriate button based on variant #}
+  {% if selectedVariant == 'primary' %}
+    <a href="{{ button_link }}" class="t-body-small t-interactive-sub btn--primary c-content-interactive-primary c-bg-interactive-primary ani-background">
+      {{ button_text }}
+    </a>
+  {% elseif selectedVariant == 'secondary' %}
+    <div class="btn--secondary">
+      <a href="{{ button_link }}" class="t-body-small t-interactive-sub c-content-primary c-underline-primary ani-underline l-flex-row">
+        <div class="i-chevron"></div>
+        {{ button_text }}
+      </a>
+    </div>
+  {% endif %}
+
+{% else %}
+  {# variable error handling #}
+  {% set errors = [] %}
+
+  {% if button_link is not defined %}
+    {# If the button link is not defined, log an error #}
+    {% set errors = errors | merge(['Button link']) %}
+  {% endif %}
+  {% if button_text is not defined %}
+    {# If the button text is not defined, log an error #}
+    {% set errors = errors | merge(['Button text']) %}
+  {% endif %}
+
+  {# Log the errors #}
+  {% if errors is not empty %}
+    <div class="c-content-interactive-primary c-bg-interactive-primary"> Error - UMD Libraries Button / Variant - {{ variant }}</div>
+    <div> Required fields missing: {{ errors | join(', ') }} </div>
+  {% endif %}
+{% endif %}

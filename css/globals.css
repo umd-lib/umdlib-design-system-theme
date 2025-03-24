@@ -1,16 +1,4 @@
 /* base */
-.sr-only {
-  clip: rect(0, 0, 0, 0);
-  border-width: 0;
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
 :root {
   /* color */
   --maryland-red: #e21833;
@@ -55,6 +43,36 @@ body {
   background: var(--white);
   font-family: Interstate, Helvetica, sans-serif;
   margin: 0rem;
+}
+
+/* accessibility screen reader */
+.sr-only,
+.umd-skip-content {
+  clip: rect(0, 0, 0, 0);
+  border-width: 0;
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.umd-skip-content:focus {
+  width: fit-content;
+  height: fit-content;
+
+  top: 0;
+  background-color: var(--white);
+  outline: 2px solid var(--maryland-yellow);
+
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+
+  overflow: initial;
+  clip: initial;
+  white-space: initial;
 }
 
 /* typography */

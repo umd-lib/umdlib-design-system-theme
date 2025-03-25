@@ -58,13 +58,17 @@ props:
       type: string
       title: Image Alt Text
       description: The alt text for the image of the person.
-    link:
+    profile_link:
       type: string
-      title: Link
+      title: Profile Link
+      description: A link to the person's profile within the website.
+    external_link:
+      type: string
+      title: External Link
       description: A link to more information about the person.
-    link_text:
+    external_link_text:
       type: string
-      title: Link Text
+      title: External Link Text
       description: The text for the link to more information about the person.
 
 slots:

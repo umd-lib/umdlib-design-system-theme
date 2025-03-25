@@ -18,8 +18,9 @@
  * - office: The office location of the person
  * - image: The URL of the person's image
  * - image_alt: The alt text for the person's image
- * - link: A link to more information about the person.
- * - link_text: The text to display on the link
+ * - profile_link: The URL of the person's profile within the site
+ * - external_link: A link to more information about the person
+ * - external_link_text: The text to display on the link
  */
 #}
 
@@ -56,10 +57,18 @@
         {% if selectedVariant == 'bio' %}s-box-small-h{% endif %} 
         s-stack-{% if selectedVariant == 'bio' %}default{% else %}small{% endif %}">
 
+        {% if selectedVariant == 'list' and profile_link is defined %}
+          <a href="{{ profile_link }}" class="person--list-link c-underline-secondary ani-underline">
+        {% endif %}
+
         <h2 class="person--{{ selectedVariant }}-name 
           t-title-{% if selectedVariant == 'bio' %}large t-uppercase{% else %}medium{% endif %}">
           {{ name }}
         </h2>
+
+        {% if selectedVariant == 'list' and profile_link is defined %}
+          </a>
+        {% endif %}
 
         {% if title is defined and title is not empty %}
           <p class="person--{{ selectedVariant }}-title t-body-small">{{ title }}</p>
@@ -131,12 +140,12 @@
 
     {# Link/button - variants bio & card can have it but with different implementations #}
     {% if selectedVariant == 'bio' or selectedVariant == 'card' %}
-      {% if link is defined and link is not empty %}
+      {% if external_link is defined or profile_link is defined %}
         <div class="person--{{ selectedVariant }}-link {% if selectedVariant == 'bio' %}s-stack-default{% endif %}">
           {% include 'umdlib_umdds:umd-libraries-button' with {
             'variant': 'secondary',
-            'button_text': selectedVariant == 'card' ? 'View profile' : link_text,
-            'button_link': link
+            'button_text': selectedVariant == 'card' ? 'View profile' : external_link_text,
+            'button_link': selectedVariant == 'card' ? profile_link : external_link
           } only %}
         </div>
       {% endif %}

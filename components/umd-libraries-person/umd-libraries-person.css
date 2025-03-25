@@ -92,6 +92,11 @@
   gap: 0.25rem;
 }
 
+.person--list-link {
+  width: fit-content;
+  text-decoration: none;
+}
+
 .person--list-contact {
   width: fit-content;
 

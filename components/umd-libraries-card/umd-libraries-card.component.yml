@@ -2,9 +2,29 @@ $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schema
 
 name: UMD Libraries Card
 replaces: umdds:umd-element-card
+label: Card
+group: UMD Libraries
+
+variants:
+  standard:
+    title: Standard
+  overlay:
+    title: Overlay
+  icon:
+    title: Icon
+
 props:
   type: object
   properties:
+    variant:
+      type: string
+      title: Card Variant
+      description: Choose the card variant
+      enum:
+        - standard
+        - overlay
+        - icon
+      default: standard
     card_image:
       type: string
       title: Card Image (URL)
@@ -20,15 +40,17 @@ props:
     card_url:
       type: string
       title: Card URL
-    description:
-      type: string
-      title: Description
     card_date:
       type: string
       title: Date
     button_text:
       type: string
-      title: Secondary Button Text
+      title: Button Text
     button_link:
       type: string
-      title: Secondary Button Link
+      title: Button Link
+
+slots:
+  description_slot:
+    title: Description (WYSIWYG)
+    description: Slot intended for WYSIWYG editor content, should use Plain Text format

@@ -39,16 +39,16 @@
 
   {% if button_link is not defined %}
     {# If the button link is not defined, log an error #}
-    {% set errors = errors | merge(['Button link']) %}
+    {% set errors = errors | merge(['Button Link']) %}
   {% endif %}
   {% if button_text is not defined %}
     {# If the button text is not defined, log an error #}
-    {% set errors = errors | merge(['Button text']) %}
+    {% set errors = errors | merge(['Button Text']) %}
   {% endif %}
 
   {# Log the errors #}
   {% if errors is not empty %}
-    <div class="c-content-interactive-primary c-bg-interactive-primary"> Error - UMD Libraries Button / Variant - {{ variant }}</div>
-    <div> Required fields missing: {{ errors | join(', ') }} </div>
+    <div class="c-content-interactive-primary c-bg-interactive-primary s-box-small-h"> [ERROR] - UMD Libraries Button / Variant - {{ variant }}</div>
+    <div class="s-box-small-h"> Required fields missing: <strong>{{ errors | join(', ') }}</strong></div>
   {% endif %}
 {% endif %}

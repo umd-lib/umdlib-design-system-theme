@@ -61,7 +61,8 @@
 
   {% if link %}
     <div class="person--bio-link s-stack-default">
-      {% include 'umdlib_umdds:umd-libraries-button-secondary' with {
+      {% include 'umdlib_umdds:umd-libraries-button' with {
+        'variant': 'secondary',
         'button_text': link_text,
         'button_link': link
       } only %}

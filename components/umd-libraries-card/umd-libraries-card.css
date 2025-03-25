@@ -16,3 +16,8 @@
 .card--details {
   margin-bottom: auto;
 }
+
+.card--text p {
+  font-size: 1rem;
+  line-height: 1.375rem;
+}

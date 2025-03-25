@@ -68,6 +68,91 @@
   background-color: var(--dark-gray);
 }
 
+.person--list {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+}
+
+.person--list-image {
+  display: none;
+}
+
+.person--list-info {
+  min-height: 12rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.person--list-info-core {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.person--list-contact {
+  width: fit-content;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.person--list-contact > a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  text-decoration: none;
+}
+
+.person--list-contact > a > span {
+  width: 1.75rem;
+  height: 1.75rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.person--list-contact a:hover,
+.person--list-contact a:focus {
+  color: var(--black);
+  text-decoration: underline;
+}
+
+.person--list-contact a:hover .ani-icon-interactive path#white,
+.person--list-contact a:focus .ani-icon-interactive path#white {
+  fill: var(--white) !important;
+}
+
+.person--list-contact a:hover .c-bg-interactive-secondary,
+.person--list-contact a:focus .c-bg-interactive-secondary {
+  background-color: var(--dark-gray);
+}
+
+.person--card {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+
+  max-width: 24rem;
+}
+
+.person--card-image img {
+  height: auto;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.person--card-info-core {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
 /* breakpoint */
 /* Tablet */
 @media (min-width: 768px) {
@@ -83,6 +168,18 @@
 
   .person--bio-image img {
     height: 16rem;
+  }
+
+  .person--list-image {
+    display: initial;
+  }
+
+  .person--list-image img {
+    height: 12rem;
+    width: auto;
+
+    aspect-ratio: 1/1;
+    object-fit: cover;
   }
 }
 

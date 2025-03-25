@@ -1,9 +1,27 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 
-name: UMD Libraries Bio Card
+name: UMD Libraries Person
+
+variants:
+  bio:
+    title: Bio
+  list:
+    title: List
+  card:
+    title: Card
+
 props:
   type: object
   properties:
+    variant:
+      type: string
+      title: Person Variant
+      description: Choose the person variant
+      enum:
+        - bio
+        - list
+        - card
+      default: bio
     name:
       type: string
       title: Name
@@ -16,6 +34,10 @@ props:
       type: string
       title: Department
       description: The department of the person.
+    pronouns:
+      type: string
+      title: Pronouns
+      description: The pronouns of the person.
     phone:
       type: string
       title: Phone

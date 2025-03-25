@@ -16,7 +16,8 @@
     </div>
     <div class="accordion-child--body-button">
       {% if button_text %}
-        {% include 'umdlib_umdds:umd-libraries-button-secondary' with {
+        {% include 'umdlib_umdds:umd-libraries-button' with {
+        'variant': 'secondary',
         'button_text': button_text,
         'button_link': button_link|default(card_url)
         } only %}

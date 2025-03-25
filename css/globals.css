@@ -176,6 +176,10 @@ body {
   text-transform: uppercase;
 }
 
+.t-italic {
+  font-style: italic;
+}
+
 /* color */
 /* titles */
 .c-content-primary {

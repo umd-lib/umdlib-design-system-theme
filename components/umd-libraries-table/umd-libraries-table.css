@@ -8,6 +8,10 @@
   border-top: 1px solid var(--white);
 }
 
+.table--header p {
+  color: var(--white);
+}
+
 .table--body-row:hover,
 .table--body-row:focus {
   background-color: var(--lighest-gray);

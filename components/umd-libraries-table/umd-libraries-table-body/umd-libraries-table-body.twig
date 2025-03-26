@@ -1,6 +1,20 @@
+{# 
+/**
+ * @file
+ * UMD Libraries Table Body component.
+ *
+ * Available variables:
+ * - body_slot: The body slot content.
+ */
+#}
 
-{% if tabel_content %}
-<tr class="table--body-row">
-  {% block tabel_content %}{% endblock %}
-</tr>
+
+{% if body_slot is defined %}
+  <tr class="table--body-row">
+    {% block body_slot %}{% endblock %}
+  </tr>
+{% else %}
+  {# variable error handling #}
+    <td class="c-content-interactive-primary c-bg-interactive-primary s-box-small-h"> [ERROR] - UMD Libraries Table Body</td>
+    <td class="s-box-small-h"> Required fields missing: <strong>Body Slot (UMD Libraries Table Cell)</strong></td>
 {% endif %}

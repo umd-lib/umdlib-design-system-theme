@@ -1,6 +1,9 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 
 name: UMD Libraries Table
+label: Table
+group: UMD Libraries
+
 props:
   type: object
   properties:
@@ -11,11 +14,11 @@ props:
 
 slots:
   table_header_slot:
-    title: Table Header
+    title: Table Header (UMD Libraries Table Cell)
     description: Slot for the table header elements
   table_content_slot:
-    title: Table Content
+    title: Table Content (UMD Libraries Table Body)
     description: Slot for the table content elements
   table_footer_slot:
-    title: Table Footer
+    title: Table Footer (UMD Libraries Table Cell)
     description: Slot for the table footer elements

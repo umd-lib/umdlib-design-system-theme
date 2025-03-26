@@ -1,12 +1,10 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 
 name: UMD Libraries Table Cell
-props:
-  type: object
-  properties:
+label: Table
+group: UMD Libraries
 
 slots:
-  table_content:
-    type: string
-    title: Cell Content
+  body_slot:
+    title: Cell Content (WYSIWYG)
     description: The content of the table cell.

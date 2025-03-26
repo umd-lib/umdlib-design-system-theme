@@ -1,6 +1,19 @@
+{# 
+/**
+ * @file
+ * UMD Libraries Table Cell component.
+ *
+ * Available variables:
+ * - body_slot: The content of the cell.
+ */
+#}
 
-{% if table_content %}
-<td class="table--cell s-box-default-v s-box-default-h">
- {% block table_content %}{% endblock %}
-</td>
+{% if body_slot is defined %}
+  <td class="table--cell s-box-default-v s-box-default-h">
+    {% block body_slot %}{% endblock %}
+  </td>
+{% else %}
+  {# variable error handling #}
+    <div class="c-content-interactive-primary c-bg-interactive-primary s-box-small-h"> [ERROR] - UMD Libraries Table Cell</div>
+    <div class="s-box-small-h"> Required fields missing: <strong>Cell Content (WYSIWYG)</strong></div> 
 {% endif %}

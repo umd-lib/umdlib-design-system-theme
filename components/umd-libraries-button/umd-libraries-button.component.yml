@@ -1,0 +1,29 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: UMD Libraries Button
+label: Button
+group: UMD Libraries
+
+variants:
+  primary:
+    title: Primary
+  secondary:
+    title: Secondary
+
+props:
+  type: object
+  properties:
+    variant:
+      type: string
+      title: Button Variant
+      description: Choose the button variant
+      enum:
+        - primary
+        - secondary
+      default: primary
+    button_text:
+      type: string
+      title: Button Text (max 50 chars)
+    button_link:
+      type: string
+      title: Button Link

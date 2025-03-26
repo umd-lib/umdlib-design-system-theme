@@ -1,0 +1,25 @@
+
+{% if table_header_slot %}
+<table class="table--container">
+  <caption class="table--caption s-box-small-v s-box-small-h">{{ caption }}</caption>
+  <thead class="table--header t-title-small c-bg-dark-primary c-content-dark-primary">
+    <tr class="table--header-row">
+      {% block table_header_slot %}{% endblock %}
+    </tr>
+  </thead>
+  {% if table_content_slot %}
+  <tbody class="table--body t-body-small c-bg-primary c-content-secondary">
+    {% block table_content_slot %}{% endblock %}
+  </tbody>
+  {% endif %}
+  {% if table_footer_slot %}
+  <tfoot class="table--footer t-body-small c-bg-secondary c-content-secondary s-stack-small">
+    <tr class="table--footer-row">
+      {% block table_footer_slot %}{% endblock %}
+    </tr>
+  </tfoot>
+  {% endif %}
+</table>
+{% else %}
+  {{"missing table header slot"|t}}
+{% endif %}

@@ -1,0 +1,77 @@
+{#
+/**
+ * @file
+ * Theme override for a three column layout.
+ *
+ * This template provides a three column 25%-50%-25% display layout, with
+ * additional areas for the top and the bottom.
+ *
+ * Available variables:
+ * - in_preview: Whether the plugin is being rendered in preview mode.
+ * - content: The content for this layout.
+ * - attributes: HTML attributes for the layout <div>.
+ */
+#}
+{% set show_sidebar_region = settings.sidebar_region %}
+{% set row_one_cols = settings.row_one_cols %}
+{% set row_two_cols = settings.row_two_cols %}
+{% set row_three_cols = settings.row_three_cols %}
+{% set row_four_cols = settings.row_four_cols %}
+{%
+  set classes = [
+    'layout',
+    'umd-lib-layout',
+    'layout--custom',
+  ]
+%}
+{% if content %}
+  <div {{ attributes.addClass(classes) }}>
+    {% if show_sidebar_region %}
+      <div class="sidebar-navigation">
+        {{ content.left_column }}
+      </div>
+    {% endif %}
+    <div {{ region_attributes.main_column.addClass('main-column') }}>
+      {% if row_one_cols > 0 %}
+        <div class="row row--1 layout--{{ row_one_cols }}-column">
+          {% for i in 0..row_one_cols %}
+            {% set region_key = 'main_1_' ~ i %}
+            <div class="col column--{{ i }}">
+              {{ content.(region_key) }}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+      {% if row_two_cols > 0 %}
+        <div class="row row--2 layout--{{ row_two_cols }}-column">
+          {% for i in 0..row_two_cols %}
+            {% set region_key = 'main_2_' ~ i %}
+            <div class="col column--{{ i }}">
+              {{ content.(region_key) }}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+      {% if row_three_cols > 0 %}
+        <div class="row row--3 layout--{{ row_three_cols }}-column">
+          {% for i in 0..row_three_cols %}
+            {% set region_key = 'main_3_' ~ i %}
+            <div class="col column--{{ i }}">
+              {{ content.(region_key) }}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+      {% if row_four_cols > 0 %}
+        <div class="row row--4 layout--{{ row_four_cols }}-column">
+          {% for i in 0..row_four_cols %}
+            {% set region_key = 'main_4_' ~ i %}
+            <div class="col column--{{ i }}">
+              {{ content.(region_key) }}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endif %}

@@ -18,12 +18,9 @@ props:
     eyebrow:
       type: string
       title: Eyebrow Text
-      maxLength: 30
     hero_title:
       type: string
       title: Hero Title
-      maxLength: 100
     description:
       type: string
       title: Description
-      maxLength: 400

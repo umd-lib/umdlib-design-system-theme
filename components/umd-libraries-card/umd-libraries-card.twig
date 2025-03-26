@@ -1,57 +1,115 @@
-{% if card_title and card_url %}
-<div role="contentinfo" 
-     class="card--standard c-bg-primary c-content-primary"
-     aria-label="{{ card_title }}">
-  {% if card_image %}
-    <div class="card--image">
-      <img alt="{{ card_image_alt }}" 
-           src="{{ card_image }}"
-           loading="lazy">
+{# 
+/**
+ * @file
+ * UMD Libraries Card component.
+ *
+ * Available variants:
+ * - standard
+ * - overlay
+ * - icon
+ *
+ * Variables:
+ * - card_image: The URL of the card image
+ * - card_image_alt: The alt text for the card image
+ * - eyebrow: The eyebrow of the card
+ * - card_title: The title of the card
+ * - card_url: The URL the card links to
+ * - description: The description of the card
+ * - card_date: The date of the card
+ * - button_text: The text to display on the button
+ * - button_link: The URL the button links to
+ */
+#}
+
+{# Get the variant, defaulting to standard if not specified #}
+{% set selectedVariant = variant | default('standard') %}
+
+{# Check required fields based on variant #}
+{% set standardRequirements = (selectedVariant == 'standard' and card_title is defined and card_url is defined and card_image is defined and card_image_alt is defined) %}
+{% set overlayRequirements = (selectedVariant == 'overlay' and card_title is defined and card_url is defined) %}
+{% set iconRequirements = (selectedVariant == 'icon' and card_title is defined and card_url is defined) %}
+
+{% if (selectedVariant == 'standard' and standardRequirements) 
+   or (selectedVariant == 'overlay' and overlayRequirements) 
+   or (selectedVariant == 'icon' and iconRequirements) %}
+  
+  <div role="contentinfo"
+       class="card--{{ selectedVariant }} {% if selectedVariant == 'standard' %}c-bg-primary{% else %}c-bg-secondary{% endif %} c-content-primary"
+       aria-label="{{ card_title }}">
+    
+    {# Image only displayed for standard variant #}
+    {% if selectedVariant == 'standard' and card_image %}
+      <div class="card--image">
+        <img alt="{{ card_image_alt }}"
+             src="{{ card_image }}"
+             loading="lazy">
+      </div>
+    {% endif %}
+    
+    <div class="card--content s-box-small-v {% if selectedVariant == 'overlay' %}s-box-small-h{% endif %}">
+      <div class="card--title">
+        {% if eyebrow is defined and eyebrow is not empty %}
+          <p class="card--eyebrow t-eyebrow s-stack-small">
+            {{ eyebrow }}
+          </p>
+        {% endif %}
+        
+        <h3 class="card--headline s-stack-small t-title-medium">
+          <a href="{{ card_url }}" {{ app.request.get('_route') == card_url ? 'aria-current="page"' }}>
+            {{ card_title }}
+          </a>
+        </h3>
+      </div>
+      
+      <div class="card--details">
+        {% if description_slot is defined and description_slot is not empty %}
+          <div class="card--text t-body-small c-content-secondary s-stack-small">
+            {{ description_slot }}
+          </div>
+        {% endif %}
+        
+        {% if card_date is defined and card_date is not empty %}
+          <div class="card--date t-label c-content-tertiary s-stack-large">
+            <time datetime="{{ card_date|date('Y-m-d') }}" itemprop="datePublished">
+              {{ card_date|date('F d, Y') }}
+            </time>
+          </div>
+        {% endif %}
+      </div>
+      
+      {% if button_text is defined and button_text is not empty %}
+        {% include 'umdlib_umdds:umd-libraries-button' with {
+          'variant': 'secondary',
+          'button_text': button_text,
+          'button_link': button_link is defined and button_link is not empty ? button_link : card_url
+        } only %}
+      {% endif %}
     </div>
+  </div>
+{% else %}
+ {# variable error handling #}
+  {% set errors = [] %}
+
+  {% if selectedVariant == 'standard' %}
+    {% if card_image is not defined %}
+      {% set errors = errors | merge(['Card Image']) %}
+    {% endif %}
+    {% if card_image_alt is not defined %}
+      {% set errors = errors | merge(['Card Image Alt']) %}
+    {% endif %}
   {% endif %}
 
-  <div class="card--content s-box-small-v s-box-small-h">
-    <div class="card--title">
-      {% if eyebrow %}
-        <p class="card--eyebrow t-eyebrow s-stack-small">
-          {{ eyebrow }}
-        </p>
-      {% endif %}
+  {% if card_title is not defined %}
+    {% set errors = errors | merge(['Card Title']) %}
+  {% endif %}
 
-      <h3 class="card--headline s-stack-small t-title-medium">
-        <a href="{{ card_url }}" {{ app.request.get('_route') == card_url ? 'aria-current="page"' }}>
-          {{ card_title }}
-        </a>
-      </h3>
-    </div>
+  {% if card_url is not defined %}
+    {% set errors = errors | merge(['Card URL']) %}
+  {% endif %}
 
-    <div class="card--details">
-      {% if description %}
-        <p class="card--text t-body-small c-content-secondary s-stack-small">
-          {{ description }}
-        </p>
-      {% endif %}
-
-      {% if card_date %}
-        <div class="card--date t-label c-content-tertiary s-stack-large">
-          <time datetime="{{ card_date|date('Y-m-d') }}" itemprop="datePublished">
-            {{ card_date|date('F d, Y') }}
-          </time>
-        </div>
-      {% endif %}
-    </div>
-
-    {% if button_text %}
-      {% include '@umdlib_umdds/components/umd-libraries-button/umd-libraries-button-secondary/umd-libraries-button-secondary.twig' with {
-        'button_text': button_text,
-        'button_link': button_link|default(card_url)
-      } %}
-    {% endif %}
-  </div>
-</div>
-{% else %}
-  {# Error state #}
-  <div class="card--error">
-    Required card properties missing
-  </div>
+  {# Log the errors #}
+  {% if errors is not empty %}
+    <div class="c-content-interactive-primary c-bg-interactive-primary s-box-small-h"> [ERROR] - UMD Libraries Card / Variant - {{ variant }}</div>
+    <div class="s-box-small-h"> Required fields missing: <strong>{{ errors | join(', ') }}</strong></div>
+  {% endif %}
 {% endif %}

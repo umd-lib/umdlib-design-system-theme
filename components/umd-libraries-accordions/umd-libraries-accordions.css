@@ -1,0 +1,63 @@
+.accrodion--container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.accordion-child--headline {
+  width: 100%;
+
+  display: flex;
+
+  padding-left: 1.5rem;
+  padding-right: 3.5rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+
+  border-top: 2px solid var(--lighest-gray);
+
+  transition: all 0.3s ease-in-out;
+
+  position: relative;
+}
+
+.accordion-child--headline:hover,
+.accordion-child--headline:focus,
+.accordion-child--headline[aria-expanded="true"] {
+  border-color: var(--maryland-red);
+}
+
+.accordion-child--headline:hover p,
+.accordion-child--headline:focus p,
+.accordion-child--headline[aria-expanded="true"] p {
+  color: var(--maryland-red);
+}
+
+.accordion-child--body-wrapper {
+  padding: 1.5rem;
+}
+
+/* accordion button icon */
+.accordion-child--headline:before,
+.accordion-child--headline:after {
+  content: "";
+
+  width: 18px;
+  height: 4px;
+
+  position: absolute;
+  top: calc(50% - 2px);
+  right: 32px;
+
+  background-color: var(--maryland-red);
+
+  transition: transform 0.5s;
+}
+
+.accordion-child--headline:after {
+  transform: rotate(270deg);
+}
+
+.accordion-child--headline[aria-expanded="true"]:after {
+  transform: rotate(180deg);
+}

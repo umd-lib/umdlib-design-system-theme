@@ -1,0 +1,8 @@
+
+{% if accrodin_child_slot %}
+<div class="accrodion--container">
+  {% block accrodin_child_slot %} {% endblock %}
+</div>
+{% else %}
+  {{"missing accordin child slot"|t}}
+{% endif %}

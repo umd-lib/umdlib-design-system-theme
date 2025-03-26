@@ -3,3 +3,9 @@ umdlib:
   css:
     theme:
       css/globals.css: {}
+umd-lib-layout:
+  css:
+    theme:
+      css/umd-lib-layout.css: {}
+  js:
+    js/umd-lib-layout.js: {}

@@ -1,0 +1,11 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: UMD Libraries Accordions
+props:
+  type: object
+  properties:
+
+slots:
+  accrodin_child_slot:
+    title: Accordion Child
+    description: Slot for the accordion child elements

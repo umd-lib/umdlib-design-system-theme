@@ -1,0 +1,27 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: UMD Libraries Tabs
+replaces: umdds:umd-element-tabs
+props:
+  type: object
+  properties:
+    label:
+      type: string
+      title: Accessible Label
+      description: An accessible label for the entire tab interface (for screen readers), it will be hidden visually.
+    default_tab:
+      type: string
+      title: Default Tab
+      description: The value of the tab that should be active by default.
+    id:
+      type: string
+      title: Unique ID
+      description: A unique identifier for this tab group (optional).
+
+slots:
+  tabs_triggers_slot:
+    title: Tab Triggers
+    description: Slot for the tab trigger elements
+  tabs_content_slot:
+    title: Tab Content
+    description: Slot for the tab content elements

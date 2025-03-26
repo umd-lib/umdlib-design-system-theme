@@ -79,6 +79,8 @@ footer li {
 .social-media-list {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 ul.social-media-list li {
@@ -133,6 +135,10 @@ ul.social-media-list li {
 
   .footer--sub ul {
     flex-direction: row;
+  }
+
+  .footer--sub ul li {
+    display: flex;
   }
 
   .footer--sub ul li:not(:first-child),

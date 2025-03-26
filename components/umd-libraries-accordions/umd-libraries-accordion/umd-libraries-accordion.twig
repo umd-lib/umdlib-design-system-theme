@@ -1,0 +1,59 @@
+{# 
+/**
+  * @file
+  * UMD Libraries Accordion component.
+  *
+  * Variables:
+  * - title: The title of the accordion
+  * - default_open: Whether the accordion should be open by default
+  * - button_text: The text to display on the button
+  * - button_link: The URL the button links to
+  * - body_slot: The content of the accordion
+  */
+ #}
+
+
+
+{% if title is defined and body_slot is defined %}
+<div class="accrodion-child--container">
+  <button class="accordion-child--headline c-bg-secondary" aria-expanded="{{ default_open ? 'true' : 'false' }}">
+    <p class="t-interactive c-content-primary">{{title}}</p>
+  </button>
+  <div
+    class="accordion-child--body-wrapper c-bg-secondary"
+    aria-hidden="{{ default_open ? 'false' : 'true' }}"
+    {% if default_open %} style="height: 100%;" 
+    {% else %} style="display: none;" 
+    {% endif %}
+  >
+    <div class="accordion-child--body t-body-medium s-stack-default">
+      {% block body_slot %} {% endblock %}
+    </div>
+    <div class="accordion-child--body-button">
+      {% if button_text %}
+        {% include 'umdlib_umdds:umd-libraries-button' with {
+        'variant': 'secondary',
+        'button_text': button_text,
+        'button_link': button_link|default(card_url)
+        } only %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% else %}
+  {% set errors = [] %}
+
+  {% if title is not defined %}
+    {% set errors = errors | merge(['Accordion Title']) %}
+  {% endif %}
+
+  {% if body_slot is not defined %}
+    {% set errors = errors | merge(['Accordion Body']) %}
+  {% endif %}
+
+  {# Log the errors #}
+  {% if errors is not empty %}
+   <div class="c-content-interactive-primary c-bg-interactive-primary s-box-small-h"> [ERROR] - UMD Libraries Accordion</div>
+    <div class="s-box-small-h"> Required fields missing: <strong>{{ errors | join(', ') }}</strong></div>
+  {% endif %}
+{% endif %}

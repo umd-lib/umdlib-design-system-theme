@@ -46,8 +46,7 @@ body {
 }
 
 /* accessibility screen reader */
-.sr-only,
-.umd-skip-content {
+.sr-only {
   clip: rect(0, 0, 0, 0);
   border-width: 0;
   height: 1px;
@@ -57,22 +56,6 @@ body {
   padding: 0;
   position: absolute;
   white-space: nowrap;
-}
-
-.umd-skip-content:focus {
-  width: fit-content;
-  height: fit-content;
-
-  top: 0;
-  background-color: var(--white);
-  outline: 2px solid var(--maryland-yellow);
-
-  padding: 0.5rem 1rem;
-  margin: 0.5rem;
-
-  overflow: initial;
-  clip: initial;
-  white-space: initial;
 }
 
 /* typography */

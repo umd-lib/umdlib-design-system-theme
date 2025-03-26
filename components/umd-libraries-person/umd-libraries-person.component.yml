@@ -1,6 +1,8 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 
 name: UMD Libraries Person
+label: Person
+group: UMD Libraries
 
 variants:
   bio:
@@ -73,5 +75,5 @@ props:
 
 slots:
   bio_description_slot:
-    title: Bio Description
+    title: Bio Description (WYSIWYG)
     description: Slot for the bio description elements

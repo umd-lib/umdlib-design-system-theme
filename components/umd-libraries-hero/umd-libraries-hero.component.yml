@@ -2,13 +2,29 @@ $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schema
 
 name: UMD Libraries Hero
 replaces: umdds:umd-element-hero
+label: Hero
+group: UMD Libraries
+
+variants:
+  minimal:
+    title: Minimal
+
 props:
   type: object
   properties:
+    variant:
+      type: string
+      title: Hero Varaint
+      description: Choose the hero variant
+      enum:
+        - minimal
     theme:
       type: string
       title: Theme (Light or Dark)
       description: 'Choose the theme between "Light" and "Dark" for the hero section.'
+      enum:
+        - light
+        - dark
     hero_image:
       type: string
       title: Hero Image (URL)

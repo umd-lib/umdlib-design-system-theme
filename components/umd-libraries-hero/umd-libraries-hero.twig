@@ -1,5 +1,27 @@
-{% if hero_title %}
-<div class="hero--minimal c-bg-primary c-content-primary {% if theme == 'Dark' %}dark-theme{% endif %}">
+{# 
+/**
+ * @file
+ * UMD Libraries Hero component.
+ *
+ * Available variants:
+ * - minimal
+ *
+ * Variables:
+ * - theme: The theme of the hero
+ * - eyebrow: The eyebrow of the hero
+ * - hero_title: The title of the hero
+ * - description: The description of the hero
+ * - hero_image: The URL of the hero image
+ * - hero_image_alt: The alt text for the hero image
+ */
+ #}
+
+{# Get the variant, defaulting to standard if not specified #}
+{% set selectedVariant = variant | default('minimal') %}
+
+
+{% if hero_title is defined %}
+<div class="hero--minimal c-bg-primary c-content-primary {% if theme == 'dark' %}dark-theme{% endif %}">
   {% if hero_image %}
   <div class="hero--image">
     <img alt="{{ hero_image_alt }}" src="{{ hero_image }}">
@@ -25,8 +47,7 @@
 </div>
 
 {% else %}
-  {# Error state #}
-  <div class="hero--error">
-    Required hero properties - title missing
-  </div>
+  {# variable error handling #}
+  <div class="c-content-interactive-primary c-bg-interactive-primary s-box-small-h"> [ERROR] - UMD Libraries Hero / Variant - {{ selectedVariant }}</div>
+  <div class="s-box-small-h"> Required fields missing: <strong>Hero Title</strong></div>
 {% endif %}

@@ -2,6 +2,9 @@ $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schema
 
 name: UMD Libraries Tabs
 replaces: umdds:umd-element-tabs
+label: Tab
+group: UMD Libraries
+
 props:
   type: object
   properties:
@@ -20,8 +23,8 @@ props:
 
 slots:
   tabs_triggers_slot:
-    title: Tab Triggers
+    title: Tab Triggers (UMD Libraries Tab Trigger)
     description: Slot for the tab trigger elements
   tabs_content_slot:
-    title: Tab Content
+    title: Tab Content (UMD Libraries Tab)
     description: Slot for the tab content elements

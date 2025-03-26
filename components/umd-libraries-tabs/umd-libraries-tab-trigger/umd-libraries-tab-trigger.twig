@@ -1,13 +1,46 @@
-<button class="tab--trigger t-interactive c-content-tertiary" 
-        data-value="{{ tab_value }}" 
-        role="tab" 
-        id="tab-{{ tab_value }}"
-        aria-controls="panel-{{ tab_value }}"
-        aria-selected="false"
-        tabindex="{{ first_in_list ? '0' : '-1' }}"
-        {% if tab_description %}aria-description="{{ tab_description }}"{% endif %}>
-  <span class="tab--trigger-label">{{ tab_label }}</span>
-  {% if tab_description %}
-    <span class="sr-only">{{ tab_description }}</span>
+{# 
+/**
+ * @file
+ * UMD Libraries Tab Trigger component.
+ *
+ * Available variables:
+ * - tab_value: The value of the tab.
+ * - tab_label: The label of the tab.
+ * - tab_description: The description of the tab.
+ * - first_in_list: Whether this is the first tab in the list.
+ */
+#}
+
+{% if tab_value is defined and tab_label is defined %}
+  <button class="tab--trigger t-interactive c-content-tertiary" 
+    data-value="{{ tab_value }}" 
+    role="tab" 
+    id="tab-{{ tab_value }}"
+    aria-controls="panel-{{ tab_value }}"
+    aria-selected="false"
+    tabindex="{{ first_in_list ? '0' : '-1' }}"
+    {% if tab_description %}aria-description="{{ tab_description }}"{% endif %}>
+    <span class="tab--trigger-label">{{ tab_label }}</span>
+    {% if tab_description %}
+      <span class="sr-only">{{ tab_description }}</span>
+    {% endif %}
+  </button>
+
+{% else %}
+  {# variable error handling #}
+  {% set errors = [] %}
+
+  {% if tab_value is not defined %}
+    {% set errors = errors | merge(['Tab Value']) %}
   {% endif %}
-</button>
+
+  {% if tab_label is not defined %}
+    {% set errors = errors | merge(['Tab Label']) %}
+  {% endif %}
+
+  {# Log the errors #}
+  {% if errors is not empty %}
+    <div class="c-content-interactive-primary c-bg-interactive-primary s-box-small-h"> [ERROR] - UMD Libraries Tab Trigger</div>
+    <div class="s-box-small-h"> Required fields missing: <strong>{{ errors | join(', ') }}</strong></div>
+  {% endif %}
+{% endif %}

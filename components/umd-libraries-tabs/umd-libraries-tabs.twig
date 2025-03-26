@@ -1,26 +1,56 @@
-{# Generate a unique ID if one isn't provided #}
-{% set tabs_id = id ?? ('tabs-' ~ random()) %}
+{# 
+/**
+ * @file
+ * UMD Libraries Tabs component.
+ *
+ * Available variables:
+ * - id: A unique ID for the tabs container.
+ * - label: A label for the tabs container.
+ * - default_tab: The default tab to display.
+ *
+ */
+#}
 
-<div class="tabs--container c-bg-primary c-content-primary" 
-     data-tabs-container 
-     id="{{ tabs_id }}" 
-     data-default-tab="{{ default_tab }}">
-  
-  {% if label %}
-    <p id="{{ tabs_id }}-label" class="sr-only">{{ label }}</p>
-  {% endif %}
-  
-  <div class="tabs--triggers" 
-       role="tablist"
-       aria-orientation="{{ orientation }}"
-       {% if label %}aria-labelledby="{{ tabs_id }}-label"{% endif %}>
-    {% block tabs_triggers_slot %}{% endblock %}
-    <div class="tabs--triggers-deco" id="tabs--trigger-deco">
-       <span class="tabs--triggers-deco-activeline" id="deco-underline"></span>
+{% if tabs_triggers_slot is defined and tabs_content_slot is defined %}
+  {# Generate a unique ID if one isn't provided #}
+  {% set tabs_id = id ?? ('tabs-' ~ random()) %}
+
+  <div class="tabs--container c-bg-primary c-content-primary" 
+    data-tabs-container 
+    id="{{ tabs_id }}" 
+    data-default-tab="{{ default_tab }}">
+    {% if label %}
+      <p id="{{ tabs_id }}-label" class="sr-only">{{ label }}</p>
+    {% endif %}
+    <div class="tabs--triggers" 
+      role="tablist"
+      aria-orientation="{{ orientation }}"
+      {% if label %}aria-labelledby="{{ tabs_id }}-label"{% endif %}>
+      {% block tabs_triggers_slot %}{% endblock %}
+      <div class="tabs--triggers-deco" id="tabs--trigger-deco">
+        <span class="tabs--triggers-deco-activeline" id="deco-underline"></span>
+      </div>
+    </div>
+    <div class="tabs--content">
+      {% block tabs_content_slot %}{% endblock %}
     </div>
   </div>
-  
-  <div class="tabs--content">
-    {% block tabs_content_slot %}{% endblock %}
-  </div>
-</div>
+{% else %}
+  {# variable error handling #}
+  {% set errors = [] %}
+
+  {% if tabs_triggers_slot is not defined %}
+    {% set errors = errors | merge(['Tab Triggers (UMD Libraries Tab Trigger)']) %}
+  {% endif %}
+
+  {% if tabs_content_slot is not defined %}
+    {% set errors = errors | merge(['Tab Content (UMD Libraries Tab)']) %}
+  {% endif %}
+
+  {# Log the errors #}
+  {% if errors is not empty %}
+    <div class="c-content-interactive-primary c-bg-interactive-primary s-box-small-h"> [ERROR] - UMD Libraries Tabs</div>
+    <div class="s-box-small-h"> Required fields missing: <strong>{{ errors | join(', ') }}</strong></div>
+  {% endif %}
+
+{% endif %}

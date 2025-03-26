@@ -1,19 +1,53 @@
-<div class="tab--panel s-box-default-v s-box-default-h" 
-     data-value="{{ tab_value }}" 
-     role="tabpanel" 
-     id="panel-{{ tab_value }}" 
-     aria-labelledby="tab-{{ tab_value }}"
-     tabindex="0"
-     {% if auto_focus_first %}data-auto-focus="true"{% endif %}
-     hidden>
-  <div class="tab--content">
-    {% if tab_heading %}
-      <h2 class="t-title-medium s-stack-small">
-        {{ tab_heading }}
-      </h2>
-    {% endif %}
-    <div class="tab--panel-content">
-      {% block body_slot %}{% endblock %}
+{# 
+/**
+ * @file
+ * UMD Libraries Tab component.
+ *
+ * Available variables:
+ * - tab_value: The value of the tab.
+ * - tab_heading: The heading of the tab.
+ * - auto_focus_first: Whether to auto-focus the first focusable element in the tab.
+ * - body_slot: The content of the tab.
+ *
+ */
+#}
+
+{% if tab_value is defined and body_slot is defined %}
+  <div class="tab--panel s-box-default-v s-box-default-h" 
+    data-value="{{ tab_value }}" 
+    role="tabpanel" 
+    id="panel-{{ tab_value }}" 
+    aria-labelledby="tab-{{ tab_value }}"
+    tabindex="0"
+    {% if auto_focus_first %}data-auto-focus="true"{% endif %}
+    hidden>
+    <div class="tab--content">
+      {% if tab_heading %}
+        <h3 class="t-title-medium s-stack-small">
+          {{ tab_heading }}
+        </h3>
+      {% endif %}
+      <div class="tab--panel-content">
+        {% block body_slot %}{% endblock %}
+      </div>
     </div>
   </div>
-</div>
+{% else %}
+  {# variable error handling #}
+  {% set errors = [] %}
+
+  {% if tab_value is not defined %}
+    {% set errors = errors | merge(['Tab Value']) %}
+  {% endif %}
+
+  {% if body_slot is not defined %}
+    {% set errors = errors | merge(['Body (WYSIWYG)']) %}
+  {% endif %}
+
+  {# Log the errors #}
+  {% if errors is not empty %}
+    <div class="c-content-interactive-primary c-bg-interactive-primary s-box-small-h"> [ERROR] - UMD Libraries Tab</div>
+    <div class="s-box-small-h"> Required fields missing: <strong>{{ errors | join(', ') }}</strong></div>
+  {% endif %}
+
+{% endif %}

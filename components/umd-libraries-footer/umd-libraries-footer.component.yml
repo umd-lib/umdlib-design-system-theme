@@ -2,14 +2,10 @@ $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schema
 
 name: UMD Libraries Footer
 replaces: umdds:umd-element-footer
-props:
-  type: object
-  properties:
-
 slots:
   navigation_menu_slot:
-    title: Footer Navigation Menu Slot
+    title: Footer Menu Slot (Footer menu block)
     description: Slot intended for footer navigation menu. Each menu item should be placed in separate components.
   social_media_slot:
-    title: Footer Social Media List Slot
+    title: Social Media (umdds_social_icons block)
     description: Slot intended for social media links.

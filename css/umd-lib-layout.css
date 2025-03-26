@@ -7,3 +7,10 @@
 .col-child {
   flex-grow: 1;
 }
+
+.preview-tag {
+  float: right;
+  font-weight: bold;
+  font-size: .65rem;
+  font-style: italic;
+}

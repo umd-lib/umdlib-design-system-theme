@@ -2,6 +2,21 @@ $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schema
 
 name: UMD Libraries Footer
 replaces: umdds:umd-element-footer
+props:
+  type: object
+  properties:
+    address_name:
+      type: string
+      title: Address Heading
+      description: Location Name
+    full_address:
+      type: string
+      title: Full Address
+      description: Full address of location.
+    telephone:
+      type: string
+      title: Telephone number
+      description: Include area code. Dot seperation. I.e., 555.555.1212.
 slots:
   navigation_menu_slot:
     title: Footer Menu Slot (Footer menu block)
@@ -9,3 +24,6 @@ slots:
   social_media_slot:
     title: Social Media (UMD DS Social Icons block)
     description: Slot intended for social media links.
+  location_slot:
+    title: Location (WYSIWYG)
+    description: Footer location information

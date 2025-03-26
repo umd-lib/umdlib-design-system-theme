@@ -32,9 +32,7 @@
     {% if show_sidebar_region %}
       <div class="sidebar-navigation">
         {{ content.left_column }}
-        {% if in_preview %}
-          <div class="region-info">Sidebar</div>
-        {% endif %}
+        <div class="region-info">Sidebar</div>
       </div>
     {% endif %}
     <div {{ region_attributes.main_column.addClass('main-column') }}>

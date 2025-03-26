@@ -7,5 +7,5 @@ slots:
     title: Footer Menu Slot (Footer menu block)
     description: Slot intended for footer navigation menu. Each menu item should be placed in separate components.
   social_media_slot:
-    title: Social Media (umdds_social_icons block)
+    title: Social Media (UMD DS Social Icons block)
     description: Slot intended for social media links.

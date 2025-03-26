@@ -28,7 +28,7 @@
 #}
 <div{{ attributes }}>
   {% if in_preview %}
-    <div class="preview-tag">{{ plugin_id|split(':')|last }}</div>
+    <div class="block-info">{{ plugin_id|split(':')|last }}</div>
   {% endif %}
   {{ title_prefix }}
   {% if label %}

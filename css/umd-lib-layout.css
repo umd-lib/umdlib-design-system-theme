@@ -8,9 +8,16 @@
   flex-grow: 1;
 }
 
-.preview-tag {
+.preview .block-info {
   float: right;
   font-weight: bold;
   font-size: .65rem;
+  font-style: italic;
+}
+
+.preview .region-info {
+  font-size: .8rem;
+  font-weight: bold;
+  padding-left: 15px;
   font-style: italic;
 }

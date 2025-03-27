@@ -34,7 +34,8 @@
 }
 
 .accordion-child--body-wrapper {
-  padding: 1.5rem;
+  transition: height 0.3s ease-out;
+  overflow: hidden;
 }
 
 /* accordion button icon */

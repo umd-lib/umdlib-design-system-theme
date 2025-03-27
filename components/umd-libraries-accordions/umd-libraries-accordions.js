@@ -6,7 +6,7 @@
 (function () {
   "use strict";
 
-  //   initialize the accordions
+  // initialize the accordions
   document.addEventListener("DOMContentLoaded", function () {
     const accordions = document.querySelectorAll(".accrodion-child--container");
     accordions.forEach(initialzeAccordion);
@@ -19,13 +19,16 @@
     const buttonAttributes = button.getAttribute("aria-expanded");
     const contentAttributes = content.getAttribute("aria-hidden");
 
-    console.log("buttonAttributes", buttonAttributes);
-    console.log("contentAttributes", contentAttributes);
-
     if (buttonAttributes === null || contentAttributes === null) {
       // Set initial aria attributes
       button.setAttribute("aria-expanded", "false");
       content.setAttribute("aria-hidden", "true");
+
+      if (button.getAttribute("aria-expanded") === "false") {
+        content.style.display = "block";
+        content.style.height = "0px";
+        content.style.overflow = "hidden";
+      }
     }
 
     // Add click event listener to toggle accordion
@@ -34,8 +37,26 @@
 
       button.setAttribute("aria-expanded", !isExpanded);
       content.setAttribute("aria-hidden", isExpanded);
-      content.style.display = isExpanded ? "none" : "block";
-      content.style.height = isExpanded ? "0px" : "auto";
+
+      if (isExpanded) {
+        content.style.height = content.scrollHeight + "px";
+        content.offsetHeight;
+        content.style.height = "0";
+      } else {
+        content.style.display = "block";
+        content.style.height = "0px";
+        content.offsetHeight;
+        content.style.height = content.scrollHeight + "px";
+
+        content.addEventListener(
+          "transitionend",
+          function setAutoHeight() {
+            content.style.height = "auto";
+            content.removeEventListener("transitionend", setAutoHeight);
+          },
+          { once: true }
+        );
+      }
     });
   }
 })();

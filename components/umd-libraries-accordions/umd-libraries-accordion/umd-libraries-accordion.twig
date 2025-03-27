@@ -26,18 +26,18 @@
     {% else %} style="display: none;" 
     {% endif %}
   >
-    <div class="accordion-child--body t-body-medium s-stack-default">
+    <div class="accordion-child--body t-body-medium s-box-small-v s-box-small-h">
       {% block body_slot %} {% endblock %}
     </div>
-    <div class="accordion-child--body-button">
-      {% if button_text %}
+    {% if button_text %}
+      <div class="accordion-child--body-button s-box-small-h s-stack-default ">
         {% include 'umdlib_umdds:umd-libraries-button' with {
         'variant': 'secondary',
         'button_text': button_text,
         'button_link': button_link|default(card_url)
         } only %}
-      {% endif %}
-    </div>
+      </div>
+    {% endif %}
   </div>
 </div>
 {% else %}

@@ -1,3 +1,7 @@
+.list {
+  border-bottom: solid 1px var(--light-gray);
+}
+
 .list--title-section {
   margin-bottom: 0.75em;
 }

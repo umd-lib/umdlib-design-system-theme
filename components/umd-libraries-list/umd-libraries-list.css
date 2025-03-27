@@ -1,0 +1,56 @@
+.list--title-section {
+  margin-bottom: 0.75em;
+}
+
+.list--eyebrow {
+  margin-bottom: 0.5em;
+}
+
+.list--details {
+  display: flex;
+  gap: 0.5em;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+}
+
+.list--information {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.list--description {
+  margin-bottom: 0.5em;
+}
+
+.list--image {
+  order: 1;
+}
+
+.list--image img {
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+
+/* breakpoint */
+/* Tablet */
+@media (min-width: 768px) {
+  .list--details {
+    gap: 1em;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .list--image img {
+    height: 10rem;
+    aspect-ratio: 16/9;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+}
+
+/* Large Desktop */
+@media (min-width: 1440px) {
+}

@@ -1,0 +1,67 @@
+{# 
+/**
+ * @file
+ * UMD Libraries List component.
+ *
+ * Available variables:
+ * - eyebrow: The eyebrow of the list item.
+ * - title: The title of the list.
+ * - description: The description of the list.
+ * - date: The date of the list.
+ * - button_link: The URL the button links to.
+ * - image: The URL of the list image.
+ * - image_alt: The alt text for the list image.
+*/
+#}
+
+{% if title is defined and button_link is defined %}
+  <div class="list">
+    <div class="list--title-section">
+      {% if eyebrow is defined and eyebrow is not empty %}
+        <div class="list--eyebrow t-eyebrow c-content-primary">{{ eyebrow }}</div>
+      {% endif %}
+      <div class="list--title">
+        <h2 class="t-title-medium c-content-primary">{{ title }}</h2>
+      </div>
+    </div>
+
+    <div class="list--details">
+      <div class="list--information">
+        <div class="list--content s-stack-large">
+          {% if description is defined and description is not empty %}
+            <div class="list--description t-body-small">{{ description }}</div>
+          {% endif %}
+          {% if date is defined and date is not empty %}
+            <div class="list--date t-label c-content-tertiary">{{ date }}</div>
+          {% endif %}
+        </div>
+        {% include 'umdlib_umdds:umd-libraries-button' with {
+            'variant': 'secondary',
+            'button_text': 'Learn More',
+            'button_link': button_link
+            } only %}
+      </div>
+      {% if image is defined and image is not empty %}
+        <div class="list--image">
+          <img src="{{ image }}" alt="{{ image_alt }}" loading="lazy">
+        </div>
+      {% endif %}
+    </div> 
+  </div>
+{% else %}
+  {# variable error handling #}
+  {% set errors = [] %}
+
+  {% if title is not defined %}
+    {% set errors = errors | merge(['Title']) %}
+  {% endif %}
+
+  {% if button_link is not defined %}
+    {% set errors = errors | merge(['Button Link']) %}
+  {% endif %}
+
+  {% if errors is not empty %}
+   <div class="c-content-interactive-primary c-bg-interactive-primary s-box-small-h"> [ERROR] - UMD Libraries List</div>
+    <div class="s-box-small-h"> Required fields missing: <strong>{{ errors | join(', ') }}</strong></div>
+  {% endif %}
+{% endif %}

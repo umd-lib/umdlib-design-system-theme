@@ -15,7 +15,7 @@ props:
     default_tab:
       type: string
       title: Default Tab
-      description: The value of the tab that should be active by default.
+      description: Enter "Tab Value" of the tab that should be active by default.
     id:
       type: string
       title: Unique ID

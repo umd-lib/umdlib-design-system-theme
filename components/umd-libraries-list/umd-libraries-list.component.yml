@@ -1,0 +1,30 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: UMD Libraries List
+label: List
+group: UMD
+
+props:
+  type: object
+  properties:
+    eyebrow:
+      type: string
+      title: Eyebrow Text
+    title:
+      type: string
+      title: Title
+    description:
+      type: string
+      title: Description
+    date:
+      type: string
+      title: Date
+    button_link:
+      type: string
+      title: Button Link
+    image:
+      type: string
+      title: Image
+    image_alt:
+      type: string
+      title: Image Alt Text

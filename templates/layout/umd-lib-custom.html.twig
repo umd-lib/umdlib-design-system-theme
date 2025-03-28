@@ -13,10 +13,8 @@
  */
 #}
 {% set show_sidebar_region = settings.sidebar_region %}
-{% set row_one_cols = settings.row_one_cols %}
-{% set row_two_cols = settings.row_two_cols %}
-{% set row_three_cols = settings.row_three_cols %}
-{% set row_four_cols = settings.row_four_cols %}
+{% set column_config = settings.column_config %}
+{% set num_rows = settings.num_rows %}
 {%
   set classes = [
     'layout',
@@ -24,54 +22,32 @@
     'layout--custom',
   ]
 %}
+{% if in_preview %}
+  {% set classes = classes|merge(['preview']) %}
+{% endif %}
 {% if content %}
   <div {{ attributes.addClass(classes) }}>
     {% if show_sidebar_region %}
       <div class="sidebar-navigation">
         {{ content.left_column }}
+        <div class="region-info">Sidebar</div>
       </div>
     {% endif %}
     <div {{ region_attributes.main_column.addClass('main-column') }}>
-      {% if row_one_cols > 0 %}
-        <div class="row row--1 layout--{{ row_one_cols }}-column">
-          {% for i in 0..row_one_cols %}
-            {% set region_key = 'main_1_' ~ i %}
-            <div class="col column--{{ i }}">
+      {% for i in 1..num_rows %}
+        {% set row_conf = column_config['row_' ~ i] %}
+        {% set row_cols = row_conf['cols'] %}
+        {% set horiz_class = row_conf['horizontal'] %}
+        {% set vert_class = row_conf['vertical'] %}
+        <div class="row row--1 layout--{{ row_cols }}-column horizontal-{{ horiz_class }} vertical-{{ vert_class }}">
+          {% for r in 1..row_cols %}
+            {% set region_key = 'main_' ~ i ~ '_' ~ r %}
+            <div class="col column--{{ r }}">
               {{ content.(region_key) }}
             </div>
           {% endfor %}
         </div>
-      {% endif %}
-      {% if row_two_cols > 0 %}
-        <div class="row row--2 layout--{{ row_two_cols }}-column">
-          {% for i in 0..row_two_cols %}
-            {% set region_key = 'main_2_' ~ i %}
-            <div class="col column--{{ i }}">
-              {{ content.(region_key) }}
-            </div>
-          {% endfor %}
-        </div>
-      {% endif %}
-      {% if row_three_cols > 0 %}
-        <div class="row row--3 layout--{{ row_three_cols }}-column">
-          {% for i in 0..row_three_cols %}
-            {% set region_key = 'main_3_' ~ i %}
-            <div class="col column--{{ i }}">
-              {{ content.(region_key) }}
-            </div>
-          {% endfor %}
-        </div>
-      {% endif %}
-      {% if row_four_cols > 0 %}
-        <div class="row row--4 layout--{{ row_four_cols }}-column">
-          {% for i in 0..row_four_cols %}
-            {% set region_key = 'main_4_' ~ i %}
-            <div class="col column--{{ i }}">
-              {{ content.(region_key) }}
-            </div>
-          {% endfor %}
-        </div>
-      {% endif %}
+      {% endfor %}
     </div>
   </div>
 {% endif %}

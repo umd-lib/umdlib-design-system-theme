@@ -13,6 +13,7 @@
  */
 #}
 {% set show_sidebar_region = settings.sidebar_region %}
+{% set full_page_width = settings.section_width %}
 {% set column_config = settings.column_config %}
 {% set num_rows = settings.num_rows %}
 {%
@@ -22,6 +23,11 @@
     'layout--custom',
   ]
 %}
+
+{% if full_page_width == False %}
+  {% set classes = classes|merge(['s-box-page-default-h']) %}
+{% endif %}
+
 {% if in_preview %}
   {% set classes = classes|merge(['preview']) %}
 {% endif %}

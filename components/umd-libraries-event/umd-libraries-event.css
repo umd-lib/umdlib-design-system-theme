@@ -1,0 +1,90 @@
+.event {
+  display: flex;
+  flex-direction: row;
+
+  border-bottom: solid 1px var(--light-gray);
+}
+
+.event--sign {
+  display: none;
+}
+
+.event--details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.event--detail {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.event--information {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.event--content {
+  height: fit-content;
+}
+
+.event--title {
+  margin-bottom: 0.5rem;
+}
+
+.event--meta {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  margin-bottom: 0.75rem;
+}
+
+.event--meta > div {
+  display: inline-flex;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.event--description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  align-self: stretch;
+}
+
+.event--image {
+  display: none;
+}
+
+/* breakpoint */
+/* Tablet */
+@media (min-width: 768px) {
+  .event--sign {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .event--image {
+    display: initial;
+  }
+
+  .event--image img {
+    height: 10rem;
+    min-width: 17rem;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+}
+
+/* Large Desktop */
+@media (min-width: 1440px) {
+}

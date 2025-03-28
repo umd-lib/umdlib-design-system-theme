@@ -3,16 +3,16 @@
 }
 
 .list--title-section {
-  margin-bottom: 0.75em;
+  margin-bottom: 0.75rem;
 }
 
 .list--eyebrow {
-  margin-bottom: 0.5em;
+  margin-bottom: 0.5rem;
 }
 
 .list--details {
   display: flex;
-  gap: 0.5em;
+  gap: 0.5rem;
   flex-direction: column-reverse;
   justify-content: space-between;
 }
@@ -24,7 +24,7 @@
 }
 
 .list--description {
-  margin-bottom: 0.5em;
+  margin-bottom: 0.5rem;
 }
 
 .list--image {
@@ -47,6 +47,7 @@
 
   .list--image img {
     height: 10rem;
+    min-width: 17rem;
     aspect-ratio: 16/9;
   }
 }

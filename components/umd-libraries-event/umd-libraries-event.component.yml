@@ -1,0 +1,36 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: UMD Libraries Event
+label: Event
+group: UMD
+
+props:
+  type: object
+  properties:
+    title:
+      type: string
+      title: Event Title
+    description:
+      type: string
+      title: Event Description
+    month:
+      type: string
+      title: Event Month
+    day:
+      type: string
+      title: Event Day
+    hour:
+      type: string
+      title: Event Hour
+    location:
+      type: string
+      title: Event Location
+    link:
+      type: string
+      title: Event Link
+    image:
+      type: string
+      title: Event Image
+    image_alt:
+      type: string
+      title: Event Image Alt Text

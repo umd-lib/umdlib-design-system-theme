@@ -30,8 +30,8 @@
 {# Check required fields #}
 {% if name is defined and name is not empty and title is defined and title is not empty %}
   <div class="person--{{ selectedVariant }}
-    {% if selectedVariant != 'bio' %}s-box-default-v s-box-default-h{% endif %}
-    {% if selectedVariant == 'card'%}c-border-primary{% endif %}">
+    {# {% if selectedVariant != 'bio' %}s-box-default-v s-box-default-h{% endif %} #}
+    {% if selectedVariant == 'card'%}c-border-primary s-box-default-v s-box-default-h{% endif %}">
 
     {# Top section with image - all variants have image but with different layouts #}
     {% if selectedVariant == 'bio' %}

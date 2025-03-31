@@ -410,6 +410,11 @@ body {
   padding-bottom: 1rem;
 }
 
+.s-page-lock {
+  width: 100%;
+  max-width: 1680px;
+}
+
 /* box -> within element */
 .s-box-default-v {
   padding-top: 1rem;

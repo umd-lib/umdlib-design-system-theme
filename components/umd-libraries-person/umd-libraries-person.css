@@ -173,6 +173,8 @@
 
   .person--bio-image img {
     height: 16rem;
+    min-width: 16rem;
+    max-width: 16rem;
   }
 
   .person--list-image {
@@ -181,7 +183,8 @@
 
   .person--list-image img {
     height: 12rem;
-    width: auto;
+    min-width: 12rem;
+    max-width: 12rem;
 
     aspect-ratio: 1/1;
     object-fit: cover;

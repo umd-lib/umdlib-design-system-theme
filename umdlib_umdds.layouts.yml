@@ -1,81 +1,7 @@
-onw_columng:
-  label: "UMD Lib One Column"
-  category: "UMD Lib"
-  template: template/layout/umd-lib-one-column
-  library: umdlib_umdds/umd-lib-layout
-  class: '\Drupal\umdlib_ds_layout_tools\Plugin\Layout\UMDLibDsLayoutConfig'
-  regions:
-    one_column:
-      label: One Column
-  icon_map:
-  - [ one_column ]
-
-two_column:
-  label: "UMD Lib Two Columns"
-  category: "UMD Lib"
-  template: template/layout/umd-lib-two-columns
-  library: umdlib_umdds/umd-lib-layout
-  class: '\Drupal\umdlib_ds_layout_tools\Plugin\Layout\UMDLibDsLayoutConfig'
-  regions:
-    left_column:
-      label: Left Column
-    right_column:
-      label: Right Column
-  icon_map:
-  - [ left_column, right_column ]
-
-two_column_padding:
-  label: "UMD Lib Two Columns"
-  category: "UMD Lib"
-  template: template/layout/umd-lib-two-columns
-  library: umdlib_umdds/umd-lib-layout
-  class: '\Drupal\umdlib_ds_layout_tools\Plugin\Layout\UMDLibDsLayoutConfig'
-  regions:
-    left_column:
-      label: Left Column
-    right_column:
-      label: Right Column
-  icon_map:
-  - [ left_column, right_column ]
-
-three_column:
-  label: "UMD Lib Three Columns"
-  category: "UMD Lib"
-  template: template/layout/umd-lib-three-columns
-  library: umdlib_umdds/umd-lib-layout
-  class: '\Drupal\umdlib_ds_layout_tools\Plugin\Layout\UMDLibDsLayoutConfig'
-  regions:
-    left_column:
-      label: Left Column
-    middle_column:
-      label: Middle Column
-    right_column:
-      label: Right Column
-  icon_map:
-  - [ left_column, middle_column, right_column ]
-
-four_column:
-  label: "UMD Lib Four Columns"
-  category: "UMD Lib"
-  template: template/layout/umd-lib-four-columns
-  library: umdlib_umdds/umd-lib-layout
-  class: '\Drupal\umdlib_ds_layout_tools\Plugin\Layout\UMDLibDsLayoutConfig'
-  regions:
-    left_column:
-      label: Left Column
-    middle_left_column:
-      label: Middle Left Column
-    middle_right_column:
-      label: Middle Right Column
-    right_column:
-      label: Right Column
-  icon_map:
-  - [ left_column, middle_left_column, middle_right_column, right_column ]
-
 custom:
-  label: "UMD Lib Custom Layout"
+  label: "UMD Libraries Layout"
   category: "UMD Lib"
-  template: template/layout/umd-lib-custom
+  template: template/layout/umd-lib-layout
   library: umdlib_umdds/umd-lib-layout
   class: '\Drupal\umdlib_ds_layout_tools\Plugin\Layout\UMDLibDsLayoutConfig'
   regions:
@@ -162,4 +88,9 @@ custom:
     main_10_4:
       label: Row Ten, Column Four
   icon_map:
-  - [ Main Column ]
+    - [a, a, b, b, b, b, b, b]
+    - [a, a, b, b, b, b, b, b]
+    - [a, a, c, c, c, d, d, d]
+    - [a, a, c, c, c, d, d, d]
+    - [a, a, e, e, f, f, g, g]
+    - [a, a, e, e, f, f, g, g]

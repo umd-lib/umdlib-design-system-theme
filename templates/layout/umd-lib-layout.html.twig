@@ -16,6 +16,7 @@
 {% set full_page_width = settings.section_width %}
 {% set column_config = settings.column_config %}
 {% set num_rows = settings.num_rows %}
+{% set section_vertical_spacing = settings.section_vertical_spacing %}
 {%
   set classes = [
     'layout',
@@ -26,6 +27,12 @@
 
 {% if full_page_width == False %}
   {% set classes = classes|merge(['s-box-page-default-h']) %}
+  {% set classes = classes|merge(['s-center']) %}
+  {% set classes = classes|merge(['s-page-lock']) %}
+{% endif %}
+
+{% if section_vertical_spacing is defined %}
+  {% set classes = classes|merge(['vertical-spacing-' ~ section_vertical_spacing]) %}
 {% endif %}
 
 {% if in_preview %}
@@ -34,22 +41,18 @@
 {% if content %}
   <div {{ attributes.addClass(classes) }}>
     {% if show_sidebar_region %}
-      <div class="sidebar-navigation">
-        {{ content.left_column }}
-        <div class="region-info">Sidebar</div>
+      <div class="sidebar-navigation s-inline-large" aria-hidden="{{ content.left_column is empty ? 'true' : 'false' }}">
+          {{ content.left_column }}
+          <div class="region-info" aria-hidden="true">Sidebar</div>
       </div>
     {% endif %}
-    <div {{ region_attributes.main_column.addClass('main-column') }}>
+    <div class="main-column">
       {% for i in 1..num_rows %}
         {% set row_conf = column_config['row_' ~ i] %}
-        {% set row_cols = row_conf['cols'] %}
-        {% set horiz_class = row_conf['horizontal'] %}
-        {% set vert_class = row_conf['vertical'] %}
-        <div class="row row--1 layout--{{ row_cols }}-column horizontal-{{ horiz_class }} vertical-{{ vert_class }}">
-          {% for r in 1..row_cols %}
-            {% set region_key = 'main_' ~ i ~ '_' ~ r %}
-            <div class="col column--{{ r }}">
-              {{ content.(region_key) }}
+        <div class="row row--{{ i }} layout--{{ row_conf.cols }}-column horizontal-{{ row_conf.horizontal }} vertical-{{ row_conf.vertical }}">
+          {% for r in 1..row_conf.cols %}
+            <div class="col column--{{ r }} col-child">
+              {{ attribute(content, 'main_' ~ i ~ '_' ~ r) }}
             </div>
           {% endfor %}
         </div>

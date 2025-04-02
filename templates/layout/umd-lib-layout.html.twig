@@ -42,19 +42,27 @@
   <div {{ attributes.addClass(classes) }}>
     {% if show_sidebar_region %}
       <div class="sidebar-navigation s-inline-large" aria-hidden="{{ content.left_column is empty ? 'true' : 'false' }}">
-          {{ content.left_column }}
           <div class="region-info" aria-hidden="true">Sidebar</div>
+          {{ content.left_column }}
       </div>
     {% endif %}
     <div class="main-column">
       {% for i in 1..num_rows %}
         {% set row_conf = column_config['row_' ~ i] %}
-        <div class="row row--{{ i }} layout--{{ row_conf.cols }}-column horizontal-{{ row_conf.horizontal }} vertical-{{ row_conf.vertical }}">
-          {% for r in 1..row_conf.cols %}
-            <div class="col column--{{ r }} col-child">
-              {{ attribute(content, 'main_' ~ i ~ '_' ~ r) }}
-            </div>
-          {% endfor %}
+        <div class="{{ row_conf.card_group ? 'card-group' : '' }} row row--{{ i }} layout--{{ row_conf.cols }}-column horizontal-{{ row_conf.horizontal }} vertical-{{ row_conf.vertical }}">
+          {% if row_conf.card_group %}
+          {# render card group #}
+            <div class="region-info" aria-hidden="true">Card Group - {{ row_conf.cols }} column</div>
+            {{ attribute(content, 'main_' ~ i ~ '_card_group') }}
+          {% else %}
+          {# render column #}
+            <div class="region-info" aria-hidden="true">{{ row_conf.cols }} column</div>
+            {% for r in 1..row_conf.cols %}
+              <div class="col column--{{ r }} col-child">
+                {{ attribute(content, 'main_' ~ i ~ '_' ~ r) }}
+              </div>
+            {% endfor %}
+          {% endif %}
         </div>
       {% endfor %}
     </div>

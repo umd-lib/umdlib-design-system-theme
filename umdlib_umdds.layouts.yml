@@ -15,6 +15,8 @@ custom:
       label: Row One, Column Three
     main_1_4:
       label: Row One, Column Four
+    main_1_card_group:
+      label: Row One, Card Group
     main_2_1:
       label: Row Two, Column One
     main_2_2:
@@ -23,6 +25,8 @@ custom:
       label: Row Two, Column Three
     main_2_4:
       label: Row Two, Column Four
+    main_2_card_group:
+      label: Row Two, Card Group
     main_3_1:
       label: Row Three, Column One
     main_3_2:
@@ -31,6 +35,8 @@ custom:
       label: Row Three, Column Three
     main_3_4:
       label: Row Three, Column Four
+    main_3_card_group:
+      label: Row Three, Card Group
     main_4_1:
       label: Row Four, Column One
     main_4_2:
@@ -39,6 +45,8 @@ custom:
       label: Row Four, Column Three
     main_4_4:
       label: Row Four, Column Four
+    main_4_card_group:
+      label: Row Four, Card Group
     main_5_1:
       label: Row Five, Column One
     main_5_2:
@@ -47,6 +55,8 @@ custom:
       label: Row Five, Column Three
     main_5_4:
       label: Row Five, Column Four
+    main_5_card_group:
+      label: Row Five, Card Group
     main_6_1:
       label: Row Six, Column One
     main_6_2:
@@ -55,6 +65,8 @@ custom:
       label: Row Six, Column Three
     main_6_4:
       label: Row Six, Column Four
+    main_6_card_group:
+      label: Row Six, Card Group
     main_7_1:
       label: Row Seven, Column One
     main_7_2:
@@ -63,6 +75,8 @@ custom:
       label: Row Seven, Column Three
     main_7_4:
       label: Row Seven, Column Four
+    main_7_card_group:
+      label: Row Seven, Card Group
     main_8_1:
       label: Row Eight, Column One
     main_8_2:
@@ -71,6 +85,8 @@ custom:
       label: Row Eight, Column Three
     main_8_4:
       label: Row Eight, Column Four
+    main_8_card_group:
+      label: Row Eight, Card Group
     main_9_1:
       label: Row Nine, Column One
     main_9_2:
@@ -79,6 +95,8 @@ custom:
       label: Row Nine, Column Three
     main_9_4:
       label: Row Nine, Column Four
+    main_9_card_group:
+      label: Row Nine, Card Group
     main_10_1:
       label: Row Ten, Column One
     main_10_2:
@@ -87,6 +105,8 @@ custom:
       label: Row Ten, Column Three
     main_10_4:
       label: Row Ten, Column Four
+    main_10_card_group:
+      label: Row Ten, Card Group
   icon_map:
     - [a, a, b, b, b, b, b, b]
     - [a, a, b, b, b, b, b, b]

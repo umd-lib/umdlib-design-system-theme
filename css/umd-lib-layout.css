@@ -26,13 +26,35 @@
   font-style: italic;
 }
 
-/* remove  */
+.preview .main-column .region-info {
+  position: absolute;
+}
+
+/* reset layout for layout builder  */
 .layout-builder__layout.umd-lib-layout.layout--custom {
   margin-top: 1.5rem !important;
   margin-bottom: 1.5rem !important;
 
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+
+.layout-builder__layout.umd-lib-layout.layout--custom .row {
+  margin-bottom: 0rem !important;
+}
+
+.layout-builder__layout.umd-lib-layout.layout--custom .card-group {
+  padding-top: 1.5rem !important;
+  margin-bottom: 1rem !important;
+  position: relative;
+}
+
+.layout-builder__layout.umd-lib-layout.layout--custom .main-column .col-child {
+  margin-top: 1.5rem !important;
+}
+
+div.layout-builder__section .layout-builder__add-block {
+  height: fit-content;
 }
 
 /* umd lib custom layout */
@@ -70,30 +92,10 @@
   flex-direction: column;
 }
 
-.umd-lib-layout.layout--custom .main-column .layout--1-column {
-  width: 100%;
-
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
-  gap: 1rem;
-}
-
-.umd-lib-layout.layout--custom .main-column .layout--2-column {
-  width: 100%;
-
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
-  gap: 1rem;
-}
-
-.umd-lib-layout.layout--custom .main-column .layout--3-column {
-  width: 100%;
-
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
-  gap: 1rem;
-}
-
+/* original column */
+.umd-lib-layout.layout--custom .main-column .layout--1-column,
+.umd-lib-layout.layout--custom .main-column .layout--2-column,
+.umd-lib-layout.layout--custom .main-column .layout--3-column,
 .umd-lib-layout.layout--custom .main-column .layout--4-column {
   width: 100%;
 
@@ -102,12 +104,24 @@
   gap: 1rem;
 }
 
-.umd-lib-layout.layout--custom .main-column .col-child {
+.umd-lib-layout.layout--custom .main-column .col-child,
+.umd-lib-layout.layout--custom .main-column .card-group > div {
   min-width: 15rem;
 }
 
-.umd-lib-layout.layout--custom .main-column .col-child > div {
+.umd-lib-layout.layout--custom .main-column .col-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.umd-lib-layout.layout--custom .main-column .col-child > div,
+.umd-lib-layout.layout--custom .sidebar-navigation > div {
   margin-bottom: 1.5rem;
+}
+
+/* card group */
+.umd-lib-layout.layout--custom .main-column .card-group.layout--1-column {
+  grid-template-columns: 1fr;
 }
 
 /* block spacing */
@@ -123,14 +137,6 @@
   margin-bottom: 3.5rem;
 }
 
-/* .row.horizontal-default .col-child {
-  margin-right: 1rem;
-}
-
-.row.horizontal-default .col-child:last-child {
-  margin-right: 0rem;
-} */
-
 /* breakpoint */
 /* Tablet */
 @media (min-width: 768px) {
@@ -139,6 +145,8 @@
     max-width: 15rem;
     min-width: 15rem;
   }
+
+  /* card group */
 
   /* block spacing */
   .row.vertical-default {
@@ -152,10 +160,6 @@
   .row.vertical-large {
     margin-bottom: 3.5rem;
   }
-
-  /* .row.horizontal-default .col-child {
-    margin-right: 1.5rem;
-  } */
 
   .umd-lib-layout.layout--custom .main-column .layout--1-column,
   .umd-lib-layout.layout--custom .main-column .layout--2-column,
@@ -183,6 +187,28 @@
 
 /* Desktop */
 @media (min-width: 1024px) {
+  /* card group */
+  .umd-lib-layout.layout--custom .main-column .card-group.layout--2-column {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, calc((100% - 1rem) / 3)), 1fr)
+    );
+  }
+
+  .umd-lib-layout.layout--custom .main-column .card-group.layout--3-column {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, calc((100% - 2rem) / 4)), 1fr)
+    );
+  }
+
+  .umd-lib-layout.layout--custom .main-column .card-group.layout--4-column {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, calc((100% - 3rem) / 5)), 1fr)
+    );
+  }
+
   /* section vertical spacing */
   .umd-lib-layout.layout--custom.vertical-spacing-default {
     margin-top: 5rem;
@@ -215,4 +241,14 @@
 
 /* Large Desktop */
 @media (min-width: 1440px) {
+}
+
+@media (min-width: 1560px) {
+  /* card group */
+  /* .umd-lib-layout.layout--custom .main-column .card-group.layout--4-column {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, calc((100% - 3rem) / 5)), 1fr)
+    );
+  } */
 }

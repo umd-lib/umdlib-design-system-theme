@@ -1,9 +1,3 @@
-/* For two-column layout css */
-/* .umd-lib-layout {
-  display: flex;
-  flex-direction: row;
-} */
-
 /* layout builder */
 .block-info,
 .region-info {
@@ -241,14 +235,4 @@ div.layout-builder__section .layout-builder__add-block {
 
 /* Large Desktop */
 @media (min-width: 1440px) {
-}
-
-@media (min-width: 1560px) {
-  /* card group */
-  /* .umd-lib-layout.layout--custom .main-column .card-group.layout--4-column {
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(min(100%, calc((100% - 3rem) / 5)), 1fr)
-    );
-  } */
 }

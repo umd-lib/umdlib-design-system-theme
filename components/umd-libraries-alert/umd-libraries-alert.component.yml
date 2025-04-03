@@ -1,0 +1,38 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: UMD Libraries Alert
+label: Alert
+group: UMD Libraries
+
+variants:
+  in_page:
+    title: In-Page Alert
+  site_wide:
+    title: Site-Wide Alert
+
+props:
+  type: object
+  properties:
+    variant:
+      type: string
+      title: Alert Varaint
+      description: Choose the alert variant
+      enum:
+        - content
+        - site
+    title:
+      type: string
+      title: Alert Title
+    button_text:
+      type: string
+      title: Button Text
+      description: The text for the button in the alert.
+    button_link:
+      type: string
+      title: Button Link
+      description: The URL for the button in the alert.
+
+slots:
+  alert_description_slot:
+    title: Alert Description (WYSIWYG)
+    description: Slot for the alert description elements

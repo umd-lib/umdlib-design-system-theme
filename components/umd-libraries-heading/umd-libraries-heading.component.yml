@@ -1,0 +1,28 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: UMD Libraries Heading
+label: Heading
+group: UMD Libraries
+
+variants:
+  h2:
+    title: Heading H2
+  h3:
+    title: Heading H3
+  h4:
+    title: Heading H4
+
+props:
+  type: object
+  properties:
+    variant:
+      type: string
+      title: Heading Varaint
+      description: Choose the heading variant
+      enum:
+        - h2
+        - h3
+        - h4
+    heading_text:
+      type: string
+      title: Heading Text

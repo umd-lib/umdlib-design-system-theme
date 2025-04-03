@@ -1,0 +1,23 @@
+.heading h2 {
+  font-family: Interstate;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 2.25rem; /* 112.5% */
+}
+
+.heading h3 {
+  font-family: Interstate;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.875rem; /* 125% */
+}
+
+.heading h4 {
+  font-family: Interstate;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.40625rem; /* 125% */
+}

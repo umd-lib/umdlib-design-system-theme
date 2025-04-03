@@ -1,0 +1,32 @@
+{# 
+/**
+ * @file
+ * UMD Libraries Heading component.
+ *
+ * Available variants:
+ * - h2
+ * - h3
+ * - h4
+ *
+ * Variables:
+ * heading_text: Heading text.
+ */
+ #}
+
+{# Get the variant, defaulting to standard if not specified #}
+{% set selectedVariant = variant | default('h2') %}
+
+
+{% if heading_text is defined %}
+  <div class="heading heading--{{ selectedVariant }}">
+    <h{{ selectedVariant | slice(1) }} class="c-content-primary">
+      {{ heading_text | raw }}
+    </h{{ selectedVariant | slice(1) }}>
+  </div>
+
+
+{% else %}
+  {# variable error handling #}
+  <div class="c-content-interactive-primary c-bg-interactive-primary s-box-small-h"> [ERROR] - UMD Libraries Heading / Variant - {{ selectedVariant }}</div>
+  <div class="s-box-small-h"> Required fields missing: <strong>Heading Text</strong></div>
+{% endif %}

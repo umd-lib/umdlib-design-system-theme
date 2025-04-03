@@ -1,0 +1,10 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: UMD Libraries Body
+label: Body
+group: UMD Libraries
+
+slots:
+  body_text_slot:
+    title: Body Text (WYSIWYG)
+    description: Slot for the main body text elements

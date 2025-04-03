@@ -1,0 +1,20 @@
+{# 
+/**
+ * @file
+ * UMD Libraries Body component.
+ *
+ * Variables:
+ * body_text_slot: Slot for the main body text elements.
+ */
+ #}
+
+{% if body_text_slot is defined %}
+  <div class="body">
+   {{ body_text_slot | raw }}
+  </div>
+
+{% else %}
+  {# variable error handling #}
+  <div class="c-content-interactive-primary c-bg-interactive-primary s-box-small-h"> [ERROR] - UMD Libraries Body / Variant - {{ selectedVariant }}</div>
+  <div class="s-box-small-h"> Required fields missing: <strong>Body Text (WYSIWYG)</strong></div>
+{% endif %}

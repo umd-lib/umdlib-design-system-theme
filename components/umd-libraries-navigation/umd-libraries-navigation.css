@@ -141,13 +141,15 @@
 /* Navigation rows and menu items */
 .navigation__rows {
   width: 100%;
-  height: calc(100vh - 96px);
+  height: calc(100vh - 96px - 44px);
 
   padding: 1.5rem;
 
   position: absolute;
-  /* header height */
-  top: 96px;
+  /* dropdown position */
+  top: calc(
+    96px + 44px
+  ); /* 96px for navigation height, 44px for the umd school width branding */
   left: 0;
 
   transform: translateX(-100%);

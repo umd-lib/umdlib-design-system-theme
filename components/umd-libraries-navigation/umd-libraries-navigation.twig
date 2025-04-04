@@ -4,16 +4,21 @@
   >
     <div class="navigation__header">
       <div class="navigation__logo">
-        <img
-          alt="University Libraries"
-          loading="lazy"
-          width="270"
-          height="81"
-          decoding="async"
-          data-nimg="1"
-          style="color: transparent"
-          src="/{{ active_theme_path() }}/logo.svg"
-        />
+        <a href="/"
+           title="University Libraries Home"
+           class="navigation__logo-link"
+           aria-label="University Libraries Home">
+          <img
+            alt="University Libraries"
+            loading="lazy"
+            width="270"
+            height="81"
+            decoding="async"
+            data-nimg="1"
+            style="color: transparent"
+            src="/{{ active_theme_path() }}/logo.svg"
+          />
+        </a>
       </div>
     </div>
     <button

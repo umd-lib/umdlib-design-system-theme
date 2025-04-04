@@ -8,7 +8,7 @@
   {% if items %}
     {% if menu_level == 0 %}
       {% for item in items %}
-        <nav aria-labelledby="our-libraries-heading" class="s-stack-large">
+        <nav aria-labelledby="{{ title|clean_class }}-heading" class="s-stack-large">
           <p id="{{ title|clean_class }}-heading" class="t-title-small c-content-dark-primary s-stack-default">
             {{ link(item.title, item.url) }}
           </p>
@@ -75,7 +75,7 @@
         <ul class="navigation__submenu-list">
           {% for item in items %}
             <li class="navigation__submenu-item">
-              {{ link(item.title, item.url, { 'class':['navigation__submenu-link ani-underline c-underline-primary t-b'] }) }}
+              {{ link(item.title, item.url, { 'class':['navigation__submenu-link ani-underline c-underline-primary t-body-small'] }) }}
             </li>
           {% endfor %}
         </ul>

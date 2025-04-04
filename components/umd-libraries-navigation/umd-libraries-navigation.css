@@ -499,7 +499,7 @@
   }
 
   ul.navigation__submenu-list {
-    padding: 2.5rem;
+    padding: 1.5rem;
 
     border-top: 2px solid var(--maryland-red);
     box-shadow: -1px 9px 32px -10px rgba(0, 0, 0, 0.19);

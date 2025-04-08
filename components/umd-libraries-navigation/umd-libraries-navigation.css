@@ -302,6 +302,75 @@
   border-bottom: none;
 }
 
+/* utility navigation */
+.navigation__utility_locations-hours,
+.navigation__utility_system-status {
+  padding: 1rem;
+
+  background-color: var(--lighest-gray);
+}
+
+.navigation__utility_time {
+  margin-bottom: 1rem;
+}
+
+.navigation__utility_branch-item {
+  margin-bottom: 1rem;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.navigation__utility_branch-hours {
+  text-align: end;
+}
+
+.navigation a.navigation__utility_branch-name {
+  color: var(--dark-gray);
+  text-decoration: underline;
+}
+
+.navigation a.navigation__utility_branch-name:hover,
+.navigation a.navigation__utility_branch-name:focus {
+  color: var(--maryland-red);
+}
+
+.navigation__utility_description > * {
+  margin-bottom: 0.5rem;
+}
+
+.navigation__utility_system-status-item {
+  margin-bottom: 1rem;
+}
+
+.navigation__utility_system-status-item:last-child {
+  margin-bottom: 0rem;
+}
+
+.navigation__utility_system-status-item-status {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.navigation__utility_system-status-item-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+
+  margin-right: 0.5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .navigation__utility_branch-item {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
 /* custom breakpoint for navigation */
 /* show all links */
 @media (min-width: 1240px) {
@@ -529,5 +598,29 @@
     width: fit-content;
 
     display: inline;
+  }
+
+  /* utility navigation */
+  #locations_hours .navigation__submenu-content,
+  #system-status .navigation__submenu-content {
+    box-shadow: -1px 9px 32px -10px rgba(0, 0, 0, 0.19);
+  }
+
+  #locations_hours .navigation__submenu-content ul.navigation__submenu-list,
+  #system-status .navigation__submenu-content ul.navigation__submenu-list {
+    box-shadow: none;
+  }
+
+  #locations_hours .navigation__submenu {
+    width: 33rem;
+  }
+
+  #system-status .navigation__submenu {
+    width: 20rem;
+  }
+
+  .navigation__utility_locations-hours,
+  .navigation__utility_system-status {
+    padding: 1.5rem;
   }
 }

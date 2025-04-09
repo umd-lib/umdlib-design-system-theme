@@ -1,0 +1,17 @@
+{# 
+/**
+ * @file
+ * UMD Libraries utility component.
+ *
+ * Variables:
+ * - title (prop): Utility item title
+ * - description (prop): Description of utility for sr
+ * - utility_content (slot): Slot for utility content
+ */
+#}
+<div class="utility-block-content" aria-label="{{ description }}">
+  <p>{{ title }}</p>
+  <div>
+    {% block utility_content %}Utility Content{% endblock %}
+  </div>
+</div>

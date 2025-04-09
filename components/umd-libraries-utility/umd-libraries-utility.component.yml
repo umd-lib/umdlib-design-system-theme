@@ -1,0 +1,20 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: UMD Libraries Utility
+label: Utility
+group: UMD Libraries
+
+props:
+  type: object
+  properties:
+    title:
+      type: string
+      title: Title
+    description:
+      type: string
+      title: Description
+
+slots:
+  utility_content:
+    title: Utility Content (Block)
+    description: Slot for the utility content

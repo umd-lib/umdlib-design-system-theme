@@ -29,169 +29,180 @@
       <span class="navigation__menu-icon"></span>
     </button>
     <div class="navigation__rows">
-      <div class="navigation__row-main">
-        {% block main_navigation_slot %}{% endblock %}
-      </div>
-      <div class="navigation__row-sec">
-        {% block utility_navigation_slot %}
-          <nav aria-label="Secondary navigation" class="navigation__sec-menu">
-            <ul class="navigation__secmenu-list">
-              <li class="navigation__menu-item" id="locations_hours">
-                <a href="/" class="navigation__menu-link">Locations &amp; Hours
-                </a>
-                <button
-                  class="navigation__submenu-button"
-                  aria-expanded="false"
-                  aria-controls="submenu-locations"
-                >
-                  <span class="i-chevron-down"></span>
-                </button>
-                <div class="navigation__submenu" id="submenu-locations">
-                  <div class="navigation__submenu-header">
-                    <button class="navigation__back-button">
-                      <span class="i-chevron-down"></span>
-                      <p class="t-label ani-underline c-underline-secondary">
-                        Back
-                      </p>
-                    </button>
-                  </div>
-                  <div class="navigation__submenu-content">
-                    <div class="navigation__submenu-title">
-                      <a href="/">Locations &amp; Hours</a>
-                    </div>
-                    <ul class="navigation__submenu-list">
-                      <li class="navigation__submenu-item">
-                        <a
-                          href="/"
-                          class="navigation__submenu-link ani-underline c-underline-primary t-body-small"
-                        >
-                          All Libraries Hours
-                        </a>
-                      </li>
-                    </ul>
-                    <div class="navigation__utility_locations-hours">
-                      <div class="navigation__utility_time t-title-small c-content-primary">
-                        April 4, 2025
-                      </div>
-                      <ul class="navigation__utility_branch-list">
-                        <li class="navigation__utility_branch-item">
-                          <a class="navigation__utility_branch-name t-body-small" ref="/">McKeldin*</a>
-                          <div class="navigation__utility_branch-hours t-body-small">24 Hours - 8:00PM</div>
-                        </li>
-                        <li class="navigation__utility_branch-item">
-                          <a class="navigation__utility_branch-name t-body-small" ref="/">Architecture</a>
-                          <div class="navigation__utility_branch-hours t-body-small">Closed</div>
-                        </li>
-                        <li class="navigation__utility_branch-item">
-                          <a class="navigation__utility_branch-name t-body-small" ref="/">Art</a>
-                          <div class="navigation__utility_branch-hours t-body-small">11:00AM - 4:00PM</div>
-                        </li>
-                        <li class="navigation__utility_branch-item">
-                          <a class="navigation__utility_branch-name t-body-small" ref="/">Hornbake</a>
-                          <div class="navigation__utility_branch-hours t-body-small">7:00AM - 10:00PM</div>
-                        </li>
-                        <li class="navigation__utility_branch-item">
-                          <a class="navigation__utility_branch-name t-body-small" ref="/">Michelle Smith Performing Arts</a>
-                          <div class="navigation__utility_branch-hours t-body-small">9:00AM - 5:00PM</div>
-                        </li>
-                        <li class="navigation__utility_branch-item">
-                          <a class="navigation__utility_branch-name t-body-small" ref="/">Special Collections in Hornbake**</a>
-                          <div class="navigation__utility_branch-hours t-body-small">10:00AM - 4:00PM</div>
-                        </li>
-                        <li class="navigation__utility_branch-item">
-                          <a class="navigation__utility_branch-name t-body-small" ref="/">STEM</a>
-                          <div class="navigation__utility_branch-hours t-body-small">8:00AM - 6:00PM</div>
-                        </li>
-                        <li class="navigation__utility_branch-item">
-                          <a class="navigation__utility_branch-name t-body-small" ref="/">Shady Grove</a>
-                          <div class="navigation__utility_branch-hours t-body-small">See website for hours</div>
-                        </li>
-                      </ul>
-                      <div class="navigation__utility_description t-label">
-                        <div>Library Hours are subject to change.</div>
-                        <div>*Campus ID required 11pm-8am.</div>
-                        <div>**Appointment required</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li class="navigation__menu-item" id="system-status">
-                <a href="/" class="navigation__menu-link">System Status
-                </a>
-                <button
-                  class="navigation__submenu-button"
-                  aria-expanded="false"
-                  aria-controls="submenu-system-status"
-                >
-                  <span class="i-chevron-down"></span>
-                </button>
-                <div class="navigation__submenu" id="submenu-system-status">
-                  <div class="navigation__submenu-header">
-                    <button class="navigation__back-button">
-                      <span class="i-chevron-down"></span>
-                      <p class="t-label ani-underline c-underline-secondary">
-                        Back
-                      </p>
-                    </button>
-                  </div>
-                  <div class="navigation__submenu-content">
-                    <div class="navigation__submenu-title">
-                      <a href="/">System Status</a>
-                    </div>
-                    <ul class="navigation__submenu-list">
-                      <li class="navigation__submenu-item">
-                        <a
-                          href="/"
-                          class="navigation__submenu-link ani-underline c-underline-primary t-body-small"
-                        >
-                          All Status of Library Services
-                        </a>
-                      </li>
-                    </ul>
-                    <div class="navigation__utility_system-status">
-                      <div class="navigation__utility_time t-title-small c-content-primary">
-                        April 4, 2025 at 8:31AM
-                      </div>
-                      <ul class="navigation__utility_system-status-list">
-                        <li class="navigation__utility_system-status-item">
-                          <div class="navigation__utility_system-status-item-status t-body-small">
-                            <span class="navigation__utility_system-status-item-icon">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 20 18" fill="none">
-                                <g clip-path="url(#clip0_5895_11314)">
-                                  <path fill-rule="evenodd" clip-rule="evenodd" d="M8.19004 12.72L19.05 0.130005L19.46 5.34C15.2853 10.2294 12.9447 12.9706 8.77004 17.86L8.53004 17.66L8.41004 17.8L0.540039 11.38L5.34004 10.39L8.19004 12.71V12.72Z" fill="#FFD200"/>
-                                </g>
-                                <defs>
-                                  <clipPath id="clip0_5895_11314">
-                                    <rect width="18.92" height="17.74" fill="white" transform="translate(0.540039 0.130005)"/>
-                                  </clipPath>
-                                </defs>
-                              </svg>
-                            </span>
-                            All Systems are Operational
-                          </div>
-                        </li>
-                        <li class="navigation__utility_system-status-item">
-                          <div class="navigation__utility_system-status-item-status t-body-small">
-                            <span class="navigation__utility_system-status-item-icon">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="4" height="18" viewBox="0 0 4 18" fill="none">
-                                <path d="M3.75 0.559998H0.25V11.94H3.75V0.559998Z" fill="#E21833"/>
-                                <path d="M3.75 13.94H0.25V17.44H3.75V13.94Z" fill="#E21833"/>
-                              </svg>
-                            </span>
-                            Web of Science
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </li>
+      {% if main_navigation_slot is defined %}
+        <div class="navigation__row-main">
+          <nav aria-label="Main navigation" class="navigation__main-menu">
+            <ul class="navigation__menu-list">
+              {% block main_navigation_slot %}{% endblock %}
             </ul>
           </nav>
-        {% endblock %}
-      {% block search_slot %}{% endblock %}
-    </div>
+        </div>
+      {% endif %}
+      {% if utility_navigation_slot is defined %}
+        <div class="navigation__row-sec">
+          <nav aria-label="Secondary navigation" class="navigation__sec-menu">
+            <ul class="navigation__secmenu-list">
+              {% block utility_navigation_slot %}
+                {# utility navigation slot demo, should be replaced by Utility Component #}
+                {# locations & hours dropdown#}
+                <li class="navigation__menu-item" id="locations_hours">
+                  <a href="/" class="navigation__menu-link">Locations &amp; Hours
+                  </a>
+                  <button
+                    class="navigation__submenu-button"
+                    aria-expanded="false"
+                    aria-controls="submenu-locations"
+                  >
+                    <span class="i-chevron-down"></span>
+                  </button>
+                  <div class="navigation__submenu" id="submenu-locations">
+                    <div class="navigation__submenu-header">
+                      <button class="navigation__back-button">
+                        <span class="i-chevron-down"></span>
+                        <p class="t-label ani-underline c-underline-secondary">
+                          Back
+                        </p>
+                      </button>
+                    </div>
+                    <div class="navigation__submenu-content">
+                      <div class="navigation__submenu-title">
+                        <a href="/">Locations &amp; Hours</a>
+                      </div>
+                      <ul class="navigation__submenu-list">
+                        <li class="navigation__submenu-item">
+                          <a
+                            href="/"
+                            class="navigation__submenu-link ani-underline c-underline-primary t-body-small"
+                          >
+                            All Libraries Hours
+                          </a>
+                        </li>
+                      </ul>
+                      <div class="navigation__utility_locations-hours">
+                        <div class="navigation__utility_time t-title-small c-content-primary">
+                          April 4, 2025
+                        </div>
+                        <ul class="navigation__utility_branch-list">
+                          <li class="navigation__utility_branch-item">
+                            <a class="navigation__utility_branch-name t-body-small" ref="/">McKeldin*</a>
+                            <div class="navigation__utility_branch-hours t-body-small">24 Hours - 8:00PM</div>
+                          </li>
+                          <li class="navigation__utility_branch-item">
+                            <a class="navigation__utility_branch-name t-body-small" ref="/">Architecture</a>
+                            <div class="navigation__utility_branch-hours t-body-small">Closed</div>
+                          </li>
+                          <li class="navigation__utility_branch-item">
+                            <a class="navigation__utility_branch-name t-body-small" ref="/">Art</a>
+                            <div class="navigation__utility_branch-hours t-body-small">11:00AM - 4:00PM</div>
+                          </li>
+                          <li class="navigation__utility_branch-item">
+                            <a class="navigation__utility_branch-name t-body-small" ref="/">Hornbake</a>
+                            <div class="navigation__utility_branch-hours t-body-small">7:00AM - 10:00PM</div>
+                          </li>
+                          <li class="navigation__utility_branch-item">
+                            <a class="navigation__utility_branch-name t-body-small" ref="/">Michelle Smith Performing Arts</a>
+                            <div class="navigation__utility_branch-hours t-body-small">9:00AM - 5:00PM</div>
+                          </li>
+                          <li class="navigation__utility_branch-item">
+                            <a class="navigation__utility_branch-name t-body-small" ref="/">Special Collections in Hornbake**</a>
+                            <div class="navigation__utility_branch-hours t-body-small">10:00AM - 4:00PM</div>
+                          </li>
+                          <li class="navigation__utility_branch-item">
+                            <a class="navigation__utility_branch-name t-body-small" ref="/">STEM</a>
+                            <div class="navigation__utility_branch-hours t-body-small">8:00AM - 6:00PM</div>
+                          </li>
+                          <li class="navigation__utility_branch-item">
+                            <a class="navigation__utility_branch-name t-body-small" ref="/">Shady Grove</a>
+                            <div class="navigation__utility_branch-hours t-body-small">See website for hours</div>
+                          </li>
+                        </ul>
+                        <div class="navigation__utility_description t-label">
+                          <div>Library Hours are subject to change.</div>
+                          <div>*Campus ID required 11pm-8am.</div>
+                          <div>**Appointment required</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                {# system status dropdown #}
+                <li class="navigation__menu-item" id="system-status">
+                  <a href="/" class="navigation__menu-link">System Status
+                  </a>
+                  <button
+                    class="navigation__submenu-button"
+                    aria-expanded="false"
+                    aria-controls="submenu-system-status"
+                  >
+                    <span class="i-chevron-down"></span>
+                  </button>
+                  <div class="navigation__submenu" id="submenu-system-status">
+                    <div class="navigation__submenu-header">
+                      <button class="navigation__back-button">
+                        <span class="i-chevron-down"></span>
+                        <p class="t-label ani-underline c-underline-secondary">
+                          Back
+                        </p>
+                      </button>
+                    </div>
+                    <div class="navigation__submenu-content">
+                      <div class="navigation__submenu-title">
+                        <a href="/">System Status</a>
+                      </div>
+                      <ul class="navigation__submenu-list">
+                        <li class="navigation__submenu-item">
+                          <a
+                            href="/"
+                            class="navigation__submenu-link ani-underline c-underline-primary t-body-small"
+                          >
+                            All Status of Library Services
+                          </a>
+                        </li>
+                      </ul>
+                      <div class="navigation__utility_system-status">
+                        <div class="navigation__utility_time t-title-small c-content-primary">
+                          April 4, 2025 at 8:31AM
+                        </div>
+                        <ul class="navigation__utility_system-status-list">
+                          <li class="navigation__utility_system-status-item">
+                            <div class="navigation__utility_system-status-item-status t-body-small">
+                              <span class="navigation__utility_system-status-item-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 20 18" fill="none">
+                                  <g clip-path="url(#clip0_5895_11314)">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.19004 12.72L19.05 0.130005L19.46 5.34C15.2853 10.2294 12.9447 12.9706 8.77004 17.86L8.53004 17.66L8.41004 17.8L0.540039 11.38L5.34004 10.39L8.19004 12.71V12.72Z" fill="#FFD200"/>
+                                  </g>
+                                  <defs>
+                                    <clipPath id="clip0_5895_11314">
+                                      <rect width="18.92" height="17.74" fill="white" transform="translate(0.540039 0.130005)"/>
+                                    </clipPath>
+                                  </defs>
+                                </svg>
+                              </span>
+                              All Systems are Operational
+                            </div>
+                          </li>
+                          <li class="navigation__utility_system-status-item">
+                            <div class="navigation__utility_system-status-item-status t-body-small">
+                              <span class="navigation__utility_system-status-item-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="4" height="18" viewBox="0 0 4 18" fill="none">
+                                  <path d="M3.75 0.559998H0.25V11.94H3.75V0.559998Z" fill="#E21833"/>
+                                  <path d="M3.75 13.94H0.25V17.44H3.75V13.94Z" fill="#E21833"/>
+                                </svg>
+                              </span>
+                              Web of Science
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              {% endblock %}
+            </ul>
+          </nav>
+          {% block search_slot %}{% endblock %}
+        </div>
+      {% endif %}
     </div>
   </div>
 </div>

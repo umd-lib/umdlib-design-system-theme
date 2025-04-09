@@ -2,6 +2,9 @@ $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schema
 
 name: UMD Libraries Navigation
 replaces: umdds:umd-element-navigation-header
+label: Navigation
+group: UMD Libraries
+
 slots:
   main_navigation_slot:
     title: Main Navigation Slot (Main menu)

@@ -569,14 +569,14 @@
 
   ul.navigation__submenu-list {
     padding: 1.5rem;
-
-    border-top: 2px solid var(--maryland-red);
-    box-shadow: -1px 9px 32px -10px rgba(0, 0, 0, 0.19);
   }
 
   /* submenu content */
   .navigation__submenu-content {
     padding: 0rem;
+
+    border-top: 2px solid var(--maryland-red);
+    box-shadow: -1px 9px 32px -10px rgba(0, 0, 0, 0.19);
   }
 
   /* submenu item */
@@ -601,17 +601,16 @@
   }
 
   /* utility navigation */
-  #locations_hours .navigation__submenu-content,
-  #system-status .navigation__submenu-content {
-    box-shadow: -1px 9px 32px -10px rgba(0, 0, 0, 0.19);
-  }
-
   #locations_hours .navigation__submenu-content ul.navigation__submenu-list,
   #system-status .navigation__submenu-content ul.navigation__submenu-list {
     box-shadow: none;
   }
 
-  #locations_hours .navigation__submenu {
+  .navigation__menu-item.utility-content .navigation__submenu {
+    width: 33rem;
+  }
+
+  #locations-hours .navigation__submenu {
     width: 33rem;
   }
 

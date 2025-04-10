@@ -2,6 +2,9 @@ $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schema
 
 name: UMD Libraries Footer
 replaces: umdds:umd-element-footer
+label: Footer
+group: UMD Libraries
+
 props:
   type: object
   properties:

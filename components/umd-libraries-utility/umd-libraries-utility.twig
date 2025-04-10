@@ -6,12 +6,113 @@
  * Variables:
  * - title (prop): Utility item title
  * - description (prop): Description of utility for sr
+ * - link_url (prop): URL for the utility link
+ * - link_text (prop): Text for the utility link
  * - utility_content (slot): Slot for utility content
  */
 #}
-<div class="utility-block-content" aria-label="{{ description }}">
-  <p>{{ title }}</p>
-  <div>
-    {% block utility_content %}Utility Content{% endblock %}
-  </div>
-</div>
+
+
+{% if title is defined and utility_content is defined %}
+  <li class="navigation__menu-item utility-content" id="{{ title | lower | replace({' ': '-'}) }}" aria-label="{{ description }}">
+    <a href="/" class="navigation__menu-link">{{ title }}</a>
+    <button
+      class="navigation__submenu-button"
+      aria-expanded="false"
+      aria-controls="submenu-{{ title | lower | replace({' ': '-'}) }}"
+    >
+      <span class="i-chevron-down"></span>
+    </button>
+    <div class="navigation__submenu" id="submenu-{{ title | lower | replace({' ': '-'}) }}">
+      <div class="navigation__submenu-header">
+        <button class="navigation__back-button">
+          <span class="i-chevron-down"></span>
+          <p class="t-label ani-underline c-underline-secondary">
+            Back
+          </p>
+        </button>
+      </div>
+      <div class="navigation__submenu-content">
+        <div class="navigation__submenu-title">
+        <a href="/">{{ title }}</a>
+      </div>
+      {% if link_url is defined and link_text is defined %}
+        <ul class="navigation__submenu-list">
+          <li class="navigation__submenu-item">
+            <a
+              href="{{ link_url }}"
+              class="navigation__submenu-link ani-underline c-underline-primary t-body-small"
+            >
+              {{ link_text }}
+            </a>
+          </li>
+        </ul>
+      {% endif %}
+      {% block utility_content %}
+        {# utility content demo, should be replaced by module #}
+        <div class="navigation__utility_locations-hours">
+          <div class="navigation__utility_time t-title-small c-content-primary">
+            April 4, 2025
+          </div>
+          <ul class="navigation__utility_branch-list">
+            <li class="navigation__utility_branch-item">
+              <a class="navigation__utility_branch-name t-body-small" ref="/">McKeldin*</a>
+              <div class="navigation__utility_branch-hours t-body-small">24 Hours - 8:00PM</div>
+            </li>
+            <li class="navigation__utility_branch-item">
+              <a class="navigation__utility_branch-name t-body-small" ref="/">Architecture</a>
+              <div class="navigation__utility_branch-hours t-body-small">Closed</div>
+            </li>
+            <li class="navigation__utility_branch-item">
+              <a class="navigation__utility_branch-name t-body-small" ref="/">Art</a>
+              <div class="navigation__utility_branch-hours t-body-small">11:00AM - 4:00PM</div>
+            </li>
+            <li class="navigation__utility_branch-item">
+              <a class="navigation__utility_branch-name t-body-small" ref="/">Hornbake</a>
+              <div class="navigation__utility_branch-hours t-body-small">7:00AM - 10:00PM</div>
+            </li>
+            <li class="navigation__utility_branch-item">
+              <a class="navigation__utility_branch-name t-body-small" ref="/">Michelle Smith Performing Arts</a>
+              <div class="navigation__utility_branch-hours t-body-small">9:00AM - 5:00PM</div>
+            </li>
+            <li class="navigation__utility_branch-item">
+              <a class="navigation__utility_branch-name t-body-small" ref="/">Special Collections in Hornbake**</a>
+              <div class="navigation__utility_branch-hours t-body-small">10:00AM - 4:00PM</div>
+            </li>
+            <li class="navigation__utility_branch-item">
+              <a class="navigation__utility_branch-name t-body-small" ref="/">STEM</a>
+              <div class="navigation__utility_branch-hours t-body-small">8:00AM - 6:00PM</div>
+            </li>
+            <li class="navigation__utility_branch-item">
+              <a class="navigation__utility_branch-name t-body-small" ref="/">Shady Grove</a>
+              <div class="navigation__utility_branch-hours t-body-small">See website for hours</div>
+            </li>
+          </ul>
+          <div class="navigation__utility_description t-label">
+            <div>Library Hours are subject to change.</div>
+            <div>*Campus ID required 11pm-8am.</div>
+            <div>**Appointment required</div>
+          </div>
+        </div>
+      {% endblock %}
+    </div>
+  </li>
+
+{% else %}
+ {# variable error handling #}
+  {% set errors = [] %}
+
+  {% if title is not defined %}
+    {% set errors = errors | merge(['Title']) %}
+  {% endif %}
+
+  {% if utility_content is not defined %}
+    {% set errors = errors | merge(['Utility Content (Block)']) %}
+  {% endif %}
+
+  {# Log the errors #}
+  {% if errors is not empty %}
+    <div class="c-content-interactive-primary c-bg-interactive-primary s-box-small-h"> [ERROR] - UMD Libraries Utility</div>
+    <div class="s-box-small-h"> Required fields missing: <strong>{{ errors | join(', ') }}</strong></div>
+  {% endif %}
+{% endif %}

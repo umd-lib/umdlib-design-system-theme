@@ -364,6 +364,18 @@
   align-items: center;
 }
 
+/* utility navigation - WYSIWYG content */
+.navigation__submenu-content p {
+  padding: 1.5rem;
+
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.12rem; /* 128% */
+
+  background-color: var(--lighest-gray);
+}
+
 @media (min-width: 768px) {
   .navigation__utility_branch-item {
     flex-direction: row;

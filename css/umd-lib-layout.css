@@ -94,7 +94,7 @@ div.layout-builder__section .layout-builder__add-block {
   width: 100%;
 
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  grid-template-columns: auto;
   gap: 1rem;
 }
 
@@ -140,7 +140,16 @@ div.layout-builder__section .layout-builder__add-block {
     min-width: 15rem;
   }
 
-  /* card group */
+  /* original column */
+  .umd-lib-layout.layout--custom .main-column .layout--2-column,
+  .umd-lib-layout.layout--custom .main-column .layout--3-column,
+  .umd-lib-layout.layout--custom .main-column .layout--4-column {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
 
   /* block spacing */
   .row.vertical-default {
@@ -153,13 +162,6 @@ div.layout-builder__section .layout-builder__add-block {
 
   .row.vertical-large {
     margin-bottom: 3.5rem;
-  }
-
-  .umd-lib-layout.layout--custom .main-column .layout--1-column,
-  .umd-lib-layout.layout--custom .main-column .layout--2-column,
-  .umd-lib-layout.layout--custom .main-column .layout--3-column,
-  .umd-lib-layout.layout--custom .main-column .layout--4-column {
-    gap: 1.5rem;
   }
 
   /* section vertical spacing */
@@ -181,25 +183,40 @@ div.layout-builder__section .layout-builder__add-block {
 
 /* Desktop */
 @media (min-width: 1024px) {
+  /* original column */
+  .umd-lib-layout.layout--custom .main-column .layout--3-column {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .umd-lib-layout.layout--custom .main-column .layout--4-column {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
   /* card group */
   .umd-lib-layout.layout--custom .main-column .card-group.layout--2-column {
     grid-template-columns: repeat(
       auto-fit,
-      minmax(min(100%, calc((100% - 1rem) / 3)), 1fr)
+      minmax(min(100%, calc((100% - 1.5rem) / 3)), 1fr)
     );
   }
 
   .umd-lib-layout.layout--custom .main-column .card-group.layout--3-column {
     grid-template-columns: repeat(
       auto-fit,
-      minmax(min(100%, calc((100% - 2rem) / 4)), 1fr)
+      minmax(min(100%, calc((100% - 3rem) / 4)), 1fr)
     );
   }
 
   .umd-lib-layout.layout--custom .main-column .card-group.layout--4-column {
     grid-template-columns: repeat(
       auto-fit,
-      minmax(min(100%, calc((100% - 3rem) / 5)), 1fr)
+      minmax(min(100%, calc((100% - 4.5rem) / 5)), 1fr)
     );
   }
 

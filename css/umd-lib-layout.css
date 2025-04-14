@@ -2,22 +2,24 @@
 .block-info,
 .region-info {
   display: none;
+  font-weight: bold;
+  font-size: 0.8rem;
+  font-style: italic;
 }
 
 .preview .block-info {
-  float: right;
   display: block;
-  font-weight: bold;
-  font-size: 0.65rem;
-  font-style: italic;
+
+  position: absolute;
+  top: 0.5rem;
+  left: 1.5rem;
 }
 
 .preview .region-info {
-  font-size: 0.8rem;
   display: block;
-  font-weight: bold;
-  padding-left: 15px;
-  font-style: italic;
+
+  padding-left: 1.5rem;
+  margin-bottom: 0 !important;
 }
 
 .preview .main-column .region-info {
@@ -49,6 +51,11 @@
 
 div.layout-builder__section .layout-builder__add-block {
   height: fit-content;
+}
+
+/* layout builder block for component name */
+.umd-lib-layout.layout--custom .layout-builder-block {
+  padding-top: 2.5rem;
 }
 
 /* umd lib custom layout */

@@ -21,15 +21,19 @@
 
 
 {% if hero_title is defined %}
-<div class="hero--minimal c-bg-primary c-content-primary {% if theme == 'dark' %}dark-theme{% endif %}">
-  {% if hero_image %}
-  <div class="hero--image">
-    <img alt="{{ hero_image_alt }}" src="{{ hero_image }}">
-  </div>
+  {% if theme == 'dark' %}
+    <div class="hero--minimal c-bg-primary c-content-primary dark-theme">
+  {% else %}
+    <div class="hero--minimal c-bg-primary c-content-primary">
   {% endif %}
-  <div class="hero--container s-box-page-default-h s-box-page-default-v s-center">
-    <div class="hero--content s-box-large-h {% if not hero_image %}text-only{% endif %}">
-     {% if eyebrow %}
+    {% if hero_image %}
+      <div class="hero--image">
+        <img alt="{{ hero_image_alt }}" src="{{ hero_image }}">
+      </div>
+    {% endif %}
+    <div class="hero--container s-box-page-default-h s-box-page-default-v s-center">
+      <div class="hero--content s-box-large-h {% if not hero_image %}text-only{% endif %}">
+      {% if eyebrow %}
         <p class="hero--eyebrow c-content-secondary t-eyebrow s-stack-small">
           {{ eyebrow }}
         </p>
@@ -42,9 +46,9 @@
           {{ description }}
         </p>
       {% endif %}
+      </div>
     </div>
   </div>
-</div>
 
 {% else %}
   {# variable error handling #}

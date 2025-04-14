@@ -193,7 +193,7 @@ body {
 }
 
 .c-content-interactive-secondary {
-  color: var(--dark-gray);
+  color: var(--black);
 }
 
 .c-content-interactive-secondary:hover,
@@ -637,7 +637,7 @@ p {
 }
 
 a {
-  color: var(--dark-gray);
+  color: var(--black);
   text-decoration: underline;
   transition: all 0.5s;
 }

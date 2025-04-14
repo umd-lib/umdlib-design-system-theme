@@ -27,6 +27,10 @@
   border-left: 2px solid var(--maryland-red);
 }
 
+.hero--minimal .hero--content .hero--headline:last-child {
+  margin-bottom: 0rem !important;
+}
+
 /* breakpoint */
 /* Tablet */
 @media (min-width: 768px) {

@@ -61,36 +61,36 @@ body {
 /* typography */
 .t-display {
   font-family: "Barlow Condensed";
-  font-size: 5rem;
+  font-size: 3rem;
   font-style: italic;
   font-weight: 700;
-  line-height: 4.55rem; /* 91% */
-  letter-spacing: 0.1rem;
+  line-height: 2.73rem; /* 91% */
+  letter-spacing: 0.06rem;
   text-transform: uppercase;
 }
 
 .t-headline {
   font-family: Interstate;
-  font-size: 3rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 3.12rem; /* 104% */
-}
-
-.t-title-large {
-  font-family: Interstate;
-  font-size: 2rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 2.25rem; /* 112.5% */
-}
-
-.t-title-medium {
-  font-family: Interstate;
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 700;
   line-height: 1.875rem; /* 125% */
+}
+
+.t-title-large {
+  font-family: Interstate;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.40625rem; /* 112.5% */
+}
+
+.t-title-medium {
+  font-family: Interstate;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.40625rem; /* 125% */
 }
 
 .t-title-small {
@@ -103,18 +103,18 @@ body {
 
 .t-body-large {
   font-family: Interstate;
-  font-size: 1.5rem;
+  font-size: 1.125rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 1.875rem; /* 125% */
+  line-height: 1.40625rem; /* 125% */
 }
 
 .t-body-medium {
   font-family: Interstate;
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 1.74375rem; /* 155% */
+  line-height: 1.375rem; /* 137.5% */
 }
 
 .t-body-small {
@@ -540,6 +540,99 @@ body {
 
 /* Desktop */
 @media (min-width: 1024px) {
+  /* typography */
+  .t-display {
+    font-family: "Barlow Condensed";
+    font-size: 5rem;
+    font-style: italic;
+    font-weight: 700;
+    line-height: 4.55rem; /* 91% */
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+  }
+
+  .t-headline {
+    font-family: Interstate;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 3.12rem; /* 104% */
+  }
+
+  .t-title-large {
+    font-family: Interstate;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 2.25rem; /* 112.5% */
+  }
+
+  .t-title-medium {
+    font-family: Interstate;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.875rem; /* 125% */
+  }
+
+  .t-title-small {
+    font-family: Interstate;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.40625rem; /* 125% */
+  }
+
+  .t-body-large {
+    font-family: Interstate;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.875rem; /* 125% */
+  }
+
+  .t-body-medium {
+    font-family: Interstate;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.74375rem; /* 155% */
+  }
+
+  .t-body-small {
+    font-family: Interstate;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.375rem; /* 137.5% */
+  }
+
+  .t-interactive {
+    font-family: Interstate;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.40625rem; /* 125% */
+  }
+
+  .t-label {
+    font-family: Interstate;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.12rem; /* 128% */
+  }
+
+  .t-eyebrow {
+    font-family: Interstate;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 0.75rem; /* 100% */
+    text-transform: uppercase;
+  }
+
+  /* spacing */
   .s-box-default-v {
     padding-top: 2rem;
     padding-bottom: 2rem;

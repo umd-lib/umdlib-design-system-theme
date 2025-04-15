@@ -14,7 +14,7 @@
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 
-  border-top: 2px solid var(--lighest-gray);
+  border-top: 0.125rem solid var(--lighest-gray);
 
   transition: all 0.3s ease-in-out;
 

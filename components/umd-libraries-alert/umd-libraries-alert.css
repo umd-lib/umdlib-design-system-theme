@@ -1,11 +1,11 @@
 .alert--site_wide {
   background-color: var(--maryland-yellow);
 
-  border-left: 8px solid var(--maryland-red);
+  border-left: 0.5rem solid var(--maryland-red);
 }
 
 .alert--in_page .alert--content {
-  border: 4px solid var(--maryland-yellow);
+  border: 0.25rem solid var(--maryland-yellow);
 }
 
 .alert--content {

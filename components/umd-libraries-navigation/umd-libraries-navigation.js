@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // mobile scroll location
+  let savedScrollPosition = 0;
+
   // Menu Toggle
   document
     .querySelectorAll(".navigation__menu-button")
@@ -22,6 +25,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
           if (navigationRows) {
             navigationRows.classList.toggle("is-open");
+            document.body.style.overflow =
+              document.body.style.overflow === "hidden" ? "auto" : "hidden";
           }
 
           navigationSubmenu.forEach(function (submenu) {
@@ -51,9 +56,13 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
         const targetSubmenu = document.getElementById(elementID);
+        const navigationRows = document.querySelector(".navigation__rows");
 
         if (targetSubmenu) {
           targetSubmenu.classList.toggle("is-active");
+          navigationRows.classList.toggle("submenu-open");
+          savedScrollPosition = navigationRows.scrollTop;
+          navigationRows.scrollTop = 0;
         }
       });
     });
@@ -67,10 +76,13 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       button.addEventListener("click", function () {
+        const navigationRows = document.querySelector(".navigation__rows");
         const navigationSubmenu = document.querySelectorAll(
           ".navigation__submenu"
         );
-
+        navigationRows.classList.toggle("submenu-open");
+        navigationRows.scrollTop = savedScrollPosition;
+        savedScrollPosition = 0;
         navigationSubmenu.forEach(function (submenu) {
           submenu.classList.remove("is-active");
         });

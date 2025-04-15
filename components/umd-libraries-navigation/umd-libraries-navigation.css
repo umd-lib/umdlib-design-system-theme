@@ -141,15 +141,15 @@
 /* Navigation rows and menu items */
 .navigation__rows {
   width: 100%;
-  height: calc(100vh - 96px - 44px);
+  height: calc(100vh - 96px - 56px);
 
   padding: 1.5rem;
 
-  position: absolute;
+  position: fixed;
   /* dropdown position */
   top: calc(
-    96px + 44px
-  ); /* 96px for navigation height, 44px for the umd school width branding */
+    96px + 56px
+  ); /* 96px for navigation height, 56px for the umd school width branding */
   left: 0;
 
   transform: translateX(-100%);
@@ -160,11 +160,15 @@
 
   overflow: hidden;
   overflow-y: auto;
-  z-index: 5;
+  z-index: 998;
 }
 
 .navigation__rows.is-open {
   transform: translateX(0);
+}
+
+.navigation__rows.is-open.submenu-open {
+  overflow-y: hidden;
 }
 
 /* Menu items - Main & Secondary */
@@ -232,7 +236,7 @@
   padding: 1.5rem;
 
   display: none;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
 
@@ -241,7 +245,7 @@
   background-color: var(--white);
 
   overflow-y: auto;
-  z-index: 10;
+  z-index: 999;
 }
 
 /* submenu animation */
@@ -253,6 +257,10 @@
 .navigation__dropdown.is-open.is-active {
   transform: translateX(0);
   overflow: hidden;
+}
+
+.navigation__submenu.is-open.is-active {
+  overflow-y: auto;
 }
 
 .navigation__submenu-content {
@@ -384,6 +392,18 @@
 }
 
 /* custom breakpoint for navigation */
+/* for UMD Universal Header height change */
+@media (min-width: 1100px) {
+  /* Navigation rows and menu items */
+  .navigation__rows {
+    height: calc(100vh - 96px - 44px);
+    /* dropdown position */
+    top: calc(
+      96px + 44px
+    ); /* 96px for navigation height, 44px for the umd school width branding */
+  }
+}
+
 /* show all links */
 @media (min-width: 1240px) {
   /* hide menu icon */
@@ -465,6 +485,7 @@
   }
 
   .navigation__secmenu-list {
+    height: 17px;
     gap: 1rem;
   }
 
@@ -553,6 +574,7 @@
     padding-bottom: 0rem;
 
     display: none;
+    position: absolute;
     top: 100%;
     left: 50%;
     transform: translateX(-50%);

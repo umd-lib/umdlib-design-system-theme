@@ -384,6 +384,11 @@
   background-color: var(--lighest-gray);
 }
 
+.navigation__utility_locations-hours p,
+.navigation__utility_system-status p {
+  padding: initial;
+}
+
 @media (min-width: 768px) {
   .navigation__utility_branch-item {
     flex-direction: row;

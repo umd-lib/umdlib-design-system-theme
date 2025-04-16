@@ -66,17 +66,14 @@ div.layout-builder__section .layout-builder__add-block {
 
 /* section vertical spacing */
 .umd-lib-layout.layout--custom.vertical-spacing-default {
-  margin-top: 2rem;
   margin-bottom: 2rem;
 }
 
 .umd-lib-layout.layout--custom.vertical-spacing-small {
-  margin-top: 1rem;
   margin-bottom: 1rem;
 }
 
 .umd-lib-layout.layout--custom.vertical-spacing-large {
-  margin-top: 3.5rem;
   margin-bottom: 3.5rem;
 }
 
@@ -115,7 +112,6 @@ div.layout-builder__section .layout-builder__add-block {
   flex-direction: column;
 }
 
-.umd-lib-layout.layout--custom .main-column .col-child > div,
 .umd-lib-layout.layout--custom .sidebar-navigation > div {
   margin-bottom: 1.5rem;
 }
@@ -126,16 +122,22 @@ div.layout-builder__section .layout-builder__add-block {
 }
 
 /* block spacing */
-.row.vertical-default {
+.row.vertical-default > div.col-child > div {
   margin-bottom: 2rem;
 }
 
-.row.vertical-small {
+.row.vertical-small > div.col-child > div {
   margin-bottom: 2rem;
 }
 
-.row.vertical-large {
+.row.vertical-large > div.col-child > div {
   margin-bottom: 3.5rem;
+}
+
+.row.vertical-default > div.col-child > div:last-child,
+.row.vertical-small > div.col-child > div:last-child,
+.row.vertical-large > div.col-child > div:last-child {
+  margin-bottom: 0 !important;
 }
 
 /* breakpoint */
@@ -158,33 +160,30 @@ div.layout-builder__section .layout-builder__add-block {
     gap: 1.5rem;
   }
 
-  /* block spacing */
-  .row.vertical-default {
-    margin-bottom: 2.5rem;
-  }
-
-  .row.vertical-small {
-    margin-bottom: 2rem;
-  }
-
-  .row.vertical-large {
-    margin-bottom: 3.5rem;
-  }
-
   /* section vertical spacing */
   .umd-lib-layout.layout--custom.vertical-spacing-default {
-    margin-top: 3.5rem;
     margin-bottom: 3.5rem;
   }
 
   .umd-lib-layout.layout--custom.vertical-spacing-small {
-    margin-top: 2.5rem;
     margin-bottom: 2.5rem;
   }
 
   .umd-lib-layout.layout--custom.vertical-spacing-large {
-    margin-top: 5rem;
     margin-bottom: 5rem;
+  }
+
+  /* block spacing */
+  .row.vertical-default > div.col-child > div {
+    margin-bottom: 2.5rem;
+  }
+
+  .row.vertical-small > div.col-child > div {
+    margin-bottom: 2rem;
+  }
+
+  .row.vertical-large > div.col-child > div {
+    margin-bottom: 3.5rem;
   }
 }
 
@@ -229,30 +228,27 @@ div.layout-builder__section .layout-builder__add-block {
 
   /* section vertical spacing */
   .umd-lib-layout.layout--custom.vertical-spacing-default {
-    margin-top: 5rem;
     margin-bottom: 5rem;
   }
 
   .umd-lib-layout.layout--custom.vertical-spacing-small {
-    margin-top: 3rem;
     margin-bottom: 3rem;
   }
 
   .umd-lib-layout.layout--custom.vertical-spacing-large {
-    margin-top: 7.5rem;
     margin-bottom: 7.5rem;
   }
 
   /* block spacing */
-  .row.vertical-default {
+  .row.vertical-default > div.col-child > div {
     margin-bottom: 3rem;
   }
 
-  .row.vertical-small {
+  .row.vertical-small > div.col-child > div {
     margin-bottom: 2rem;
   }
 
-  .row.vertical-large {
+  .row.vertical-large > div.col-child > div {
     margin-bottom: 5rem;
   }
 }

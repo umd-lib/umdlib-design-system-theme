@@ -145,8 +145,8 @@ div.layout-builder__section .layout-builder__add-block {
 @media (min-width: 768px) {
   .umd-lib-layout.layout--custom .sidebar-navigation {
     display: initial;
-    max-width: 15rem;
-    min-width: 15rem;
+    max-width: 17.5rem;
+    min-width: 17.5rem;
   }
 
   /* original column */

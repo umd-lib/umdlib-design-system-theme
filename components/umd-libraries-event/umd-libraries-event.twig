@@ -28,7 +28,7 @@
         <div class="event--information s-inline-small">
           <div class="event--content">
             <div class="event--meta">
-              {% if month is defined and day is defined %}
+              {% if event_date is defined %}
                 <div class="event--date t-label s-inline-small">
                   <span class="visually-hidden">Event Date:</span> 
                   <span class="event--icon">
@@ -36,10 +36,8 @@
                       <path fill-rule="evenodd" clip-rule="evenodd" d="M2.48302 0.5H4.4695V2.16667H11.7533V0.5H13.7398V2.16667H14.8986V4.83333H1.15869V2.16667H2.48302V0.5ZM14.8986 5.83333H1.15869V14.6667H14.8986V5.83333Z" fill="#454545"/>
                     </svg>
                   </span>
-                  {{ month }} {{ day }}
+                  {{ event_date|date('m d') }}
                 </div>
-              {% endif %}
-              {% if hour is defined %}
                 <div class="event--time t-label s-inline-small">
                   <span class="visually-hidden">Event Time:</span> 
                   <span class="event--icon">
@@ -54,7 +52,7 @@
                       </defs>
                     </svg>
                   </span>
-                  {{ hour }}
+                  {{ event_date|date('H') }}
                 </div>
               {% endif %}
               {% if location is defined %}
@@ -97,11 +95,8 @@
   {% if title is not defined %}
     {% set errors = errors | merge(['Title']) %}
   {% endif %}
-  {% if month is not defined %}
-    {% set errors = errors | merge(['Month']) %}
-  {% endif %}
-  {% if day is not defined %}
-    {% set errors = errors | merge(['Day']) %}
+  {% if event_date is not defined %}
+    {% set errors = errors | merge(['Event Date']) %}
   {% endif %}
 
   {% if link is not defined %}

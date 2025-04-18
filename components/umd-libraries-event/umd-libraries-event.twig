@@ -6,9 +6,7 @@
  * Available variables:
  * - title: The event title.
  * - description: The description of the event.
- * - month: The month of the event.
- * - day: The day of the event.
- * - hour: The hour of the event.
+ * - event_date: The date of the event.
  * - location: The location of the event.
  * - link: The link to event page.
  * - image: The URL of the event image.
@@ -16,11 +14,15 @@
 */
 #}
 
-{% if title is defined and month is defined and day is defined and link is defined %}
+{% if title is defined and event_date is defined %}
   <div class="event s-box-small-v">
     <div class="event--sign s-inline-default" aria-hidden="true">
-      <div class="event--month c-content-primary t-body-small t-interactive-sub t-uppercase">{{ month }}</div>
-      <div class="event--day c-content-primary t-title-large">{{ day }}</div>
+      <div class="event--month c-content-primary t-body-small t-interactive-sub t-uppercase">
+        {{ event_date|date('m') }}
+      </div>
+      <div class="event--day c-content-primary t-title-large">
+        {{ event_date|date('d') }}
+      </div>
     </div>
     <div class="event--details">
       <h2 class="event--title c-content-primary t-title-medium">{{ title }}</h2>
@@ -28,7 +30,7 @@
         <div class="event--information s-inline-small">
           <div class="event--content">
             <div class="event--meta">
-              {% if month is defined and day is defined %}
+              {% if event_date is defined %}
                 <div class="event--date t-label s-inline-small">
                   <span class="visually-hidden">Event Date:</span> 
                   <span class="event--icon">
@@ -36,10 +38,8 @@
                       <path fill-rule="evenodd" clip-rule="evenodd" d="M2.48302 0.5H4.4695V2.16667H11.7533V0.5H13.7398V2.16667H14.8986V4.83333H1.15869V2.16667H2.48302V0.5ZM14.8986 5.83333H1.15869V14.6667H14.8986V5.83333Z" fill="#454545"/>
                     </svg>
                   </span>
-                  {{ month }} {{ day }}
+                  {{ event_date|date('m d') }}
                 </div>
-              {% endif %}
-              {% if hour is defined %}
                 <div class="event--time t-label s-inline-small">
                   <span class="visually-hidden">Event Time:</span> 
                   <span class="event--icon">
@@ -54,7 +54,7 @@
                       </defs>
                     </svg>
                   </span>
-                  {{ hour }}
+                  {{ event_date|date('H') }}
                 </div>
               {% endif %}
               {% if location is defined %}
@@ -97,11 +97,8 @@
   {% if title is not defined %}
     {% set errors = errors | merge(['Title']) %}
   {% endif %}
-  {% if month is not defined %}
-    {% set errors = errors | merge(['Month']) %}
-  {% endif %}
-  {% if day is not defined %}
-    {% set errors = errors | merge(['Day']) %}
+  {% if event_date is not defined %}
+    {% set errors = errors | merge(['Event Date']) %}
   {% endif %}
 
   {% if link is not defined %}

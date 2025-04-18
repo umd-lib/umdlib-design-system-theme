@@ -6,9 +6,7 @@
  * Available variables:
  * - title: The event title.
  * - description: The description of the event.
- * - month: The month of the event.
- * - day: The day of the event.
- * - hour: The hour of the event.
+ * - event_date: The date of the event.
  * - location: The location of the event.
  * - link: The link to event page.
  * - image: The URL of the event image.
@@ -16,11 +14,15 @@
 */
 #}
 
-{% if title is defined and month is defined and day is defined and link is defined %}
+{% if title is defined and event_date is defined %}
   <div class="event s-box-small-v">
     <div class="event--sign s-inline-default" aria-hidden="true">
-      <div class="event--month c-content-primary t-body-small t-interactive-sub t-uppercase">{{ month }}</div>
-      <div class="event--day c-content-primary t-title-large">{{ day }}</div>
+      <div class="event--month c-content-primary t-body-small t-interactive-sub t-uppercase">
+        {{ event_date|date('m') }}
+      </div>
+      <div class="event--day c-content-primary t-title-large">
+        {{ event_date|date('d') }}
+      </div>
     </div>
     <div class="event--details">
       <h2 class="event--title c-content-primary t-title-medium">{{ title }}</h2>

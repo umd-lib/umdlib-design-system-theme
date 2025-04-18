@@ -4,17 +4,17 @@
   * UMD Libraries Accordions component.
   *
   * Variables:
-  * - accrodin_child_slot: The slot for the child content.
+  * - accordion_child_slot: The slot for the child content.
   */
  #}
 
-{% if accrodin_child_slot is defined %}
-  <div class="accrodion--container">
-    {% block accrodin_child_slot %} {% endblock %}
+{% if accordion_child_slot is defined %}
+  <div class="accordion--container">
+    {% block accordion_child_slot %} {% endblock %}
   </div>
 {% else %}
   {# variable error handling #}
-  {% if accrodin_child_slot is not defined %}
+  {% if accordion_child_slot is not defined %}
     <div class="c-content-interactive-primary c-bg-interactive-primary s-box-small-h"> [ERROR] - UMD Libraries Accordions</div>
     <div class="s-box-small-h"> Required fields missing: <strong>Accordion (UMD Libraries Accordion)</strong></div>
   {% endif %}

@@ -140,6 +140,30 @@ div.layout-builder__section .layout-builder__add-block {
   margin-bottom: 0 !important;
 }
 
+/* block spacing - card group */
+.card-group.vertical-default {
+  margin-bottom: 2rem;
+}
+
+.card-group.vertical-small {
+  margin-bottom: 2rem;
+}
+
+.card-group.vertical-large {
+  margin-bottom: 3.5rem;
+}
+
+/* horizontal */
+.umd-lib-layout.layout--custom .main-column .card-group.horizontal-none {
+  gap: 0rem;
+}
+
+.card-group.vertical-default:last-child,
+.card-group.vertical-small:last-child,
+.card-group.vertical-large:last-child {
+  margin-bottom: 0 !important;
+}
+
 /* breakpoint */
 /* Tablet */
 @media (min-width: 768px) {
@@ -208,21 +232,49 @@ div.layout-builder__section .layout-builder__add-block {
   .umd-lib-layout.layout--custom .main-column .card-group.layout--2-column {
     grid-template-columns: repeat(
       auto-fit,
-      minmax(min(100%, calc((100% - 1.5rem) / 3)), 1fr)
+      minmax(min(100%, calc((100% - 1.5rem) / 2)), 1fr)
     );
   }
 
   .umd-lib-layout.layout--custom .main-column .card-group.layout--3-column {
     grid-template-columns: repeat(
       auto-fit,
-      minmax(min(100%, calc((100% - 3rem) / 4)), 1fr)
+      minmax(min(100%, calc((100% - 3rem) / 3)), 1fr)
     );
   }
 
   .umd-lib-layout.layout--custom .main-column .card-group.layout--4-column {
     grid-template-columns: repeat(
       auto-fit,
-      minmax(min(100%, calc((100% - 4.5rem) / 5)), 1fr)
+      minmax(min(100%, calc((100% - 4.5rem) / 4)), 1fr)
+    );
+  }
+
+  /* horizontal spacing none */
+  .umd-lib-layout.layout--custom
+    .main-column
+    .card-group.layout--2-column.horizontal-none {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, calc((100%) / 2)), 1fr)
+    );
+  }
+
+  .umd-lib-layout.layout--custom
+    .main-column
+    .card-group.layout--3-column.horizontal-none {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, calc((100%) / 3)), 1fr)
+    );
+  }
+
+  .umd-lib-layout.layout--custom
+    .main-column
+    .card-group.layout--4-column.horizontal-none {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, calc((100%) / 4)), 1fr)
     );
   }
 

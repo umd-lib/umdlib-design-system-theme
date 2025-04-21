@@ -49,6 +49,10 @@ props:
     button_link:
       type: string
       title: Button Link
+    icon_name:
+      type: string
+      title: Icon Name
+      description: Name of the icon to display in the card (only for icon variant), please refer to Lucide icons documentation for available icons.
 
 slots:
   description_slot:

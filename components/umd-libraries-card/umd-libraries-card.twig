@@ -18,6 +18,7 @@
  * - card_date: The date of the card
  * - button_text: The text to display on the button
  * - button_link: The URL the button links to
+ * - icon_name: The name of the icon to display (for icon variant)
  */
 #}
 
@@ -29,31 +30,40 @@
 {% set overlayRequirements = (selectedVariant == 'overlay' and card_title is defined and card_url is defined) %}
 {% set iconRequirements = (selectedVariant == 'icon' and card_title is defined and card_url is defined) %}
 
-{% if (selectedVariant == 'standard' and standardRequirements) 
-   or (selectedVariant == 'overlay' and overlayRequirements) 
-   or (selectedVariant == 'icon' and iconRequirements) %}
-  
+{% set validVariant = (selectedVariant == 'standard' and standardRequirements) 
+                    or (selectedVariant == 'overlay' and overlayRequirements) 
+                    or (selectedVariant == 'icon' and iconRequirements) %}
+
+{% if validVariant %}
+  {# Common variables based on variant #}
+  {% set bgClass = selectedVariant == 'standard' ? 'c-bg-primary' : 'c-bg-secondary' %}
+  {% set hasEyebrow = (selectedVariant == 'standard' or selectedVariant == 'overlay') and eyebrow is defined and eyebrow is not empty %}
+  {% set hasDate = (selectedVariant == 'standard' or selectedVariant == 'overlay') and card_date is defined and card_date is not empty %}
+  {% set hasButton = (selectedVariant == 'standard' or selectedVariant == 'overlay') and button_text is defined and button_text is not empty %}
+  {% set contentPadding = (selectedVariant == 'overlay' or selectedVariant == 'icon') ? 's-box-small-h' : '' %}
+
   <div role="contentinfo"
-       class="umd-lib-card card--{{ selectedVariant }} {% if selectedVariant == 'standard' %}c-bg-primary{% else %}c-bg-secondary{% endif %} c-content-primary"
+       class="umd-lib-card card--{{ selectedVariant }} {{ bgClass }} c-content-primary"
        aria-label="{{ card_title }}">
     
-    {# Image only displayed for standard variant #}
+    {# Image for standard variant #}
     {% if selectedVariant == 'standard' and card_image %}
       <div class="card--image">
-        <img alt="{{ card_image_alt }}"
-             src="{{ card_image }}"
-             loading="lazy">
+        <img alt="{{ card_image_alt }}" src="{{ card_image }}" loading="lazy">
       </div>
     {% endif %}
     
-    <div class="card--content s-box-small-v {% if selectedVariant == 'overlay' %}s-box-small-h{% endif %}">
+    <div class="card--content s-box-small-v {{ contentPadding }}">
+      {# Icon variant has a specific content wrapper #}
+      {% if selectedVariant == 'icon' %}<div class="card--content-text">{% endif %}
+      
       <div class="card--title">
-        {% if eyebrow is defined and eyebrow is not empty %}
-          <p class="card--eyebrow t-eyebrow s-stack-small">
-            {{ eyebrow }}
-          </p>
+        {# Eyebrow text #}
+        {% if hasEyebrow %}
+          <p class="card--eyebrow t-eyebrow s-stack-small">{{ eyebrow }}</p>
         {% endif %}
         
+        {# Headline with link - present in all variants #}
         <h3 class="card--headline s-stack-small t-title-medium">
           <a href="{{ card_url }}" {{ app.request.get('_route') == card_url ? 'aria-current="page"' }}>
             {{ card_title }}
@@ -62,13 +72,15 @@
       </div>
       
       <div class="card--details">
+        {# Description slot - present in all variants #}
         {% if description_slot is defined and description_slot is not empty %}
           <div class="card--text t-body-small c-content-secondary s-stack-small">
             {{ description_slot }}
           </div>
         {% endif %}
-        
-        {% if card_date is defined and card_date is not empty %}
+
+        {# Date display #}
+        {% if hasDate %}
           <div class="card--date t-label c-content-tertiary s-stack-large">
             <time datetime="{{ card_date|date('Y-m-d') }}" itemprop="datePublished">
               {{ card_date|date('F d, Y') }}
@@ -77,7 +89,18 @@
         {% endif %}
       </div>
       
-      {% if button_text is defined and button_text is not empty %}
+      {# Close content-text div for icon variant #}
+      {% if selectedVariant == 'icon' %}</div>{% endif %}
+      
+      {# Icon display for icon variant #}
+      {% if selectedVariant == 'icon' %}
+        <div class="card--content-icon">
+          <i data-lucide={{ icon_name }} class="card--icon-lucide"></i>
+        </div>
+      {% endif %}
+      
+      {# Button for standard and overlay variants #}
+      {% if hasButton %}
         {% include 'umdlib_umdds:umd-libraries-button' with {
           'variant': 'secondary',
           'button_text': button_text,

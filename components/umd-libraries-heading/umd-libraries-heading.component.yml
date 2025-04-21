@@ -5,6 +5,8 @@ label: Heading
 group: UMD Libraries
 
 variants:
+  h1:
+    title: Heading H1
   h2:
     title: Heading H2
   h3:
@@ -20,6 +22,7 @@ props:
       title: Heading Varaint
       description: Choose the heading variant
       enum:
+        - h1
         - h2
         - h3
         - h4

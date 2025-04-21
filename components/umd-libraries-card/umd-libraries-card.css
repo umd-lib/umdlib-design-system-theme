@@ -1,3 +1,7 @@
+.umd-lib-card {
+  height: 100%;
+}
+
 .card--image img {
   aspect-ratio: 5/4;
   object-fit: cover;
@@ -7,6 +11,8 @@
 }
 
 .card--content {
+  height: 100%;
+
   flex-grow: 1;
 
   display: flex;
@@ -26,6 +32,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.card--content-text {
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  .card--details {
+    margin-bottom: 0rem;
+  }
 }
 
 .card--icon-lucide {

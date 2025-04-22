@@ -1,6 +1,6 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 
-name: UMD Libraries Tabs
+name: UMD Lib Tab Main
 replaces: umdds:umd-element-tabs
 label: Tab
 group: UMD Libraries

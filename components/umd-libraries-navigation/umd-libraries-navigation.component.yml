@@ -1,6 +1,6 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 
-name: UMD Libraries Navigation
+name: UMD Lib Navigation
 replaces: umdds:umd-element-navigation-header
 label: Navigation
 group: UMD Libraries

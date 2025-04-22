@@ -1,7 +1,7 @@
-name: UMD Libraries Design System Theme
+name: UMD Libraries Theme
 type: theme
 version: 1.0.0
-description: UMD Libraries Design System Theme is an opinionated adaptation of the UMD Design System, tailored specifically for the UMD Libraries.
+description: UMD Libraries Theme is an opinionated adaptation of the UMD Design System, tailored specifically for the UMD Libraries.
 base theme: umdds
 core_version_requirement: ^11
 libraries:

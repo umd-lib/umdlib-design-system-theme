@@ -1,11 +1,11 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 
-name: UMD Libraries Accordions
+name: UMD Lib Accordion Main
 replaces: umdds:umd-element-accordion
 label: Accordion
 group: UMD Libraries
 
 slots:
   accordion_child_slot:
-    title: Accordion (UMD Libraries Accordion)
+    title: Accordion Child (UMD Libraries Accordion)
     description: Slot for the UMD Libraries Accordion component.

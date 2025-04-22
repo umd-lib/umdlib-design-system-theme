@@ -1,6 +1,6 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 
-name: UMD Libraries Heading
+name: UMD Lib Heading
 label: Heading
 group: UMD Libraries
 

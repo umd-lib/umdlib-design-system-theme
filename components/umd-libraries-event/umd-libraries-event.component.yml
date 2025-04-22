@@ -1,6 +1,6 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 
-name: UMD Libraries Event
+name: UMD Lib Event
 replaces: umdds:umd-element-event
 label: Event
 group: UMD Libraries

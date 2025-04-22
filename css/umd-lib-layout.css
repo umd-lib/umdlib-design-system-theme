@@ -145,21 +145,21 @@ div.layout-builder__section .layout-builder__add-block {
 }
 
 /* block spacing */
-.row.vertical-default > div.col-child > div {
+.row.vertical-default > div.col-child > div > div {
   margin-bottom: 2rem;
 }
 
-.row.vertical-small > div.col-child > div {
+.row.vertical-small > div.col-child > div > div {
   margin-bottom: 2rem;
 }
 
-.row.vertical-large > div.col-child > div {
+.row.vertical-large > div.col-child > div > div {
   margin-bottom: 3.5rem;
 }
 
-.row.vertical-default > div.col-child > div:last-child,
-.row.vertical-small > div.col-child > div:last-child,
-.row.vertical-large > div.col-child > div:last-child {
+.row.vertical-default > div.col-child > div > div:last-child,
+.row.vertical-small > div.col-child > div > div:last-child,
+.row.vertical-large > div.col-child > div > div:last-child {
   margin-bottom: 0 !important;
 }
 
@@ -258,15 +258,15 @@ div.layout-builder__section .layout-builder__add-block {
   }
 
   /* block spacing */
-  .row.vertical-default > div.col-child > div {
+  .row.vertical-default > div.col-child > div > div {
     margin-bottom: 2.5rem;
   }
 
-  .row.vertical-small > div.col-child > div {
+  .row.vertical-small > div.col-child > div > div {
     margin-bottom: 2rem;
   }
 
-  .row.vertical-large > div.col-child > div {
+  .row.vertical-large > div.col-child > div > div {
     margin-bottom: 3.5rem;
   }
 }
@@ -343,15 +343,15 @@ div.layout-builder__section .layout-builder__add-block {
   }
 
   /* block spacing */
-  .row.vertical-default > div.col-child > div {
+  .row.vertical-default > div.col-child > div > div {
     margin-bottom: 3rem;
   }
 
-  .row.vertical-small > div.col-child > div {
+  .row.vertical-small > div.col-child > div > div {
     margin-bottom: 2rem;
   }
 
-  .row.vertical-large > div.col-child > div {
+  .row.vertical-large > div.col-child > div > div {
     margin-bottom: 5rem;
   }
 }

@@ -43,7 +43,7 @@
     {% if show_sidebar_region %}
       <div class="sidebar-navigation s-inline-large" aria-hidden="{{ content.left_column is empty ? 'true' : 'false' }}">
           <div class="region-info" aria-hidden="true">Sidebar</div>
-          {{ content.left_column }}
+          <div {{ region_attributes.left_column.addClass('left_column') }}>{{ content.left_column }}</div>
       </div>
     {% endif %}
     <div class="main-column">
@@ -52,14 +52,16 @@
         <div class="{{ row_conf.card_group ? 'card-group' : '' }} row row--{{ i }} layout--{{ row_conf.cols }}-column horizontal-{{ row_conf.horizontal }} vertical-{{ row_conf.vertical }}">
           {% if row_conf.card_group %}
           {# render card group #}
+            {% set reg_key = 'main_' ~ i ~ '_card_group' %}
             <div class="region-info" aria-hidden="true">Card Group - {{ row_conf.cols }} column</div>
-            {{ attribute(content, 'main_' ~ i ~ '_card_group') }}
+            <div {{ region_attributes.(reg_key).addClass(reg_key) }}>{{ content.(reg_key) }}</div>
           {% else %}
           {# render column #}
             <div class="region-info" aria-hidden="true">{{ row_conf.cols }} column</div>
             {% for r in 1..row_conf.cols %}
+              {% set reg_key = 'main_' ~ i ~ '_' ~ r %}
               <div class="col column--{{ r }} col-child">
-                {{ attribute(content, 'main_' ~ i ~ '_' ~ r) }}
+                <div {{ region_attributes.(reg_key).addClass(reg_key) }}>{{ content.(reg_key) }}</div>
               </div>
             {% endfor %}
           {% endif %}

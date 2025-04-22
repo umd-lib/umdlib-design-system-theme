@@ -26,6 +26,10 @@
   position: absolute;
 }
 
+.preview .main-column .card-group .region-info {
+  top: 0rem;
+}
+
 /* reset layout for layout builder  */
 .layout-builder__layout.umd-lib-layout.layout--custom {
   margin-top: 1.5rem !important;
@@ -90,11 +94,27 @@ div.layout-builder__section .layout-builder__add-block {
   flex-direction: column;
 }
 
-/* original column */
-.umd-lib-layout.layout--custom .main-column .layout--1-column,
-.umd-lib-layout.layout--custom .main-column .layout--2-column,
-.umd-lib-layout.layout--custom .main-column .layout--3-column,
-.umd-lib-layout.layout--custom .main-column .layout--4-column {
+/* layout setup - column layout & card group */
+.umd-lib-layout.layout--custom .main-column .column.layout--1-column,
+.umd-lib-layout.layout--custom .main-column .column.layout--2-column,
+.umd-lib-layout.layout--custom .main-column .column.layout--3-column,
+.umd-lib-layout.layout--custom .main-column .column.layout--4-column,
+.umd-lib-layout.layout--custom
+  .main-column
+  .layout--1-column
+  .card-group-content,
+.umd-lib-layout.layout--custom
+  .main-column
+  .layout--2-column
+  .card-group-content,
+.umd-lib-layout.layout--custom
+  .main-column
+  .layout--3-column
+  .card-group-content,
+.umd-lib-layout.layout--custom
+  .main-column
+  .layout--4-column
+  .card-group-content {
   width: 100%;
 
   display: grid;
@@ -116,8 +136,11 @@ div.layout-builder__section .layout-builder__add-block {
   margin-bottom: 1.5rem;
 }
 
-/* card group */
-.umd-lib-layout.layout--custom .main-column .card-group.layout--1-column {
+/* layout - card group */
+.umd-lib-layout.layout--custom
+  .main-column
+  .card-group.layout--1-column
+  .card-group-content {
   grid-template-columns: 1fr;
 }
 
@@ -154,7 +177,10 @@ div.layout-builder__section .layout-builder__add-block {
 }
 
 /* horizontal */
-.umd-lib-layout.layout--custom .main-column .card-group.horizontal-none {
+.umd-lib-layout.layout--custom
+  .main-column
+  .card-group.horizontal-none
+  .card-group-content {
   gap: 0rem;
 }
 
@@ -173,15 +199,49 @@ div.layout-builder__section .layout-builder__add-block {
     min-width: 17.5rem;
   }
 
-  /* original column */
-  .umd-lib-layout.layout--custom .main-column .layout--2-column,
-  .umd-lib-layout.layout--custom .main-column .layout--3-column,
-  .umd-lib-layout.layout--custom .main-column .layout--4-column {
+  /* layout - column */
+  .umd-lib-layout.layout--custom .main-column .column.layout--2-column,
+  .umd-lib-layout.layout--custom .main-column .column.layout--3-column,
+  .umd-lib-layout.layout--custom .main-column .column.layout--4-column {
     width: 100%;
 
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
+  }
+
+  /* layout - card group */
+  .umd-lib-layout.layout--custom
+    .main-column
+    .card-group.layout--2-column
+    .card-group-content,
+  .umd-lib-layout.layout--custom
+    .main-column
+    .card-group.layout--3-column
+    .card-group-content,
+  .umd-lib-layout.layout--custom
+    .main-column
+    .card-group.layout--4-column
+    .card-group-content {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, calc((100% - 1.5rem) / 2)), 1fr)
+    );
+  }
+
+  .umd-lib-layout.layout--custom
+    .main-column
+    .card-group.layout--2-column.horizontal-none,
+  .umd-lib-layout.layout--custom
+    .main-column
+    .card-group.layout--3-column.horizontal-none,
+  .umd-lib-layout.layout--custom
+    .main-column
+    .card-group.layout--4-column.horizontal-none {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, calc((100%) / 2)), 1fr)
+    );
   }
 
   /* section vertical spacing */
@@ -213,56 +273,46 @@ div.layout-builder__section .layout-builder__add-block {
 
 /* Desktop */
 @media (min-width: 1024px) {
-  /* original column */
-  .umd-lib-layout.layout--custom .main-column .layout--3-column {
+  /* layout - column */
+  .umd-lib-layout.layout--custom .main-column .column.layout--3-column {
     width: 100%;
 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
   }
 
-  .umd-lib-layout.layout--custom .main-column .layout--4-column {
+  .umd-lib-layout.layout--custom .main-column .column.layout--4-column {
     width: 100%;
 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 
-  /* card group */
-  .umd-lib-layout.layout--custom .main-column .card-group.layout--2-column {
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(min(100%, calc((100% - 1.5rem) / 2)), 1fr)
-    );
-  }
-
-  .umd-lib-layout.layout--custom .main-column .card-group.layout--3-column {
+  /* layout - card group */
+  .umd-lib-layout.layout--custom
+    .main-column
+    .card-group.layout--3-column
+    .card-group-content {
     grid-template-columns: repeat(
       auto-fit,
       minmax(min(100%, calc((100% - 3rem) / 3)), 1fr)
     );
   }
 
-  .umd-lib-layout.layout--custom .main-column .card-group.layout--4-column {
+  .umd-lib-layout.layout--custom
+    .main-column
+    .card-group.layout--4-column
+    .card-group-content {
     grid-template-columns: repeat(
       auto-fit,
       minmax(min(100%, calc((100% - 4.5rem) / 4)), 1fr)
     );
   }
 
-  /* horizontal spacing none */
   .umd-lib-layout.layout--custom
     .main-column
-    .card-group.layout--2-column.horizontal-none {
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(min(100%, calc((100%) / 2)), 1fr)
-    );
-  }
-
-  .umd-lib-layout.layout--custom
-    .main-column
-    .card-group.layout--3-column.horizontal-none {
+    .card-group.layout--3-column.horizontal-none
+    .card-group-content {
     grid-template-columns: repeat(
       auto-fit,
       minmax(min(100%, calc((100%) / 3)), 1fr)
@@ -271,7 +321,8 @@ div.layout-builder__section .layout-builder__add-block {
 
   .umd-lib-layout.layout--custom
     .main-column
-    .card-group.layout--4-column.horizontal-none {
+    .card-group.layout--4-column.horizontal-none
+    .card-group-content {
     grid-template-columns: repeat(
       auto-fit,
       minmax(min(100%, calc((100%) / 4)), 1fr)

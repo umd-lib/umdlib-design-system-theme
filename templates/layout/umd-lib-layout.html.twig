@@ -49,12 +49,12 @@
     <div class="main-column">
       {% for i in 1..num_rows %}
         {% set row_conf = column_config['row_' ~ i] %}
-        <div class="{{ row_conf.card_group ? 'card-group' : '' }} row row--{{ i }} layout--{{ row_conf.cols }}-column horizontal-{{ row_conf.horizontal }} vertical-{{ row_conf.vertical }}">
+        <div class="{{ row_conf.card_group ? 'card-group' : 'column' }} row row--{{ i }} layout--{{ row_conf.cols }}-column horizontal-{{ row_conf.horizontal }} vertical-{{ row_conf.vertical }}">
           {% if row_conf.card_group %}
           {# render card group #}
             {% set reg_key = 'main_' ~ i ~ '_card_group' %}
             <div class="region-info" aria-hidden="true">Card Group - {{ row_conf.cols }} column</div>
-            <div {{ region_attributes.(reg_key).addClass(reg_key) }}>{{ content.(reg_key) }}</div>
+            <div {{ region_attributes.(reg_key).addClass(reg_key).addClass('card-group-content') }}>{{ content.(reg_key) }}</div>
           {% else %}
           {# render column #}
             <div class="region-info" aria-hidden="true">{{ row_conf.cols }} column</div>

@@ -1,4 +1,4 @@
-.accrodion--container {
+.accordion--container {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -61,4 +61,16 @@
 
 .accordion-child--headline[aria-expanded="true"]:after {
   transform: rotate(180deg);
+}
+/* accrodioin content */
+.accordion-child--body {
+  padding-top: 0rem !important;
+}
+
+.accordion-child--body > * {
+  margin-bottom: 1rem;
+}
+
+.accordion-child--body > *:last-child {
+  margin-bottom: 0;
 }

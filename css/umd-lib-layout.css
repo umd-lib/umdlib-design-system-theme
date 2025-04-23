@@ -145,6 +145,26 @@ div.layout-builder__section .layout-builder__add-block {
 }
 
 /* block spacing */
+/* between row */
+.row.vertical-default {
+  margin-bottom: 2rem;
+}
+
+.row.vertical-small {
+  margin-bottom: 2rem;
+}
+
+.row.vertical-large {
+  margin-bottom: 3.5rem;
+}
+
+.row.vertical-default:last-child,
+.row.vertical-small:last-child,
+.row.vertical-large:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* inside the row */
 .row.vertical-default > div.col-child > div > div {
   margin-bottom: 2rem;
 }
@@ -163,7 +183,7 @@ div.layout-builder__section .layout-builder__add-block {
   margin-bottom: 0 !important;
 }
 
-/* block spacing - card group */
+/* between card group */
 .card-group.vertical-default {
   margin-bottom: 2rem;
 }
@@ -258,6 +278,20 @@ div.layout-builder__section .layout-builder__add-block {
   }
 
   /* block spacing */
+  /* between row */
+  .row.vertical-default {
+    margin-bottom: 2.5rem;
+  }
+
+  .row.vertical-small {
+    margin-bottom: 2rem;
+  }
+
+  .row.vertical-large {
+    margin-bottom: 3.5rem;
+  }
+
+  /* inside the row */
   .row.vertical-default > div.col-child > div > div {
     margin-bottom: 2.5rem;
   }
@@ -267,6 +301,19 @@ div.layout-builder__section .layout-builder__add-block {
   }
 
   .row.vertical-large > div.col-child > div > div {
+    margin-bottom: 3.5rem;
+  }
+
+  /* between card group */
+  .card-group.vertical-default {
+    margin-bottom: 2.5rem;
+  }
+
+  .card-group.vertical-small {
+    margin-bottom: 2rem;
+  }
+
+  .card-group.vertical-large {
     margin-bottom: 3.5rem;
   }
 }
@@ -343,6 +390,20 @@ div.layout-builder__section .layout-builder__add-block {
   }
 
   /* block spacing */
+  /* between row */
+  .row.vertical-default {
+    margin-bottom: 3rem;
+  }
+
+  .row.vertical-small {
+    margin-bottom: 2rem;
+  }
+
+  .row.vertical-large {
+    margin-bottom: 5rem;
+  }
+
+  /* inside the row */
   .row.vertical-default > div.col-child > div > div {
     margin-bottom: 3rem;
   }
@@ -352,6 +413,19 @@ div.layout-builder__section .layout-builder__add-block {
   }
 
   .row.vertical-large > div.col-child > div > div {
+    margin-bottom: 5rem;
+  }
+
+  /* between card group */
+  .card-group.vertical-default {
+    margin-bottom: 3rem;
+  }
+
+  .card-group.vertical-small {
+    margin-bottom: 2rem;
+  }
+
+  .card-group.vertical-large {
     margin-bottom: 5rem;
   }
 }

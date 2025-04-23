@@ -1,5 +1,6 @@
 .list {
   border-bottom: solid 1px var(--light-gray);
+  padding-top: 0rem !important;
 }
 
 .list--title-section {

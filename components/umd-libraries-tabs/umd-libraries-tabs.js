@@ -100,6 +100,7 @@
     }
 
     function updateDecoPosition() {
+      const parentElement = triggerList;
       const activeTab = triggerList.querySelector(
         '.tab--trigger[aria-selected="true"]'
       );
@@ -110,7 +111,13 @@
 
         if (triggerLayout) {
           // Horizontal layout
-          decoLine.style.transform = `translateX(${rect.left}px)`;
+
+          // Adjust the deco line position based on this location to the parent element
+          const parentRect = parentElement.getBoundingClientRect();
+          const parentLeft = parentRect.left;
+          const positionLeft = rect.left - parentLeft;
+
+          decoLine.style.transform = `translateX(${positionLeft}px)`;
           decoLine.style.width = `${rect.width}px`;
           decoLine.style.height = "2px";
         } else {

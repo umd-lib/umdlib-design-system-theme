@@ -5,53 +5,77 @@
  *
  * Available variants:
  * - minimal
+ * - overlay
  *
  * Variables:
- * - theme: The theme of the hero
- * - eyebrow: The eyebrow of the hero
- * - hero_title: The title of the hero
+ * - variant: The variant of the hero component to use (default: 'minimal')
+ * - theme: The theme of the hero ('dark' or default)
+ * - eyebrow: The eyebrow text of the hero
+ * - hero_title: The title of the hero (required)
  * - description: The description of the hero
  * - hero_image: The URL of the hero image
  * - hero_image_alt: The alt text for the hero image
+ * - button_text: The text for the button (only for 'overlay' variant)
+ * - button_link: The URL for the button (only for 'overlay' variant)
  */
- #}
+#}
 
-{# Get the variant, defaulting to standard if not specified #}
-{% set selectedVariant = variant | default('minimal') %}
-
+{# Set default variant if not specified #}
+{% set variant = variant | default('minimal') %}
 
 {% if hero_title is defined %}
-  {% if theme == 'dark' %}
-    <div class="hero--minimal c-bg-primary c-content-primary dark-theme">
-  {% else %}
-    <div class="hero--minimal c-bg-secondary c-content-primary">
-  {% endif %}
+{# Determine theme class #}
+  {% set themeClass = theme == 'dark' ? 'c-bg-primary c-content-primary dark-theme' : 'c-bg-secondary c-content-primary' %}
+  
+  {# Main hero container #}
+  <div class="hero--{{ variant }} {{ themeClass }}">
+    {# Hero image section #}
     {% if hero_image %}
       <div class="hero--image">
-        <img alt="{{ hero_image_alt }}" src="{{ hero_image }}">
+        <img alt="{{ hero_image_alt|default('') }}" src="{{ hero_image }}">
       </div>
     {% endif %}
+    
+    {# Hero content container #}
     <div class="hero--container s-box-page-default-h s-box-page-default-v s-center">
-      <div class="hero--content s-box-large-h {% if not hero_image %}text-only{% endif %}">
-      {% if eyebrow %}
-        <p class="hero--eyebrow c-content-secondary t-eyebrow s-stack-small">
-          {{ eyebrow }}
-        </p>
-      {% endif %}
-      <h1 class="hero--headline t-display s-stack-default">
-        {{ hero_title }}
-      </h1>
-      {% if description %}
-        <p class="hero--description c-content-secondary t-body-medium">
-          {{ description }}
-        </p>
-      {% endif %}
+      <div class="hero--content {% if variant == 'minimal' %}s-box-large-h{% endif %} {% if not hero_image %}text-only{% endif %}">
+        {# Eyebrow text #}
+        {% if eyebrow %}
+          <p class="hero--eyebrow {% if variant == 'minimal' %}c-content-secondary{% endif %} t-eyebrow s-stack-small">
+            {{ eyebrow }}
+          </p>
+        {% endif %}
+        
+        {# Hero headline #}
+        <h1 class="hero--headline t-display s-stack-default">
+          {{ hero_title }}
+        </h1>
+        
+        {# Hero description #}
+        {% if description %}
+          <p class="hero--description c-content-secondary t-body-medium {% if variant == 'overlay' and button_link is defined and button_text is defined %}s-stack-default{% endif %}">
+            {{ description }}
+          </p>
+        {% endif %}
+        
+        {# Button for overlay variant #}
+        {% if variant == 'overlay' and button_link is defined and button_text is defined %}
+          {% include 'umdlib_umdds:umd-libraries-button' with {
+            'variant': 'primary',
+            'button_text': button_text,
+            'button_link': button_link
+          } only %}
+        {% endif %}
       </div>
     </div>
   </div>
 
 {% else %}
-  {# variable error handling #}
-  <div class="c-content-interactive-primary c-bg-interactive-primary s-box-small-h"> [ERROR] - UMD Libraries Hero / Variant - {{ selectedVariant }}</div>
-  <div class="s-box-small-h"> Required fields missing: <strong>Hero Title</strong></div>
+  {# Handle missing required field error #}
+  <div class="c-content-interactive-primary c-bg-interactive-primary s-box-small-h">
+    [ERROR] - UMD Libraries Hero / Variant - {{ variant }}
+  </div>
+  <div class="s-box-small-h">
+    Required fields missing: <strong>Hero Title</strong>
+  </div>  
 {% endif %}

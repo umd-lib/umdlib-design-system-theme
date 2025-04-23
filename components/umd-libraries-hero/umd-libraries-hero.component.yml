@@ -8,6 +8,8 @@ group: UMD Libraries
 variants:
   minimal:
     title: Minimal
+  overlay:
+    title: Overlay
 
 props:
   type: object
@@ -18,6 +20,7 @@ props:
       description: Choose the hero variant
       enum:
         - minimal
+        - overlay
     theme:
       type: string
       title: Theme (Light or Dark)
@@ -37,3 +40,9 @@ props:
     description:
       type: string
       title: Description
+    button_text:
+      type: string
+      title: Button Text
+    button_link:
+      type: string
+      title: Button URL

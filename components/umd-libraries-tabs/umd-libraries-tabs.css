@@ -46,3 +46,15 @@
 .tab--trigger-label {
   white-space: nowrap;
 }
+
+.tab--content h3 {
+  margin-bottom: 1rem;
+}
+
+.tab--panel-content > * {
+  margin-bottom: 1rem;
+}
+
+.tab--panel-content > *:last-child {
+  margin-bottom: 0;
+}

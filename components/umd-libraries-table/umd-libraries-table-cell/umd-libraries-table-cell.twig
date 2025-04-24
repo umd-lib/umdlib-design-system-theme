@@ -9,7 +9,7 @@
 #}
 
 {% if body_slot is defined %}
-  <td class="table--cell s-box-default-v s-box-default-h">
+  <td colspan="{{ column_span }}" class="table--cell s-box-small-v s-box-small-h wysiwyg-editor">
     {% block body_slot %}{% endblock %}
   </td>
 {% else %}

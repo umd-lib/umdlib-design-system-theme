@@ -12,7 +12,16 @@
   color: var(--white);
 }
 
+.table--body-row {
+  border-bottom: 1px solid var(--light-gray);
+}
+
 .table--body-row:hover,
 .table--body-row:focus {
   background-color: var(--lighest-gray);
+}
+
+.table--body-row .table--cell,
+.table--footer-row .table--cell {
+  vertical-align: top;
 }

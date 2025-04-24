@@ -4,6 +4,14 @@ name: UMD Lib Table Cell
 label: Table
 group: UMD Libraries
 
+props:
+  type: object
+  properties:
+    column_span:
+      type: string
+      title: Column Span
+      description: The number of columns this cell should span.
+
 slots:
   body_slot:
     title: Cell Content (WYSIWYG)

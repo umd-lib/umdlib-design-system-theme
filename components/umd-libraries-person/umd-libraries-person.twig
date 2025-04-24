@@ -133,7 +133,7 @@
 
     {# Bio description slot - only in bio variant #}
     {% if selectedVariant == 'bio' and bio_description_slot is defined %}
-      <div class="person--bio-description s-stack-default">
+      <div class="person--bio-description s-stack-default wysiwyg-editor">
         {% block bio_description_slot %}{% endblock %}
       </div>
     {% endif %}

@@ -225,6 +225,10 @@ body {
   background-color: var(--lighest-gray);
 }
 
+.c-bg-tertiary {
+  background-color: var(--lighter-gray);
+}
+
 .c-bg-dark-primary {
   background-color: var(--black);
 }
@@ -769,4 +773,65 @@ h6 a:hover,
 h6 a:focus {
   color: var(--black);
   background-size: 100% 2px;
+}
+
+.wysiwyg-editor {
+  > * {
+    margin-bottom: 1rem;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+
+  ul li {
+    padding-left: 2rem;
+    margin-bottom: 0.5rem;
+
+    position: relative;
+
+    counter-increment: item;
+  }
+
+  ul li:before {
+    font-weight: 700;
+
+    position: absolute;
+    right: calc(100% - 1rem);
+    top: 1px;
+
+    content: "•";
+  }
+
+  ol {
+    counter-reset: item;
+  }
+
+  ol li {
+    padding-left: 2rem;
+    margin-bottom: 0.5rem;
+
+    position: relative;
+
+    counter-increment: item;
+  }
+
+  ol li:before {
+    min-width: 1rem;
+    width: fit-content;
+
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+
+    position: absolute;
+    left: 0;
+
+    content: counter(item) ".";
+  }
+}
+
+/* remove wysiwyg inline style */
+.wysiwyg-editor [style] {
+  all: revert !important;
 }

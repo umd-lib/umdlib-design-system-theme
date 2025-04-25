@@ -1,0 +1,67 @@
+.quote--feature {
+  display: flex;
+  flex-direction: row;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.quote--icon {
+  margin-right: 1rem;
+
+  width: 1.5rem;
+  min-width: 1.5rem;
+  height: 1.5rem;
+
+  z-index: 2;
+}
+
+.quote--content {
+  z-index: 2;
+}
+
+.quote--text {
+  padding-left: 1rem;
+  border-left: 2px solid #e21833;
+}
+
+.quote--text:last-child {
+  margin-bottom: 0rem !important;
+}
+
+.quote--text p {
+  font-family: Interstate;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.40625rem; /* 125% */
+}
+
+.quote--author {
+  display: flex;
+  flex-direction: column;
+  margin-left: 18px;
+}
+
+.quote--background-1,
+.quote--background-2 {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media (min-width: 768px) {
+  .quote--icon {
+    width: 2.25rem;
+    min-width: 2.25rem;
+    height: 2.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .quote--text p {
+    font-size: 1.5rem;
+    line-height: 1.875rem; /* 125% */
+  }
+}

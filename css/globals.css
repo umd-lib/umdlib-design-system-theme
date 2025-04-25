@@ -358,6 +358,14 @@ body {
   background-repeat: no-repeat;
 }
 
+.i-quote {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='38' height='27' viewBox='0 0 38 27' fill='none'%3E%3Cpath d='M17.1991 0.510498L13.7011 14.3959V26.9376H0.583496V14.3959L10.1156 0.510498H17.1991ZM37.3127 0.510498L33.8146 14.3959V26.9376H20.6971V14.3959L30.3166 0.510498H37.3127Z' fill='%23E21833'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position-x: 2px;
+  background-position-y: 8px;
+  background-size: contain;
+}
+
 /* layout */
 .l-flex-row {
   display: flex;

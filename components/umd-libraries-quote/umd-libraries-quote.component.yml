@@ -1,0 +1,26 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: UMD Lib Quote
+label: Quote
+group: UMD Libraries
+
+props:
+  type: object
+  properties:
+    theme:
+      type: string
+      title: Theme (Light or Dark)
+      description: 'Enter "light" or "dark" to choose the theme for the hero section.'
+    name:
+      type: string
+      title: Name
+      description: The name of the person.
+    title:
+      type: string
+      title: Title
+      description: The title of the person.
+
+slots:
+  quote_text_slot:
+    title: Quote Text (WYSIWYG)
+    description: Slot for the quote text elements

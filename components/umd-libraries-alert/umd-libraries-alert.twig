@@ -17,11 +17,12 @@
 
 {# Get the variant, defaulting to standard if not specified #}
 {% set selectedVariant = variant | default('in_page') %}
+{% set button_variant = selectedVariant == 'site_wide' ? 'primary' : 'secondary' %}
 
 
 {% if title is defined %}
 <div class="alert alert--{{ selectedVariant }}">
-  <div class="alert--container s-box-page-default-h s-center s-page-lock">
+  <div class="alert--container {% if selectedVariant == 'site_wide' %}s-box-page-default-h s-center s-page-lock{% endif %}">
     <div class="alert--content s-box-default-h s-box-default-v">
       <div class"alert--title">
         <h2 class="t-title-small c-content-primary s-stack-small">
@@ -36,9 +37,9 @@
 
       {% if button_text is defined and button_link is defined %}
         {% include 'umdlib_umdds:umd-libraries-button' with {
-          'variant': 'primary',
-          'button_text': button_text,
-          'button_link': button_link,
+            'variant': button_variant,
+            'button_text': button_text,
+            'button_link': button_link,
         } only %}
       {% endif %}
       {% if selectedVariant == 'site_wide' %}

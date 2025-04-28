@@ -156,11 +156,11 @@ body {
 }
 
 .t-uppercase {
-  text-transform: uppercase;
+  text-transform: uppercase !important;
 }
 
 .t-italic {
-  font-style: italic;
+  font-style: italic !important;
 }
 
 /* color */

@@ -30,6 +30,8 @@
 }
 
 .quote--text p {
+  color: var(--black);
+
   font-family: Interstate;
   font-size: 1.125rem;
   font-style: normal;

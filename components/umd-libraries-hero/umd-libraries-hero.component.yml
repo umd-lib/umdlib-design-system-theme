@@ -37,12 +37,14 @@ props:
     hero_title:
       type: string
       title: Hero Title
-    description:
-      type: string
-      title: Description
     button_text:
       type: string
       title: Button Text
     button_link:
       type: string
       title: Button URL
+
+slots:
+  description_slot:
+    title: Description (WYSIWYG)
+    description: Slot intended for WYSIWYG editor content, should use Plain Text format

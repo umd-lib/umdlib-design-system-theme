@@ -26,9 +26,8 @@
     </a>
   {% elseif selectedVariant == 'secondary' %}
     <div class="btn--secondary">
-      <a href="{{ button_link }}" class="t-body-small t-interactive-sub c-content-primary c-underline-primary ani-underline l-flex-row">
-        <div class="i-chevron"></div>
-        {{ button_text }}
+      <a href="{{ button_link }}" class="btn--text t-body-small t-interactive-sub c-content-primary c-underline-primary ani-underline">
+        <span class="i-chevron"></span>{{ button_text }}
       </a>
     </div>
   {% endif %}

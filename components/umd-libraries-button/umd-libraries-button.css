@@ -18,6 +18,15 @@
   text-decoration: none;
 }
 
+.btn--secondary a span.i-chevron {
+  display: inline-block;
+
+  min-width: 1rem;
+  max-width: 1rem;
+
+  margin-right: 0.125rem;
+}
+
 .btn--secondary a:hover,
 .btn--secondary a:focus {
   color: initial;

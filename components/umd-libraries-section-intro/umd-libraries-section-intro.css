@@ -1,0 +1,26 @@
+.section-intro {
+  display: flex;
+  flex-direction: column;
+}
+
+.sectoin-intro--heading {
+  margin-bottom: 0.5rem;
+
+  font-weight: 800 !important;
+}
+
+.sectoin-intro--heading:last-child {
+  margin-bottom: 0rem;
+}
+
+@media (min-width: 768px) {
+  .section-intro {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .sectoin-intro--heading {
+    margin-bottom: 0rem;
+  }
+}

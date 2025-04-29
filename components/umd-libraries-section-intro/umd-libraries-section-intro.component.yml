@@ -1,0 +1,18 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: UMD Lib Section Intro
+label: Section Intro
+group: UMD Libraries
+
+props:
+  type: object
+  properties:
+    heading_text:
+      type: string
+      title: Heading Text
+    button_text:
+      type: string
+      title: Button Text
+    button_link:
+      type: string
+      title: Button Link

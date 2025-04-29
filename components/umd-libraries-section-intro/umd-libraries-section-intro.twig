@@ -1,0 +1,28 @@
+{# 
+/**
+ * @file
+ * UMD Libraries Body component.
+ *
+ * Variables:
+ * body_text_slot: Slot for the main body text elements.
+ */
+ #}
+
+{% if heading_text is defined %}
+  <div class="section-intro">
+    <h2 class="sectoin-intro--heading t-headline t-uppercase c-content-primary {% if button_text is defined and button_link is defined %}s-inline-large{% endif %}">{{ heading_text }}</h2>
+    
+    {% if button_text is defined and button_link is defined %}
+      {% include 'umdlib_umdds:umd-libraries-button' with {
+          'variant': 'secondary',
+          'button_text': button_text,
+          'button_link': button_link
+        } only %}
+    {% endif %}
+  </div>
+
+{% else %}
+  {# variable error handling #}
+  <div class="c-content-interactive-primary c-bg-interactive-primary s-box-small-h"> [ERROR] - UMD Libraries Section Intro</div>
+  <div class="s-box-small-h"> Required fields missing: <strong>Heading Text</strong></div>
+{% endif %}

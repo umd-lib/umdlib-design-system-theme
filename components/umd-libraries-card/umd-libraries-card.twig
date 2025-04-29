@@ -71,17 +71,17 @@
         </h3>
       </div>
       
-      <div class="card--details">
+      <div class="card--details  {% if hasButton %}s-stack-large{% endif %}">
         {# Description slot - present in all variants #}
         {% if description_slot is defined and description_slot is not empty %}
-          <div class="card--text t-body-small c-content-secondary s-stack-small wysiwyg-editor">
+          <div class="card--text t-body-small c-content-secondary {% if hasDate %}s-stack-small{% endif %} wysiwyg-editor">
             {{ description_slot }}
           </div>
         {% endif %}
 
         {# Date display #}
         {% if hasDate %}
-          <div class="card--date t-label c-content-tertiary s-stack-large">
+          <div class="card--date t-label c-content-tertiary">
             <time datetime="{{ card_date|date('Y-m-d') }}" itemprop="datePublished">
               {{ card_date|date('F d, Y') }}
             </time>

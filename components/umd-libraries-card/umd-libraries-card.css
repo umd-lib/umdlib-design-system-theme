@@ -1,5 +1,5 @@
 .card--image img {
-  aspect-ratio: 5/4;
+  aspect-ratio: 3 / 2;
   object-fit: cover;
   object-position: center;
   width: 100%;
@@ -22,12 +22,6 @@
 .card--text p {
   font-size: 1rem;
   line-height: 1.375rem;
-
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  align-self: stretch;
-  overflow: hidden;
 }
 
 /* icon card */
@@ -64,6 +58,14 @@
 
 .card--icon .card--content .card--text {
   margin-bottom: 0 !important;
+}
+
+.card--icon .card--content .card--text p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  align-self: stretch;
+  overflow: hidden;
 }
 
 @media (min-width: 1024px) {

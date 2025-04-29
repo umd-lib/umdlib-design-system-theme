@@ -23,7 +23,7 @@
     >
       <span class="i-chevron-down"></span>
     </button>
-    <div class="navigation__submenu wysiwyg-editor" id="submenu-{{ title | lower | replace({' ': '-'}) }}">
+    <div class="navigation__submenu" id="submenu-{{ title | lower | replace({' ': '-'}) }}">
       <div class="navigation__submenu-header">
         <button class="navigation__back-button">
           <span class="i-chevron-down"></span>
@@ -48,7 +48,8 @@
           </li>
         </ul>
       {% endif %}
-      {% block utility_content %}
+      <div class="wysiwyg-editor">
+        {% block utility_content %}
         {# utility content demo, should be replaced by module #}
         <div class="navigation__utility_locations-hours">
           <div class="navigation__utility_time t-title-small c-content-primary">
@@ -94,7 +95,8 @@
             <div>**Appointment required</div>
           </div>
         </div>
-      {% endblock %}
+        {% endblock %}
+      </div>
     </div>
   </li>
 

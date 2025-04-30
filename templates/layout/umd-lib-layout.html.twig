@@ -17,6 +17,7 @@
 {% set column_config = settings.column_config %}
 {% set num_rows = settings.num_rows %}
 {% set section_vertical_spacing = settings.section_vertical_spacing %}
+{% set top_margin = settings.top_margin %}
 {%
   set classes = [
     'layout',
@@ -29,6 +30,10 @@
   {% set classes = classes|merge(['s-box-page-default-h']) %}
   {% set classes = classes|merge(['s-center']) %}
   {% set classes = classes|merge(['s-page-lock']) %}
+{% endif %}
+
+{% if top_margin %}
+  {% set classes = classes|merge(['top-margin']) %}
 {% endif %}
 
 {% if section_vertical_spacing is defined %}

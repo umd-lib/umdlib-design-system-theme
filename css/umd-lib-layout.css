@@ -82,6 +82,19 @@ div.layout-builder__section .layout-builder__add-block {
   margin-bottom: 3rem;
 }
 
+/* top margin */
+.umd-lib-layout.layout--custom.top-margin.vertical-spacing-default {
+  margin-top: 2rem;
+}
+
+.umd-lib-layout.layout--custom.top-margin.vertical-spacing-small {
+  margin-top: 1.5rem;
+}
+
+.umd-lib-layout.layout--custom.top-margin.vertical-spacing-large {
+  margin-top: 3rem;
+}
+
 /* sidebar region */
 .umd-lib-layout.layout--custom .sidebar-navigation {
   display: none;
@@ -321,6 +334,19 @@ div.layout-builder__section .layout-builder__add-block {
     margin-bottom: 3rem;
   }
 
+  /* top margin */
+  .umd-lib-layout.layout--custom.top-margin.vertical-spacing-default {
+    margin-top: 2rem;
+  }
+
+  .umd-lib-layout.layout--custom.top-margin.vertical-spacing-small {
+    margin-top: 1.5rem;
+  }
+
+  .umd-lib-layout.layout--custom.top-margin.vertical-spacing-large {
+    margin-top: 3rem;
+  }
+
   /* section spacing - it should be the same across different group */
   /* between rows */
   .row.vertical-default {
@@ -468,6 +494,19 @@ div.layout-builder__section .layout-builder__add-block {
     margin-bottom: 6rem;
   }
 
+  /* top margin */
+  .umd-lib-layout.layout--custom.top-margin.vertical-spacing-default {
+    margin-top: 4rem;
+  }
+
+  .umd-lib-layout.layout--custom.top-margin.vertical-spacing-small {
+    margin-top: 2rem;
+  }
+
+  .umd-lib-layout.layout--custom.top-margin.vertical-spacing-large {
+    margin-top: 6rem;
+  }
+
   /* section spacing - it should be the same across different group */
   /* between rows */
   .row.vertical-default {
@@ -578,5 +617,18 @@ div.layout-builder__section .layout-builder__add-block {
 
   .umd-lib-layout.layout--custom.vertical-spacing-large {
     margin-bottom: 7.5rem;
+  }
+
+  /* top margin */
+  .umd-lib-layout.layout--custom.top-margin.vertical-spacing-default {
+    margin-top: 5rem;
+  }
+
+  .umd-lib-layout.layout--custom.top-margin.vertical-spacing-small {
+    margin-top: 3rem;
+  }
+
+  .umd-lib-layout.layout--custom.top-margin.vertical-spacing-large {
+    margin-top: 7.5rem;
   }
 }

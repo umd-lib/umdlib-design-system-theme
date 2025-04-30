@@ -1,0 +1,54 @@
+{# 
+/**
+ * @file
+ * UMD Libraries Image component.
+ *
+ * Available variants:
+ * - freeform
+ * - sixteen_to_nine
+ * - three_to_two
+ * - four_to_three
+ * - one_to_one
+ *
+ * Variables:
+ * - image: The URL of the card image
+ * - image_alt: The alt text for the card image
+ * - caption: The name of the icon to display (for icon variant)
+ */
+#}
+
+{# Get the variant, defaulting to standard if not specified #}
+{% set selectedVariant = variant | default('freeform') %}
+
+{% if image is defined and image_alt is defined %}
+  <figure class="umd-lib-image image--{{ selectedVariant }} c-bg-primary">
+    <img 
+      src="{{ image }}" 
+      alt="{{ image_alt }}" 
+      class="image--image {{ selectedVariant }}"
+      loading="lazy"
+      />    
+    {% if caption %}
+      <figcaption class="image--caption s-box-small-v s-box-small-h t-body-small">
+        {{ caption }}
+      </figcaption>
+    {% endif %}
+  </figure>
+
+{% else %}
+ {# variable error handling #}
+  {% set errors = [] %}
+
+    {% if image is not defined %}
+      {% set errors = errors | merge(['Image']) %}
+    {% endif %}
+    {% if image_alt is not defined %}
+      {% set errors = errors | merge(['Image Alt']) %}
+    {% endif %}
+
+  {# Log the errors #}
+  {% if errors is not empty %}
+    <div class="c-content-interactive-primary c-bg-interactive-primary s-box-small-h"> [ERROR] - UMD Libraries Image - {{ variant }}</div>
+    <div class="s-box-small-h"> Required fields missing: <strong>{{ errors | join(', ') }}</strong></div>
+  {% endif %}
+{% endif %}

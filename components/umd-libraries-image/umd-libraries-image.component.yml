@@ -1,0 +1,41 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: UMD Lib Image
+label: Image
+group: UMD Libraries
+
+variants:
+  one_to_one:
+    title: 1/1
+  four_to_three:
+    title: 4/3
+  three_to_two:
+    title: 3/2
+  sixteen_to_nine:
+    title: 16/9
+  freeform:
+    title: Freeform
+
+props:
+  type: object
+  properties:
+    variant:
+      type: string
+      title: Image Ratio
+      description: Choose the image ratio
+      enum:
+        - freeform
+        - sixteen_to_nine
+        - three_to_two
+        - four_to_three
+        - one_to_one
+      default: freeform
+    image:
+      type: string
+      title: Image (URL)
+    image_alt:
+      type: string
+      title: Image Alt
+    caption:
+      type: string
+      title: Image Caption

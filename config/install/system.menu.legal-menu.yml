@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: legal-menu
+label: 'Legal Menu'
+description: 'Bottom of footer menu with legal or administrative links'
+locked: false
+

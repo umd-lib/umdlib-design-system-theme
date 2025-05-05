@@ -24,6 +24,9 @@ slots:
   navigation_menu_slot:
     title: Footer Menu Slot (Footer menu block)
     description: Slot intended for footer navigation menu. Each menu item should be placed in separate components.
+  legal_menu_slot:
+    title: Legal Menu Slot (Legal menu block)
+    description: Slot intended for legal links (e.g., privacy policy).
   social_media_slot:
     title: Social Media (UMD DS Social Icons block)
     description: Slot intended for social media links.

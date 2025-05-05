@@ -15,9 +15,11 @@
   function initializeAlert(alert) {
     const button = alert.querySelector(".alert--button-close");
     const content = alert.querySelector(".alert--container");
-    // Add click event listener to toggle accordion
-    button.addEventListener("click", function () {
-      content.style.display = "none";
-    });
+    if (button && content) {
+      // Add click event listener to toggle accordion
+      button.addEventListener("click", function () {
+        content.style.display = "none";
+      });
+    }
   }
 })();

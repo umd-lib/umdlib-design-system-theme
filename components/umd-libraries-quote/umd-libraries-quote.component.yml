@@ -4,9 +4,22 @@ name: UMD Lib Quote
 label: Quote
 group: UMD Libraries
 
+variants:
+  feature:
+    title: Feature
+  simple:
+    title: Simple
+
 props:
   type: object
   properties:
+    variant:
+      type: string
+      title: Quote Variant
+      description: Choose the quote variant
+      enum:
+        - feature
+        - simple
     theme:
       type: string
       title: Theme (Light or Dark)

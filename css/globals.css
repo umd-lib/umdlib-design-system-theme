@@ -785,7 +785,7 @@ h6 a:focus {
 
 .wysiwyg-editor {
   > * {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   > *:last-child {

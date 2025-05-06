@@ -10,11 +10,7 @@
       {% for item in items %}
         <nav aria-labelledby="{{ title|clean_class }}-heading" class="s-stack-large">
           <p id="{{ title|clean_class }}-heading" class="t-title-small c-content-dark-primary s-stack-default">
-            {% if item.in_active_trail %}
-              {{ link(item.title, item.url, { 'class':['is-active-top'] }) }}
-            {% else %}
-              {{ link(item.title, item.url) }}
-            {% endif %}
+            {{ link(item.title, item.url) }}
           </p>
           {% if item.below %}
             {{ menus.footer_menu_links(item.below, attributes, menu_level + 1) }}
@@ -26,11 +22,7 @@
         <ul class="s-box-default-h">
           {% for item in items %}
             <li class="s-stack-small">
-              {% if item.in_active_trail %}
-                {{ link(item.title, item.url, { 'class':['ani-underline', 't-body-small', 'c-underline-dark-primary', 'is-active'] }) }}
-              {% else %}
-                {{ link(item.title, item.url, { 'class':['ani-underline', 't-body-small', 'c-underline-dark-primary'] }) }}
-              {% endif %}
+              {{ link(item.title, item.url, { 'class':['ani-underline', 't-body-small', 'c-underline-dark-primary'] }) }}
             </li>
           {% endfor %}
         </ul>
@@ -70,12 +62,8 @@
   {% if items %}
     {% if menu_level == 0 %}
       {% for item in items %}
-        <li class="navigation__menu-item">
-          {% if item.in_active_trail %}
-            {{ link(item.title, item.url, { 'class':['is-active-top', 'navigation__menu-link'] }) }}
-          {% else %}
-            {{ link(item.title, item.url, { 'class':['navigation__menu-link'] }) }}
-          {% endif %}
+          <li class="navigation__menu-item">
+          {{ link(item.title, item.url, { 'class':['navigation__menu-link'] }) }}
           {% if item.below %}
             <button
               class="navigation__submenu-button"
@@ -94,11 +82,7 @@
               </div>
               <div class="navigation__submenu-content">
                 <div class="navigation__submenu-title">
-                  {% if item.in_active_trail %}
-                    {{ link(item.title, item.url, { 'class':['is-active'] }) }}
-                  {% else %}
-                    {{ link(item.title, item.url) }}
-                  {% endif %}
+                  {{ link(item.title, item.url) }}
                 </div>
                 {{ menus.main_menu_links(item.below, attributes, menu_level + 1) }}
               </div>
@@ -111,11 +95,7 @@
         <ul class="navigation__submenu-list">
           {% for item in items %}
             <li class="navigation__submenu-item">
-              {% if item.in_active_trail %}
-                {{ link(item.title, item.url, { 'class':['navigation__submenu-link', 'ani-underline', 'c-underline-primary', 't-body-small', 'is-active'] }) }}
-              {% else %}
-                {{ link(item.title, item.url, { 'class':['navigation__submenu-link', 'ani-underline', 'c-underline-primary', 't-body-small'] }) }}
-              {% endif %}
+              {{ link(item.title, item.url, { 'class':['navigation__submenu-link ani-underline c-underline-primary t-body-small'] }) }}
             </li>
           {% endfor %}
         </ul>

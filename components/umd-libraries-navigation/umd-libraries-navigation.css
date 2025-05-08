@@ -22,6 +22,19 @@
   color: var(--maryland-red);
 }
 
+.navigation ul a.is-active {
+  background-image: linear-gradient(
+    var(--maryland-yellow),
+    var(--maryland-yellow)
+  );
+
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 2px;
+
+  font-weight: 700;
+}
+
 .navigation button {
   min-width: 24px;
   min-height: 24px;

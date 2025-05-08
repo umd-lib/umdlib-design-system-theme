@@ -17,7 +17,7 @@
   .section-intro {
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: end;
   }
 
   .sectoin-intro--heading {

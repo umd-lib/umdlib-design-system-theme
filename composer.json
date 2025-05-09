@@ -1,5 +1,5 @@
 {
-    "name": "umd-lib/umd-design-system-theme",
+    "name": "umd-lib/umdlib-design-system-theme",
     "description": "Opinionated adaptation of the UMD Design System tailored for libraries sites.",
     "type": "drupal-theme",
     "license": "Apache-2.0",
@@ -11,6 +11,7 @@
     "minimum-stability": "dev",
     "require": {
         "drupal/core": "^11",
+        "umd-lib/umd-design-system-theme": "^0.1.1",
         "umd-lib/umdlib_ds_layout_tools": "^0.1.0"
       }
 }

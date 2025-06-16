@@ -10,7 +10,6 @@
  *
  * Variables:
  * - card_image: The URL of the card image
- * - card_image_alt: The alt text for the card image
  * - eyebrow: The eyebrow of the card
  * - card_title: The title of the card
  * - card_url: The URL the card links to
@@ -26,7 +25,7 @@
 {% set selectedVariant = variant | default('standard') %}
 
 {# Check required fields based on variant #}
-{% set standardRequirements = (selectedVariant == 'standard' and card_title is defined and card_url is defined and card_image is defined and card_image_alt is defined) %}
+{% set standardRequirements = (selectedVariant == 'standard' and card_title is defined and card_url is defined and card_image is defined) %}
 {% set overlayRequirements = (selectedVariant == 'overlay' and card_title is defined and card_url is defined) %}
 {% set iconRequirements = (selectedVariant == 'icon' and card_title is defined and card_url is defined) %}
 
@@ -44,12 +43,12 @@
 
   <div role="contentinfo"
        class="umd-lib-card card--{{ selectedVariant }} {{ bgClass }} c-content-primary"
-       aria-label="{{ card_title }}">
+       aria-label="">
     
     {# Image for standard variant #}
     {% if selectedVariant == 'standard' and card_image %}
       <div class="card--image">
-        <img alt="{{ card_image_alt }}" src="{{ card_image }}" loading="lazy">
+        {% block card_image %}{% endblock %}
       </div>
     {% endif %}
     
@@ -60,31 +59,27 @@
       <div class="card--title">
         {# Eyebrow text #}
         {% if hasEyebrow %}
-          <p class="card--eyebrow t-eyebrow s-stack-small">{{ eyebrow }}</p>
+          <p class="card--eyebrow t-eyebrow s-stack-small">{% block eyebrow %}{% endblock %}</p>
         {% endif %}
         
         {# Headline with link - present in all variants #}
         <h3 class="card--headline s-stack-small t-title-medium">
-          <a href="{{ card_url }}" {{ app.request.get('_route') == card_url ? 'aria-current="page"' }}>
-            {{ card_title }}
-          </a>
+          {% block card_url %}{% endblock %}
         </h3>
       </div>
       
       <div class="card--details  {% if hasButton %}s-stack-large{% endif %}">
         {# Description slot - present in all variants #}
-        {% if description_slot is defined and description_slot is not empty %}
+        {% if description is defined and description is not empty %}
           <div class="card--text t-body-small c-content-secondary {% if hasDate %}s-stack-small{% endif %} wysiwyg-editor">
-            {{ description_slot }}
+            {% block description %}{% endblock %}
           </div>
         {% endif %}
 
         {# Date display #}
         {% if hasDate %}
           <div class="card--date t-label c-content-tertiary">
-            <time datetime="{{ card_date|date('Y-m-d') }}" itemprop="datePublished">
-              {{ card_date|date('F d, Y') }}
-            </time>
+            {% block card_date %}{% endblock %}
           </div>
         {% endif %}
       </div>
@@ -116,9 +111,6 @@
   {% if selectedVariant == 'standard' %}
     {% if card_image is not defined %}
       {% set errors = errors | merge(['Card Image']) %}
-    {% endif %}
-    {% if card_image_alt is not defined %}
-      {% set errors = errors | merge(['Card Image Alt']) %}
     {% endif %}
   {% endif %}
 

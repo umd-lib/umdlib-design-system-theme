@@ -12,10 +12,6 @@ props:
       type: boolean
       title: Default Open
       description: Set to true if the accordion item should be open by default.
-    title:
-      type: string
-      title: Accordion Item Title
-      description: The title of the accordion item.
     button_text:
       type: string
       title: Secondary Button Text
@@ -24,6 +20,9 @@ props:
       title: Secondary Button Link
 
 slots:
-  body_slot:
+  title:
+    title: Accordion Item Title (String)
+    description: The title of the accordion item.
+  body:
     title: Body (WYSIWYG)
     description: Internal - to be used in the 'UMD Libraries Accordion' component. Slot for the accordion item content elements.

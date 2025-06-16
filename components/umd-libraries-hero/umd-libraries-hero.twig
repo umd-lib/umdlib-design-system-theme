@@ -32,7 +32,7 @@
     {# Hero image section #}
     {% if hero_image %}
       <div class="hero--image">
-        <img alt="{{ hero_image_alt|default('') }}" src="{{ hero_image }}">
+        {% block hero_image %}{% endblock %}
       </div>
     {% endif %}
     
@@ -42,13 +42,13 @@
         {# Eyebrow text #}
         {% if eyebrow %}
           <p class="hero--eyebrow {% if variant == 'minimal' %}c-content-secondary{% endif %} t-eyebrow s-stack-small">
-            {{ eyebrow }}
+            {% block eyebrow %}{% endblock %}
           </p>
         {% endif %}
         
         {# Hero headline #}
         <h1 class="hero--headline t-display s-stack-default">
-          {{ hero_title }}
+          {% block hero_title %}{% endblock %}
         </h1>
         
         {# Hero description #}

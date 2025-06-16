@@ -19,24 +19,12 @@ props:
       title: Hero Varaint
       description: Choose the hero variant
       enum:
-        - minimal
-        - overlay
+      - minimal
+      - overlay
     theme:
       type: string
       title: Theme (Light or Dark)
       description: 'Enter "light" or "dark" to choose the theme for the hero section.'
-    hero_image:
-      type: string
-      title: Hero Image (URL)
-    hero_image_alt:
-      type: string
-      title: Hero Image Alt
-    eyebrow:
-      type: string
-      title: Eyebrow Text
-    hero_title:
-      type: string
-      title: Hero Title
     button_text:
       type: string
       title: Button Text
@@ -45,6 +33,12 @@ props:
       title: Button URL
 
 slots:
+  eyebrow:
+    title: Eyebrow Text (String)
+  hero_title:
+    title: Hero Title (String)
+  hero_image:
+    title: Hero Image (Media Image)
   description_slot:
     title: Description (WYSIWYG)
     description: Slot intended for WYSIWYG editor content, should use Plain Text format

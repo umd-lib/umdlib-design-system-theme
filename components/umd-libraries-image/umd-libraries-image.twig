@@ -12,7 +12,6 @@
  *
  * Variables:
  * - image: The URL of the image
- * - image_alt: The alt text for the image
  * - caption: The caption for the image
  */
 #}
@@ -20,17 +19,12 @@
 {# Get the variant, defaulting to standard if not specified #}
 {% set selectedVariant = variant | default('freeform') %}
 
-{% if image is defined and image_alt is defined %}
+{% if image is defined %}
   <figure class="umd-lib-image image--{{ selectedVariant }} c-bg-primary">
-    <img 
-      src="{{ image }}" 
-      alt="{{ image_alt }}" 
-      class="image--image {{ selectedVariant }}"
-      loading="lazy"
-      />    
+    {% block image %}{% endblock %}
     {% if caption %}
       <figcaption class="image--caption s-box-small-v s-box-small-h t-body-small">
-        {{ caption }}
+        {% block caption %}{% endblock %}
       </figcaption>
     {% endif %}
   </figure>
@@ -41,9 +35,6 @@
 
     {% if image is not defined %}
       {% set errors = errors | merge(['Image']) %}
-    {% endif %}
-    {% if image_alt is not defined %}
-      {% set errors = errors | merge(['Image Alt']) %}
     {% endif %}
 
   {# Log the errors #}

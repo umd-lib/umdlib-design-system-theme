@@ -24,18 +24,15 @@ props:
       title: Image Ratio
       description: Choose the image ratio
       enum:
-        - freeform
-        - sixteen_to_nine
-        - three_to_two
-        - four_to_three
-        - one_to_one
+      - freeform
+      - sixteen_to_nine
+      - three_to_two
+      - four_to_three
+      - one_to_one
       default: freeform
-    image:
-      type: string
-      title: Image (URL)
-    image_alt:
-      type: string
-      title: Image Alt
-    caption:
-      type: string
-      title: Image Caption
+
+slots:
+  image:
+    title: Image (Media Image)
+  caption:
+    title: Image Caption (String)

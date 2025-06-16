@@ -8,16 +8,16 @@
   * - default_open: Whether the accordion should be open by default
   * - button_text: The text to display on the button
   * - button_link: The URL the button links to
-  * - body_slot: The content of the accordion
+  * - body: The content of the accordion
   */
  #}
 
 
 
-{% if title is defined and body_slot is defined %}
+{% if title is defined and body is defined %}
 <div class="accrodion-child--container">
   <button class="accordion-child--headline c-bg-secondary" aria-expanded="{{ default_open ? 'true' : 'false' }}">
-    <p class="t-interactive c-content-primary">{{title}}</p>
+    <p class="t-interactive c-content-primary">{% block title %}{% endblock %}</p>
   </button>
   <div
     class="accordion-child--body-wrapper c-bg-secondary"
@@ -27,7 +27,7 @@
     {% endif %}
   >
     <div class="accordion-child--body t-body-medium s-box-small-v s-box-small-h wysiwyg-editor">
-      {% block body_slot %} {% endblock %}
+      {% block body %} {% endblock %}
     </div>
     {% if button_text %}
       <div class="accordion-child--body-button s-box-small-h s-stack-default ">
@@ -47,7 +47,7 @@
     {% set errors = errors | merge(['Accordion Title']) %}
   {% endif %}
 
-  {% if body_slot is not defined %}
+  {% if body is not defined %}
     {% set errors = errors | merge(['Accordion Body']) %}
   {% endif %}
 

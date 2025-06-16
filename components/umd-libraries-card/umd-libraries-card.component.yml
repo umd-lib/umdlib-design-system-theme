@@ -21,28 +21,10 @@ props:
       title: Card Variant
       description: Choose the card variant
       enum:
-        - standard
-        - overlay
-        - icon
+      - standard
+      - overlay
+      - icon
       default: standard
-    card_image:
-      type: string
-      title: Card Image (URL)
-    card_image_alt:
-      type: string
-      title: Card Image Alt
-    eyebrow:
-      type: string
-      title: Eyebrow Text
-    card_title:
-      type: string
-      title: Card Title
-    card_url:
-      type: string
-      title: Card URL
-    card_date:
-      type: string
-      title: Date
     button_text:
       type: string
       title: Button Text
@@ -55,6 +37,16 @@ props:
       description: Name of the icon to display in the card (only for icon variant), please refer to Lucide icons documentation for available icons.
 
 slots:
-  description_slot:
+  card_image:
+    title: Card Image (Media Image)
+  eyebrow:
+    title: Eyebrow Text (String)
+  card_title:
+    title: Card Title (String)
+  card_url:
+    title: Card URL (Link)
+  card_date:
+    title: Date (Date)
+  description:
     title: Description (WYSIWYG)
     description: Slot intended for WYSIWYG editor content, should use Plain Text format

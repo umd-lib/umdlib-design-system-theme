@@ -19,8 +19,8 @@ props:
       title: Hero Varaint
       description: Choose the hero variant
       enum:
-      - minimal
-      - overlay
+        - minimal
+        - overlay
     theme:
       type: string
       title: Theme (Light or Dark)
@@ -39,6 +39,9 @@ slots:
     title: Hero Title (String)
   hero_image:
     title: Hero Image (Media Image)
+  hero_image_caption:
+    title: Hero Image Caption Text (WYSIWYG)
+    description: Alternative text for the hero image, used for accessibility
   description_slot:
     title: Description (WYSIWYG)
     description: Slot intended for WYSIWYG editor content, should use Plain Text format

@@ -29,21 +29,16 @@
   
   {# Main hero container #}
   <div class="hero--{{ variant }} {{ themeClass }}">
-    {# Hero image section #}
-    {% if hero_image %}
-      <div class="hero--image">
-        {% block hero_image %}{% endblock %}
-      </div>
-    {% endif %}
+
     
     {# Hero content container #}
     <div class="hero--container s-box-page-default-h s-box-page-default-v s-center">
       <div class="hero--content {% if variant == 'minimal' %}s-box-large-h{% endif %} {% if not hero_image %}text-only{% endif %}">
         {# Eyebrow text #}
         {% if eyebrow %}
-          <p class="hero--eyebrow {% if variant == 'minimal' %}c-content-secondary{% endif %} t-eyebrow s-stack-small">
+          <div class="hero--eyebrow {% if variant == 'minimal' %}c-content-secondary{% endif %} t-eyebrow s-stack-small">
             {% block eyebrow %}{% endblock %}
-          </p>
+          </div>
         {% endif %}
         
         {# Hero headline #}
@@ -68,6 +63,19 @@
         {% endif %}
       </div>
     </div>
+
+    {# Hero image section #}
+    {% if hero_image %}
+      <div class="hero--image">
+        <figure>
+          {% block hero_image %}{% endblock %}
+          <figcaption class="t-label">
+            {{ hero_image_caption }}
+          </figcaption>
+        </figure>
+      </div>
+    {% endif %}
+
   </div>
 
 {% else %}

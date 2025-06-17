@@ -173,7 +173,7 @@
 
   overflow: hidden;
   overflow-y: auto;
-  z-index: 998;
+  z-index: 400;
 }
 
 .navigation__rows.is-open {
@@ -258,7 +258,7 @@
   background-color: var(--white);
 
   overflow-y: auto;
-  z-index: 999;
+  z-index: 401;
 }
 
 /* submenu animation */

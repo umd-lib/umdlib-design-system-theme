@@ -5,7 +5,7 @@
   position: fixed;
   bottom: 0px;
   right: 36px;
-  z-index: 1000;
+  z-index: 300;
 
   border-top: 4px solid var(--maryland-red);
   box-shadow: 0px -80px 80px 0px rgba(0, 0, 0, 0.08),

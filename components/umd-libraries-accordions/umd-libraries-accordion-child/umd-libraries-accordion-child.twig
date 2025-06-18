@@ -16,9 +16,11 @@
 
 {% if title is defined and body is defined %}
 <div class="accrodion-child--container">
-  <button class="accordion-child--headline c-bg-secondary" aria-expanded="{{ default_open ? 'true' : 'false' }}">
-    <p class="t-interactive c-content-primary">{% block title %}{% endblock %}</p>
-  </button>
+  <h3>
+    <button class="accordion-child--headline c-bg-secondary" aria-expanded="{{ default_open ? 'true' : 'false' }}">
+      <span class="t-interactive c-content-primary">{% block title %}{% endblock %}</span>
+    </button>
+  </h3>
   <div
     class="accordion-child--body-wrapper c-bg-secondary"
     aria-hidden="{{ default_open ? 'false' : 'true' }}"
@@ -26,11 +28,11 @@
     {% else %} style="display: none;" 
     {% endif %}
   >
-    <div class="accordion-child--body t-body-medium s-box-small-v s-box-small-h wysiwyg-editor">
+    <div class="accordion-child--body t-body-medium wysiwyg-editor">
       {% block body %} {% endblock %}
     </div>
     {% if button_text %}
-      <div class="accordion-child--body-button s-box-small-h s-stack-default ">
+      <div class="accordion-child--body-button">
         {% include 'umdlib_umdds:umd-libraries-button' with {
         'variant': 'secondary',
         'button_text': button_text,

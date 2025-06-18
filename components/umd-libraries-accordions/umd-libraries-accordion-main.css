@@ -27,9 +27,9 @@
   border-color: var(--maryland-red);
 }
 
-.accordion-child--headline:hover p,
-.accordion-child--headline:focus p,
-.accordion-child--headline[aria-expanded="true"] p {
+.accordion-child--headline:hover span,
+.accordion-child--headline:focus span,
+.accordion-child--headline[aria-expanded="true"] span {
   color: var(--maryland-red);
 }
 
@@ -63,14 +63,7 @@
   transform: rotate(180deg);
 }
 /* accrodioin content */
-.accordion-child--body {
-  padding-top: 0rem !important;
-}
-
-.accordion-child--body > * {
-  margin-bottom: 1rem;
-}
-
-.accordion-child--body > *:last-child {
-  margin-bottom: 0;
+.accordion-child--body,
+.accordion-child--body-button {
+  padding: 0rem 1.5rem 1.5rem 1.5rem;
 }

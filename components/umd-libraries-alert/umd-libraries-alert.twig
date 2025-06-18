@@ -11,7 +11,7 @@
  * title: The title of the alert.
  * button_text: The text for the button.
  * button_url: The URL for the button.
- * alert_description_slot: The description text of the alert.
+ * alert_description: The description text of the alert.
  */
  #}
 
@@ -26,12 +26,12 @@
     <div class="alert--content s-box-default-h s-box-default-v">
       <div class"alert--title">
         <h2 class="t-title-small c-content-primary s-stack-small">
-          {{ title }}
+          {% block title %} {% endblock %}
         </h2>
       </div>
-      {% if alert_description_slot is defined and alert_description_slot is not empty %}
+      {% if alert_description is defined and alert_description is not empty %}
         <div class="alert--description s-stack-default wysiwyg-editor">
-          {{ alert_description_slot | raw }}
+          {% block alert_description %} {% endblock %}
         </div>
       {% endif %}
 

@@ -20,9 +20,6 @@ props:
       enum:
         - content
         - site
-    title:
-      type: string
-      title: Alert Title
     button_text:
       type: string
       title: Button Text
@@ -33,6 +30,8 @@ props:
       description: The URL for the button in the alert.
 
 slots:
-  alert_description_slot:
+  title:
+    title: Alert Title (String)
+  alert_description:
     title: Alert Description (WYSIWYG)
     description: Slot for the alert description elements

@@ -20,7 +20,7 @@
 {% if heading_text is defined %}
   <div class="heading heading--{{ selectedVariant }}">
     <h{{ selectedVariant | slice(1) }} class="c-content-primary">
-      {{ heading_text | raw }}
+      {% block heading_text %}{% endblock %}
     </h{{ selectedVariant | slice(1) }}>
   </div>
 

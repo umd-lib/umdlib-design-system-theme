@@ -14,19 +14,17 @@
         />
       </div>
       <div class="footer--title">
-        {% block location_slot %}
           <p class="t-title-small c-content-dark-primary">
-            {{ address_name }}
+            {% block institution_name %}{% endblock %}
           </p>
           <address>
             <p class="c-content-dark-secondary t-body-medium">
-              {{ full_address }}
+              {% block full_address %}{% endblock %}
             </p>
             <a href="tel:+{{ telephone|replace({'.': ''}) }}" class="c-content-dark-secondary t-body-medium">
               {{ telephone }}
             </a>
           </address>
-        {% endblock %}
       </div>
     </div>
     <div class="footer--columns t-body-small">

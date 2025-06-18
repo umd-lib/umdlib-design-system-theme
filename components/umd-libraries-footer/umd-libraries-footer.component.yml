@@ -8,19 +8,17 @@ group: UMD Libraries
 props:
   type: object
   properties:
-    address_name:
-      type: string
-      title: Address Heading
-      description: Location Name
-    full_address:
-      type: string
-      title: Full Address
-      description: Full address of location.
     telephone:
       type: string
-      title: Telephone number
+      title: Telephone number (String)
       description: Include area code. Dot seperation. I.e., 555.555.1212.
+
 slots:
+  institution_name:
+    title: Institution Name (String)
+  full_address:
+    title: Full Address (String)
+    description: Full address of location.
   navigation_menu_slot:
     title: Footer Menu Slot (Footer menu block)
     description: Slot intended for footer navigation menu. Each menu item should be placed in separate components.
@@ -30,6 +28,3 @@ slots:
   social_media_slot:
     title: Social Media (UMD DS Social Icons block)
     description: Slot intended for social media links.
-  location_slot:
-    title: Location (WYSIWYG)
-    description: Footer location information

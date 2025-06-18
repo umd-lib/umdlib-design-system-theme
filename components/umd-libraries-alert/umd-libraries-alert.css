@@ -12,11 +12,6 @@
   position: relative;
 }
 
-.alert--description p {
-  font-size: 1rem;
-  line-height: 1.375rem;
-}
-
 .alert--button-close {
   position: absolute;
   top: 0;

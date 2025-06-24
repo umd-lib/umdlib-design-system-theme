@@ -1,0 +1,34 @@
+{#
+/**
+ * @file
+ * Theme override for a breadcrumb trail.
+ *
+ * Available variables:
+ * - breadcrumb: Breadcrumb trail items.
+ */
+#}
+
+{% if breadcrumb %}
+  <nav class="umd-lib breadcrumb" role="navigation" aria-label="Breadcrumb navigation">
+    <h2 id="breadcrumb-label" class="sr-only">You are here:</h2>
+    <ol class="breadcrumb" aria-labelledby="breadcrumb-label">
+      {% for item in breadcrumb %}
+        <li class="breadcrumb-item">
+          {% if not loop.first %}
+            <span class="breadcrumb-separator t-label c-content-tertiary" aria-hidden="true">/</span>
+          {% endif %}
+          {% if item.url %}
+            <a href="{{ item.url }}" class="breadcrumb-link t-label c-content-tertiary" aria-label="{{ item.text }} page">
+              {{ item.text }}
+            </a>
+          {% else %}
+            <span class="breadcrumb--active breadcrumb-current t-label c-content-primary" aria-current="page">
+              {{ item.text }}
+              <span class="sr-only">(current page)</span>
+            </span>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ol>
+  </nav>
+{% endif %}

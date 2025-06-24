@@ -3,7 +3,7 @@ umdlib:
   css:
     theme:
       css/globals.css: {}
-      css/sidenav.css: {}
+      css/system-nav.css: {}
 umd-lib-layout:
   css:
     theme:

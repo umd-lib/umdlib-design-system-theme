@@ -49,7 +49,7 @@
         {# Hero description #}
         {% if description_slot %}
           <div class="hero--description c-content-secondary t-body-medium {% if variant == 'overlay' and button_link is defined and button_text is defined %}s-stack-default{% endif %} wysiwyg-editor">
-            {{ description_slot }}
+            {% block description_slot %}{% endblock %}
           </div>
         {% endif %}
         
@@ -69,8 +69,8 @@
       <div class="hero--image">
         <figure>
           {% block hero_image %}{% endblock %}
-          <figcaption class="t-label">
-            {{ hero_image_caption }}
+          <figcaption class="t-label wysiwyg-editor">
+            {% block hero_image_caption %}{% endblock %}
           </figcaption>
         </figure>
       </div>

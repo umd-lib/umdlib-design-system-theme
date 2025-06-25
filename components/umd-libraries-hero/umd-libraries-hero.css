@@ -10,6 +10,7 @@
   width: 100%;
   max-width: 1680px;
   z-index: 2;
+  order: 2;
 }
 
 .hero--minimal .hero--image,
@@ -17,12 +18,15 @@
   width: auto;
   height: 100%;
   z-index: 0;
+  order: 1;
 }
 
 .hero--minimal .hero--image figure,
 .hero--overlay .hero--image figure {
   height: 100%;
   width: 100%;
+
+  position: relative;
 }
 
 .hero--minimal .hero--image figure img,

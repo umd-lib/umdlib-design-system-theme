@@ -4,8 +4,7 @@
 
   position: fixed;
   bottom: 0px;
-  right: 36px;
-  z-index: 300;
+  z-index: 350;
 
   border-top: 4px solid var(--maryland-red);
   box-shadow: 0px -80px 80px 0px rgba(0, 0, 0, 0.08),
@@ -142,5 +141,29 @@
   .cw--iframe iframe {
     width: 100%;
     height: 100%;
+  }
+}
+
+@media (min-width: 551px) {
+  .umd-lib-chat-widget {
+    right: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .umd-lib-chat-widget {
+    right: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .umd-lib-chat-widget {
+    right: 4rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .umd-lib-chat-widget {
+    right: 7.5rem;
   }
 }

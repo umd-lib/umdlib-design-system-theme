@@ -1,0 +1,39 @@
+.scroll-top--container {
+  position: fixed;
+  bottom: calc(53px + 16px);
+  right: 1.5rem;
+  z-index: 250;
+  transition: all 0.3s ease-in-out;
+
+  opacity: 0;
+  visibility: hidden;
+}
+
+.scroll-top--container.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-top--button {
+  padding: 1rem;
+
+  border: 1px solid var(--maryland-yellow);
+}
+
+@media (min-width: 768px) {
+  .scroll-top--container {
+    right: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .scroll-top--container {
+    right: 4rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .scroll-top--container {
+    right: 7.5rem;
+  }
+}

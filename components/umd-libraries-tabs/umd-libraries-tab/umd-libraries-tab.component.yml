@@ -12,17 +12,11 @@ props:
       type: string
       title: Tab Value
       description: Unique identifier for connecting this content to its trigger
-    auto_focus_first:
-      type: boolean
-      title: Auto Focus First Element
-      description: Whether to automatically focus the first interactive element in the tab
-      default: false
-    tab_heading:
-      type: string
-      title: Tab Heading
-      description: Optional heading displayed at the top of tab content
 
 slots:
+  tab_heading:
+    title: Tab Heading (String)
+    description: Optional heading displayed at the top of tab content
   body_slot:
     title: Body (WYSIWYG)
     description: Slot intended for WYSIWYG editor content

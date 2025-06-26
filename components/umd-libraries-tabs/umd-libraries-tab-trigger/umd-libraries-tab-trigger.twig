@@ -3,27 +3,23 @@
  * @file
  * UMD Libraries Tab Trigger component.
  *
- * Available variables:
+ * Available props:
  * - tab_value: The value of the tab.
+ * 
+ * Available slots:
  * - tab_label: The label of the tab.
- * - tab_description: The description of the tab.
- * - first_in_list: Whether this is the first tab in the list.
  */
 #}
 
 {% if tab_value is defined and tab_label is defined %}
-  <button class="tab--trigger t-interactive c-content-tertiary" 
-    data-value="{{ tab_value }}" 
-    role="tab" 
-    id="tab-{{ tab_value }}"
-    aria-controls="panel-{{ tab_value }}"
-    aria-selected="false"
-    tabindex="{{ first_in_list ? '0' : '-1' }}"
-    {% if tab_description %}aria-description="{{ tab_description }}"{% endif %}>
-    <span class="tab--trigger-label">{{ tab_label }}</span>
-    {% if tab_description %}
-      <span class="sr-only">{{ tab_description }}</span>
-    {% endif %}
+  <button 
+          class="tab--trigger t-interactive c-content-tertiary" 
+          id="tab-{{ tab_value }}" 
+          type="button" 
+          role="tab" 
+          aria-controls="tabpanel-{{ tab_value }}"
+    <span class="focus">{% block tab_label %}{% endblock %}</span>
+        {# {% block tab_label %}{% endblock %} #}
   </button>
 
 {% else %}

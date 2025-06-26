@@ -37,14 +37,19 @@
 .tab--trigger {
   padding: 1rem 1.5rem 1rem 1.5rem;
   width: fit-content;
+
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  text-align: left;
 }
 
 .tab--trigger.active {
   color: var(--black);
 }
 
-.tab--trigger-label {
-  white-space: nowrap;
+.tab--trigger span {
+  text-wrap: nowrap;
 }
 
 .tab--content h3 {

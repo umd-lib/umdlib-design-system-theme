@@ -40,6 +40,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -70,7 +71,7 @@ body {
 
 /* typography */
 .t-display,
-.t-display p {
+.t-display * {
   font-family: "Barlow Condensed";
   font-size: 3rem;
   font-style: italic;
@@ -81,7 +82,7 @@ body {
 }
 
 .t-headline,
-.t-headline p {
+.t-headline * {
   font-family: Interstate;
   font-size: 1.5rem;
   font-style: normal;
@@ -90,7 +91,7 @@ body {
 }
 
 .t-title-large,
-.t-title-large p {
+.t-title-large * {
   font-family: Interstate;
   font-size: 1.25rem;
   font-style: normal;
@@ -99,7 +100,7 @@ body {
 }
 
 .t-title-medium,
-.t-title-medium p {
+.t-title-medium * {
   font-family: Interstate;
   font-size: 1.125rem;
   font-style: normal;
@@ -108,7 +109,7 @@ body {
 }
 
 .t-title-small,
-.t-title-small p {
+.t-title-small * {
   font-family: Interstate;
   font-size: 1.125rem;
   font-style: normal;
@@ -117,7 +118,7 @@ body {
 }
 
 .t-body-large,
-.t-body-large p {
+.t-body-large * {
   font-family: Interstate;
   font-size: 1.125rem;
   font-style: normal;
@@ -126,7 +127,7 @@ body {
 }
 
 .t-body-medium,
-.t-body-medium p {
+.t-body-medium * {
   font-family: Interstate;
   font-size: 1rem;
   font-style: normal;
@@ -135,7 +136,7 @@ body {
 }
 
 .t-body-small,
-.t-body-small p {
+.t-body-small * {
   font-family: Interstate;
   font-size: 1rem;
   font-style: normal;
@@ -145,7 +146,7 @@ body {
 
 /* consider to remove, using other t and increase weight */
 .t-interactive,
-.t-interactive p {
+.t-interactive * {
   font-family: Interstate;
   font-size: 1.125rem;
   font-style: normal;
@@ -154,12 +155,12 @@ body {
 }
 
 .t-interactive-sub,
-.t-interactive-sub p {
+.t-interactive-sub * {
   font-weight: 700 !important;
 }
 
 .t-label,
-.t-label p {
+.t-label * {
   font-family: Interstate;
   font-size: 0.875rem;
   font-style: normal;
@@ -168,7 +169,7 @@ body {
 }
 
 .t-eyebrow,
-.t-eyebrow p {
+.t-eyebrow * {
   font-family: Interstate;
   font-size: 0.75rem;
   font-style: normal;
@@ -178,12 +179,12 @@ body {
 }
 
 .t-uppercase,
-.t-uppercase p {
+.t-uppercase * {
   text-transform: uppercase !important;
 }
 
 .t-italic,
-.t-italic p {
+.t-italic * {
   font-style: italic !important;
 }
 
@@ -578,7 +579,7 @@ body {
 @media (min-width: 1024px) {
   /* typography */
   .t-display,
-  .t-display p {
+  .t-display * {
     font-family: "Barlow Condensed";
     font-size: 5rem;
     font-style: italic;
@@ -589,7 +590,7 @@ body {
   }
 
   .t-headline,
-  .t-headline p {
+  .t-headline * {
     font-family: Interstate;
     font-size: 3rem;
     font-style: normal;
@@ -598,7 +599,7 @@ body {
   }
 
   .t-title-large,
-  .t-title-large p {
+  .t-title-large * {
     font-family: Interstate;
     font-size: 2rem;
     font-style: normal;
@@ -607,7 +608,7 @@ body {
   }
 
   .t-title-medium,
-  .t-title-medium p {
+  .t-title-medium * {
     font-family: Interstate;
     font-size: 1.5rem;
     font-style: normal;
@@ -616,7 +617,7 @@ body {
   }
 
   .t-title-small,
-  .t-title-small p {
+  .t-title-small * {
     font-family: Interstate;
     font-size: 1.125rem;
     font-style: normal;
@@ -625,7 +626,7 @@ body {
   }
 
   .t-body-large,
-  .t-body-large p {
+  .t-body-large * {
     font-family: Interstate;
     font-size: 1.5rem;
     font-style: normal;
@@ -634,7 +635,7 @@ body {
   }
 
   .t-body-medium,
-  .t-body-medium p {
+  .t-body-medium * {
     font-family: Interstate;
     font-size: 1.125rem;
     font-style: normal;
@@ -643,7 +644,7 @@ body {
   }
 
   .t-body-small,
-  .t-body-small p {
+  .t-body-small * {
     font-family: Interstate;
     font-size: 1rem;
     font-style: normal;
@@ -652,7 +653,7 @@ body {
   }
 
   .t-interactive,
-  .t-interactive p {
+  .t-interactive * {
     font-family: Interstate;
     font-size: 1.125rem;
     font-style: normal;
@@ -661,7 +662,7 @@ body {
   }
 
   .t-label,
-  .t-label p {
+  .t-label * {
     font-family: Interstate;
     font-size: 0.875rem;
     font-style: normal;
@@ -670,7 +671,7 @@ body {
   }
 
   .t-eyebrow,
-  .t-eyebrow p {
+  .t-eyebrow * {
     font-family: Interstate;
     font-size: 0.75rem;
     font-style: normal;

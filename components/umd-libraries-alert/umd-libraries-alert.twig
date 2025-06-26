@@ -23,8 +23,8 @@
 {% if title is defined %}
 <div class="alert alert--{{ selectedVariant }}">
   <div class="alert--container {% if selectedVariant == 'site_wide' %}s-box-page-default-h s-center s-page-lock{% endif %}">
-    <div class="alert--content s-box-default-h s-box-default-v">
-      <div class"alert--title">
+    <div class="alert--content s-box-default-v {% if selectedVariant == 'in_page' %}s-box-default-h{% endif %}">
+      <div class="alert--title">
         <h2 class="t-title-small c-content-primary s-stack-small">
           {% block title %} {% endblock %}
         </h2>

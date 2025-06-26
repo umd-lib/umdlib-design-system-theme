@@ -18,7 +18,7 @@
     const hash = window.location.hash.substring(1);
     if (hash) {
       const tabWithHash = document.querySelector(
-        `.tab--trigger[data-value="${hash}"]`
+        `[role="tab"][aria-controls="tabpanel-${hash}"]`
       );
       if (tabWithHash) {
         const container = tabWithHash.closest("[data-tabs-container]");
@@ -44,7 +44,7 @@
   function initializeTabs(container) {
     // Container-specific variables (moved from global scope)
     const triggerList = container.querySelector(".tabs--triggers");
-    const triggers = container.querySelectorAll(".tab--trigger");
+    const triggers = container.querySelectorAll('[role="tab"]');
     const decoBackground = container.querySelector("#tabs--trigger-deco");
     const decoLine = container.querySelector("#deco-underline");
     const defaultTab = container.dataset.defaultTab;
@@ -75,14 +75,15 @@
     }
 
     function checkTriggersLayout() {
-      const clientWidth = document.documentElement.clientWidth;
-      triggerLayout = clientWidth > triggerWidth;
+      const containerWidth = container.getBoundingClientRect().width; // Container width
+      triggerLayout = containerWidth > triggerWidth;
     }
 
     function updateBaseStyle() {
       if (triggerLayout) {
         // Horizontal layout
         triggerList.classList.remove("vertical");
+        triggerList.setAttribute("aria-orientation", "horizontal");
         // decoBackground style
         decoBackground.style.height = "2px";
         decoBackground.style.width = `${triggerWidth}px`;
@@ -91,6 +92,7 @@
       } else {
         // Vertical layout
         triggerList.classList.add("vertical");
+        triggerList.setAttribute("aria-orientation", "vertical");
         // decoBackground style
         decoBackground.style.width = "2px";
         decoBackground.style.height = `${triggerHeight}px`;
@@ -102,7 +104,7 @@
     function updateDecoPosition() {
       const parentElement = triggerList;
       const activeTab = triggerList.querySelector(
-        '.tab--trigger[aria-selected="true"]'
+        '[role="tab"][aria-selected="true"]'
       );
 
       // get the bounding rect of the active tab
@@ -124,7 +126,7 @@
           // Vertical layout
           // Find the index of the selected trigger among siblings
           const allTriggers = Array.from(
-            container.querySelectorAll(".tab--trigger")
+            container.querySelectorAll('[role="tab"]')
           );
           const activeIndex = allTriggers.indexOf(activeTab);
 
@@ -155,9 +157,9 @@
       // Click handler
       trigger.addEventListener("click", (event) => {
         event.preventDefault();
-        const value = trigger.dataset.value;
-        selectTab(container, value);
-        updateURLHash(value);
+        const tabId = trigger.id.replace("tab-", "");
+        selectTab(container, tabId);
+        updateURLHash(tabId);
       });
 
       // Keyboard handler
@@ -168,13 +170,10 @@
 
     // Initialize with default tab or first tab
     let initialTabValue;
-    if (
-      defaultTab &&
-      container.querySelector(`.tab--trigger[data-value="${defaultTab}"]`)
-    ) {
+    if (defaultTab && container.querySelector(`#tab-${defaultTab}`)) {
       initialTabValue = defaultTab;
     } else if (triggers.length > 0) {
-      initialTabValue = triggers[0].dataset.value;
+      initialTabValue = triggers[0].id.replace("tab-", "");
     }
 
     if (initialTabValue) {
@@ -195,7 +194,7 @@
    * @param {boolean} isVertical - Whether the tabs are vertically oriented
    */
   function handleKeyDown(event, container, isVertical) {
-    const triggers = Array.from(container.querySelectorAll(".tab--trigger"));
+    const triggers = Array.from(container.querySelectorAll('[role="tab"]'));
     const currentTrigger = event.target;
     const currentIndex = triggers.indexOf(currentTrigger);
 
@@ -233,8 +232,25 @@
       case " ":
       case "Enter":
         event.preventDefault();
-        selectTab(container, currentTrigger.dataset.value);
-        updateURLHash(currentTrigger.dataset.value);
+        const tabId = currentTrigger.id.replace("tab-", "");
+        selectTab(container, tabId);
+        updateURLHash(tabId);
+        break;
+
+      case "PageUp":
+        if (event.ctrlKey) {
+          event.preventDefault();
+          nextIndex = (currentIndex - 1 + triggers.length) % triggers.length;
+          focusAndActivateTab(container, triggers[nextIndex]);
+        }
+        break;
+
+      case "PageDown":
+        if (event.ctrlKey) {
+          event.preventDefault();
+          nextIndex = (currentIndex + 1) % triggers.length;
+          focusAndActivateTab(container, triggers[nextIndex]);
+        }
         break;
     }
   }
@@ -246,7 +262,7 @@
    */
   function focusAndActivateTab(container, tabTrigger) {
     // Update tabindex for all tabs (roving tabindex pattern)
-    const allTriggers = container.querySelectorAll(".tab--trigger");
+    const allTriggers = container.querySelectorAll('[role="tab"]');
     allTriggers.forEach((t) => t.setAttribute("tabindex", "-1"));
 
     // Set focused tab to be tabbable
@@ -256,7 +272,8 @@
     tabTrigger.focus();
 
     // Activate the tab
-    selectTab(container, tabTrigger.dataset.value);
+    const tabId = tabTrigger.id.replace("tab-", "");
+    selectTab(container, tabId);
   }
 
   /**
@@ -265,12 +282,8 @@
    * @param {string} tabValue - The value of the tab to select
    */
   function selectTab(container, tabValue) {
-    const triggers = container.querySelectorAll(".tab--trigger");
-    const panels = container.querySelectorAll(".tab--panel");
-
-    const decoBackground = container.querySelector("#tabs--trigger-deco");
-    const decoLine = container.querySelector("#deco-underline");
-    const triggerList = container.querySelector(".tabs--triggers");
+    const triggers = container.querySelectorAll('[role="tab"]');
+    const panels = container.querySelectorAll('[role="tabpanel"]');
 
     // Deactivate all tabs
     triggers.forEach((t) => {
@@ -280,61 +293,32 @@
     });
 
     panels.forEach((p) => {
-      p.setAttribute("hidden", "true");
+      p.classList.add("hidden");
       p.classList.remove("active");
+      p.setAttribute("hidden", "true");
     });
 
     // Activate the selected tab
-    const selectedTrigger = container.querySelector(
-      `.tab--trigger[data-value="${tabValue}"]`
-    );
-    const selectedPanel = container.querySelector(
-      `.tab--panel[data-value="${tabValue}"]`
-    );
+    const selectedTrigger = container.querySelector(`#tab-${tabValue}`);
+    const selectedPanel = container.querySelector(`#tabpanel-${tabValue}`);
 
     if (selectedTrigger) {
-      // First set the attributes and classes
       selectedTrigger.setAttribute("aria-selected", "true");
       selectedTrigger.classList.add("active");
       selectedTrigger.setAttribute("tabindex", "0");
 
-      // Then get bounding rect and update decoration
-      const rect = selectedTrigger.getBoundingClientRect();
-
-      // Determine layout orientation
-      const triggerWidth = Array.from(triggers).reduce(
-        (sum, t) => sum + t.getBoundingClientRect().width,
-        0
-      );
-      const triggerLayout = document.documentElement.clientWidth > triggerWidth;
-
-      // Update decoration position
-      if (triggerLayout) {
-        // Horizontal layout
-        decoBackground.style.top = `${rect.height}px`;
-        decoLine.style.transform = `translateX(${rect.left}px)`;
-        decoLine.style.width = `${rect.width}px`;
-        decoLine.style.height = "2px";
-      } else {
-        // Vertical layout
-        // Find the index of the selected trigger among siblings
-        const allTriggers = Array.from(triggers);
-        const activeIndex = allTriggers.indexOf(selectedTrigger);
-
-        if (activeIndex !== -1) {
-          // Use the index to calculate the position
-          let decoLineHeight = activeIndex * rect.height;
-
-          decoLine.style.width = "2px";
-          decoLine.style.height = `${rect.height}px`;
-          decoLine.style.transform = `translateY(${decoLineHeight}px)`;
+      // Update decoration position after setting active state
+      setTimeout(() => {
+        if (resizeHandlers.has(container)) {
+          resizeHandlers.get(container)();
         }
-      }
+      }, 0);
     }
 
     if (selectedPanel) {
-      selectedPanel.removeAttribute("hidden");
+      selectedPanel.classList.remove("hidden");
       selectedPanel.classList.add("active");
+      selectedPanel.removeAttribute("hidden");
     }
 
     // Trigger the resize handler to ensure decoration is properly positioned

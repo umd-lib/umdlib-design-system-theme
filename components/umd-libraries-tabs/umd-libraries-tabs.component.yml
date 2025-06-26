@@ -8,10 +8,6 @@ group: UMD Libraries
 props:
   type: object
   properties:
-    label:
-      type: string
-      title: Accessible Label
-      description: An accessible label for the entire tab interface (for screen readers), it will be hidden visually.
     default_tab:
       type: string
       title: Default Tab
@@ -22,6 +18,9 @@ props:
       description: A unique identifier for this tab group (optional).
 
 slots:
+  tab_label:
+    title: Accessible Tab Label (String)
+    description: (Optional) An accessible label for the entire tab interface (for screen readers), it will be hidden visually.
   tabs_triggers_slot:
     title: Tab Triggers (UMD Libraries Tab Trigger)
     description: Slot for the tab trigger elements

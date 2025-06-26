@@ -11,16 +11,8 @@ props:
       type: string
       title: Tab Value
       description: Unique identifier for connecting this trigger to its content
-    first_in_list:
-      type: boolean
-      title: First Tab in List
-      description: Whether this tab is the first tab in the list (for tabindex)
-      default: false
-    tab_label:
-      type: string
-      title: Tab Label
-      description: Label displayed in the tab trigger
-    tab_description:
-      type: string
-      title: Tab Description
-      description: Additional description for screen readers (optional)
+
+slots:
+  tab_label:
+    title: Tab Label (String)
+    description: Label displayed in the tab trigger

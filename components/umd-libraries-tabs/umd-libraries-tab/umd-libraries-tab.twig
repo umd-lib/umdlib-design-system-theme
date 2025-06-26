@@ -3,35 +3,31 @@
  * @file
  * UMD Libraries Tab component.
  *
- * Available variables:
+ * Available props:
  * - tab_value: The value of the tab.
+ * 
+ * Available slots:
  * - tab_heading: The heading of the tab.
- * - auto_focus_first: Whether to auto-focus the first focusable element in the tab.
  * - body_slot: The content of the tab.
  *
  */
 #}
 
 {% if tab_value is defined and body_slot is defined %}
-  <div class="tab--panel s-box-small-v s-box-small-h" 
-    data-value="{{ tab_value }}" 
-    role="tabpanel" 
-    id="panel-{{ tab_value }}" 
-    aria-labelledby="tab-{{ tab_value }}"
-    tabindex="0"
-    {% if auto_focus_first %}data-auto-focus="true"{% endif %}
-    hidden>
-    <div class="tab--content">
-      {% if tab_heading %}
-        <h3 class="t-title-medium">
-          {{ tab_heading }}
-        </h3>
-      {% endif %}
-      <div class="tab--panel-content wysiwyg-editor">
-        {% block body_slot %}{% endblock %}
-      </div>
+  <div 
+       class="tab--panel s-box-small-v s-box-small-h"
+       id="tabpanel-{{ tab_value }}" 
+       role="tabpanel" 
+       tabindex="0" 
+       aria-labelledby="tab-{{ tab_value }}">
+    {% if tab_heading %}
+      <h4>{% block tab_heading %}{% endblock %}</h4>
+    {% endif %}
+    <div class="t-body-medium wysiwyg-editor">
+      {% block body_slot %}{% endblock %}
     </div>
   </div>
+
 {% else %}
   {# variable error handling #}
   {% set errors = [] %}

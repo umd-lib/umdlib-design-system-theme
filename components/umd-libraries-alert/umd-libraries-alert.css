@@ -4,6 +4,10 @@
   border-left: 0.5rem solid var(--maryland-red);
 }
 
+.alert--site_wide .alert--title {
+  padding-right: 1.5rem;
+}
+
 .alert--in_page .alert--content {
   border: 0.25rem solid var(--maryland-yellow);
 }

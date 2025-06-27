@@ -4,15 +4,10 @@ name: UMD Lib Table Main
 label: Table
 group: UMD Libraries
 
-props:
-  type: object
-  properties:
-    caption:
-      type: string
-      title: Table Caption
-      description: A caption for the table.
-
 slots:
+  table_caption:
+    title: Table Caption (String)
+    description: A caption for the table.
   table_header_slot:
     title: Table Header (UMD Libraries Table Cell)
     description: Slot for the table header elements

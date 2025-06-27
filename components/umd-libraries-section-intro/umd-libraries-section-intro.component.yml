@@ -7,12 +7,13 @@ group: UMD Libraries
 props:
   type: object
   properties:
-    heading_text:
-      type: string
-      title: Heading Text
     button_text:
       type: string
       title: Button Text
     button_link:
       type: string
       title: Button Link
+
+slots:
+  heading_text:
+    title: Heading Text (String)

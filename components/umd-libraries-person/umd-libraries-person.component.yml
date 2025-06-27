@@ -24,56 +24,34 @@ props:
         - list
         - card
       default: bio
-    name:
+    person_phone:
       type: string
-      title: Name
-      description: The name of the person.
-    title:
-      type: string
-      title: Title
-      description: The title of the person.
-    department:
-      type: string
-      title: Department
-      description: The department of the person.
-    pronouns:
-      type: string
-      title: Pronouns
-      description: The pronouns of the person.
-    phone:
-      type: string
-      title: Phone
-      description: The phone number of the person.
-    email:
+      title: Telephone number (String)
+      description: Include area code. Dot seperation. I.e., 5555551212.
+    person_email:
       type: string
       title: Email
       description: The email address of the person.
-    office:
-      type: string
-      title: Office
-      description: The office location of the person.
-    image:
-      type: string
-      title: Image
-      description: The image of the person.
-    image_alt:
-      type: string
-      title: Image Alt Text
-      description: The alt text for the image of the person.
-    profile_link:
-      type: string
-      title: Profile Link
-      description: A link to the person's profile within the website.
-    external_link:
-      type: string
-      title: External Link
-      description: A link to more information about the person.
-    external_link_text:
-      type: string
-      title: External Link Text
-      description: The text for the link to more information about the person.
 
 slots:
+  person_name:
+    title: Person Name (String)
+  person_title:
+    title: Person Title (String)
+  person_department:
+    title: Department (String)
+  person_pronouns:
+    title: Pronouns (String)
+  person_office:
+    title: Office (String)
+  person_image:
+    title: Person Image (Media Image)
+  person_profile_link:
+    title: Profile Link (Link)
+  person_external_link:
+    title: External Link (Link)
+  person_external_link_text:
+    title: External Link Text (String)
   bio_description_slot:
     title: Bio Description (WYSIWYG)
     description: Slot for the bio description elements

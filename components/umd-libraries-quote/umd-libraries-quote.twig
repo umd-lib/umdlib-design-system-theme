@@ -3,15 +3,18 @@
  * @file
  * UMD Libraries List component.
  *
- * Available variables:
- * - theme: The theme of the quote ('dark' or 'light').
+ * Available slots:
  * - quote_text_slot: The quote text.
- * - name: The author of the quote.
- * - title: The title of the author.
+ * - quote_author_name: The author of the quote.
+ * - quote_author_title: The title of the author.
+ * 
+ * Props:
+ * - theme: The theme of the quote ('dark' or 'light').
+ * - variant: The quote variant ('feature' or 'simple').
 */
 #}
 
-{% if quote_text_slot is defined and name is defined %}
+{% if quote_text_slot is defined and quote_author_name is defined %}
   <div class="quote--feature {% if theme == 'light' %}c-bg-secondary{% else %}c-bg-primary dark-theme{% endif %} s-box-large-v s-box-large-h">
     {% if variant == 'feature' %}
       <div class="quote--background" aria-hidden="true">
@@ -38,9 +41,9 @@
         {{ quote_text_slot }}
       </div>
       <div class="quote--author c-content-secondary">
-        <span class="quote--name t-body-medium">{{ name }}</span>
-        {% if title is defined %}
-          <span class="quote--title t-label">{{ title }}</span>
+        <span class="quote--name t-body-medium">{% block quote_author_name %}{% endblock %}</span>
+        {% if quote_author_title is defined %}
+          <span class="quote--title t-label">{% block quote_author_title %}{% endblock %}</span>
         {% endif %}
       </div>
     </div>
@@ -53,7 +56,7 @@
     {% set errors = errors | merge(['Quote Text']) %}
   {% endif %}
 
-  {% if name is not defined %}
+  {% if quote_author_name is not defined %}
     {% set errors = errors | merge(['Name']) %}
   {% endif %}
 

@@ -8,19 +8,19 @@
  * - list
  * - card
  *
- * Variables:
- * - name: The name of the person
- * - title: The title of the person
- * - department: The department of the person
- * - pronouns: The pronouns of the person
- * - phone: The phone number of the person
- * - email: The email of the person
- * - office: The office location of the person
- * - image: The URL of the person's image
- * - image_alt: The alt text for the person's image
- * - profile_link: The URL of the person's profile within the site
- * - external_link: A link to more information about the person
- * - external_link_text: The text to display on the link
+ * Slots:
+ * - person_name: The name of the person
+ * - person_title: The title of the person
+ * - person_department: The department of the person
+ * - person_pronouns: The pronouns of the person
+ * - person_phone: The phone number of the person
+ * - person_email: The email of the person
+ * - person_office: The office location of the person
+ * - person_image: The person's image
+ * - person_profile_link: The URL of the person's profile within the site
+ * - person_external_link: A link to more information about the person
+ * - person_external_link_text: The text to display on the link
+ * - bio_description_slot: Bio description content
  */
 #}
 
@@ -28,7 +28,7 @@
 {% set selectedVariant = variant | default('bio') %}
 
 {# Check required fields #}
-{% if name is defined and name is not empty and title is defined and title is not empty %}
+{% if person_name is defined and person_name is not empty and person_title is defined and person_title is not empty %}
   <div class="person--{{ selectedVariant }}
     {# {% if selectedVariant != 'bio' %}s-box-default-v s-box-default-h{% endif %} #}
     {% if selectedVariant == 'card'%}c-border-primary s-box-default-v s-box-default-h{% endif %}">
@@ -38,11 +38,11 @@
       <div class="person--bio-top s-stack-default">
     {% endif %}
 
-    {% if image is defined and image is not empty %}
+    {% if person_image is defined and person_image is not empty %}
       <div class="person--{{ selectedVariant }}-image 
         {% if selectedVariant == 'list' %}s-inline-default{% endif %}
         {% if selectedVariant == 'card' %}s-stack-small{% endif %}">
-        <img src="{{ image }}" alt="{{ image_alt|default(name) }}" />
+        {% block person_image %}{% endblock %}
       </div>
     {% endif %}
 
@@ -57,32 +57,32 @@
         {% if selectedVariant == 'bio' %}s-box-small-h{% endif %} 
         s-stack-{% if selectedVariant == 'bio' %}default{% else %}small{% endif %}">
 
-        {% if selectedVariant == 'list' and profile_link is defined %}
-          <a href="{{ profile_link }}" class="person--list-link c-underline-secondary ani-underline">
+        {% if selectedVariant == 'list' and person_profile_link is defined %}
+          <a href="{% block person_profile_link %}{% endblock %}" class="person--list-link c-underline-secondary ani-underline">
         {% endif %}
 
         <h2 class="person--{{ selectedVariant }}-name 
           t-title-{% if selectedVariant == 'bio' %}large t-uppercase{% else %}medium{% endif %}">
-          {{ name }}
+          {% block person_name %}{% endblock %}
         </h2>
 
-        {% if selectedVariant == 'list' and profile_link is defined %}
+        {% if selectedVariant == 'list' and person_profile_link is defined %}
           </a>
         {% endif %}
 
-        {% if title is defined and title is not empty %}
-          <p class="person--{{ selectedVariant }}-title t-body-small">{{ title }}</p>
+        {% if person_title is defined and person_title is not empty %}
+          <p class="person--{{ selectedVariant }}-title t-body-small">{% block person_title %}{% endblock %}</p>
         {% endif %}
 
-        {% if department is defined and department is not empty and selectedVariant != 'card' %}
+        {% if person_department is defined and person_department is not empty and selectedVariant != 'card' %}
           <p class="person--{{ selectedVariant }}-department t-body-small">
-            {{ department }}
+            {% block person_department %}{% endblock %}
           </p>
         {% endif %}
 
-        {% if pronouns is defined and pronouns is not empty %}
+        {% if person_pronouns is defined and person_pronouns is not empty %}
           <p class="person--{{ selectedVariant }}-pronouns t-body-small t-italic">
-            {{ pronouns }}
+            {% block person_pronouns %}{% endblock %}
           </p>
         {% endif %}
       </div>
@@ -90,36 +90,37 @@
       {# Contact information - only in bio and list variants #}
       {% if selectedVariant != 'card' %}
         <address class="person--{{ selectedVariant }}-contact">
-          {% if phone is defined and phone is not empty %}
-            <a class="person--{{ selectedVariant }}-phone {% if selectedVariant == 'list' %}t-label{% else %}t-body-small{% endif %}" href="tel:{{ phone }}">
+          {% if person_phone is defined and person_phone is not empty %}
+            <a class="person--{{ selectedVariant }}-phone {% if selectedVariant == 'list' %}t-label{% else %}t-body-small{% endif %}" href="tel:{{ person_phone }}">
               <span class="c-bg-interactive-secondary ani-bg-interactive ani-icon-interactive">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
                   <path id="white" d="M10.3402 13.8337C9.2993 13.8337 8.02231 13.3544 6.61544 12.4099C3.77091 10.5012 0.442081 6.58375 0.184079 3.93675C0.101582 3.09018 0.313872 2.40709 0.815195 1.90577L2.55397 0.166992L6.09451 3.70753L5.8114 3.99064C5.35979 4.44233 4.61974 5.1808 4.09064 5.70631C4.57736 6.42109 5.51695 7.47737 6.21021 8.17063C6.86643 8.82627 7.62575 9.4231 8.31009 9.88022C8.80307 9.38398 9.46663 8.71842 10.0093 8.17455L10.2929 7.89119L13.8334 11.4325L12.1157 13.1502C11.6586 13.6073 11.0553 13.8337 10.3402 13.8337Z" fill="black"/>
                 </svg>
               </span>
-              {{ phone }}
+              {{ person_phone }}
             </a>
           {% endif %}
 
-          {% if email is defined and email is not empty %}
-            <a class="person--{{ selectedVariant }}-email {% if selectedVariant == 'list' %}t-label{% else %}t-body-small{% endif %}" href="mailto:{{ email }}">
+
+          {% if person_email is not empty %}
+            <a class="person--{{ selectedVariant }}-email {% if selectedVariant == 'list' %}t-label{% else %}t-body-small{% endif %}" href="mailto:{{ person_email }}">
               <span class="c-bg-interactive-secondary ani-bg-interactive ani-icon-interactive">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path id="white" fill-rule="evenodd" clip-rule="evenodd" d="M13.2448 3.5H2.97782L8.01248 8.05794L13.2448 3.5ZM14.8582 3.5L8.01248 9.57679L1.16675 3.5V12.3929H15.0001V3.5H14.8582Z" fill="black"/>
                 </svg>
               </span>
-              {{ email }}
+              {{ person_email }}
             </a>
           {% endif %}
 
-          {% if office is defined and office is not empty and selectedVariant == 'bio' %}
+          {% if person_office is not empty and selectedVariant == 'bio' %}
             <p class="person--bio-office t-body-small">
               <span class="c-bg-interactive-secondary ani-bg-interactive ani-icon-interactive">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path id="white" d="M8.00008 1C5.07643 1 2.69775 3.09352 2.69775 5.66668C2.69775 6.43914 2.91719 7.20504 3.33434 7.88436L7.71012 14.8496C7.76837 14.9425 7.87938 15 8.00008 15C8.12078 15 8.23179 14.9425 8.29004 14.8496L12.6674 7.88207C13.083 7.20504 13.3024 6.43911 13.3024 5.66665C13.3024 3.09352 10.9237 1 8.00008 1ZM8.00008 8.66667C6.53826 8.66667 5.5156 7.45325 5.5156 6.16668C5.5156 4.8801 6.53826 3.66669 8.00008 3.66669C9.4619 3.66669 10.4846 4.8801 10.4846 6.16668C10.4846 7.45325 9.4619 8.66667 8.00008 8.66667Z" fill="black"/>
                 </svg>
               </span>
-              {{ office }}
+              {% block person_office %}{% endblock %}
             </p>
           {% endif %}
         </address>
@@ -140,12 +141,12 @@
 
     {# Link/button - variants bio & card can have it but with different implementations #}
     {% if selectedVariant == 'bio' or selectedVariant == 'card' %}
-      {% if external_link is defined or profile_link is defined %}
+      {% if person_external_link is defined or person_profile_link is defined %}
         <div class="person--{{ selectedVariant }}-link {% if selectedVariant == 'bio' %}s-stack-default{% endif %}">
           {% include 'umdlib_umdds:umd-libraries-button' with {
             'variant': 'secondary',
-            'button_text': selectedVariant == 'card' ? 'View profile' : external_link_text,
-            'button_link': selectedVariant == 'card' ? profile_link : external_link
+            'button_text': selectedVariant == 'card' ? 'View profile' : person_external_link_text,
+            'button_link': selectedVariant == 'card' ? person_profile_link : person_external_link
           } only %}
         </div>
       {% endif %}
@@ -156,11 +157,11 @@
   {# variable error handling #}
   {% set errors = [] %}
 
-  {% if name is not defined or name is empty %}
+  {% if person_name is not defined or person_name is empty %}
     {% set errors = errors|merge(['Name']) %}
   {% endif %}
 
-  {% if title is not defined or title is empty %}
+  {% if person_title is not defined or person_title is empty %}
     {% set errors = errors|merge(['Title']) %}
   {% endif %}
 

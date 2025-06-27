@@ -15,12 +15,17 @@
 
 {# Get the variant, defaulting to standard if not specified #}
 {% set selectedVariant = variant | default('h2') %}
+{% if heading_text is defined and heading_text is not empty %}
 
-
-{% if heading_text is defined %}
   <div class="heading heading--{{ selectedVariant }}">
     <h{{ selectedVariant | slice(1) }} class="c-content-primary">
-      {% block heading_text %}{% endblock %}
+      {% if link is defined and link is not empty %}
+        <a href="{{ link }}" class="c-content-primary">
+          {{ heading_text }}
+        </a>
+      {% else %}
+             {{ heading_text }}
+      {% endif %}
     </h{{ selectedVariant | slice(1) }}>
   </div>
 

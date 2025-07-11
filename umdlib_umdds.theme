@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the umdlib theme.
+ */
+
+/**
+ * Implements template_preprocess_image().
+ */
+function umdlib_umdds_preprocess_image(&$variables) {
+  if (!empty($variables['attributes'])) {
+    if (!empty($variables['attributes']['height'])) {
+      unset($variables['attributes']['height']);
+    }
+    if (!empty($variables['attributes']['width'])) {
+      unset($variables['attributes']['width']);
+    }
+  }
+  // dsm($variables);
+}

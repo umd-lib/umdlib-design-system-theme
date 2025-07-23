@@ -12,6 +12,7 @@
  *
  * Variables:
  * - image: The URL of the image
+ * - image_alt: The alt text for the image
  * - caption: The caption for the image
  */
 #}
@@ -21,7 +22,7 @@
 
 {% if image is defined %}
   <figure class="umd-lib-image image--{{ selectedVariant }} c-bg-primary">
-    {% block image %}{% endblock %}
+    <img alt="{{ image_alt|default('') }}" src="{{ image }}" loading="lazy">
     {% if caption %}
       <figcaption class="image--caption s-box-small-v s-box-small-h t-body-small wysiwg-editor">
         {% block caption %}{% endblock %}
@@ -35,6 +36,10 @@
 
     {% if image is not defined %}
       {% set errors = errors | merge(['Image']) %}
+    {% endif %}
+
+    {% if image_alt is not defined %}
+      {% set errors = errors | merge(['Image Alt Text']) %}
     {% endif %}
 
   {# Log the errors #}

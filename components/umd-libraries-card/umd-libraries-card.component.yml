@@ -38,7 +38,9 @@ props:
 
 slots:
   card_image:
-    title: Card Image (Media Image)
+    title: Card Image (Media Image URL)
+  card_image_alt:
+    title: Card Image Alt Text (String)
   eyebrow:
     title: Eyebrow Text (String)
   card_title:

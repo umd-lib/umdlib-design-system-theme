@@ -33,6 +33,8 @@ props:
 
 slots:
   image:
-    title: Image (Media Image)
+    title: Image (Media Image URL)
+  image_alt:
+    title: Image Alt Text (String)
   caption:
     title: Image Caption (WYSIWYG)

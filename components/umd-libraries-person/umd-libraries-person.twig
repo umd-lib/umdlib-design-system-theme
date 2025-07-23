@@ -17,6 +17,7 @@
  * - person_email: The email of the person
  * - person_office: The office location of the person
  * - person_image: The person's image
+ * - person_image_alt: The alt text for the person's image
  * - person_profile_link: The URL of the person's profile within the site
  * - person_external_link: A link to more information about the person
  * - person_external_link_text: The text to display on the link
@@ -38,11 +39,11 @@
       <div class="person--bio-top s-stack-default">
     {% endif %}
 
-    {% if person_image is defined and person_image is not empty %}
+    {% if person_image is defined and person_image_alt is defined %}
       <div class="person--{{ selectedVariant }}-image 
         {% if selectedVariant == 'list' %}s-inline-default{% endif %}
         {% if selectedVariant == 'card' %}s-stack-small{% endif %}">
-        {% block person_image %}{% endblock %}
+        <img alt="{{ person_image_alt|default('') }}" src="{{ person_image }}" loading="lazy">
       </div>
     {% endif %}
 
@@ -162,6 +163,10 @@
 
   {% if person_title is not defined or person_title is empty %}
     {% set errors = errors|merge(['Title']) %}
+  {% endif %}
+
+  {% if person_image is defined and person_image_alt is not defined %}
+    {% set errors = errors | merge(['Person Image Alt Text']) %}
   {% endif %}
 
   {# Log the errors #}

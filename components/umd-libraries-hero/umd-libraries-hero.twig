@@ -57,7 +57,7 @@
     {% if hero_image %}
       <div class="hero--image">
         <figure>
-          {% block hero_image %}{% endblock %}
+          <img alt="{{ hero_image_alt|default('') }}" src="{{ hero_image }}" loading="lazy">
           <figcaption class="t-label wysiwyg-editor">
             {% block hero_image_caption %}{% endblock %}
           </figcaption>

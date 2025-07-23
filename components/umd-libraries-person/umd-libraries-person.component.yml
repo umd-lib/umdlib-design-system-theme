@@ -45,7 +45,9 @@ slots:
   person_office:
     title: Office (String)
   person_image:
-    title: Person Image (Media Image)
+    title: Person Image (Media Image URL)
+  person_image_alt:
+    title: Person Image Alt Text (String)
   person_profile_link:
     title: Profile Link (Link)
   person_external_link:

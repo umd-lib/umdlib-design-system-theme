@@ -32,7 +32,9 @@ slots:
   hero_title:
     title: Hero Title (String)
   hero_image:
-    title: Hero Image (Media Image)
+    title: Hero Image (Media Image URL)
+  hero_image_alt:
+    title: Hero Image Alt Text (String)
   hero_image_caption:
     title: Hero Image Caption Text (WYSIWYG)
     description: Alternative text for the hero image, used for accessibility

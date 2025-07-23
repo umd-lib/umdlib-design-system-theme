@@ -1,0 +1,10 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: UMD Lib Text Callout
+label: Text Callout
+group: UMD Libraries
+
+slots:
+  text_callout__text_slot:
+    title: Text Callout Text (WYSIWYG)
+    description: Slot for the text callout text elements

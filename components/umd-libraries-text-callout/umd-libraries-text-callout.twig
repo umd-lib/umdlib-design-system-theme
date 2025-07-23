@@ -1,0 +1,32 @@
+{# 
+/**
+ * @file
+ * UMD Libraries List component.
+ *
+ * Available slots:
+ * - text_callout__text_slot: The text-callout text.
+ *
+*/
+#}
+
+{% if text_callout__text_slot is defined %}
+  <div class="text-callout--feature c-bg-secondary s-box-large-v s-box-large-h">
+    <div class="text-callout--content">
+      <div class="text-callout--text t-title-medium c-content-primary s-stack-small">
+        {{ text_callout__text_slot }}
+      </div>
+    </div>
+  </div>
+{% else %}
+  {# variable error handling #}
+  {% set errors = [] %}
+
+  {% if text_callout__text_slot is not defined %}
+    {% set errors = errors | merge(['Text Callout Text']) %}
+  {% endif %}
+
+  {% if errors is not empty %}
+   <div class="c-content-interactive-primary c-bg-interactive-primary s-box-small-h"> [ERROR] - UMD Libraries Text Callout</div>
+    <div class="s-box-small-h"> Required fields missing: <strong>{{ errors | join(', ') }}</strong></div>
+  {% endif %}
+{% endif %}

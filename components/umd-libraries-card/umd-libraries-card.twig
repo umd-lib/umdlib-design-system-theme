@@ -15,8 +15,8 @@
  * - card_url: The URL the card links to
  * - description: The description of the card
  * - card_date: The date of the card
- * - button_text: The text to display on the button
- * - button_link: The URL the button links to
+ * - emphasized_link_text: The text to display on the emphasized link
+ * - emphasized_link_url: The URL the emphasized link links to
  * - icon_name: The name of the icon to display (for icon variant)
  */
 #}
@@ -94,12 +94,11 @@
         </div>
       {% endif %}
       
-      {# Button for standard and overlay variants #}
+      {# Emphasized Link for standard and overlay variants #}
       {% if hasButton %}
-        {% include 'umdlib_umdds:umd-libraries-button' with {
-          'variant': 'secondary',
-          'button_text': button_text,
-          'button_link': button_link is defined and button_link is not empty ? button_link : card_url
+        {% include 'umdlib_umdds:umd-libraries-emphasized-link' with {
+          'emphasized_link_text': emphasized_link_text,
+          'emphasized_link_url': emphasized_link_url is defined and emphasized_link_url is not empty ? emphasized_link_url : card_url
         } only %}
       {% endif %}
     </div>

@@ -143,10 +143,9 @@
     {% if selectedVariant == 'bio' or selectedVariant == 'card' %}
       {% if person_external_link is defined or person_profile_link is defined %}
         <div class="person--{{ selectedVariant }}-link {% if selectedVariant == 'bio' %}s-stack-default{% endif %}">
-          {% include 'umdlib_umdds:umd-libraries-button' with {
-            'variant': 'secondary',
-            'button_text': selectedVariant == 'card' ? 'View profile' : person_external_link_text,
-            'button_link': selectedVariant == 'card' ? person_profile_link : person_external_link
+          {% include 'umdlib_umdds:umd-libraries-emphasized-link' with {
+            'emphasized_link_text': selectedVariant == 'card' ? 'View profile' : person_external_link_text,
+            'emphasized_link_url': selectedVariant == 'card' ? person_profile_link : person_external_link
           } only %}
         </div>
       {% endif %}

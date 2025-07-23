@@ -9,16 +9,16 @@
   color: var(--white);
 }
 
-.btn--secondary {
+.emphasized-link {
   width: fit-content;
   text-decoration: none;
 }
 
-.btn--secondary a {
+.emphasized-link a {
   text-decoration: none;
 }
 
-.btn--secondary a span.i-chevron {
+.emphasized-link a span.i-chevron {
   display: inline-block;
 
   min-width: 1rem;
@@ -27,7 +27,7 @@
   margin-right: 0.125rem;
 }
 
-.btn--secondary a:hover,
-.btn--secondary a:focus {
+.emphasized-link a:hover,
+.emphasized-link a:focus {
   color: initial;
 }

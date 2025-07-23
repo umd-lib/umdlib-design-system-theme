@@ -21,16 +21,16 @@ props:
       title: Card Variant
       description: Choose the card variant
       enum:
-      - standard
-      - overlay
-      - icon
+        - standard
+        - overlay
+        - icon
       default: standard
-    button_text:
+    emphasized_link_text:
       type: string
-      title: Button Text
-    button_link:
+      title: Emphasized Link Text
+    emphasized_link_url:
       type: string
-      title: Button Link
+      title: Emphasized Link URL
     icon_name:
       type: string
       title: Icon Name

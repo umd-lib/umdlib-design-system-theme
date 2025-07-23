@@ -25,12 +25,6 @@ props:
       type: string
       title: Theme (Light or Dark)
       description: 'Enter "light" or "dark" to choose the theme for the hero section.'
-    button_text:
-      type: string
-      title: Button Text
-    button_link:
-      type: string
-      title: Button URL
 
 slots:
   eyebrow:

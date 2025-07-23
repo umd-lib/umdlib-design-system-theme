@@ -9,16 +9,14 @@
  *
  * Variables:
  * title: The title of the alert.
- * button_text: The text for the button.
- * button_url: The URL for the button.
+ * emphasized_link_text: The text for the emphasized link.
+ * emphasized_link_url: The URL for the emphasized link.
  * alert_description: The description text of the alert.
  */
  #}
 
 {# Get the variant, defaulting to standard if not specified #}
 {% set selectedVariant = variant | default('in_page') %}
-{% set button_variant = selectedVariant == 'site_wide' ? 'primary' : 'secondary' %}
-
 
 {% if title is defined %}
 <div class="alert alert--{{ selectedVariant }}">
@@ -35,11 +33,10 @@
         </div>
       {% endif %}
 
-      {% if button_text is defined and button_link is defined %}
-        {% include 'umdlib_umdds:umd-libraries-button' with {
-            'variant': button_variant,
-            'button_text': button_text,
-            'button_link': button_link,
+      {% if emphasized_link_text is defined and emphasized_link_url is defined %}
+        {% include 'umdlib_umdds:umd-libraries-emphasized-link' with {
+            'emphasized_link_text': emphasized_link_text,
+            'emphasized_link_url': emphasized_link_url,
         } only %}
       {% endif %}
       {% if selectedVariant == 'site_wide' %}

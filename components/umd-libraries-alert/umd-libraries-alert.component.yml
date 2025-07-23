@@ -21,14 +21,14 @@ props:
         - in_page
         - site_wide
       default: in_page
-    button_text:
+    emphasized_link_text:
       type: string
-      title: Button Text
-      description: The text for the button in the alert.
-    button_link:
+      title: Emphasized Link Text
+      description: The text for the emphasized link in the alert.
+    emphasized_link_url:
       type: string
-      title: Button Link
-      description: The URL for the button in the alert.
+      title: Emphasized Link URL
+      description: The URL for the emphasized link in the alert.
 
 slots:
   title:

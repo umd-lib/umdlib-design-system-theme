@@ -15,8 +15,6 @@
  * - description: The description of the hero
  * - hero_image: The URL of the hero image
  * - hero_image_alt: The alt text for the hero image
- * - button_text: The text for the button (only for 'overlay' variant)
- * - button_link: The URL for the button (only for 'overlay' variant)
  */
 #}
 
@@ -51,15 +49,6 @@
           <div class="hero--description c-content-secondary t-body-medium {% if variant == 'overlay' and button_link is defined and button_text is defined %}s-stack-default{% endif %} wysiwyg-editor">
             {% block description_slot %}{% endblock %}
           </div>
-        {% endif %}
-        
-        {# Button for overlay variant #}
-        {% if variant == 'overlay' and button_link is defined and button_text is defined %}
-          {% include 'umdlib_umdds:umd-libraries-button' with {
-            'variant': 'primary',
-            'button_text': button_text,
-            'button_link': button_link
-          } only %}
         {% endif %}
       </div>
     </div>

@@ -46,7 +46,7 @@ slots:
   card_title:
     title: Card Title (String)
   card_url:
-    title: Card URL (Link)
+    title: Card Link URL (String)
   card_date:
     title: Date (Date)
   description:

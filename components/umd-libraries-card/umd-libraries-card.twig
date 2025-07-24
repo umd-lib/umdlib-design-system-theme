@@ -39,7 +39,7 @@
   {% set bgClass = selectedVariant == 'standard' ? 'c-bg-primary' : 'c-bg-secondary' %}
   {% set hasEyebrow = (selectedVariant == 'standard' or selectedVariant == 'overlay') and eyebrow is defined and eyebrow is not empty %}
   {% set hasDate = (selectedVariant == 'standard' or selectedVariant == 'overlay') and card_date is defined and card_date is not empty %}
-  {% set hasButton = (selectedVariant == 'standard' or selectedVariant == 'overlay') and button_text is defined and button_text is not empty %}
+  {% set hasButton = (selectedVariant == 'standard' or selectedVariant == 'overlay') and emphasized_link_text is defined and emphasized_link_url is not empty %}
   {% set contentPadding = (selectedVariant == 'overlay' or selectedVariant == 'icon') ? 's-box-small-h' : '' %}
 
   <div role="contentinfo"
@@ -65,7 +65,13 @@
         
         {# Headline with link - present in all variants #}
         <h3 class="card--headline s-stack-small t-title-medium">
-          {% block card_url %}{% endblock %}
+          {% if card_url is defined and card_url is not empty %}
+            <a href="{{ card_url }}" class="card--link">
+          {% endif %}
+            {% block card_title %}{% endblock %}
+          {% if card_url is defined and card_url is not empty %}
+            </a>
+          {% endif %}
         </h3>
       </div>
       
@@ -112,7 +118,7 @@
     {% if card_image is not defined %}
       {% set errors = errors | merge(['Card Image']) %}
     {% endif %}
-    
+
     {% if card_image_alt is not defined %}
       {% set errors = errors | merge(['Card Image Alt']) %}
     {% endif %}
@@ -123,7 +129,7 @@
   {% endif %}
 
   {% if card_url is not defined %}
-    {% set errors = errors | merge(['Card URL']) %}
+    {% set errors = errors | merge(['Card Link URL']) %}
   {% endif %}
 
   {# Log the errors #}

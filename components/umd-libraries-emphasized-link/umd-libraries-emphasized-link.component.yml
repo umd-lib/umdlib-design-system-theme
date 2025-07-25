@@ -4,12 +4,8 @@ name: UMD Lib Emphasized Link
 label: Emphasized Link
 group: UMD Libraries
 
-props:
-  type: object
-  properties:
-    emphasized_link_text:
-      type: string
-      title: Emphasized Link Text (max 50 chars)
-    emphasized_link_url:
-      type: string
-      title: Emphasized Link URL
+slots:
+  emphasized_link_text:
+    title: Emphasized Link Text (String max 50 chars)
+  emphasized_link_url:
+    title: Emphasized Link URL (String)

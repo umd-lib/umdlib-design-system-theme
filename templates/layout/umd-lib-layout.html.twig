@@ -18,6 +18,8 @@
 {% set num_rows = settings.num_rows %}
 {% set section_vertical_spacing = settings.section_vertical_spacing %}
 {% set top_margin = settings.top_margin %}
+{% set use_search = settings.use_search %}
+
 {%
   set classes = [
     'layout',
@@ -43,7 +45,13 @@
 {% if in_preview %}
   {% set classes = classes|merge(['preview']) %}
 {% endif %}
+
 {% if content %}
+  {% if use_search %}
+    {% set classes = classes|merge(['search-web-components']) %}
+    <search-root{{ settings.search_root_attributes }}>
+  {% endif %}
+
   <div {{ attributes.addClass(classes) }}>
     {% if show_sidebar_region %}
       <div class="sidebar-navigation s-inline-large" aria-hidden="{{ content.left_column is empty ? 'true' : 'false' }}">
@@ -74,4 +82,7 @@
       {% endfor %}
     </div>
   </div>
+  {% if use_search %}
+    </search-root>
+  {% endif %}
 {% endif %}

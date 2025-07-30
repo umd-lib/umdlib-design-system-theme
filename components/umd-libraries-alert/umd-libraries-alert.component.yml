@@ -21,14 +21,6 @@ props:
         - in_page
         - site_wide
       default: in_page
-    emphasized_link_text:
-      type: string
-      title: Emphasized Link Text
-      description: The text for the emphasized link in the alert.
-    emphasized_link_url:
-      type: string
-      title: Emphasized Link URL
-      description: The URL for the emphasized link in the alert.
 
 slots:
   title:
@@ -36,3 +28,7 @@ slots:
   alert_description:
     title: Alert Description (WYSIWYG)
     description: Slot for the alert description elements
+  link_text:
+    title: Link Text (String)
+  link_url:
+    title: Link URL (String)

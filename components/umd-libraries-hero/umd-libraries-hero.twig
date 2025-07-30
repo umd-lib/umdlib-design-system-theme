@@ -46,7 +46,7 @@
         
         {# Hero description #}
         {% if description_slot %}
-          <div class="hero--description c-content-secondary t-body-medium {% if variant == 'overlay' and button_link is defined and button_text is defined %}s-stack-default{% endif %} wysiwyg-editor">
+          <div class="hero--description c-content-secondary t-body-medium wysiwyg-editor">
             {% block description_slot %}{% endblock %}
           </div>
         {% endif %}

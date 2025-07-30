@@ -12,6 +12,7 @@
  * - person_name: The name of the person
  * - person_title: The title of the person
  * - person_department: The department of the person
+ * - person_branch: The branch of the person (only in bio variant)
  * - person_pronouns: The pronouns of the person
  * - person_phone: The phone number of the person
  * - person_email: The email of the person
@@ -58,21 +59,27 @@
         {% if selectedVariant == 'bio' %}s-box-small-h{% endif %} 
         s-stack-{% if selectedVariant == 'bio' %}default{% else %}small{% endif %}">
 
-        {% if selectedVariant == 'list' and person_profile_link is defined %}
+        {% if selectedVariant != 'bio' and person_profile_link is defined %}
           <a href="{% block person_profile_link %}{% endblock %}" class="person--list-link c-underline-secondary ani-underline">
         {% endif %}
 
-        <h2 class="person--{{ selectedVariant }}-name 
-          t-title-{% if selectedVariant == 'bio' %}large t-uppercase{% else %}medium{% endif %}">
-          {% block person_name %}{% endblock %}
-        </h2>
+          <h2 class="person--{{ selectedVariant }}-name 
+            t-title-{% if selectedVariant == 'bio' %}large t-uppercase{% else %}medium{% endif %}">
+            {% block person_name %}{% endblock %}
+          </h2>
 
-        {% if selectedVariant == 'list' and person_profile_link is defined %}
+        {% if selectedVariant != 'bio' and person_profile_link is defined %}
           </a>
         {% endif %}
 
         {% if person_title is defined and person_title is not empty %}
           <p class="person--{{ selectedVariant }}-title t-body-small">{% block person_title %}{% endblock %}</p>
+        {% endif %}
+
+        {% if person_branch is defined and person_branch is not empty and selectedVariant == 'bio' %}
+          <p class="person--{{ selectedVariant }}-branch t-body-small">
+            {% block person_branch %}{% endblock %}
+          </p>
         {% endif %}
 
         {% if person_department is defined and person_department is not empty and selectedVariant != 'card' %}
@@ -145,8 +152,8 @@
       {% if person_external_link is defined or person_profile_link is defined %}
         <div class="person--{{ selectedVariant }}-link {% if selectedVariant == 'bio' %}s-stack-default{% endif %}">
           {% include 'umdlib_umdds:umd-libraries-emphasized-link' with {
-            'emphasized_link_text': selectedVariant == 'card' ? 'View profile' : person_external_link_text,
-            'emphasized_link_url': selectedVariant == 'card' ? person_profile_link : person_external_link
+            'link_text': selectedVariant == 'card' ? 'View profile' : person_external_link_text,
+            'link_url': selectedVariant == 'card' ? person_profile_link : person_external_link
           } only %}
         </div>
       {% endif %}

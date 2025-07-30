@@ -146,6 +146,10 @@
   max-width: 24rem;
 }
 
+.person--card .person--card-name {
+  margin-bottom: 0.5rem;
+}
+
 .person--card-image img {
   height: auto;
   aspect-ratio: 1/1;

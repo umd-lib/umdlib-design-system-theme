@@ -4,16 +4,16 @@
  * UMD Libraries Emphasized Link component.
  *
  * Variables:
- * - emphasized_link_text: The text to display on the link
- * - emphasized_link_url: The URL the link points to
+ * - link_text: The text to display on the link
+ * - link_url: The URL the link points to
  */
 #}
 
 {# Only render the link if we have both a URL and text #}
-{% if emphasized_link_url is defined and emphasized_link_text is defined %}
+{% if link_url is defined and link_text is defined %}
     <div class="emphasized-link">
-      <a href="{{ emphasized_link_url }}" class="emphasized-link--text t-body-small t-interactive-sub c-content-primary c-underline-primary ani-underline">
-        <span class="i-chevron"></span>{{ emphasized_link_text }}
+      <a href="{{ link_url }}" class="emphasized-link--text t-body-small t-interactive-sub c-content-primary c-underline-primary ani-underline">
+        <span class="i-chevron"></span>{{ link_text }}
       </a>
     </div>
 
@@ -21,13 +21,13 @@
   {# variable error handling #}
   {% set errors = [] %}
 
-  {% if emphasized_link_url is not defined %}
-    {# If the emphasized link URL is not defined, log an error #}
-    {% set errors = errors | merge(['Emphasized Link URL']) %}
+  {% if link_url is not defined %}
+    {# If the link URL is not defined, log an error #}
+    {% set errors = errors | merge(['Link URL']) %}
   {% endif %}
-  {% if emphasized_link_text is not defined %}
-    {# If the emphasized link text is not defined, log an error #}
-    {% set errors = errors | merge(['Emphasized Link Text']) %}
+  {% if link_text is not defined %}
+    {# If the link text is not defined, log an error #}
+    {% set errors = errors | merge(['Link Text']) %}
   {% endif %}
 
   {# Log the errors #}

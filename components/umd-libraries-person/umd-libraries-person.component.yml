@@ -40,6 +40,8 @@ slots:
     title: Person Title (String)
   person_department:
     title: Department (String)
+  person_branch:
+    title: Branch (String)
   person_pronouns:
     title: Pronouns (String)
   person_office:

@@ -26,11 +26,10 @@ props:
         - h2
         - h3
         - h4
-    link:
-      type: string
-      title: Link
-      description: (Optional) The link for the heading, if applicable.
 
 slots:
   heading_text:
     title: Heading Text (String)
+  link_url:
+    title: Link URL (String)
+    description: (Optional) The link for the heading, if applicable.

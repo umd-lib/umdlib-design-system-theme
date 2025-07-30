@@ -3,13 +3,13 @@
   flex-direction: column;
 }
 
-.sectoin-intro--heading {
+.section-intro--heading {
   margin-bottom: 0.5rem;
 
   font-weight: 800 !important;
 }
 
-.sectoin-intro--heading:last-child {
+.section-intro--heading:last-child {
   margin-bottom: 0rem;
 }
 
@@ -20,7 +20,7 @@
     align-items: end;
   }
 
-  .sectoin-intro--heading {
+  .section-intro--heading {
     margin-bottom: 0rem;
   }
 }

@@ -10,6 +10,7 @@
  *
  * Variables:
  * heading_text: Heading text.
+ * link_url: (Optional) The link for the heading, if applicable.
  */
  #}
 
@@ -19,8 +20,8 @@
 
   <div class="heading heading--{{ selectedVariant }}">
     <h{{ selectedVariant | slice(1) }} class="c-content-primary">
-      {% if link is defined and link is not empty %}
-        <a href="{{ link }}" class="c-content-primary">
+      {% if link_url is defined and link_url is not empty %}
+        <a href="{{ link_url }}" class="c-content-primary">
           {{ heading_text }}
         </a>
       {% else %}

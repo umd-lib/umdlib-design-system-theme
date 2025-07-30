@@ -25,12 +25,6 @@ props:
         - overlay
         - icon
       default: standard
-    emphasized_link_text:
-      type: string
-      title: Emphasized Link Text
-    emphasized_link_url:
-      type: string
-      title: Emphasized Link URL
     icon_name:
       type: string
       title: Icon Name
@@ -52,3 +46,7 @@ slots:
   description:
     title: Description (WYSIWYG)
     description: Slot intended for WYSIWYG editor content, should use Plain Text format
+  link_text:
+    title: Link Text (String)
+  link_url:
+    title: Link URL (String)

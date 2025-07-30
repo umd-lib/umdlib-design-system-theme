@@ -7,13 +7,11 @@ group: UMD Libraries
 props:
   type: object
   properties:
-    emphasized_link_text:
-      type: string
-      title: Emphasized Link Text
-    emphasized_link_url:
-      type: string
-      title: Emphasized Link URL
 
 slots:
   heading_text:
     title: Heading Text (String)
+  link_text:
+    title: Link Text (String)
+  link_url:
+    title: Link URL (String)

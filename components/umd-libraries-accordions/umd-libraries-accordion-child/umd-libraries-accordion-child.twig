@@ -6,9 +6,9 @@
   * Variables:
   * - title: The title of the accordion
   * - default_open: Whether the accordion should be open by default
-  * - button_text: The text to display on the button
-  * - button_link: The URL the button links to
   * - body: The content of the accordion
+  * - link_text: The text to display on the link
+  * - link_url: The URL the link points to
   */
  #}
 
@@ -28,15 +28,15 @@
     {% else %} style="display: none;" 
     {% endif %}
   >
-    <div class="accordion-child--body t-body-medium wysiwyg-editor">
+    <div class="accordion-child--body wysiwyg-editor">
       {% block body %} {% endblock %}
     </div>
-    {% if button_text %}
+    {% if link_text and link_url %}
       <div class="accordion-child--body-button">
-        {% include 'umdlib_umdds:umd-libraries-button' with {
+        {% include 'umdlib_umdds:umd-libraries-emphasized-link' with {
         'variant': 'secondary',
-        'button_text': button_text,
-        'button_link': button_link|default(card_url)
+        'link_text': link_text,
+        'link_url': link_url
         } only %}
       </div>
     {% endif %}
@@ -51,6 +51,14 @@
 
   {% if body is not defined %}
     {% set errors = errors | merge(['Accordion Body']) %}
+  {% endif %}
+
+  {% if link_text is not defined and link_url is defined %}
+    {% set errors = errors | merge(['Link Text']) %}
+  {% endif %}
+
+  {% if link_text is defined and link_url is not defined %}
+    {% set errors = errors | merge(['Link URL']) %}
   {% endif %}
 
   {# Log the errors #}

@@ -5,19 +5,19 @@
  *
  * Slots:
  * - heading_text: The section heading text
- * - emphasized_link_text: Emphasized link text (optional)
- * - emphasized_link_url: Emphasized link URL (optional)
+ * - link_text: Link text (optional)
+ * - link_url: Link URL (optional)
  */
  #}
 
 {% if heading_text is defined %}
   <div class="section-intro">
-    <h2 class="sectoin-intro--heading t-headline t-uppercase c-content-primary {% if button_text is defined and button_url is defined %}s-inline-large{% endif %}">{% block heading_text %}{% endblock %}</h2>
-    
-    {% if button_text is defined and button_link is defined %}
+    <h2 class="section-intro--heading t-headline t-uppercase c-content-primary {% if link_text is defined and link_url is defined %}s-inline-large{% endif %}">{% block heading_text %}{% endblock %}</h2>
+
+    {% if link_text is defined and link_url is defined %}
       {% include 'umdlib_umdds:umd-libraries-emphasized-link' with {
-          'emphasized_link_text': emphasized_link_text,
-          'emphasized_link_url': emphasized_link_url
+          'link_text': link_text,
+          'link_url': link_url
         } only %}
     {% endif %}
   </div>

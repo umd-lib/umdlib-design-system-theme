@@ -24,7 +24,7 @@
   <figure class="umd-lib-image c-bg-primary">
     <img alt="{{ image_alt|default('') }}" src="{{ image }}" loading="lazy" class="image--image {{ selectedVariant }}" />
     {% if caption %}
-      <figcaption class="image--caption s-box-small-v s-box-small-h t-body-small wysiwg-editor">
+      <figcaption class="image--caption s-box-small-h t-body-small wysiwg-editor">
         {% block caption %}{% endblock %}
       </figcaption>
     {% endif %}

@@ -4,6 +4,10 @@
   caption-side: bottom;
 }
 
+.table--container caption {
+  padding-top: 1rem;
+}
+
 .table--header {
   border-top: 1px solid var(--white);
 }

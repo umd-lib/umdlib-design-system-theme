@@ -15,19 +15,19 @@
 
 {% if table_header_slot is defined %}
   <table class="table--container">
-    <caption class="table--caption s-box-small-v s-box-small-h t-body-small">{% block table_caption %}{% endblock %}</caption>
+    <caption class="table--caption s-box-small-h t-body-small">{% block table_caption %}{% endblock %}</caption>
     <thead class="table--header t-title-small c-bg-dark-primary c-content-dark-primary">
       <tr class="table--header-row">
         {% block table_header_slot %}{% endblock %}
       </tr>
     </thead>
   {% if table_content_slot %}
-    <tbody class="table--body t-body-small c-bg-primary c-content-secondary">
+    <tbody class="table--body c-bg-primary c-content-secondary">
       {% block table_content_slot %}{% endblock %}
     </tbody>
   {% endif %}
   {% if table_footer_slot %}
-    <tfoot class="table--footer t-body-small c-bg-tertiary c-content-secondary s-stack-small">
+    <tfoot class="table--footer c-bg-tertiary c-content-secondary s-stack-small">
       <tr class="table--footer-row">
         {% block table_footer_slot %}{% endblock %}
       </tr>

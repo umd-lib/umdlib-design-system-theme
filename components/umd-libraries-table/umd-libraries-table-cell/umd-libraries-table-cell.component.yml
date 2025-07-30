@@ -7,10 +7,18 @@ group: UMD Libraries
 props:
   type: object
   properties:
+    header:
+      type: boolean
+      title: Header Cell
+      description: Indicates if this cell is a header cell.
     column_span:
       type: string
       title: Column Span
       description: The number of columns this cell should span.
+    row_span:
+      type: string
+      title: Row Span
+      description: The number of rows this cell should span.
 
 slots:
   body_slot:

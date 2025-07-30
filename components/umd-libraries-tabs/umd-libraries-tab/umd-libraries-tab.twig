@@ -21,7 +21,7 @@
        tabindex="0" 
        aria-labelledby="tab-{{ tab_value }}">
     {% if tab_heading %}
-      <h4>{% block tab_heading %}{% endblock %}</h4>
+      <h4 class="t-title-medium s-stack-small">{{ tab_heading }}</h4>
     {% endif %}
     <div class="t-body-medium wysiwyg-editor">
       {% block body_slot %}{% endblock %}

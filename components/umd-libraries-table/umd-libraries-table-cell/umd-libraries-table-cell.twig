@@ -5,13 +5,16 @@
  *
  * Available variables:
  * - body_slot: The content of the cell.
+ * - column_span: The number of columns this cell should span (default: 1)
+ * - row_span: The number of rows this cell should span (default: 1)
+ * - header: Boolean indicating if this cell is a header (default: false)
  */
 #}
 
 {% if body_slot is defined %}
-  <td colspan="{{ column_span }}" class="table--cell s-box-small-v s-box-small-h wysiwyg-editor">
+  <{% if header %}th{% else %}td{% endif %} colspan="{{ column_span }}" rowspan="{{ row_span }}" class="table--cell s-box-small-v s-box-small-h wysiwyg-editor">
     {% block body_slot %}{% endblock %}
-  </td>
+  </{% if header %}th{% else %}td{% endif %}>
 {% else %}
   {# variable error handling #}
     <div class="c-content-interactive-primary c-bg-interactive-primary s-box-small-h"> [ERROR] - UMD Libraries Table Cell</div>

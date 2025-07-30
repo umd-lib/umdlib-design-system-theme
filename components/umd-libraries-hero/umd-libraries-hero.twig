@@ -21,7 +21,7 @@
 {# Set default variant if not specified #}
 {% set variant = variant | default('minimal') %}
 
-{% if hero_title is defined %}
+{% if hero_title %}
 {# Determine theme class #}
   {% set themeClass = theme == 'dark' ? 'c-bg-primary c-content-primary dark-theme' : 'c-bg-secondary c-content-primary' %}
   
@@ -72,7 +72,13 @@
   <div class="c-content-interactive-primary c-bg-interactive-primary s-box-small-h">
     [ERROR] - UMD Libraries Hero / Variant - {{ variant }}
   </div>
-  <div class="s-box-small-h">
-    Required fields missing: <strong>Hero Title</strong>
-  </div>  
+  {% if hero_image is defined and hero_image_alt is not defined %}
+    <div class="s-box-small-h">
+      Required fields missing: <strong>Hero Title, Hero Image Alt Text</strong>
+    </div>
+  {% else %}
+    <div class="s-box-small-h">
+      Required fields missing: <strong>Hero Title</strong>
+    </div>
+  {% endif %}
 {% endif %}

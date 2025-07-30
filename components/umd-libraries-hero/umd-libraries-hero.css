@@ -53,6 +53,11 @@
   z-index: 3;
 }
 
+.hero--minimal .hero--image figure figcaption *,
+.hero--overlay .hero--image figure figcaption * {
+  color: #ffffff;
+}
+
 .hero--minimal .hero--image figure figcaption a,
 .hero--overlay .hero--image figure figcaption a {
   color: #ffd200;
@@ -161,6 +166,11 @@
       rgba(0, 0, 0, 0) 75%
     );
     z-index: 1;
+  }
+
+  .hero--minimal .hero--image figure figcaption,
+  .hero--overlay .hero--image figure figcaption {
+    max-width: 50%;
   }
 }
 

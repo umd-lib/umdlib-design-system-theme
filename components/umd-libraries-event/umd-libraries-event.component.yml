@@ -5,27 +5,22 @@ replaces: umdds:umd-element-event
 label: Event
 group: UMD Libraries
 
-props:
-  type: object
-  properties:
-    title:
-      type: string
-      title: Event Title
-    description:
-      type: string
-      title: Event Description
-    event_date:
-      type: string
-      title: Event Date
-    location:
-      type: string
-      title: Event Location
-    link:
-      type: string
-      title: Event Link
-    image:
-      type: string
-      title: Event Image
-    image_alt:
-      type: string
-      title: Event Image Alt Text
+slots:
+  event_title:
+    title: Event Title (String)
+  event_url:
+    title: Event URL (String)
+  event_description:
+    title: Event Description (WYSIWYG)
+  event_date:
+    title: Event Date (Date)
+    description: Use the format "Day, Month Date" (e.g., "Friday, July 4")
+  event_time:
+    title: Event Time (String)
+    description: Use the format "HH:MM am/pm" (e.g., "2:00pm")
+  event_location:
+    title: Event Location (String)
+  event_image:
+    title: Event Image (Media Image URL)
+  event_image_alt:
+    title: Event Image Alt Text (String)

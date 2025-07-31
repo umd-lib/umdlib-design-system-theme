@@ -3,47 +3,44 @@
  * @file
  * UMD Libraries List component.
  *
- * Available variables:
- * - eyebrow: The eyebrow of the list item.
- * - title: The title of the list.
- * - description: The description of the list.
- * - date: The date of the list.
- * - button_link: The URL the button links to.
- * - image: The URL of the list image.
- * - image_alt: The alt text for the list image.
+ * Available slots:
+ * - list_eyebrow: The eyebrow of the list item.
+ * - list_title: The title of the list.
+ * - list_description: The description of the list.
+ * - list_date: The date of the list.
+ * - list_image: The list image.
+ * - list_image_alt: The alt text for the list image.
+ * - list_url: The URL the button links to.
 */
 #}
 
-{% if title is defined and button_link is defined %}
+{% if list_title is defined and list_url is defined %}
   <div class="list s-box-small-v">
     <div class="list--title-section">
-      {% if eyebrow is defined and eyebrow is not empty %}
-        <div class="list--eyebrow t-eyebrow c-content-primary">{{ eyebrow }}</div>
+      {% if list_eyebrow is defined and list_eyebrow is not empty %}
+        <div class="list--eyebrow t-eyebrow c-content-primary">{% block list_eyebrow %}{% endblock %}</div>
       {% endif %}
       <div class="list--title">
-        <h2 class="t-title-medium c-content-primary">{{ title }}</h2>
+        <h2 class="t-title-medium c-content-primary">
+          <a href="{{ list_url }}">{{ list_title }}</a>
+        </h2>
       </div>
     </div>
 
     <div class="list--details">
       <div class="list--information">
-        <div class="list--content s-stack-large">
-          {% if description is defined and description is not empty %}
-            <div class="list--description t-body-small">{{ description }}</div>
+        <div class="list--content">
+          {% if list_description is defined and list_description is not empty %}
+            <div class="list--description t-body-small wysiwyg-editor">{% block list_description %}{% endblock %}</div>
           {% endif %}
-          {% if date is defined and date is not empty %}
-            <div class="list--date t-label c-content-tertiary">{{ date }}</div>
+          {% if list_date is defined and list_date is not empty %}
+            <div class="list--date t-label c-content-tertiary">{% block list_date %}{% endblock %}</div>
           {% endif %}
         </div>
-        {% include 'umdlib_umdds:umd-libraries-button' with {
-            'variant': 'secondary',
-            'button_text': 'Learn More',
-            'button_link': button_link
-            } only %}
       </div>
-      {% if image is defined and image is not empty %}
+      {% if list_image is defined and list_image is not empty %}
         <div class="list--image">
-          <img src="{{ image }}" alt="{{ image_alt }}" loading="lazy">
+          <img alt="{{ list_image_alt|default('') }}" src="{{ list_image }}" loading="lazy">
         </div>
       {% endif %}
     </div> 
@@ -52,12 +49,16 @@
   {# variable error handling #}
   {% set errors = [] %}
 
-  {% if title is not defined %}
+  {% if list_title is not defined %}
     {% set errors = errors | merge(['Title']) %}
   {% endif %}
 
-  {% if button_link is not defined %}
-    {% set errors = errors | merge(['Button Link']) %}
+  {% if list_url is not defined %}
+    {% set errors = errors | merge(['List URL']) %}
+  {% endif %}
+
+  {% if list_image is defined and list_image_alt is not defined %}
+    {% set errors = errors | merge(['List Image Alt Text']) %}
   {% endif %}
 
   {% if errors is not empty %}

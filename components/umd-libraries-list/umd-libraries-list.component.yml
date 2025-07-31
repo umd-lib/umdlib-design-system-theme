@@ -4,27 +4,19 @@ name: UMD Lib List
 label: List
 group: UMD Libraries
 
-props:
-  type: object
-  properties:
-    eyebrow:
-      type: string
-      title: Eyebrow Text
-    title:
-      type: string
-      title: Title
-    description:
-      type: string
-      title: Description
-    date:
-      type: string
-      title: Date
-    button_link:
-      type: string
-      title: Button Link
-    image:
-      type: string
-      title: Image
-    image_alt:
-      type: string
-      title: Image Alt Text
+slots:
+  list_eyebrow:
+    title: Eyebrow Text (String)
+  list_title:
+    title: List Title (String)
+  list_url:
+    title: List URL (String)
+  list_description:
+    title: List Description (WYSIWYG)
+  list_date:
+    title: Date (Date)
+    description: Use the format "Month Date, Year" (e.g., "July 4, 2025")
+  list_image:
+    title: List Image (Media Image URL)
+  list_image_alt:
+    title: List Image Alt Text (String)

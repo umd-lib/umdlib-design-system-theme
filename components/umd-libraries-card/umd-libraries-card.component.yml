@@ -43,6 +43,7 @@ slots:
     title: Card Link URL (String)
   card_date:
     title: Date (Date)
+    description: Use the format "Month Date, Year" (e.g., "July 4, 2025")
   description:
     title: Description (WYSIWYG)
     description: Slot intended for WYSIWYG editor content, should use Plain Text format

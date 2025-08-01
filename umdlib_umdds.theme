@@ -8,7 +8,7 @@
 /**
  * Implements template_preprocess_image().
  */
-function umdlib_umdds_preprocess_image(&$variables) {
+function umdlib_umdds_preprocess_image(&$variables) : void {
   if (!empty($variables['attributes'])) {
     if (!empty($variables['attributes']['height'])) {
       unset($variables['attributes']['height']);
@@ -17,5 +17,4 @@ function umdlib_umdds_preprocess_image(&$variables) {
       unset($variables['attributes']['width']);
     }
   }
-  // dsm($variables);
 }

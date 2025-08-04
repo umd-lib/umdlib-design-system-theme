@@ -1,0 +1,43 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: UMD Lib iFrame
+label: iFrame
+group: UMD Libraries
+
+variants:
+  one_to_one:
+    title: Aspect Ratio 1/1
+  four_to_three:
+    title: Aspect Ratio 4/3
+  three_to_two:
+    title: Aspect Ratio 3/2
+  sixteen_to_nine:
+    title: Aspect Ratio 16/9
+  freeform:
+    title: Freeform
+
+props:
+  type: object
+  properties:
+    variant:
+      type: string
+      title: iFrame Ratio
+      description: Choose the iFrame ratio
+      enum:
+        - sixteen_to_nine
+        - three_to_two
+        - four_to_three
+        - one_to_one
+        - freeform
+      default: sixteen_to_nine
+    allow_fullscreen:
+      title: iFrame Fullscreen Option
+      type: boolean
+      default: true
+      description: Allow the iFrame to be displayed in fullscreen mode, defaults to true
+
+slots:
+  iframe_title:
+    title: iFrame Title (String)
+  iframe_url:
+    title: iFrame URL (String)

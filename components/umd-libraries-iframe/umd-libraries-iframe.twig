@@ -1,0 +1,38 @@
+{# 
+/**
+ * @file
+ * UMD Libraries iFrame component.
+ *
+ *
+ * Variables:
+ * - iframe_title: The title of the iFrame
+ * - iframe_url: The URL of the iFrame
+ * - allow_fullscreen: Whether to allow fullscreen mode
+ */
+ * - caption: The caption for the image
+ */
+#}
+{% set variant = variant | default('sixteen_to_nine') %}
+{% set allow_fullscreen = allow_fullscreen | default(true) %}
+
+{% if iframe_title and iframe_url %}
+<iframe class="umd-lib-iframe {{ variant }}" title="{{ iframe_title }}" src="{{ iframe_url }}" frameborder="0" loading="lazy" {% if allow_fullscreen %}allowfullscreen{% endif %}></iframe>
+
+{% else %}
+ {# variable error handling #}
+  {% set errors = [] %}
+
+    {% if iframe_title is not defined %}
+      {% set errors = errors | merge(['iFrame Title']) %}
+    {% endif %}
+
+    {% if iframe_url is not defined %}
+      {% set errors = errors | merge(['iFrame URL']) %}
+    {% endif %}
+
+  {# Log the errors #}
+  {% if errors is not empty %}
+    <div class="c-content-interactive-primary c-bg-interactive-primary s-box-small-h"> [ERROR] - UMD Libraries iFrame</div>
+    <div class="s-box-small-h"> Required fields missing: <strong>{{ errors | join(', ') }}</strong></div>
+  {% endif %}
+{% endif %}

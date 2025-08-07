@@ -14,3 +14,4 @@ regions:
 dependencies:
   - umdlib_ds_layout_tools:umdlib_ds_layout_tools
   - ui_patterns:ui_patterns
+  - umdds 

@@ -11,7 +11,7 @@
     "minimum-stability": "dev",
     "require": {
         "drupal/core": "^11",
-        "umd-lib/umd-design-system-theme": "^0.1.1",
+        "umd-lib/umd-design-system-theme": "1.x-dev",
         "umd-lib/umdlib_ds_layout_tools": "^0.1.0"
       }
 }

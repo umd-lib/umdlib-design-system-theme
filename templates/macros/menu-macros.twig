@@ -68,23 +68,24 @@
             <button
               class="navigation__submenu-button"
               aria-expanded="false"
+                aria-label="Next level of navigation of {{ item.title }}"
               aria-controls="submenu-{{ item.title|clean_class }}">
-              <span class="i-chevron-down"></span>
+              <span class="i-chevron-down" aria-hidden="true"></span>
             </button>
             <div class="navigation__submenu" id="submenu-{{ item.title|clean_class }}">
-              <div class="navigation__submenu-header">
-                <button class="navigation__back-button">
-                  <span class="i-chevron-down"></span>
-                  <p class="t-label ani-underline c-underline-secondary">
-                    Back
-                  </p>
-                </button>
-              </div>
               <div class="navigation__submenu-content">
                 <div class="navigation__submenu-title">
                   {{ link(item.title, item.url) }}
                 </div>
                 {{ menus.main_menu_links(item.below, attributes, menu_level + 1) }}
+              </div>
+              <div class="navigation__submenu-header">
+                <button class="navigation__back-button" aria-label="Previous level of navigation">
+                  <span class="i-chevron-down" aria-hidden="true"></span>
+                  <p class="t-label ani-underline c-underline-secondary">
+                    Back
+                  </p>
+                </button>
               </div>
             </div>
           {% endif %}

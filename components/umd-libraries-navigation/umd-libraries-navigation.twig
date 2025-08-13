@@ -23,19 +23,27 @@
     </div>
     <button
       class="navigation__menu-button"
+      aria-label="Toggle navigation menu"
       aria-expanded="false"
       aria-controls="navigation"
     >
-      <span class="navigation__menu-icon"></span>
+      <span class="navigation__menu-icon" aria-hidden="true"></span>
     </button>
     <div class="navigation__rows">
       {% if main_navigation_slot is defined %}
         <div class="navigation__row-main">
-          <nav aria-label="Main navigation" class="navigation__main-menu">
+          <nav role="navigation" aria-label="Main navigation" class="navigation__main-menu">
             <ul class="navigation__menu-list">
               {% block main_navigation_slot %}{% endblock %}
             </ul>
           </nav>
+        <button
+          class="sr-only"
+          id="navigation-in-menu-button"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="navigation"
+        />
         </div>
       {% endif %}
       {% if utility_navigation_slot is defined %}

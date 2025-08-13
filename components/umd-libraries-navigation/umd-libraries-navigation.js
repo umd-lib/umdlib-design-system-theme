@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!button.hasAttribute("data-processed")) {
         button.setAttribute("data-processed", "true");
 
+        // Add click event listener to toggle menu
         button.addEventListener("click", function () {
           // Update menu button style
           this.classList.toggle("is-active");
@@ -35,9 +36,45 @@ document.addEventListener("DOMContentLoaded", function () {
               submenu.classList.remove("is-active");
             }
           });
+
+          const menuCloseButton = document.getElementById(
+            "navigation-in-menu-button"
+          );
+          if (menuCloseButton) {
+            if (button.getAttribute("aria-expanded") === "false") {
+              menuCloseButton.setAttribute("aria-expanded", "false");
+            } else {
+              menuCloseButton.setAttribute("aria-expanded", "true");
+            }
+          }
         });
       }
     });
+
+  // escape key listener for closing the menu
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      const menuButton = document.querySelector(".navigation__menu-button");
+      if (menuButton && menuButton.getAttribute("aria-expanded") === "true") {
+        menuButton.click();
+      }
+    }
+  });
+
+  // close menu using in menu button
+  document.addEventListener("click", function (event) {
+    const menuButton = document.getElementById("navigation-in-menu-button");
+    if (
+      menuButton &&
+      event.target === menuButton &&
+      menuButton.getAttribute("aria-expanded") === "true"
+    ) {
+      const mainMenuButton = document.querySelector(".navigation__menu-button");
+      if (mainMenuButton) {
+        mainMenuButton.click();
+      }
+    }
+  });
 
   // Submenu Toggle
   document

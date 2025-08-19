@@ -18,7 +18,7 @@
   text-decoration: none;
 }
 
-.emphasized-link a span.i-chevron {
+.emphasized-link a span {
   display: inline-block;
 
   min-width: 1rem;

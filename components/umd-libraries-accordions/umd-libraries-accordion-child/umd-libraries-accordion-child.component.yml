@@ -16,11 +16,13 @@ props:
 slots:
   title:
     title: Accordion Item Title (String)
-    description: The title of the accordion item.
+    description: Accordion Item Title.
   body:
     title: Body (WYSIWYG)
-    description: Internal - to be used in the 'UMD Libraries Accordion' component. Slot for the accordion item content elements.
+    description: Accordion Body.
   link_text:
     title: Link Text (String)
+    description: Link Text.
   link_url:
     title: Link URL (String)
+    description: Link URL.

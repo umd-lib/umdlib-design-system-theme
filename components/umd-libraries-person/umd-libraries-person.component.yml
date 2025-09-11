@@ -24,20 +24,18 @@ props:
         - list
         - card
       default: bio
-    person_phone:
-      type: string
-      title: Telephone number (String)
-      description: Include area code. Dot seperation. I.e., 5555551212.
-    person_email:
-      type: string
-      title: Email
-      description: The email address of the person.
 
 slots:
   person_name:
     title: Person Name (String)
   person_title:
     title: Person Title (String)
+  person_phone:
+    title: Telephone number (String)
+    description: Include area code. Dot seperation. I.e., 5555551212.
+  person_email:
+    title: Email (String)
+    description: The email address of the person.
   person_department:
     title: Department (String)
   person_branch:

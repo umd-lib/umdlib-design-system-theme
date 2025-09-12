@@ -12,7 +12,7 @@
 #}
 
 {% if body_slot is defined %}
-  <{% if header %}th{% else %}td{% endif %} colspan="{{ column_span }}" rowspan="{{ row_span }}" class="table--cell s-box-small-v s-box-small-h wysiwyg-editor">
+  <{% if header %}th{% else %}td{% endif %} colspan="{{ column_span }}" rowspan="{{ row_span }}" class="table--cell s-box-medium-v s-box-medium-h wysiwyg-editor">
     {% block body_slot %}{% endblock %}
   </{% if header %}th{% else %}td{% endif %}>
 {% else %}

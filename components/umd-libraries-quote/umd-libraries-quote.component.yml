@@ -30,6 +30,6 @@ slots:
     title: Quote Text (WYSIWYG)
     description: Slot for the quote text elements
   quote_author_name:
-    title: Author Name (String)
+    title: Author Name (Text String)
   quote_author_title:
-    title: Author Title (String)
+    title: Author Title (Text String)

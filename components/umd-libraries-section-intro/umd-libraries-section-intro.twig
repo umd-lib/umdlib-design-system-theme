@@ -11,8 +11,8 @@
  #}
 
 {% if heading_text is defined %}
-  <div class="section-intro">
-    <h2 class="section-intro--heading t-headline t-uppercase c-content-primary {% if link_text is defined and link_url is defined %}s-inline-large{% endif %}">{% block heading_text %}{% endblock %}</h2>
+  <div class="umd-lib section-intro s-margin-heading-medium">
+    <h2 class="section-intro--heading t-headline c-content-primary {% if link_text is defined and link_url is defined %}s-inline-large{% endif %}">{% block heading_text %}{% endblock %}</h2>
 
     {% if link_text is defined and link_url is defined %}
       {% include 'umdlib_umdds:umd-libraries-emphasized-link' with {

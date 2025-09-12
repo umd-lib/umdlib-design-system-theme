@@ -73,31 +73,38 @@ div.layout-builder__section .layout-builder__add-block {
   flex-direction: row;
 }
 
-/* page spacing */
-/* between sections */
-.umd-lib-layout.layout--custom.vertical-spacing-default {
-  margin-bottom: 2rem;
+.umd-lib-layout.layout--custom {
+  margin-bottom: var(--space-md);
 }
 
-.umd-lib-layout.layout--custom.vertical-spacing-small {
-  margin-bottom: 1.5rem;
+.umd-lib-layout.layout--custom:last-child {
+  margin-bottom: var(--space-2xl);
 }
 
-.umd-lib-layout.layout--custom.vertical-spacing-large {
-  margin-bottom: 3rem;
+.umd-lib-layout.layout--custom.top-margin {
+  margin-top: var(--space-md);
 }
 
-/* top margin */
-.umd-lib-layout.layout--custom.top-margin.vertical-spacing-default {
-  margin-top: 2rem;
+.umd-lib-layout.layout--custom.top-margin:first-child {
+  margin-top: var(--space-lg);
 }
 
-.umd-lib-layout.layout--custom.top-margin.vertical-spacing-small {
-  margin-top: 1.5rem;
-}
+@media (min-width: 768px) {
+  .umd-lib-layout.layout--custom {
+    margin-bottom: var(--space-lg);
+  }
 
-.umd-lib-layout.layout--custom.top-margin.vertical-spacing-large {
-  margin-top: 3rem;
+  .umd-lib-layout.layout--custom:last-child {
+    margin-bottom: var(--space-3xl);
+  }
+
+  .umd-lib-layout.layout--custom.top-margin {
+    margin-top: var(--space-lg);
+  }
+
+  .umd-lib-layout.layout--custom.top-margin:first-child {
+    margin-top: var(--space-xl);
+  }
 }
 
 /* sidebar region */
@@ -138,7 +145,7 @@ div.layout-builder__section .layout-builder__add-block {
 
   display: grid;
   grid-template-columns: auto;
-  gap: 1rem;
+  gap: var(--space-md);
 }
 
 .umd-lib-layout.layout--custom
@@ -170,10 +177,6 @@ div.layout-builder__section .layout-builder__add-block {
   flex-direction: column;
 }
 
-.umd-lib-layout.layout--custom .sidebar-navigation > div {
-  margin-bottom: 1.5rem;
-}
-
 /* layout - card group */
 .umd-lib-layout.layout--custom
   .main-column
@@ -182,69 +185,21 @@ div.layout-builder__section .layout-builder__add-block {
   grid-template-columns: 1fr;
 }
 
-/* section spacing - it should be the same across different group */
-/* between rows */
-.row.vertical-default {
-  margin-bottom: 1rem;
-}
-
-.row.vertical-small {
-  margin-bottom: 1rem;
-}
-
-.row.vertical-large {
-  margin-bottom: 2rem;
-}
-
-.row.vertical-default:last-child,
-.row.vertical-small:last-child,
-.row.vertical-large:last-child {
-  margin-bottom: 0 !important;
-}
-
-/* inside the row - block level */
-.row.vertical-default > div.col-child > div > div {
-  margin-bottom: 1rem;
-}
-
-.row.vertical-small > div.col-child > div > div {
-  margin-bottom: 1rem;
-}
-
-.row.vertical-large > div.col-child > div > div {
-  margin-bottom: 2rem;
-}
-
-.row.vertical-default > div.col-child > div > div:last-child,
-.row.vertical-small > div.col-child > div > div:last-child,
-.row.vertical-large > div.col-child > div > div:last-child {
-  margin-bottom: 0 !important;
-}
-
-/* between card group */
-.card-group.vertical-default {
-  margin-bottom: 1rem;
-}
-
-.card-group.vertical-small {
-  margin-bottom: 1rem;
-}
-
-.card-group.vertical-large {
-  margin-bottom: 2rem;
-}
-
-/* horizontal */
+/* card group - reset component margin & add section margin */
 .umd-lib-layout.layout--custom
   .main-column
-  .card-group.horizontal-none
-  .card-group-content {
-  gap: 0rem;
+  .card-group
+  .card-group-content
+  > div
+  > div {
+  margin: 0 !important;
 }
 
-.card-group.vertical-default:last-child,
-.card-group.vertical-small:last-child,
-.card-group.vertical-large:last-child {
+.umd-lib-layout.layout--custom .main-column .card-group {
+  margin-bottom: var(--space-md);
+}
+
+.umd-lib-layout.layout--custom .main-column .card-group:last-child {
   margin-bottom: 0 !important;
 }
 
@@ -278,7 +233,7 @@ div.layout-builder__section .layout-builder__add-block {
     .main-column
     .layout--4-column
     .card-group-content {
-    gap: 1.5rem;
+    gap: var(--space-lg);
   }
 
   /* layout - column */
@@ -306,119 +261,38 @@ div.layout-builder__section .layout-builder__add-block {
     .card-group-content {
     grid-template-columns: repeat(
       auto-fit,
-      minmax(min(100%, calc((100% - 1.5rem) / 2)), 1fr)
+      minmax(min(100%, calc((100% - 2rem) / 2)), 1fr)
     );
   }
 
   .umd-lib-layout.layout--custom
     .main-column
-    .card-group.layout--2-column.horizontal-none,
+    .card-group.layout--2-column.horizontal-none
+    .card-group-content,
   .umd-lib-layout.layout--custom
     .main-column
-    .card-group.layout--3-column.horizontal-none,
+    .card-group.layout--3-column.horizontal-none
+    .card-group-content,
   .umd-lib-layout.layout--custom
     .main-column
-    .card-group.layout--4-column.horizontal-none {
+    .card-group.layout--4-column.horizontal-none
+    .card-group-content {
+    gap: 0rem !important;
+
     grid-template-columns: repeat(
       auto-fit,
       minmax(min(100%, calc((100%) / 2)), 1fr)
     );
   }
 
-  /* page spacing */
-  /* between sections */
-  .umd-lib-layout.layout--custom.vertical-spacing-default {
-    margin-bottom: 2rem;
-  }
-
-  .umd-lib-layout.layout--custom.vertical-spacing-small {
-    margin-bottom: 1.5rem;
-  }
-
-  .umd-lib-layout.layout--custom.vertical-spacing-large {
-    margin-bottom: 3rem;
-  }
-
-  /* top margin */
-  .umd-lib-layout.layout--custom.top-margin.vertical-spacing-default {
-    margin-top: 2rem;
-  }
-
-  .umd-lib-layout.layout--custom.top-margin.vertical-spacing-small {
-    margin-top: 1.5rem;
-  }
-
-  .umd-lib-layout.layout--custom.top-margin.vertical-spacing-large {
-    margin-top: 3rem;
-  }
-
-  /* section spacing - it should be the same across different group */
-  /* between rows */
-  .row.vertical-default {
-    margin-bottom: 1.5rem;
-  }
-
-  .row.vertical-small {
-    margin-bottom: 1rem;
-  }
-
-  .row.vertical-large {
-    margin-bottom: 2rem;
-  }
-
-  /* inside the row - block level */
-  .row.vertical-default > div.col-child > div > div {
-    margin-bottom: 1.5rem;
-  }
-
-  .row.vertical-small > div.col-child > div > div {
-    margin-bottom: 1rem;
-  }
-
-  .row.vertical-large > div.col-child > div > div {
-    margin-bottom: 2rem;
-  }
-
-  /* between card group */
-  .card-group.vertical-default {
-    margin-bottom: 1.5rem;
-  }
-
-  .card-group.vertical-small {
-    margin-bottom: 1rem;
-  }
-
-  .card-group.vertical-large {
-    margin-bottom: 2rem;
+  /* card group - add section margin */
+  .umd-lib-layout.layout--custom .main-column .card-group {
+    margin-bottom: var(--space-lg);
   }
 }
 
 /* Desktop */
 @media (min-width: 1024px) {
-  /* column / card group - gap */
-  .umd-lib-layout.layout--custom .main-column .column.layout--1-column,
-  .umd-lib-layout.layout--custom .main-column .column.layout--2-column,
-  .umd-lib-layout.layout--custom .main-column .column.layout--3-column,
-  .umd-lib-layout.layout--custom .main-column .column.layout--4-column,
-  .umd-lib-layout.layout--custom
-    .main-column
-    .layout--1-column
-    .card-group-content,
-  .umd-lib-layout.layout--custom
-    .main-column
-    .layout--2-column
-    .card-group-content,
-  .umd-lib-layout.layout--custom
-    .main-column
-    .layout--3-column
-    .card-group-content,
-  .umd-lib-layout.layout--custom
-    .main-column
-    .layout--4-column
-    .card-group-content {
-    gap: 1.5rem;
-  }
-
   /* layout - column */
   .umd-lib-layout.layout--custom .main-column .column.layout--3-column {
     width: 100%;
@@ -432,151 +306,6 @@ div.layout-builder__section .layout-builder__add-block {
 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-
-  /* layout - card group */
-  .umd-lib-layout.layout--custom
-    .main-column
-    .card-group.layout--2-column
-    .card-group-content {
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(min(100%, calc((100% - 1.5rem) / 2)), 1fr)
-    );
-  }
-
-  .umd-lib-layout.layout--custom
-    .main-column
-    .card-group.layout--3-column
-    .card-group-content {
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(min(100%, calc((100% - 3rem) / 3)), 1fr)
-    );
-  }
-
-  .umd-lib-layout.layout--custom
-    .main-column
-    .card-group.layout--4-column
-    .card-group-content {
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(min(100%, calc((100% - 4.5rem) / 4)), 1fr)
-    );
-  }
-
-  .umd-lib-layout.layout--custom
-    .main-column
-    .card-group.layout--3-column.horizontal-none
-    .card-group-content {
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(min(100%, calc((100%) / 3)), 1fr)
-    );
-  }
-
-  .umd-lib-layout.layout--custom
-    .main-column
-    .card-group.layout--4-column.horizontal-none
-    .card-group-content {
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(min(100%, calc((100%) / 4)), 1fr)
-    );
-  }
-
-  /* page spacing */
-  /* between sections */
-  .umd-lib-layout.layout--custom.vertical-spacing-default {
-    margin-bottom: 4rem;
-  }
-
-  .umd-lib-layout.layout--custom.vertical-spacing-small {
-    margin-bottom: 2rem;
-  }
-
-  .umd-lib-layout.layout--custom.vertical-spacing-large {
-    margin-bottom: 6rem;
-  }
-
-  /* top margin */
-  .umd-lib-layout.layout--custom.top-margin.vertical-spacing-default {
-    margin-top: 4rem;
-  }
-
-  .umd-lib-layout.layout--custom.top-margin.vertical-spacing-small {
-    margin-top: 2rem;
-  }
-
-  .umd-lib-layout.layout--custom.top-margin.vertical-spacing-large {
-    margin-top: 6rem;
-  }
-
-  /* section spacing - it should be the same across different group */
-  /* between rows */
-  .row.vertical-default {
-    margin-bottom: 2rem;
-  }
-
-  .row.vertical-small {
-    margin-bottom: 1.5rem;
-  }
-
-  .row.vertical-large {
-    margin-bottom: 2.5rem;
-  }
-
-  /* inside the row - block level */
-  .row.vertical-default > div.col-child > div > div {
-    margin-bottom: 2rem;
-  }
-
-  .row.vertical-small > div.col-child > div > div {
-    margin-bottom: 1.5rem;
-  }
-
-  .row.vertical-large > div.col-child > div > div {
-    margin-bottom: 2.5rem;
-  }
-
-  /* between card group */
-  .card-group.vertical-default {
-    margin-bottom: 2rem;
-  }
-
-  .card-group.vertical-small {
-    margin-bottom: 1.5rem;
-  }
-
-  .card-group.vertical-large {
-    margin-bottom: 2.5rem;
-  }
-}
-
-/* Large Desktop */
-@media (min-width: 1440px) {
-  /* column / card group - gap */
-  .umd-lib-layout.layout--custom .main-column .column.layout--1-column,
-  .umd-lib-layout.layout--custom .main-column .column.layout--2-column,
-  .umd-lib-layout.layout--custom .main-column .column.layout--3-column,
-  .umd-lib-layout.layout--custom .main-column .column.layout--4-column,
-  .umd-lib-layout.layout--custom
-    .main-column
-    .layout--1-column
-    .card-group-content,
-  .umd-lib-layout.layout--custom
-    .main-column
-    .layout--2-column
-    .card-group-content,
-  .umd-lib-layout.layout--custom
-    .main-column
-    .layout--3-column
-    .card-group-content,
-  .umd-lib-layout.layout--custom
-    .main-column
-    .layout--4-column
-    .card-group-content {
-    gap: 2rem;
   }
 
   /* layout - card group */
@@ -610,30 +339,37 @@ div.layout-builder__section .layout-builder__add-block {
     );
   }
 
-  /* page spacing */
-  /* between sections */
-  .umd-lib-layout.layout--custom.vertical-spacing-default {
-    margin-bottom: 5rem;
+  .umd-lib-layout.layout--custom
+    .main-column
+    .card-group.layout--2-column.horizontal-none
+    .card-group-content {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, calc((100%) / 2)), 1fr)
+    );
   }
 
-  .umd-lib-layout.layout--custom.vertical-spacing-small {
-    margin-bottom: 3rem;
+  .umd-lib-layout.layout--custom
+    .main-column
+    .card-group.layout--3-column.horizontal-none
+    .card-group-content {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, calc((100%) / 3)), 1fr)
+    );
   }
 
-  .umd-lib-layout.layout--custom.vertical-spacing-large {
-    margin-bottom: 7.5rem;
+  .umd-lib-layout.layout--custom
+    .main-column
+    .card-group.layout--4-column.horizontal-none
+    .card-group-content {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, calc((100%) / 4)), 1fr)
+    );
   }
+}
 
-  /* top margin */
-  .umd-lib-layout.layout--custom.top-margin.vertical-spacing-default {
-    margin-top: 5rem;
-  }
-
-  .umd-lib-layout.layout--custom.top-margin.vertical-spacing-small {
-    margin-top: 3rem;
-  }
-
-  .umd-lib-layout.layout--custom.top-margin.vertical-spacing-large {
-    margin-top: 7.5rem;
-  }
+/* Large Desktop */
+@media (min-width: 1440px) {
 }

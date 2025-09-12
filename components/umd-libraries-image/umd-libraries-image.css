@@ -1,38 +1,48 @@
-.umd-lib-image {
+.umd-lib.image {
   width: 100%;
   height: auto;
   display: block;
 }
 
-.umd-lib-image .image--image {
+.umd-lib.image .image--image {
   width: 100%;
   height: auto;
   object-fit: cover;
   object-position: center;
 }
 
-.umd-lib-image .image--image.freeform {
+.umd-lib.image .image--image.freeform {
   aspect-ratio: auto;
 }
 
-.umd-lib-image .image--image.one_to_one {
+.umd-lib.image .image--image.one_to_one {
   aspect-ratio: 1 / 1;
 }
 
-.umd-lib-image .image--image.four_to_three {
+.umd-lib.image.landscape .image--image.four_to_three {
   aspect-ratio: 4 / 3;
 }
 
-.umd-lib-image .image--image.three_to_two {
+.umd-lib.image.landscape .image--image.three_to_two {
   aspect-ratio: 3 / 2;
 }
 
-.umd-lib-image .image--image.sixteen_to_nine {
+.umd-lib.image.landscape .image--image.sixteen_to_nine {
   aspect-ratio: 16 / 9;
 }
 
-.umd-lib-image .image--caption {
+.umd-lib.image.portrait .image--image.four_to_three {
+  aspect-ratio: 3 / 4;
+}
+
+.umd-lib.image.portrait .image--image.three_to_two {
+  aspect-ratio: 2 / 3;
+}
+
+.umd-lib.image.portrait .image--image.sixteen_to_nine {
+  aspect-ratio: 9 / 16;
+}
+
+.umd-lib.image .image--caption {
   text-align: center;
-  padding-top: 1rem;
-  padding-bottom: 0rem;
 }

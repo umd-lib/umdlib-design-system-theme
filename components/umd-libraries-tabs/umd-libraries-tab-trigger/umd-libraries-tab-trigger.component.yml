@@ -14,5 +14,5 @@ props:
 
 slots:
   tab_label:
-    title: Tab Label (String)
+    title: Tab Label (Text String)
     description: Label displayed in the tab trigger

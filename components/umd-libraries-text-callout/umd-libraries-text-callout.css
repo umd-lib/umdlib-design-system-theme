@@ -3,23 +3,10 @@
   border-left: 2px solid #e21833;
 }
 
-.text-callout--text:last-child {
-  margin-bottom: 0rem !important;
-}
-
 .text-callout--text p {
   color: var(--black);
-
-  font-family: Interstate;
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 1.40625rem; /* 125% */
 }
 
-@media (min-width: 1024px) {
-  .text-callout--text p {
-    font-size: 1.5rem;
-    line-height: 1.875rem; /* 125% */
-  }
+.text-callout--text:last-child {
+  margin-bottom: 0rem !important;
 }

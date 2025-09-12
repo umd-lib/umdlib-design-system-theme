@@ -19,7 +19,7 @@ props:
 
 slots:
   tab_label:
-    title: Accessible Tab Label (String)
+    title: Accessible Tab Label (Text String)
     description: (Optional) An accessible label for the entire tab interface (for screen readers), it will be hidden visually.
   tabs_triggers_slot:
     title: Tab Triggers (UMD Libraries Tab Trigger)

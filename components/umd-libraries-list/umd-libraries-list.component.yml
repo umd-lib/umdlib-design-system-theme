@@ -6,11 +6,11 @@ group: UMD Libraries
 
 slots:
   list_eyebrow:
-    title: Eyebrow Text (String)
+    title: Eyebrow Text (Text String)
   list_title:
-    title: List Title (String)
+    title: List Title (Text String)
   list_url:
-    title: List URL (String)
+    title: List URL (Text String)
   list_description:
     title: List Description (WYSIWYG)
   list_date:
@@ -19,4 +19,4 @@ slots:
   list_image:
     title: List Image (Media Image URL)
   list_image_alt:
-    title: List Image Alt Text (String)
+    title: List Image Alt Text (Text String)

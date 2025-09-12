@@ -170,7 +170,7 @@
 
   .hero--minimal .hero--image figure figcaption,
   .hero--overlay .hero--image figure figcaption {
-    max-width: 50%;
+    max-width: 100%;
   }
 }
 

@@ -6,7 +6,7 @@ group: UMD Libraries
 
 slots:
   table_caption:
-    title: Table Caption (String)
+    title: Table Caption (Text String)
     description: A caption for the table.
   table_header_slot:
     title: Table Header (UMD Libraries Table Cell)

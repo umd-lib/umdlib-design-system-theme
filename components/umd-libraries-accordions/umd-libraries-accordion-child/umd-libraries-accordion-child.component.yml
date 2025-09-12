@@ -15,14 +15,14 @@ props:
 
 slots:
   title:
-    title: Accordion Item Title (String)
+    title: Accordion Item Title (Text String)
     description: Accordion Item Title.
   body:
     title: Body (WYSIWYG)
     description: Accordion Body.
   link_text:
-    title: Link Text (String)
+    title: Link Text (Text String)
     description: Link Text.
   link_url:
-    title: Link URL (String)
+    title: Link URL (Text String)
     description: Link URL.

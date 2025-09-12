@@ -29,7 +29,7 @@ props:
 
 slots:
   heading_text:
-    title: Heading Text (String)
+    title: Heading Text (Text String)
   link_url:
-    title: Link URL (String)
+    title: Link URL (Text String)
     description: (Optional) The link for the heading, if applicable.

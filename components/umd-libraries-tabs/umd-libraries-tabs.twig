@@ -14,7 +14,7 @@
   {# Generate a unique ID if one isn't provided #}
   {% set tabs_id = id ?? ('tabs-' ~ random()) %}
 
-  <div class="tabs--container c-bg-primary c-content-primary" 
+  <div class="umd-lib tabs--container c-bg-primary c-content-primary s-margin-general-medium" 
     data-tabs-container 
     id="{{ tabs_id }}" 
     data-default-tab="{{ default_tab }}">

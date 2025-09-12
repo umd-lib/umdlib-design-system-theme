@@ -19,16 +19,16 @@
 {% set selectedVariant = variant | default('in_page') %}
 
 {% if title is defined %}
-<div class="alert alert--{{ selectedVariant }}">
-  <div class="alert--container {% if selectedVariant == 'site_wide' %}s-box-page-default-h s-center s-page-lock{% endif %}">
-    <div class="alert--content s-box-default-v {% if selectedVariant == 'in_page' %}s-box-default-h{% endif %}">
+<div class="umd-lib alert alert--{{ selectedVariant }}">
+  <div class="alert--container {% if selectedVariant == 'site_wide' %}s-box-page-medium-h s-center s-page-lock{% endif %}">
+    <div class="alert--content s-box-medium-v {% if selectedVariant == 'in_page' %}s-box-medium-h{% endif %}">
       <div class="alert--title">
         <h2 class="t-title-small c-content-primary s-stack-small">
           {% block title %} {% endblock %}
         </h2>
       </div>
       {% if alert_description is defined and alert_description is not empty %}
-        <div class="alert--description {% if link_text and link_url %}s-stack-default{% endif %} wysiwyg-editor">
+        <div class="alert--description {% if link_text and link_url %}s-stack-medium{% endif %} wysiwyg-editor">
           {% block alert_description %} {% endblock %}
         </div>
       {% endif %}
@@ -41,7 +41,7 @@
       {% endif %}
 
       {% if selectedVariant == 'site_wide' %}
-        <button class="alert--button-close s-box-default-v" aria-label="Close alert">
+        <button class="alert--button-close s-box-medium-v" aria-label="Close alert">
           <svg title="close button icon" aria-hidden="true" id="icon_close" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3.2561" y="0.321533" width="20.75" height="4.15" transform="rotate(45 3.2561 0.321533)" fill="black"></rect><rect x="17.9285" y="3.25598" width="20.75" height="4.15" transform="rotate(135 17.9285 3.25598)" fill="black"></rect></svg>
         </button>
       {% endif %}

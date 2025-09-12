@@ -30,11 +30,19 @@ props:
         - four_to_three
         - one_to_one
       default: freeform
+    orientation:
+      type: string
+      title: Orientation
+      description: Choose the orientation of the image and caption, default is landscape
+      enum:
+        - landscape
+        - portrait
+      default: landscape
 
 slots:
   image:
     title: Image (Media Image URL)
   image_alt:
-    title: Image Alt Text (String)
+    title: Image Alt Text (Text String)
   caption:
     title: Image Caption (WYSIWYG)

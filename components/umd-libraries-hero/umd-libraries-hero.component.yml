@@ -28,13 +28,13 @@ props:
 
 slots:
   eyebrow:
-    title: Eyebrow Text (String)
+    title: Eyebrow Text (Text String)
   hero_title:
-    title: Hero Title (String)
+    title: Hero Title (Text String)
   hero_image:
     title: Hero Image (Media Image URL)
   hero_image_alt:
-    title: Hero Image Alt Text (String)
+    title: Hero Image Alt Text (Text String)
   hero_image_caption:
     title: Hero Image Caption Text (WYSIWYG)
     description: Alternative text for the hero image, used for accessibility

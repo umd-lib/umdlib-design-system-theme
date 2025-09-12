@@ -10,8 +10,8 @@ props:
 
 slots:
   heading_text:
-    title: Heading Text (String)
+    title: Heading Text (Text String)
   link_text:
-    title: Link Text (String)
+    title: Link Text (Text String)
   link_url:
-    title: Link URL (String)
+    title: Link URL (Text String)

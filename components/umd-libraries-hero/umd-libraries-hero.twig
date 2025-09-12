@@ -26,11 +26,11 @@
   {% set themeClass = theme == 'dark' ? 'c-bg-primary c-content-primary dark-theme' : 'c-bg-secondary c-content-primary' %}
   
   {# Main hero container #}
-  <div class="hero--{{ variant }} {{ themeClass }}">
+  <div class="umd-lib hero--{{ variant }} {{ themeClass }}">
 
     
     {# Hero content container #}
-    <div class="hero--container s-box-page-default-h s-box-page-default-v s-center">
+    <div class="hero--container s-box-page-medium-h s-box-page-medium-v s-center">
       <div class="hero--content {% if variant == 'minimal' %}s-box-large-h{% endif %} {% if not hero_image %}text-only{% endif %}">
         {# Eyebrow text #}
         {% if eyebrow %}
@@ -40,7 +40,7 @@
         {% endif %}
         
         {# Hero headline #}
-        <h1 class="hero--headline t-display s-stack-default">
+        <h1 class="hero--headline t-display s-stack-medium">
           {% block hero_title %}{% endblock %}
         </h1>
         

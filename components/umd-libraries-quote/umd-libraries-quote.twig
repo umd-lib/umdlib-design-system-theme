@@ -15,7 +15,8 @@
 #}
 
 {% if quote_text_slot is defined and quote_author_name is defined %}
-  <div class="quote--feature {% if theme == 'light' %}c-bg-secondary{% else %}c-bg-primary dark-theme{% endif %} s-box-large-v s-box-large-h">
+  <div class="umd-lib quote--feature {% if theme == 'light' %}c-bg-secondary{% else %}c-bg-primary dark-theme{% endif %} s-box-large-v s-box-large-h s-margin-general-medium" role="region" aria-label="quote">
+    {# Feature variant has background graphics #}
     {% if variant == 'feature' %}
       <div class="quote--background" aria-hidden="true">
         {% if theme == 'light' %}
@@ -37,7 +38,7 @@
     {% endif %}
     <div class="quote--icon i-quote"></div>
     <div class="quote--content">
-      <div class="quote--text t-title-medium c-content-primary s-stack-small">
+      <div class="quote--text t-title-medium s-stack-small">
         {{ quote_text_slot }}
       </div>
       <div class="quote--author c-content-secondary">

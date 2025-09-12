@@ -10,14 +10,14 @@ props:
   properties:
     telephone:
       type: string
-      title: Telephone number (String)
+      title: Telephone number (Text String)
       description: Include area code. Dot seperation. I.e., 555.555.1212.
 
 slots:
   institution_name:
-    title: Institution Name (String)
+    title: Institution Name (Text String)
   full_address:
-    title: Full Address (String)
+    title: Full Address (Text String)
     description: Full address of location.
   navigation_menu_slot:
     title: Footer Menu Slot (Footer menu block)

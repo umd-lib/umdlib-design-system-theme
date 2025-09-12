@@ -7,20 +7,20 @@ group: UMD Libraries
 
 slots:
   event_title:
-    title: Event Title (String)
+    title: Event Title (Text String)
   event_url:
-    title: Event URL (String)
+    title: Event URL (Text String)
   event_description:
     title: Event Description (WYSIWYG)
   event_date:
     title: Event Date (Date)
     description: Use the format "Day, Month Date" (e.g., "Friday, July 4")
   event_time:
-    title: Event Time (String)
+    title: Event Time (Text String)
     description: Use the format "HH:MM am/pm" (e.g., "2:00pm")
   event_location:
-    title: Event Location (String)
+    title: Event Location (Text String)
   event_image:
     title: Event Image (Media Image URL)
   event_image_alt:
-    title: Event Image Alt Text (String)
+    title: Event Image Alt Text (Text String)

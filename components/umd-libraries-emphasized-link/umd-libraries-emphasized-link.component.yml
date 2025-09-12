@@ -6,6 +6,6 @@ group: UMD Libraries
 
 slots:
   link_text:
-    title: Link Text (String max 50 chars)
+    title: Link Text (Text String)
   link_url:
-    title: Link URL (String)
+    title: Link URL (Text String)

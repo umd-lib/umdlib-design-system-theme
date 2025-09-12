@@ -4,9 +4,8 @@
 }
 
 .section-intro--heading {
+  margin-right: 0rem !important;
   margin-bottom: 0.5rem;
-
-  font-weight: 800 !important;
 }
 
 .section-intro--heading:last-child {

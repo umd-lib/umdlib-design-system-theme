@@ -16,7 +16,7 @@
 .person--bio-info-core {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.5rem;
 
   border-left: 2px solid var(--maryland-red);
 }
@@ -24,7 +24,7 @@
 .person--bio-contact {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.5rem;
 }
 
 .person--bio-contact > a,
@@ -72,6 +72,9 @@
   display: flex;
   flex-direction: row;
   align-items: start;
+
+  border-bottom: solid 1px var(--light-gray);
+  padding-top: 0rem !important;
 }
 
 .person--list-image {
@@ -89,7 +92,7 @@
 .person--list-info-core {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.5rem;
 }
 
 .person--list-link {
@@ -102,7 +105,7 @@
 
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.5rem;
 }
 
 .person--list-contact > a {
@@ -146,10 +149,6 @@
   max-width: 24rem;
 }
 
-.person--card .person--card-name {
-  margin-bottom: 0.5rem;
-}
-
 .person--card-image img {
   height: auto;
   aspect-ratio: 1/1;
@@ -159,7 +158,7 @@
 .person--card-info-core {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.5rem;
 }
 
 /* breakpoint */
@@ -167,7 +166,7 @@
 @media (min-width: 768px) {
   .person--bio-top {
     flex-direction: row;
-    align-items: center;
+    align-items: start;
   }
 
   .person--bio-image {
@@ -176,9 +175,14 @@
   }
 
   .person--bio-image img {
-    height: 16rem;
-    min-width: 16rem;
-    max-width: 16rem;
+    height: 18rem;
+    min-width: 18rem;
+    max-width: 18rem;
+  }
+
+  .person--list-top {
+    flex-direction: row;
+    align-items: start;
   }
 
   .person--list-image {
@@ -186,9 +190,9 @@
   }
 
   .person--list-image img {
-    height: 12rem;
-    min-width: 12rem;
-    max-width: 12rem;
+    height: 14rem;
+    min-width: 14rem;
+    max-width: 14rem;
 
     aspect-ratio: 1/1;
     object-fit: cover;

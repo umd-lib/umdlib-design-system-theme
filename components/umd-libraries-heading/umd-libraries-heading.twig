@@ -18,7 +18,7 @@
 {% set selectedVariant = variant | default('h2') %}
 {% if heading_text is defined and heading_text is not empty %}
 
-  <div class="heading heading--{{ selectedVariant }}">
+  <div class="umd-lib heading heading--{{ selectedVariant }} s-margin-heading-medium">
     <h{{ selectedVariant | slice(1) }} class="c-content-primary">
       {% if link_url is defined and link_url is not empty %}
         <a href="{{ link_url }}" class="c-content-primary">

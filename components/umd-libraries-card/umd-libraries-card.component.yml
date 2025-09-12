@@ -34,13 +34,13 @@ slots:
   card_image:
     title: Card Image (Media Image URL)
   card_image_alt:
-    title: Card Image Alt Text (String)
+    title: Card Image Alt Text (Text String)
   eyebrow:
-    title: Eyebrow Text (String)
+    title: Eyebrow Text (Text String)
   card_title:
-    title: Card Title (String)
+    title: Card Title (Text String)
   card_url:
-    title: Card Link URL (String)
+    title: Card Link URL (Text String)
   card_date:
     title: Date (Date)
     description: Use the format "Month Date, Year" (e.g., "July 4, 2025")
@@ -48,6 +48,6 @@ slots:
     title: Description (WYSIWYG)
     description: Slot intended for WYSIWYG editor content, should use Plain Text format
   link_text:
-    title: Link Text (String)
+    title: Link Text (Text String)
   link_url:
-    title: Link URL (String)
+    title: Link URL (Text String)

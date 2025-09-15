@@ -1,7 +1,6 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 
 name: UMD Lib Accordion Main
-replaces: umdds:umd-element-accordion
 label: Accordion
 group: UMD Libraries
 

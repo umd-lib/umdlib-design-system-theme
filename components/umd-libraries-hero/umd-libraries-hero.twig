@@ -27,11 +27,11 @@
   
   {# Main hero container #}
   <div class="umd-lib hero--{{ variant }} {{ themeClass }}">
-
     
     {# Hero content container #}
-    <div class="hero--container s-box-page-medium-h s-box-page-medium-v s-center">
-      <div class="hero--content {% if variant == 'minimal' %}s-box-large-h{% endif %} {% if not hero_image %}text-only{% endif %}">
+    <div class="hero--container s-center">
+      <div class="hero--content {% if not hero_image %}text-only{% endif %} s-box-page-medium-h s-box-page-medium-v">
+        <div class="hero--content-inner">
         {# Eyebrow text #}
         {% if eyebrow %}
           <div class="hero--eyebrow {% if variant == 'minimal' %}c-content-secondary{% endif %} t-eyebrow s-stack-small">
@@ -50,21 +50,21 @@
             {% block description_slot %}{% endblock %}
           </div>
         {% endif %}
+        </div>
       </div>
+
+      {# Hero image section #}
+      {% if hero_image %}
+        <div class="hero--image">
+          <figure>
+            <img alt="{{ hero_image_alt|default('') }}" src="{{ hero_image }}" loading="lazy">
+            <figcaption class="t-label wysiwyg-editor">
+              {% block hero_image_caption %}{% endblock %}
+            </figcaption>
+          </figure>
+        </div>
+      {% endif %}
     </div>
-
-    {# Hero image section #}
-    {% if hero_image %}
-      <div class="hero--image">
-        <figure>
-          <img alt="{{ hero_image_alt|default('') }}" src="{{ hero_image }}" loading="lazy">
-          <figcaption class="t-label wysiwyg-editor">
-            {% block hero_image_caption %}{% endblock %}
-          </figcaption>
-        </figure>
-      </div>
-    {% endif %}
-
   </div>
 
 {% else %}

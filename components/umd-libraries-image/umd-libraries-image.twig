@@ -24,8 +24,8 @@
 {% if image is defined %}
   <figure class="umd-lib image c-bg-primary {{ orientation }} s-margin-general-medium">
     <img alt="{{ image_alt|default('') }}" src="{{ image }}" loading="lazy" class="image--image {{ selectedVariant }}" />
-    {% if caption %}
-      <figcaption class="image--caption s-box-medium-h s-box-small-v-top t-body-small t-italic wysiwg-editor">
+    {% if caption is defined %}
+      <figcaption class="image--caption s-box-medium-h t-body-small t-italic wysiwg-editor">
         {% block caption %}{% endblock %}
       </figcaption>
     {% endif %}

@@ -46,3 +46,14 @@
 .umd-lib.image .image--caption {
   text-align: center;
 }
+
+.umd-lib.image .image--caption > *:first-child {
+  padding-top: var(--space-xs);
+}
+
+/* tablet */
+@media (min-width: 768px) {
+  .umd-lib.image .image--caption > *:first-child {
+    padding-top: var(--space-sm);
+  }
+}

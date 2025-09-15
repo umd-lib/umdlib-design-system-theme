@@ -10,16 +10,33 @@
  *
  * Variables:
  * heading_text: Heading text.
+ * page_title: (Optional) Whether this heading is used as the page title.
  * link_url: (Optional) The link for the heading, if applicable.
  */
  #}
 
 {# Get the variant, defaulting to standard if not specified #}
 {% set selectedVariant = variant | default('h2') %}
-{% if heading_text is defined and heading_text is not empty %}
+{% if page_title == true %}
+  {% set selectedVariant = 'h1' %}
+{% endif %}
 
-  <div class="umd-lib heading heading--{{ selectedVariant }} s-margin-heading-medium">
-    <h{{ selectedVariant | slice(1) }} class="c-content-primary">
+{% set classes = [] %}
+{# Add 'page-title' class if this is the page title #}
+{% if page_title == true %}
+  {% set classes = classes|merge(['page-title']) %}
+{% endif %}
+
+{# Determine margin class #}
+{% if page_title == true or top_margin == false %}
+  {% set classes = classes|merge(['s-margin-general-medium']) %}
+{% elseif top_margin == true %}
+  {% set classes = classes|merge(['s-margin-heading-medium']) %}
+{% endif %}
+
+{% if heading_text is defined and heading_text is not empty %}
+  <div class="umd-lib heading heading--{{ selectedVariant }} {{ classes | join(' ') }}">
+    <h{{ selectedVariant | slice(1) }} class="c-content-primary {% if page_title == true %}s-stack-small{% endif %}">
       {% if link_url is defined and link_url is not empty %}
         <a href="{{ link_url }}" class="c-content-primary">
           {{ heading_text }}
@@ -28,6 +45,15 @@
              {{ heading_text }}
       {% endif %}
     </h{{ selectedVariant | slice(1) }}>
+
+    {% if page_title == true %}
+      {% if subtitle is defined and subtitle is not empty %}
+        <h2 class="c-content-secondary s-stack-small">{{ subtitle }}</h2>
+      {% endif %}
+      {% if date is defined and date is not empty %}
+        <div class="c-content-secondary t-body-small">{{ date }}</div>
+      {% endif %}
+    {% endif %}
   </div>
 
 

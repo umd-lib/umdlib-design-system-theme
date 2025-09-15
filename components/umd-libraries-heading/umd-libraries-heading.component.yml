@@ -26,6 +26,16 @@ props:
         - h2
         - h3
         - h4
+    page_title:
+      type: boolean
+      title: Page Title
+      description: Whether this heading is used as the page title. Only one page title should be used per page.
+      default: false
+    top_margin:
+      type: boolean
+      title: Top Margin
+      description: Whether to add top margin to the heading.
+      default: true
 
 slots:
   heading_text:
@@ -33,3 +43,9 @@ slots:
   link_url:
     title: Link URL (Text String)
     description: (Optional) The link for the heading, if applicable.
+  subtitle:
+    title: Subtitle (Text String)
+    description: (Optional) A subtitle.
+  date:
+    title: Date (Date)
+    description: (Optional) A date.

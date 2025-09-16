@@ -1,6 +1,8 @@
 # UMD Libraries Theme
 
-This Drupal child theme should be used with the [UMD Design System Base Drupal Theme](https://github.com/umd-lib/umd-design-system-base) as the base theme. For optimal results, use it alongside the UI Pattern and Layout Builder modules.
+This Drupal theme is an independant fork of [UMD Design System Base Drupal Theme](https://github.com/umd-lib/umd-design-system-base), which is still available for use as a base theme.
+
+For optimal results, use the Libraries Theme alongside the UI Pattern and Layout Builder modules.
 
 ## Required Custom Modules
 

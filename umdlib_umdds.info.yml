@@ -2,7 +2,7 @@ name: umdlib_umdds
 type: theme
 version: 0.1.0
 description: UMD Libraries Theme is an opinionated adaptation of the UMD Design System, tailored specifically for the UMD Libraries.
-base theme: umdds
+base theme: stable9
 core_version_requirement: ^11
 libraries:
   - umdlib_umdds/umdlib
@@ -14,4 +14,3 @@ regions:
 dependencies:
   - umdlib_ds_layout_tools:umdlib_ds_layout_tools
   - ui_patterns:ui_patterns
-  - umdds 

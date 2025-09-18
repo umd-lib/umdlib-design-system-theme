@@ -31,9 +31,9 @@ props:
       type: boolean
       default: false
     show_support:
-      title: Show Support
+      title: Show Support (Giving)
       type: boolean
       default: false
     support_destination:
-      title: Support Destination (URL)
+      title: Giving Destination (URL)
       type: string

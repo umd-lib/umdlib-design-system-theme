@@ -1,0 +1,169 @@
+/* search box */
+.search-box {
+  border-left: 2px solid var(--maryland-red);
+}
+
+.search-box .search-box-action-area {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  border-bottom: 1px solid var(--darker-gray);
+}
+
+.search-box .search-box-action-area input {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.search-box .search-box-action-area input::placeholder {
+  color: var(--medium-gray);
+}
+
+.search-box .search-box-action-area button {
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
+
+  padding: 0.5rem;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26' fill='none'%3E%3Cpath d='M10.3539 2.4375C5.38347 2.43765 1.35388 6.46706 1.35388 11.4375C1.35391 16.4079 5.38349 20.4374 10.3539 20.4375C12.094 20.4375 13.7182 19.9421 15.0951 19.0869L19.4398 23.4326H24.6459L17.8148 16.4736C18.7868 15.0365 19.3539 13.3031 19.3539 11.4375C19.3539 6.46697 15.3244 2.4375 10.3539 2.4375ZM10.3539 5.5957C13.5804 5.5957 16.1967 8.21101 16.1967 11.4375C16.1966 14.664 13.5804 17.2793 10.3539 17.2793C7.12754 17.2791 4.51211 14.6639 4.51208 11.4375C4.51208 8.2111 7.12752 5.59585 10.3539 5.5957Z' fill='black'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+}
+
+/* search result list */
+.search-result {
+  border-bottom: solid 1px var(--light-gray);
+
+  padding-bottom: var(--space-md);
+}
+
+search-result-element-umd-libraries section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  position: relative;
+}
+
+search-result-element-umd-libraries section img {
+  width: auto;
+}
+
+search-result-element-umd-libraries section .item-detail {
+  flex-grow: 1;
+}
+
+search-result-element-umd-libraries section .item-detail .item-title a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+search-result-element-umd-libraries section .item-detail .item-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+search-result-element-umd-libraries section .item-detail dl dd {
+  display: flex;
+  flex-direction: row;
+  gap: 0.25rem;
+}
+
+/* field category icon */
+dl.item-fields dd.type span {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none'%3E%3Cg clip-path='url(%23clip0_1_2682)'%3E%3Cpath d='M7.00002 12.8334C10.2217 12.8334 12.8334 10.2217 12.8334 7.00002C12.8334 3.77836 10.2217 1.16669 7.00002 1.16669C3.77836 1.16669 1.16669 3.77836 1.16669 7.00002C1.16669 10.2217 3.77836 12.8334 7.00002 12.8334Z' stroke='black' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M7 9.33333V7' stroke='black' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M7 4.66669H7.00667' stroke='black' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1_2682'%3E%3Crect width='14' height='14' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+
+  width: 1rem;
+  height: 1rem;
+  background-repeat: no-repeat;
+  background-position-y: 1px;
+}
+
+dl.item-fields dd.collection span {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='M12.25 1.75H1.75002C1.42785 1.75 1.16669 2.01117 1.16669 2.33333V4.08333C1.16669 4.4055 1.42785 4.66667 1.75002 4.66667H12.25C12.5722 4.66667 12.8334 4.4055 12.8334 4.08333V2.33333C12.8334 2.01117 12.5722 1.75 12.25 1.75Z' stroke='black' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M2.33331 4.66669V11.0834C2.33331 11.3928 2.45623 11.6895 2.67502 11.9083C2.89381 12.1271 3.19056 12.25 3.49998 12.25H10.5C10.8094 12.25 11.1061 12.1271 11.3249 11.9083C11.5437 11.6895 11.6666 11.3928 11.6666 11.0834V4.66669' stroke='black' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M5.83331 7H8.16665' stroke='black' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+
+  width: 1rem;
+  height: 1rem;
+  background-repeat: no-repeat;
+  background-position-y: 1px;
+}
+
+dl.item-fields dd.date span {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='M4.66669 1.16669V3.50002' stroke='black' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M9.33331 1.16669V3.50002' stroke='black' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M12.25 9.91665V3.49998C12.25 3.19056 12.1271 2.89381 11.9083 2.67502C11.6895 2.45623 11.3928 2.33331 11.0833 2.33331H2.91667C2.60725 2.33331 2.3105 2.45623 2.09171 2.67502C1.87292 2.89381 1.75 3.19056 1.75 3.49998V11.6666C1.75 11.9761 1.87292 12.2728 2.09171 12.4916C2.3105 12.7104 2.60725 12.8333 2.91667 12.8333H9.33333L12.25 9.91665Z' stroke='black' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M1.75 5.83331H12.25' stroke='black' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M8.75 12.8333V10.5C8.75 10.1906 8.87292 9.89381 9.09171 9.67502C9.3105 9.45623 9.60725 9.33331 9.91667 9.33331H12.25' stroke='black' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+
+  width: 1rem;
+  height: 1rem;
+  background-repeat: no-repeat;
+  background-position-y: 1px;
+}
+
+/* navigation - result pagination */
+.pager .pagination__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.pager .pagination__action.buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.pager .pagination__action.buttons .prev span {
+  rotate: 180deg;
+  background-position-y: -2px;
+}
+
+.pager .pagination__action.buttons li button[disabled] span.i-chevron {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M7.7183 6.98255L2.625 1.89587H6.15621L11.306 6.93281L11.2563 6.98256L11.306 7.0323L6.15621 12.0692H2.625L7.7183 6.98255Z' fill='%23757575'/%3E%3C/svg%3E");
+}
+
+.pager .pagination__action.go-to-result-page > div {
+  display: flex;
+  gap: 1rem;
+  flex-direction: row;
+  align-items: center;
+}
+
+.pager .pagination__action.go-to-result-page > div input {
+  padding: 0 0.5rem;
+  width: 4rem;
+  height: 46px;
+}
+
+/* breakpoint */
+/* Tablet */
+@media (min-width: 768px) {
+  .search-result {
+    padding-bottom: var(--space-lg);
+  }
+
+  search-result-element-umd-libraries section {
+    flex-direction: row-reverse;
+    gap: initial;
+  }
+
+  search-result-element-umd-libraries section img {
+    width: 12rem;
+    min-width: 12rem;
+    max-width: 12rem;
+  }
+}
+
+/* customized breakpoint for the navigation - result pagination */
+@media (min-width: 1068px) {
+  .pager .pagination__actions {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

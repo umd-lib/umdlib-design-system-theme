@@ -720,8 +720,9 @@ h6 a:focus {
 
 /* buttons */
 .button.umd-lib {
-  display: inline-block;
-  padding: var(--space-sm) var(--space-xl);
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
   text-decoration: none;
   color: var(--white);
   background-color: var(--maryland-red);
@@ -730,12 +731,47 @@ h6 a:focus {
   font-style: normal;
   line-height: 1.375rem;
   font-weight: 700 !important;
+  transition: all 0.5s;
 }
 
 .button.umd-lib:hover,
 .button.umd-lib:focus {
   color: var(--white);
   background-color: var(--dark-red);
+}
+
+.button.umd-lib.secondary {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  text-decoration: none;
+  color: var(--black);
+  background-color: var(--white);
+  font-family: Interstate;
+  font-size: 1rem;
+  font-style: normal;
+  line-height: 1.375rem;
+  font-weight: 700 !important;
+  border: 1px solid var(--black);
+  transition: all 0.5s;
+}
+
+.button.umd-lib.secondary:hover,
+.button.umd-lib.secondary:focus {
+  color: var(--white);
+  background-color: var(--black);
+}
+
+.button.umd-lib.secondary[disabled] {
+  color: var(--medium-gray);
+  border: 1px solid var(--medium-gray);
+  cursor: not-allowed;
+}
+
+.button.umd-lib.secondary[disabled]:hover,
+.button.umd-lib.secondary[disabled]:focus {
+  color: var(--medium-gray);
+  background-color: var(--white);
 }
 
 /* accessibility */
@@ -778,6 +814,15 @@ h6 a:focus {
   overflow: initial;
   clip: initial;
   white-space: initial;
+}
+
+/* image error */
+.image-error {
+  padding: 1rem;
+  background-color: var(--lighter-gray);
+
+  height: auto;
+  margin: auto 0;
 }
 
 /* typography classes */

@@ -2,14 +2,15 @@ umdlib:
   header: true
   css:
     theme:
-      css/globals.css: {}
-      css/system-nav.css: {}
-      css/admin.css: {}
+      css/base.css: {}
+      css/internal/admin.css: {}
+      css/external/system-nav.css: {}
+      css/external/search-web-components.css: {}
   js:
     js/lucide.min.js: {}
 umd-lib-layout:
   css:
     theme:
-      css/umd-lib-layout.css: {}
+      css/external/umd-lib-layout.css: {}
   js:
     js/umd-lib-layout.js: {}

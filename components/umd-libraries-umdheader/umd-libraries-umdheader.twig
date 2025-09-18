@@ -1,0 +1,49 @@
+{# 
+/**
+ * @file
+ * UMD Libraries Required Banner.
+ *
+ * Available props:
+ * - show_search: bool.
+ * - show_events: bool.
+ * - show_news: bool.
+ * - show_schools: bool.
+ * - show_admissions: bool.
+ * - show_support: bool.
+ * - search_destination: URL string.
+ * - support_destination: URL string
+ *
+*/
+#}
+{% set header_string = '' %}
+{% if show_search %}
+  {% set header_string = header_string ~ '&search=1' %}
+{% else %}
+  {% set header_string = header_string ~ '&search=0' %}
+{% endif %}
+{% if show_events %}
+  {% set header_string = header_string ~ '&events=1' %}
+{% else %}
+  {% set header_string = header_string ~ '&events=0' %}
+{% endif %}
+{% if show_news %}
+  {% set header_string = header_string ~ '&news=1' %}
+{% else %}
+  {% set header_string = header_string ~ '&news=0' %}
+{% endif %}
+{% if show_schools %}
+  {% set header_string = header_string ~ '&schools=1' %}
+{% else %}
+  {% set header_string = header_string ~ '&schools=0' %}
+{% endif %}
+{% if show_admissions %}
+  {% set header_string = header_string ~ '&admissions=1' %}
+{% else %}
+  {% set header_string = header_string ~ '&admissions=0' %}
+{% endif %}
+{% if show_support %}
+  {% set header_string = header_string ~ '&support=1' %}
+{% else %}
+  {% set header_string = header_string ~ '&support=0' %}
+{% endif %}
+<script src="https://umd-header.umd.edu/build/bundle.js?search_domain={{ search_destination }}&support_url={{ support_destination }}&wrapper=&sticky=0{{ header_string }}"></script>

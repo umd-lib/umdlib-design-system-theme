@@ -63,7 +63,7 @@
     {% if menu_level == 0 %}
       {% for item in items %}
           <li class="navigation__menu-item">
-          {{ link(item.title, item.url, { 'class':['navigation__menu-link'] }) }}
+            <div>{{ link(item.title, item.url, { 'class':['navigation__menu-link'] }) }}</div>
           {% if item.below %}
             <button
               class="navigation__submenu-button"
@@ -96,7 +96,7 @@
         <ul class="navigation__submenu-list">
           {% for item in items %}
             <li class="navigation__submenu-item">
-              {{ link(item.title, item.url, { 'class':['navigation__submenu-link ani-underline c-underline-primary t-body-small'] }) }}
+              <div>{{ link(item.title, item.url, { 'class':['navigation__submenu-link ani-underline c-underline-primary t-body-small'] }) }}</div>
             </li>
           {% endfor %}
         </ul>

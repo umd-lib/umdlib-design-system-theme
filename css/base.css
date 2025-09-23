@@ -787,6 +787,11 @@ h6 a:focus {
   white-space: nowrap;
 }
 
+/* hide element */
+[hidden] {
+  display: none !important;
+}
+
 /* UMDDS accessibility - skip to main content link  */
 .umd-skip-content {
   clip: rect(0, 0, 0, 0);

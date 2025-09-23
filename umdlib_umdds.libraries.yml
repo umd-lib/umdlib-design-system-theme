@@ -6,6 +6,7 @@ umdlib:
       css/internal/admin.css: {}
       css/external/system-nav.css: {}
       css/external/search-web-components.css: {}
+      css/external/umd-lib-layout.css: {}
   js:
     js/lucide.min.js: {}
 umd-lib-layout:

@@ -46,8 +46,14 @@ search-sort .sort-option select {
 }
 
 /* search facet */
-facet-checkbox .facet-wrapper .facet-label[active] {
-  width: fit-content;
+facet-checkbox h2,
+facet-checkbox .facet-label-text {
+  text-align: left;
+}
+
+facet-checkbox .facet-wrapper .facet-label[active],
+facet-checkbox.is-active button.facet-label h2 {
+  display: inline;
 
   background-position: left bottom;
   background-repeat: no-repeat;
@@ -102,6 +108,30 @@ facet-checkbox .facet-wrapper button {
 facet-checkbox .facet-wrapper button:hover,
 facet-checkbox .facet-wrapper button:focus {
   color: var(--maryland-red);
+}
+
+/* search facet - collapsible */
+.facet-label.collapsible {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+
+  width: 100%;
+}
+
+.facet-label.collapsible span.i-chevron-down {
+  display: inline-block;
+  transition: all 0.3s;
+}
+
+.facet-label.collapsible.open span.i-chevron-down {
+  rotate: 180deg;
+}
+
+.facet-options.closed {
+  padding: 0 !important;
 }
 
 /* search result list */
@@ -207,7 +237,7 @@ dl.item-fields dd.date span {
 
 .pager .pagination__action.go-to-result-page > div input {
   padding: 0 0.5rem;
-  width: 4rem;
+  width: 6rem;
   height: 46px;
 }
 

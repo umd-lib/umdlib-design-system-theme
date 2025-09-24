@@ -134,6 +134,15 @@
   margin-bottom: 0 !important;
 }
 
+/* support for the search layout */
+search-root .umd-lib-layout.layout--custom .sidebar-navigation {
+  display: initial;
+}
+
+search-root .umd-lib-layout.layout--custom {
+  flex-direction: column;
+}
+
 /* breakpoint */
 /* Tablet */
 @media (min-width: 768px) {
@@ -219,6 +228,11 @@
   /* card group - add section margin */
   .umd-lib-layout.layout--custom .main-column .card-group {
     margin-bottom: var(--space-lg);
+  }
+
+  /* support for the search layout */
+  search-root .umd-lib-layout.layout--custom {
+    flex-direction: row;
   }
 }
 

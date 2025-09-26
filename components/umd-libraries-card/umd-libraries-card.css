@@ -19,6 +19,14 @@
   margin-bottom: var(--space-xs);
 }
 
+.card--headline a span {
+  display: inline-block;
+  min-width: 1rem;
+  max-width: 1rem;
+  background-position-y: 0px;
+  background-position-x: -2px;
+}
+
 .card--details {
   margin-bottom: auto;
 }

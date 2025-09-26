@@ -12,6 +12,10 @@
   border: 0.25rem solid var(--maryland-yellow);
 }
 
+.alert--site_wide .alert--content > div:last-of-type h2 {
+  margin-bottom: 0;
+}
+
 .alert--content {
   position: relative;
 }

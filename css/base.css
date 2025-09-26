@@ -636,6 +636,10 @@ h6 a:focus {
   margin-bottom: 0;
 }
 
+.wysiwyg-editor strong {
+  font-weight: 700;
+}
+
 .wysiwyg-editor ul {
   margin-top: var(--space-md);
   margin-bottom: var(--space-md);
@@ -683,6 +687,10 @@ h6 a:focus {
 .wysiwyg-editor li {
   font-size: 1rem;
   line-height: 1.375rem;
+}
+
+.wysiwyg-editor li:last-child {
+  margin-bottom: 0;
 }
 
 .wysiwyg-editor [style] {

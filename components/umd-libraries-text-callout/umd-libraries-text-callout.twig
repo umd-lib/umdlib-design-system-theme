@@ -11,10 +11,8 @@
 
 {% if text_callout__text_slot is defined %}
   <div class="umd-lib text-callout--feature c-bg-secondary s-box-medium-v s-box-medium-h s-margin-general-medium" role="region" aria-label="text callout">
-    <div class="text-callout--content">
-      <div class="text-callout--text t-title-small">
-        {{ text_callout__text_slot }}
-      </div>
+    <div class="text-callout--text wysiwyg-editor">
+      {{ text_callout__text_slot }}
     </div>
   </div>
 {% else %}

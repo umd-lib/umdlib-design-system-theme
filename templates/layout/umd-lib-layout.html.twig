@@ -47,9 +47,16 @@
   {% if use_search %}
     {% set classes = classes|merge(['search-web-components']) %}
     <search-root{{ settings.search_root_attributes }}>
+    <div {{ attributes.addClass(classes) }}>
+      <div class="search-top-region-container" aria-hidden="{{ content.search_top_region is empty ? 'true' : 'false' }}">
+        <div class="region-info" aria-hidden="true">Search Top Region</div>
+        <div {{ region_attributes.search_top_region.addClass('search-top-region') }}>{{ content.search_top_region }}</div>
+      </div>
+      <div class="search-main-region-container">
+  {% else %}
+    <div {{ attributes.addClass(classes) }}>
   {% endif %}
 
-  <div {{ attributes.addClass(classes) }}>
     {% if show_sidebar_region %}
       <div class="sidebar-navigation s-inline-medium" aria-hidden="{{ content.left_column is empty ? 'true' : 'false' }}">
           <div class="region-info" aria-hidden="true">Sidebar</div>
@@ -80,6 +87,7 @@
     </div>
   </div>
   {% if use_search %}
+      </div>
     </search-root>
   {% endif %}
 {% endif %}

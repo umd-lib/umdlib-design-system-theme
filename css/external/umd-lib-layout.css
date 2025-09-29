@@ -135,12 +135,23 @@
 }
 
 /* support for the search layout */
-search-root .umd-lib-layout.layout--custom .sidebar-navigation {
-  display: initial;
-}
-
 search-root .umd-lib-layout.layout--custom {
   flex-direction: column;
+}
+
+search-root .umd-lib-layout.layout--custom .search-main-region-container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 767px) {
+  search-root
+    .umd-lib-layout.layout--custom
+    .search-main-region-container
+    .sidebar-navigation {
+    display: initial;
+    margin: 0 !important;
+  }
 }
 
 /* breakpoint */
@@ -231,7 +242,7 @@ search-root .umd-lib-layout.layout--custom {
   }
 
   /* support for the search layout */
-  search-root .umd-lib-layout.layout--custom {
+  search-root .umd-lib-layout.layout--custom .search-main-region-container {
     flex-direction: row;
   }
 }

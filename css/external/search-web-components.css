@@ -134,6 +134,54 @@ facet-checkbox .facet-wrapper button:focus {
   padding: 0 !important;
 }
 
+/* search result toolbar */
+.search-result-toolbar {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: var(--space-md);
+
+  justify-content: space-between;
+
+  border-bottom: solid 1px var(--light-gray);
+}
+
+search-result-summary {
+  margin-bottom: 1.5rem;
+}
+
+/* search share */
+search-share .share-container {
+  display: flex;
+  flex-direction: column;
+}
+
+search-share .share-container .action-function {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
+  gap: 1rem;
+}
+
+search-share .share-container .action-feedback {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+
+search-share .share-container .action-feedback .clipboardjs-alert-content {
+  width: fit-content;
+  padding: 0.25rem 1rem;
+  margin-top: 0.5rem;
+
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+
+  background-color: rgba(255, 213, 32, 0.2);
+}
+
 /* search result list */
 .search-result {
   border-bottom: solid 1px var(--light-gray);
@@ -151,6 +199,12 @@ search-result-element-umd-libraries section {
 
 search-result-element-umd-libraries section img {
   width: auto;
+}
+
+@media (max-width: 767px) {
+  search-result-element-umd-libraries section img {
+    margin: 0 !important;
+  }
 }
 
 search-result-element-umd-libraries section .item-detail {
@@ -198,6 +252,15 @@ search-result-element-umd-libraries section .item-detail dl dd {
   gap: 0.5rem;
 }
 
+.pager .pagination__action.buttons li {
+  flex-grow: 1;
+}
+
+.pager .pagination__action.buttons li button {
+  width: 100%;
+  justify-content: center;
+}
+
 .pager .pagination__action.buttons .prev span {
   rotate: 180deg;
   background-position-y: -2px;
@@ -212,6 +275,7 @@ search-result-element-umd-libraries section .item-detail dl dd {
   gap: 1rem;
   flex-direction: row;
   align-items: center;
+  justify-content: end;
 }
 
 .pager .pagination__action.go-to-result-page > div input {
@@ -223,6 +287,17 @@ search-result-element-umd-libraries section .item-detail dl dd {
 /* breakpoint */
 /* Tablet */
 @media (min-width: 768px) {
+  /* search result toolbar */
+  .search-result-toolbar {
+    align-items: center;
+    flex-direction: row;
+    padding-bottom: var(--space-lg);
+  }
+
+  search-result-summary {
+    margin-bottom: 0rem;
+  }
+
   .search-result {
     padding-bottom: var(--space-lg);
   }

@@ -9,6 +9,7 @@ umdlib:
       css/external/umd-lib-layout.css: {}
   js:
     js/lucide.min.js: {}
+    js/clipboard.min.js: {}
 umd-lib-layout:
   css:
     theme:

@@ -4,6 +4,14 @@ name: UMD Lib Table Main
 label: Table
 group: UMD Libraries
 
+props:
+  type: object
+  properties:
+    component_id:
+      type: string
+      title: Component ID
+      description: (Optional) An ID to use for the component. This can be used for section referencing.
+
 slots:
   table_caption:
     title: Table Caption (Text String)

@@ -9,7 +9,7 @@
  #}
 
 {% if body_text_slot is defined %}
-  <div class="umd-lib body body--content wysiwyg-editor s-margin-general-medium">
+  <div class="umd-lib body body--content wysiwyg-editor s-margin-general-medium" id="{{ component_id | default('') }}">
    {{ body_text_slot | raw }}
   </div>
 

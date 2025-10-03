@@ -15,6 +15,10 @@ props:
       type: string
       title: Unique ID
       description: A unique identifier for this tab group (optional).
+    component_id:
+      type: string
+      title: Component ID
+      description: (Optional) An ID to use for the component. This can be used for section referencing.
 
 slots:
   tab_label:

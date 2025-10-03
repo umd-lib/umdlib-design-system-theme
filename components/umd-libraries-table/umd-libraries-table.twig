@@ -14,7 +14,7 @@
 
 
 {% if table_header_slot is defined %}
-  <table class="umd-lib table--container s-margin-general-medium">
+  <table class="umd-lib table--container s-margin-general-medium" id="{{ component_id | default('') }}">
     <caption class="table--caption s-box-medium-h s-box-small-v-top t-body-small t-italic">{% block table_caption %}{% endblock %}</caption>
     <thead class="table--header t-title-small c-bg-dark-primary c-content-dark-primary">
       <tr class="table--header-row">

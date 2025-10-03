@@ -28,6 +28,10 @@ props:
       type: string
       title: Icon Name
       description: Name of the icon to display in the card (only for icon variant), please refer to Lucide icons documentation for available icons.
+    component_id:
+      type: string
+      title: Component ID
+      description: (Optional) An ID to use for the component. This can be used for section referencing.
 
 slots:
   card_image:

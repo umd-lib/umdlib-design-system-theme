@@ -34,8 +34,12 @@ props:
     top_margin:
       type: boolean
       title: Top Margin
-      description: Whether to add top margin to the heading.
+      description: Whether to add top margin to the heading, unchecked if the heading is the first item in the content or underneath the breadcrumb.
       default: true
+    component_id:
+      type: string
+      title: Component ID
+      description: (Optional) An ID to use for the component. This can be used for section referencing.
 
 slots:
   heading_text:

@@ -3,6 +3,13 @@ $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schema
 name: UMD Lib Event
 label: Event
 group: UMD Libraries
+props:
+  type: object
+  properties:
+    component_id:
+      type: string
+      title: Component ID
+      description: (Optional) An ID to use for the component. This can be used for section referencing.
 
 slots:
   event_title:

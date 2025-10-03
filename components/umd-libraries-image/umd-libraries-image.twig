@@ -22,7 +22,7 @@
 {% set selectedVariant = variant | default('freeform') %}
 
 {% if image is defined %}
-  <figure class="umd-lib image c-bg-primary {{ orientation }} s-margin-general-medium">
+  <figure class="umd-lib image c-bg-primary {{ orientation }} s-margin-general-medium" id="{{ component_id | default('') }}">
     <img alt="{{ image_alt|default('') }}" src="{{ image }}" loading="lazy" class="image--image {{ selectedVariant }}" />
     {% if caption is defined %}
       <figcaption class="image--caption s-box-medium-h t-body-small t-italic wysiwg-editor">

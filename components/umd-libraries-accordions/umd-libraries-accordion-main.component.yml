@@ -4,6 +4,14 @@ name: UMD Lib Accordion Main
 label: Accordion
 group: UMD Libraries
 
+props:
+  type: object
+  properties:
+    component_id:
+      type: string
+      title: Component ID
+      description: (Optional) An ID to use for the component. This can be used for section referencing.
+
 slots:
   accordion_child_slot:
     title: Accordion Child (UMD Libraries Accordion)

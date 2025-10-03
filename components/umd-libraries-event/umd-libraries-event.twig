@@ -16,7 +16,7 @@
 #}
 
 {% if event_title is defined and event_date is defined %}
-  <div class="umd-lib event s-margin-general-medium">
+  <div class="umd-lib event s-margin-general-medium" id="{{ component_id | default('') }}">
     <div class="event--sign s-inline-medium" aria-hidden="true">
       <div id="event_month" class="event--month c-content-primary t-body-small t-interactive-sub t-uppercase">
       </div>

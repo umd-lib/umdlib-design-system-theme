@@ -478,6 +478,7 @@ video {
   font-weight: 400;
   font-style: normal;
 }
+
 /* base */
 :root {
   /* color */
@@ -521,10 +522,6 @@ video {
 }
 
 /* base styles */
-* {
-  box-sizing: border-box;
-}
-
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -666,14 +663,14 @@ h6 a:focus {
   counter-reset: item;
 }
 
-.wysiwyg-editor ol li {
+.wysiwyg-editor ol > li {
   padding-left: var(--space-lg);
   margin-bottom: var(--space-xs);
   position: relative;
   counter-increment: item;
 }
 
-.wysiwyg-editor ol li:before {
+.wysiwyg-editor ol > li:before {
   min-width: var(--space-sm);
   width: fit-content;
   font-size: 1rem;

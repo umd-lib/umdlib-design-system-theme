@@ -147,6 +147,8 @@
   align-items: start;
 
   max-width: 24rem;
+
+  position: relative;
 }
 
 .person--card-image img {
@@ -159,6 +161,15 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+}
+
+.person--card-link a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
 }
 
 /* breakpoint */

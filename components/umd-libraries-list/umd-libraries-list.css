@@ -3,10 +3,21 @@
   padding-top: 0rem !important;
 
   padding: var(--space-md) 0rem;
+
+  position: relative;
 }
 
 .umd-lib.list .list--eyebrow {
   margin-bottom: 0.5rem;
+}
+
+.umd-lib.list .list--title h2 a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .umd-lib.list .list--details {

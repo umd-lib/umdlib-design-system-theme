@@ -36,7 +36,7 @@ slots:
     title: Person Title (Text String)
   person_phone:
     title: Telephone number (Text String)
-    description: Include area code. Dot seperation. I.e., 5555551212.
+    description: Include area code. Dot seperation. I.e., 555.555.1212.
   person_email:
     title: Email (Text String)
     description: The email address of the person.

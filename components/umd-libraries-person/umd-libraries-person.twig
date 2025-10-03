@@ -61,7 +61,7 @@
         {# s-stack-{% if selectedVariant == 'bio' %}medium{% else %}small{% endif %} #}
         s-stack-medium">
 
-        {% if selectedVariant != 'bio' and person_profile_link is defined %}
+        {% if selectedVariant == 'list' and person_profile_link is defined %}
           <a href="{% block person_profile_link %}{% endblock %}" class="person--list-link c-underline-secondary ani-underline">
         {% endif %}
 
@@ -70,7 +70,7 @@
             {% block person_name %}{% endblock %}
           </h2>
 
-        {% if selectedVariant != 'bio' and person_profile_link is defined %}
+        {% if selectedVariant == 'list' and person_profile_link is defined %}
           </a>
         {% endif %}
 

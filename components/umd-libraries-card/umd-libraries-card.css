@@ -39,6 +39,7 @@
 /* icon card */
 .umd-lib.card.card--icon {
   height: 100%;
+  position: relative;
 }
 
 .card--content-icon {
@@ -66,6 +67,15 @@
 .card--icon .card--content {
   flex-direction: row;
   gap: 0.5rem;
+}
+
+.umd-lib.card.card--icon .card--content .card--title .card--link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .card--icon .card--content .card--text {

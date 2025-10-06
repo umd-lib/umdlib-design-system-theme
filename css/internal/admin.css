@@ -489,6 +489,46 @@ div.layout-builder__section .layout-builder__add-block {
   padding-top: 2.5rem;
 }
 
+/* layout builder component configuration right sidebar */
+/* dynamic link autocomplete dropdown */
+.ui-dialog.ui-dialog-off-canvas
+  .ui-dialog-content
+  .ui-menu.ui-widget.ui-widget-content.ui-autocomplete
+  .linkit-result-line--group.ui-menu-divider {
+  color: var(--black) !important;
+  font-weight: 700 !important;
+  padding: 0.5rem !important;
+  border-top: 1px solid var(--medium-gray) !important;
+  border-bottom: 1px solid var(--medium-gray) !important;
+}
+
+ul.ui-autocomplete li.linkit-result-line .ui-menu-item-wrapper {
+  display: flex !important;
+  flex-direction: column !important;
+  cursor: pointer !important;
+  padding: 0.5rem 1rem !important;
+  border-bottom: 1px solid var(--light-gray) !important;
+}
+
+.ui-dialog.ui-dialog-off-canvas
+  .ui-dialog-content
+  .ui-menu.ui-widget.ui-widget-content.ui-autocomplete
+  .linkit-result-line.ui-menu-item
+  .ui-menu-item-wrapper
+  .linkit-result-line--title {
+  color: var(--black) !important;
+  font-weight: 700 !important;
+}
+
+.ui-dialog.ui-dialog-off-canvas
+  .ui-dialog-content
+  .ui-menu.ui-widget.ui-widget-content.ui-autocomplete
+  .linkit-result-line.ui-menu-item
+  .ui-menu-item-wrapper
+  .linkit-result-line--description {
+  color: var(--black) !important;
+}
+
 /* media library */
 /* general */
 .media-library-widget-modal {

@@ -14,5 +14,5 @@ props:
 
 slots:
   accordion_child_slot:
-    title: Accordion Child (UMD Libraries Accordion)
-    description: Slot for the UMD Libraries Accordion component.
+    title: Accordion Child (UMD Lib Accordion Child)
+    description: Use UMD Lib Accordion Child component(s).

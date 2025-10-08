@@ -19,13 +19,13 @@ props:
   properties:
     variant:
       type: string
-      title: Heading Varaint
+      title: Heading Variant
       description: Choose the heading variant
       enum:
-      - h1
-      - h2
-      - h3
-      - h4
+        - h1
+        - h2
+        - h3
+        - h4
     page_title:
       type: boolean
       title: Page Title
@@ -52,4 +52,4 @@ slots:
     description: (Optional) A subtitle.
   date:
     title: Date (Date)
-    description: (Optional) A date.
+    description: (Optional) Use the format "Month Date, Year" (e.g., "July 4, 2025")

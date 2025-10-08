@@ -49,7 +49,6 @@ slots:
     description: Use the format "Month Date, Year" (e.g., "July 4, 2025")
   description:
     title: Description (WYSIWYG)
-    description: Slot intended for WYSIWYG editor content, should use Plain Text format
   link_text:
     title: Link Text (Text String)
   link_url:

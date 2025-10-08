@@ -32,7 +32,6 @@ props:
 slots:
   quote_text_slot:
     title: Quote Text (WYSIWYG)
-    description: Slot for the quote text elements
   quote_author_name:
     title: Author Name (Text String)
   quote_author_title:

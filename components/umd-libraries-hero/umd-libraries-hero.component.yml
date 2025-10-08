@@ -15,7 +15,7 @@ props:
   properties:
     variant:
       type: string
-      title: Hero Varaint
+      title: Hero Variant
       description: Choose the hero variant
       enum:
         - minimal
@@ -36,7 +36,5 @@ slots:
     title: Hero Image Alt Text (Text String)
   hero_image_caption:
     title: Hero Image Caption Text (WYSIWYG)
-    description: Alternative text for the hero image, used for accessibility
   description_slot:
     title: Description (WYSIWYG)
-    description: Slot intended for WYSIWYG editor content, should use Plain Text format

@@ -15,7 +15,7 @@ props:
   properties:
     variant:
       type: string
-      title: Alert Varaint
+      title: Alert Variant
       description: Choose the alert variant
       enum:
         - in_page
@@ -29,13 +29,9 @@ props:
 slots:
   title:
     title: Alert Title (Text String)
-    description: Alert Title
   alert_description:
     title: Alert Description (WYSIWYG)
-    description: Slot for the alert description elements
   link_text:
     title: Link Text (Text String)
-    description: Link Text
   link_url:
     title: Link URL (Text String)
-    description: Link URL

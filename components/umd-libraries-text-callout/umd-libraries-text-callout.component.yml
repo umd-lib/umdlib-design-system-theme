@@ -15,4 +15,3 @@ props:
 slots:
   text_callout__text_slot:
     title: Text Callout Text (WYSIWYG)
-    description: Slot for the text callout text elements

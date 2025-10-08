@@ -17,11 +17,11 @@ slots:
     title: Table Caption (Text String)
     description: A caption for the table.
   table_header_slot:
-    title: Table Header (UMD Libraries Table Cell)
-    description: Slot for the table header elements
+    title: Table Header (UMD Lib Table Cell)
+    description: The table header elements. Use UMD Lib Table Cell component(s).
   table_content_slot:
-    title: Table Content (UMD Libraries Table Body)
-    description: Slot for the table content elements
+    title: Table Content (UMD Lib Table Body)
+    description: The table content elements. Use UMD Lib Table Body component(s).
   table_footer_slot:
-    title: Table Footer (UMD Libraries Table Cell)
-    description: Slot for the table footer elements
+    title: Table Footer (UMD Lib Table Cell)
+    description: The table footer elements. Use UMD Lib Table Cell component(s).

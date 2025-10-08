@@ -15,4 +15,3 @@ props:
 slots:
   body_text_slot:
     title: Body Text (WYSIWYG)
-    description: Slot for the main body text elements

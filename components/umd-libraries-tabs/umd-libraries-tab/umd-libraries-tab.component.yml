@@ -18,4 +18,3 @@ slots:
     description: Optional heading displayed at the top of tab content
   body_slot:
     title: Body (WYSIWYG)
-    description: Slot intended for WYSIWYG editor content

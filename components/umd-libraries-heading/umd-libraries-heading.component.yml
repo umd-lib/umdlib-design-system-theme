@@ -22,10 +22,10 @@ props:
       title: Heading Varaint
       description: Choose the heading variant
       enum:
-        - h1
-        - h2
-        - h3
-        - h4
+      - h1
+      - h2
+      - h3
+      - h4
     page_title:
       type: boolean
       title: Page Title
@@ -36,7 +36,7 @@ props:
       title: Top Margin
       description: Whether to add top margin to the heading, unchecked if the heading is the first item in the content or underneath the breadcrumb.
       default: true
-    component_id:
+    componentid:
       type: string
       title: Component ID
       description: (Optional) An ID to use for the component. This can be used for section referencing.

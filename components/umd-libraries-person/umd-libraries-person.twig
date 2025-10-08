@@ -34,7 +34,7 @@
   <div class="umd-lib person--{{ selectedVariant }}
     {% if selectedVariant == 'card'%}c-border-primary s-box-medium-v s-box-medium-h{% endif %}
     {% if selectedVariant == 'list'%}s-box-small-v{% endif %}
-     s-margin-general-medium" id="{{ component_id | default('') }}">
+     s-margin-general-medium" id="{{ componentid | default('') }}">
 
     {# Top section with image - all variants have image but with different layouts #}
     {% if selectedVariant == 'bio' %}

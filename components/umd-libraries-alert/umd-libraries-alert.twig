@@ -19,7 +19,7 @@
 {% set selectedVariant = variant | default('in_page') %}
 
 {% if title is defined %}
-<div class="umd-lib alert alert--{{ selectedVariant }}" id="{{ component_id | default('') }}">
+<div class="umd-lib alert alert--{{ selectedVariant }}" id="{{ componentid | default('') }}">
   <div class="alert--container {% if selectedVariant == 'site_wide' %}s-box-page-medium-h s-center s-page-lock{% endif %}">
     <div class="alert--content s-box-medium-v {% if selectedVariant == 'in_page' %}s-box-medium-h{% endif %}">
       <div class="alert--title">

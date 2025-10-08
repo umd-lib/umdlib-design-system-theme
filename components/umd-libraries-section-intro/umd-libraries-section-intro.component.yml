@@ -7,7 +7,7 @@ group: UMD Libraries
 props:
   type: object
   properties:
-    component_id:
+    componentid:
       type: string
       title: Component ID
       description: (Optional) An ID to use for the component. This can be used for section referencing.

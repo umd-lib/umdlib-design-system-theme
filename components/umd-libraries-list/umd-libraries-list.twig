@@ -15,7 +15,7 @@
 #}
 
 {% if list_title is defined and list_url is defined %}
-  <div class="umd-lib list s-margin-general-medium" id="{{ component_id | default('') }}">
+  <div class="umd-lib list s-margin-general-medium" id="{{ componentid | default('') }}">
     <div class="list--title-section s-stack-small">
       {% if list_eyebrow is defined and list_eyebrow is not empty %}
         <div class="list--eyebrow t-eyebrow c-content-primary">{% block list_eyebrow %}{% endblock %}</div>

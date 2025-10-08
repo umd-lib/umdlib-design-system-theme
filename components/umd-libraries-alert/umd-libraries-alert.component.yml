@@ -21,7 +21,7 @@ props:
         - in_page
         - site_wide
       default: in_page
-    component_id:
+    componentid:
       type: string
       title: Component ID
       description: (Optional) An ID to use for the component. This can be used for section referencing.

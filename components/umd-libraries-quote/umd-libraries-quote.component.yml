@@ -24,7 +24,7 @@ props:
       type: string
       title: Theme (Light or Dark)
       description: 'Enter "light" or "dark" to choose the theme for the quote section. Defaults to "dark".'
-    component_id:
+    componentid:
       type: string
       title: Component ID
       description: (Optional) An ID to use for the component. This can be used for section referencing.

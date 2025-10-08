@@ -12,7 +12,7 @@ props:
       title: Bottom Margin
       description: Whether to add a bottom margin to the link, only if it is the last item in the content.
       default: false
-    component_id:
+    componentid:
       type: string
       title: Component ID
       description: (Optional) An ID to use for the component. This can be used for section referencing.

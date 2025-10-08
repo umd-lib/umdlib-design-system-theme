@@ -11,7 +11,7 @@
 
 {# Only render the link if we have both a URL and text #}
 {% if link_url is defined and link_text is defined %}
-    <div class="umd-lib emphasized-link {% if bottom_margin == true %}s-margin-general-medium{% endif %}" id="{{ component_id | default('') }}">
+    <div class="umd-lib emphasized-link {% if bottom_margin == true %}s-margin-general-medium{% endif %}" id="{{ componentid | default('') }}">
       <a href="{{ link_url }}" class="emphasized-link--text t-body-small t-interactive-sub c-content-primary c-underline-primary ani-underline">
         <span class="i-chevron"></span>{{ link_text }}
       </a>

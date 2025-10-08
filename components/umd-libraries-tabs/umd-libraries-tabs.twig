@@ -13,7 +13,7 @@
 {% if tabs_triggers_slot is defined and tabs_content_slot is defined %}
   {# Generate a unique ID if one isn't provided #}
   {% set tabs_id = id ?? ('tabs-' ~ random()) %}
-  <div id="{{ component_id | default('') }}">
+  <div id="{{ componentid | default('') }}">
     <div class="umd-lib tabs--container c-bg-primary c-content-primary s-margin-general-medium" 
       data-tabs-container 
       id="{{ tabs_id }}" 

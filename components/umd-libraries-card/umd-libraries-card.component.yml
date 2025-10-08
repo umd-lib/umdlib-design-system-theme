@@ -20,15 +20,15 @@ props:
       title: Card Variant
       description: Choose the card variant
       enum:
-        - standard
-        - overlay
-        - icon
+      - standard
+      - overlay
+      - icon
       default: standard
     icon_name:
       type: string
       title: Icon Name
       description: Name of the icon to display in the card (only for icon variant), please refer to Lucide icons documentation for available icons.
-    component_id:
+    componentid:
       type: string
       title: Component ID
       description: (Optional) An ID to use for the component. This can be used for section referencing.

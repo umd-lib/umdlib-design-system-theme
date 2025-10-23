@@ -1,9 +1,13 @@
+/* Styles for all search-related components */
+
 /* search box */
-.search-box {
+.search-box,
+.reusable-search-box {
   border-left: 2px solid var(--maryland-red);
 }
 
-.search-box .search-box-action-area {
+.search-box .search-box-action-area,
+.reusable-search-box .search-box-action-area {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -11,16 +15,19 @@
   border-bottom: 1px solid var(--darker-gray);
 }
 
-.search-box .search-box-action-area input {
+.search-box .search-box-action-area input,
+.reusable-search-box .search-box-action-area input {
   width: 100%;
   padding: 0.5rem;
 }
 
-.search-box .search-box-action-area input::placeholder {
+.search-box .search-box-action-area input::placeholder,
+.reusable-search-box .search-box-action-area input::placeholder {
   color: var(--medium-gray);
 }
 
-.search-box .search-box-action-area button {
+.search-box .search-box-action-area button,
+.reusable-search-box .search-box-action-area input.search-box-submit {
   width: 44px;
   min-width: 44px;
   height: 44px;
@@ -31,6 +38,23 @@
   background-repeat: no-repeat;
   background-position-x: center;
   background-position-y: center;
+}
+
+/* reusable search box */
+.reusable-search-box .search-box-action-area {
+  align-items: end;
+}
+
+.reusable-search-box form div.form-item-searchbar-search {
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.reusable-search-box form div.form-actions {
+  display: flex;
+  justify-content: end;
 }
 
 /* search sort */
@@ -189,7 +213,8 @@ search-share .share-container .action-feedback .clipboardjs-alert-content {
   padding-bottom: var(--space-md);
 }
 
-search-result-element-umd-libraries section {
+search-result-element-umd-libraries article,
+standalone-search-results article {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -197,21 +222,25 @@ search-result-element-umd-libraries section {
   position: relative;
 }
 
-search-result-element-umd-libraries section img {
+search-result-element-umd-libraries article img,
+standalone-search-results article img {
   width: auto;
 }
 
 @media (max-width: 767px) {
-  search-result-element-umd-libraries section img {
+  search-result-element-umd-libraries article img,
+  standalone-search-results article img {
     margin: 0 !important;
   }
 }
 
-search-result-element-umd-libraries section .item-detail {
+search-result-element-umd-libraries article .item-detail,
+standalone-search-results article .item-detail {
   flex-grow: 1;
 }
 
-search-result-element-umd-libraries section .item-detail .item-title a::after {
+search-result-element-umd-libraries article .item-detail .item-title a::after,
+standalone-search-results article .item-detail .item-title a::after {
   content: "";
   position: absolute;
   left: 0;
@@ -220,20 +249,23 @@ search-result-element-umd-libraries section .item-detail .item-title a::after {
   bottom: 0;
 }
 
-search-result-element-umd-libraries section .item-detail .item-fields {
+search-result-element-umd-libraries article .item-detail .item-fields,
+standalone-search-results article .item-detail .item-fields {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
 /* metadata fields */
-search-result-element-umd-libraries section .item-detail .item-fields > div {
+search-result-element-umd-libraries article .item-detail .item-fields > div,
+standalone-search-results article .item-detail .item-fields > div {
   display: grid;
   grid-template-columns: 9rem 1fr;
   column-gap: 0;
 }
 
-search-result-element-umd-libraries section .item-detail dl dd {
+search-result-element-umd-libraries article .item-detail dl dd,
+standalone-search-results article .item-detail dl dd {
   display: flex;
   flex-direction: row;
   gap: 0.25rem;
@@ -302,12 +334,14 @@ search-result-element-umd-libraries section .item-detail dl dd {
     padding-bottom: var(--space-lg);
   }
 
-  search-result-element-umd-libraries section {
+  search-result-element-umd-libraries article,
+  standalone-search-results article {
     flex-direction: row-reverse;
     gap: initial;
   }
 
-  search-result-element-umd-libraries section img {
+  search-result-element-umd-libraries article img,
+  standalone-search-results article img {
     width: 12rem;
     min-width: 12rem;
     max-width: 12rem;

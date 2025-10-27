@@ -271,6 +271,66 @@ standalone-search-results article .item-detail dl dd {
   gap: 0.25rem;
 }
 
+/* bento search result */
+.bento-search-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bento-search-header-icon-container {
+  height: 100%;
+  position: relative;
+}
+
+.bento-search-header-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bento-search-header-icon {
+  color: #fff;
+}
+
+.bento-search .description {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.bento-search-result-item {
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.bento-search .bento-search-result-item h3.item-title {
+  margin-bottom: 0.5rem;
+}
+
+/* bento search footer link */
+.bento-search .emphasized-link {
+  width: fit-content;
+  text-decoration: none;
+}
+
+.bento-search .emphasized-link a {
+  text-decoration: none;
+}
+
+.bento-search .emphasized-link a span {
+  display: inline-block;
+
+  min-width: 1rem;
+  max-width: 1rem;
+
+  margin-right: 0.125rem;
+}
+
+.bento-search .emphasized-link a:hover,
+.bento-search .emphasized-link a:focus {
+  color: initial;
+}
+
 /* navigation - result pagination */
 .pager .pagination__actions {
   display: flex;

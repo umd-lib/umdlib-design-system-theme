@@ -612,6 +612,14 @@ h6 a:focus {
   background-size: 100% 2px;
 }
 
+em {
+  font-style: italic !important;
+}
+
+strong {
+  font-weight: 700 !important;
+}
+
 /* wysiwyg editor */
 .wysiwyg-editor {
   color: var(--dark-gray);

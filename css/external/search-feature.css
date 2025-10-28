@@ -264,13 +264,6 @@ standalone-search-results article .item-detail .item-fields > div {
   column-gap: 0;
 }
 
-search-result-element-umd-libraries article .item-detail dl dd,
-standalone-search-results article .item-detail dl dd {
-  display: flex;
-  flex-direction: row;
-  gap: 0.25rem;
-}
-
 /* bento search result */
 .bento-search-header {
   display: flex;

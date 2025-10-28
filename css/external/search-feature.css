@@ -300,6 +300,15 @@ standalone-search-results article .item-detail .item-fields > div {
   margin-bottom: 0.5rem;
 }
 
+.bento-search .bento-search-result-item div.item-detail > p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* bento search footer link */
 .bento-search .emphasized-link {
   width: fit-content;

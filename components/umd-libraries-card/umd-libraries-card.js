@@ -5,5 +5,7 @@ cardLinks.forEach((link) => {
   const cardLinkIcon = link.querySelector("span");
   if (cardLinkIcon && link.host !== currentcardlocation.host) {
     cardLinkIcon.classList.add("i-external-arrow");
+  } else {
+    cardLinkIcon.style.display = "none";
   }
 });

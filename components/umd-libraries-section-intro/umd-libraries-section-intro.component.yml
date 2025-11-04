@@ -7,11 +7,15 @@ group: UMD Libraries
 props:
   type: object
   properties:
+    componentid:
+      type: string
+      title: Component ID
+      description: (Optional) An ID to use for the component. This can be used for section referencing.
 
 slots:
   heading_text:
-    title: Heading Text (String)
+    title: Heading Text (Text String)
   link_text:
-    title: Link Text (String)
+    title: Link Text (Text String)
   link_url:
-    title: Link URL (String)
+    title: Link URL (Text String)

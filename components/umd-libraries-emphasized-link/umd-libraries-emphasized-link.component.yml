@@ -4,8 +4,21 @@ name: UMD Lib Emphasized Link
 label: Emphasized Link
 group: UMD Libraries
 
+props:
+  type: object
+  properties:
+    bottom_margin:
+      type: boolean
+      title: Bottom Margin
+      description: Whether to add a bottom margin to the link, only if it is the last item in the content.
+      default: false
+    componentid:
+      type: string
+      title: Component ID
+      description: (Optional) An ID to use for the component. This can be used for section referencing.
+
 slots:
   link_text:
-    title: Link Text (String max 50 chars)
+    title: Link Text (Text String)
   link_url:
-    title: Link URL (String)
+    title: Link URL (Text String)

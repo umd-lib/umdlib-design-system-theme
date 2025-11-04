@@ -23,23 +23,20 @@
 {%
   set classes = [
     'layout',
+    'umd-lib',
     'umd-lib-layout',
     'layout--custom',
   ]
 %}
 
 {% if full_page_width == False %}
-  {% set classes = classes|merge(['s-box-page-default-h']) %}
+  {% set classes = classes|merge(['s-box-page-medium-h']) %}
   {% set classes = classes|merge(['s-center']) %}
   {% set classes = classes|merge(['s-page-lock']) %}
 {% endif %}
 
 {% if top_margin %}
   {% set classes = classes|merge(['top-margin']) %}
-{% endif %}
-
-{% if section_vertical_spacing is defined %}
-  {% set classes = classes|merge(['vertical-spacing-' ~ section_vertical_spacing]) %}
 {% endif %}
 
 {% if in_preview %}
@@ -50,11 +47,18 @@
   {% if use_search %}
     {% set classes = classes|merge(['search-web-components']) %}
     <search-root{{ settings.search_root_attributes }}>
+    <div {{ attributes.addClass(classes) }}>
+      <div class="search-top-region-container" aria-hidden="{{ content.search_top_region is empty ? 'true' : 'false' }}">
+        <div class="region-info" aria-hidden="true">Search Top Region</div>
+        <div {{ region_attributes.search_top_region.addClass('search-top-region') }}>{{ content.search_top_region }}</div>
+      </div>
+      <div class="search-main-region-container">
+  {% else %}
+    <div {{ attributes.addClass(classes) }}>
   {% endif %}
 
-  <div {{ attributes.addClass(classes) }}>
     {% if show_sidebar_region %}
-      <div class="sidebar-navigation s-inline-large" aria-hidden="{{ content.left_column is empty ? 'true' : 'false' }}">
+      <div class="sidebar-navigation s-inline-medium" aria-hidden="{{ content.left_column is empty ? 'true' : 'false' }}">
           <div class="region-info" aria-hidden="true">Sidebar</div>
           <div {{ region_attributes.left_column.addClass('left_column') }}>{{ content.left_column }}</div>
       </div>
@@ -62,7 +66,7 @@
     <div class="main-column">
       {% for i in 1..num_rows %}
         {% set row_conf = column_config['row_' ~ i] %}
-        <div class="{{ row_conf.card_group ? 'card-group' : 'column' }} row row--{{ i }} layout--{{ row_conf.cols }}-column horizontal-{{ row_conf.horizontal }} vertical-{{ row_conf.vertical }}">
+        <div class="{{ row_conf.card_group ? 'card-group' : 'column' }} row row--{{ i }} layout--{{ row_conf.cols }}-column horizontal-{{ row_conf.horizontal }}">
           {% if row_conf.card_group %}
           {# render card group #}
             {% set reg_key = 'main_' ~ i ~ '_card_group' %}
@@ -83,6 +87,7 @@
     </div>
   </div>
   {% if use_search %}
+      </div>
     </search-root>
   {% endif %}
 {% endif %}

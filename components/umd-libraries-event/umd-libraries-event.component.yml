@@ -1,26 +1,32 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 
 name: UMD Lib Event
-replaces: umdds:umd-element-event
 label: Event
 group: UMD Libraries
+props:
+  type: object
+  properties:
+    componentid:
+      type: string
+      title: Component ID
+      description: (Optional) An ID to use for the component. This can be used for section referencing.
 
 slots:
   event_title:
-    title: Event Title (String)
+    title: Event Title (Text String)
   event_url:
-    title: Event URL (String)
+    title: Event URL (Text String)
   event_description:
     title: Event Description (WYSIWYG)
   event_date:
     title: Event Date (Date)
     description: Use the format "Day, Month Date" (e.g., "Friday, July 4")
   event_time:
-    title: Event Time (String)
+    title: Event Time (Text String)
     description: Use the format "HH:MM am/pm" (e.g., "2:00pm")
   event_location:
-    title: Event Location (String)
+    title: Event Location (Text String)
   event_image:
     title: Event Image (Media Image URL)
   event_image_alt:
-    title: Event Image Alt Text (String)
+    title: Event Image Alt Text (Text String)

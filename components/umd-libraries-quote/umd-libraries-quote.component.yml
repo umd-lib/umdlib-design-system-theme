@@ -24,12 +24,15 @@ props:
       type: string
       title: Theme (Light or Dark)
       description: 'Enter "light" or "dark" to choose the theme for the quote section. Defaults to "dark".'
+    componentid:
+      type: string
+      title: Component ID
+      description: (Optional) An ID to use for the component. This can be used for section referencing.
 
 slots:
   quote_text_slot:
     title: Quote Text (WYSIWYG)
-    description: Slot for the quote text elements
   quote_author_name:
-    title: Author Name (String)
+    title: Author Name (Text String)
   quote_author_title:
-    title: Author Title (String)
+    title: Author Title (Text String)

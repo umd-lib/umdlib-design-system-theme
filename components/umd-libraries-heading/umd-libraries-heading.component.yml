@@ -19,17 +19,37 @@ props:
   properties:
     variant:
       type: string
-      title: Heading Varaint
+      title: Heading Variant
       description: Choose the heading variant
       enum:
         - h1
         - h2
         - h3
         - h4
+    page_title:
+      type: boolean
+      title: Page Title
+      description: Whether this heading is used as the page title. Only one page title should be used per page.
+      default: false
+    top_margin:
+      type: boolean
+      title: Top Margin
+      description: Whether to add top margin to the heading, unchecked if the heading is the first item in the content or underneath the breadcrumb.
+      default: true
+    componentid:
+      type: string
+      title: Component ID
+      description: (Optional) An ID to use for the component. This can be used for section referencing.
 
 slots:
   heading_text:
-    title: Heading Text (String)
+    title: Heading Text (Text String)
   link_url:
-    title: Link URL (String)
+    title: Link URL (Text String)
     description: (Optional) The link for the heading, if applicable.
+  subtitle:
+    title: Subtitle (Text String)
+    description: (Optional) A subtitle.
+  date:
+    title: Date (Date)
+    description: (Optional) Use the format "Month Date, Year" (e.g., "July 4, 2025")

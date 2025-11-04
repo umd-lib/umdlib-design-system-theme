@@ -15,21 +15,22 @@
 #}
 
 {% if quote_text_slot is defined and quote_author_name is defined %}
-  <div class="quote--feature {% if theme == 'light' %}c-bg-secondary{% else %}c-bg-primary dark-theme{% endif %} s-box-large-v s-box-large-h">
+  <div class="umd-lib quote--feature {% if theme == 'light' %}c-bg-secondary{% else %}c-bg-primary dark-theme{% endif %} s-box-large-v s-box-large-h s-margin-general-medium" role="region" aria-label="quote" id="{{ componentid | default('') }}">
+    {# Feature variant has background graphics #}
     {% if variant == 'feature' %}
       <div class="quote--background" aria-hidden="true">
         {% if theme == 'light' %}
-          <svg class="quote--background-1" xmlns="http://www.w3.org/2000/svg" width="684" height="288" viewBox="0 0 684 288" fill="none">
+          <svg class="quote--background-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 684 288" fill="none" preserveAspectRatio="none">
             <path opacity="0.04" d="M-457.671 890.15L683.654 -212.015L566.325 -454L-575 648.165L-457.671 890.15Z" fill="black"/>
           </svg>
-          <svg class="quote--background-2" xmlns="http://www.w3.org/2000/svg" width="1034" height="288" viewBox="0 0 1034 288" fill="none">
+          <svg class="quote--background-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1034 288" fill="none" preserveAspectRatio="none">
             <path opacity="0.06" d="M-107.74 -424.511L1033.58 677.654L916.256 919.639L-225.07 -182.526L-107.74 -424.511Z" fill="black"/>
           </svg>
         {% else %}
-          <svg class="quote--background-1" xmlns="http://www.w3.org/2000/svg" width="684" height="288" viewBox="0 0 684 288" fill="none">
+          <svg class="quote--background-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 684 288" fill="none" preserveAspectRatio="none">
             <path opacity="0.08" d="M-457.671 890.15L683.654 -212.015L566.325 -454L-575 648.165L-457.671 890.15Z" fill="white"/>
           </svg>
-          <svg class="quote--background-2" xmlns="http://www.w3.org/2000/svg" width="1034" height="288" viewBox="0 0 1034 288" fill="none">
+          <svg class="quote--background-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1034 288" fill="none" preserveAspectRatio="none">
             <path opacity="0.16" d="M-107.74 -424.511L1033.58 677.654L916.256 919.639L-225.07 -182.526L-107.74 -424.511Z" fill="white"/>
           </svg>
         {% endif %}
@@ -37,7 +38,7 @@
     {% endif %}
     <div class="quote--icon i-quote"></div>
     <div class="quote--content">
-      <div class="quote--text t-title-medium c-content-primary s-stack-small">
+      <div class="quote--text t-title-medium s-stack-small">
         {{ quote_text_slot }}
       </div>
       <div class="quote--author c-content-secondary">

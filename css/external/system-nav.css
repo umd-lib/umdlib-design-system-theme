@@ -56,18 +56,12 @@
 
 .umd-lib.breadcrumb ol,
 .umd-lib.breadcrumb ol li {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.umd-lib.breadcrumb ol {
-  gap: 0.5rem;
+  display: inline-block;
 }
 
 .umd-lib.breadcrumb .breadcrumb-link,
 .umd-lib.breadcrumb .breadcrumb--active {
-  margin-left: 0.5rem;
+  margin-left: 0 0.25rem;
 }
 
 .umd-lib.breadcrumb ol li:first-child,

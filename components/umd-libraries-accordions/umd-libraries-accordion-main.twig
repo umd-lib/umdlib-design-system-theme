@@ -9,7 +9,7 @@
  #}
 
 {% if accordion_child_slot is defined %}
-  <div class="accordion--container">
+  <div class="umd-lib accordion--container s-margin-general-medium" id="{{ componentid | default('') }}">
     {% block accordion_child_slot %} {% endblock %}
   </div>
 {% else %}

@@ -5,6 +5,8 @@ custom:
   library: umdlib_umdds/umd-lib-layout
   class: '\Drupal\umdlib_ds_layout_tools\Plugin\Layout\UMDLibDsLayoutConfig'
   regions:
+    search_top_region:
+      label: Search Top Region
     left_column:
       label: Left Column (sidebar)
     main_1_1:

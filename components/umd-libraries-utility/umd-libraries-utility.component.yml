@@ -23,4 +23,4 @@ props:
 slots:
   utility_content:
     title: Utility Content (Block)
-    description: Slot for the utility content
+    description: The utility content

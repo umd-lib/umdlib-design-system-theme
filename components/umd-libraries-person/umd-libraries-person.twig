@@ -31,18 +31,19 @@
 
 {# Check required fields #}
 {% if person_name is defined and person_name is not empty and person_title is defined and person_title is not empty %}
-  <div class="person--{{ selectedVariant }}
-    {# {% if selectedVariant != 'bio' %}s-box-default-v s-box-default-h{% endif %} #}
-    {% if selectedVariant == 'card'%}c-border-primary s-box-default-v s-box-default-h{% endif %}">
+  <div class="umd-lib person--{{ selectedVariant }}
+    {% if selectedVariant == 'card'%}c-border-primary s-box-medium-v s-box-medium-h{% endif %}
+    {% if selectedVariant == 'list'%}s-box-small-v{% endif %}
+     s-margin-general-medium" id="{{ componentid | default('') }}">
 
     {# Top section with image - all variants have image but with different layouts #}
     {% if selectedVariant == 'bio' %}
-      <div class="person--bio-top s-stack-default">
+      <div class="person--bio-top s-stack-medium">
     {% endif %}
 
     {% if person_image is defined and person_image_alt is defined %}
       <div class="person--{{ selectedVariant }}-image 
-        {% if selectedVariant == 'list' %}s-inline-default{% endif %}
+        {% if selectedVariant == 'list' %}s-inline-medium{% endif %}
         {% if selectedVariant == 'card' %}s-stack-small{% endif %}">
         <img alt="{{ person_image_alt|default('') }}" src="{{ person_image }}" loading="lazy">
       </div>
@@ -56,10 +57,11 @@
 
       {# Core info section - name, title, department (varies by variant) #}
       <div class="person--{{ selectedVariant }}-info-core 
-        {% if selectedVariant == 'bio' %}s-box-small-h{% endif %} 
-        s-stack-{% if selectedVariant == 'bio' %}default{% else %}small{% endif %}">
+        {% if selectedVariant == 'bio' %}s-box-medium-h{% endif %} 
+        {# s-stack-{% if selectedVariant == 'bio' %}medium{% else %}small{% endif %} #}
+        s-stack-medium">
 
-        {% if selectedVariant != 'bio' and person_profile_link is defined %}
+        {% if selectedVariant == 'list' and person_profile_link is defined %}
           <a href="{% block person_profile_link %}{% endblock %}" class="person--list-link c-underline-secondary ani-underline">
         {% endif %}
 
@@ -68,7 +70,7 @@
             {% block person_name %}{% endblock %}
           </h2>
 
-        {% if selectedVariant != 'bio' and person_profile_link is defined %}
+        {% if selectedVariant == 'list' and person_profile_link is defined %}
           </a>
         {% endif %}
 
@@ -122,7 +124,7 @@
           {% endif %}
 
           {% if person_office is not empty and selectedVariant == 'bio' %}
-            <p class="person--bio-office t-body-small">
+            <p class="person--bio-office t-body-small c-content-primary">
               <span class="c-bg-interactive-secondary ani-bg-interactive ani-icon-interactive">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path id="white" d="M8.00008 1C5.07643 1 2.69775 3.09352 2.69775 5.66668C2.69775 6.43914 2.91719 7.20504 3.33434 7.88436L7.71012 14.8496C7.76837 14.9425 7.87938 15 8.00008 15C8.12078 15 8.23179 14.9425 8.29004 14.8496L12.6674 7.88207C13.083 7.20504 13.3024 6.43911 13.3024 5.66665C13.3024 3.09352 10.9237 1 8.00008 1ZM8.00008 8.66667C6.53826 8.66667 5.5156 7.45325 5.5156 6.16668C5.5156 4.8801 6.53826 3.66669 8.00008 3.66669C9.4619 3.66669 10.4846 4.8801 10.4846 6.16668C10.4846 7.45325 9.4619 8.66667 8.00008 8.66667Z" fill="black"/>
@@ -142,7 +144,7 @@
 
     {# Bio description slot - only in bio variant #}
     {% if selectedVariant == 'bio' and bio_description_slot is defined %}
-      <div class="person--bio-description s-stack-default wysiwyg-editor">
+      <div class="person--bio-description s-stack-medium wysiwyg-editor">
         {% block bio_description_slot %}{% endblock %}
       </div>
     {% endif %}
@@ -150,7 +152,7 @@
     {# Link/button - variants bio & card can have it but with different implementations #}
     {% if selectedVariant == 'bio' or selectedVariant == 'card' %}
       {% if person_external_link is defined or person_profile_link is defined %}
-        <div class="person--{{ selectedVariant }}-link {% if selectedVariant == 'bio' %}s-stack-default{% endif %}">
+        <div class="person--{{ selectedVariant }}-link {% if selectedVariant == 'bio' %}s-stack-medium{% endif %}">
           {% include 'umdlib_umdds:umd-libraries-emphasized-link' with {
             'link_text': selectedVariant == 'card' ? 'View profile' : person_external_link_text,
             'link_url': selectedVariant == 'card' ? person_profile_link : person_external_link

@@ -6,5 +6,5 @@ group: UMD Libraries
 
 slots:
   body_slot:
-    title: Table Body (UMD Libraries Table Cell)
-    description: The content of the table body.
+    title: Table Body (UMD Lib Table Cell)
+    description: The content of the table body. Use UMD Lib Table Cell component(s).

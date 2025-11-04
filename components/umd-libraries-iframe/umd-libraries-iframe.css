@@ -1,25 +1,25 @@
-.umd-lib-iframe {
+.umd-lib.iframe {
   width: 100%;
   height: auto;
 }
 
-.umd-lib-iframe.one_to_one {
+.umd-lib.iframe.one_to_one {
   aspect-ratio: 1 / 1;
 }
 
-.umd-lib-iframe.four_to_three {
+.umd-lib.iframe.four_to_three {
   aspect-ratio: 4 / 3;
 }
 
-.umd-lib-iframe.three_to_two {
+.umd-lib.iframe.three_to_two {
   aspect-ratio: 3 / 2;
 }
 
-.umd-lib-iframe.sixteen_to_nine {
+.umd-lib.iframe.sixteen_to_nine {
   aspect-ratio: 16 / 9;
 }
 
-.umd-lib-iframe.freeform {
+.umd-lib.iframe.freeform {
   aspect-ratio: auto;
   height: 100%;
 }

@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const menuCloseButton = document.getElementById(
             "navigation-in-menu-button"
           );
+
           if (menuCloseButton) {
             if (button.getAttribute("aria-expanded") === "false") {
               menuCloseButton.setAttribute("aria-expanded", "false");

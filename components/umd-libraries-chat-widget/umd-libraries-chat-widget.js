@@ -20,18 +20,36 @@ const checkInterval = 30000; // 30 seconds in milliseconds
 
 // reload the iframe to show correct chatbox page
 function reloadIframe() {
-  const iframe = document.getElementById("cw-iframe-window");
+  // addRefererToIframe will update iframe.src when necessary
   addRefererToIframe();
-  iframe.src = iframe.src; // Explicitly reassign the src to reload the iframe
-  console.log("iframe reloaded");
+  // no need to reassign iframe.src = iframe.src;
 }
 
 // add referer to the chat widget iframe
 function addRefererToIframe() {
   const iframe = document.getElementById("cw-iframe-window");
-  const referer = window.location.href; // Get the current page URL
+  if (!iframe) return;
+  const referer = window.location.href;
 
-  iframe.src = iframe.src + "?referer=" + encodeURIComponent(referer);
+  try {
+    const url = new URL(iframe.src, window.location.href);
+    // Only update if the referer param differs
+    if (url.searchParams.get("referer") !== referer) {
+      url.searchParams.set("referer", referer);
+      iframe.src = url.toString();
+      console.log("iframe src updated with referer");
+    }
+  } catch (e) {
+    // Fallback for older environments: only append if referer not present
+    if (!/[?&]referer=/.test(iframe.src)) {
+      iframe.src =
+        iframe.src +
+        (iframe.src.indexOf("?") === -1 ? "?" : "&") +
+        "referer=" +
+        encodeURIComponent(referer);
+      console.log("iframe src updated (fallback) with referer");
+    }
+  }
 }
 
 // update the chat widget UI

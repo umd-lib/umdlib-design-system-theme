@@ -1,4 +1,4 @@
-.umd-lib-chat-widget {
+.umd-lib.chat-widget {
   width: 360px;
   height: 651px;
 
@@ -17,7 +17,7 @@
   transition: all 0.3s ease-in-out;
 }
 
-.umd-lib-chat-widget.closed {
+.umd-lib.chat-widget.closed {
   width: 320px;
   height: 53px;
 }
@@ -91,7 +91,7 @@
   opacity: 1;
 }
 
-.umd-lib-chat-widget.closed .cw--iframe iframe {
+.umd-lib.chat-widget.closed .cw--iframe iframe {
   width: 320px;
 
   opacity: 0;
@@ -100,33 +100,33 @@
 }
 
 /* offline */
-.umd-lib-chat-widget.offline {
+.umd-lib.chat-widget.offline {
   border-top: 4px solid var(--medium-gray);
 }
 
-.umd-lib-chat-widget.offline .cw--header-info .cw--text {
+.umd-lib.chat-widget.offline .cw--header-info .cw--text {
   color: var(--medium-gray);
 }
 
-.umd-lib-chat-widget.offline .cw--header-info .cw--icon {
+.umd-lib.chat-widget.offline .cw--header-info .cw--icon {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='37' height='29' viewBox='0 0 37 29' fill='none'%3E%3Cpath d='M23.625 20.75C23.625 21.2362 23.3879 21.7025 22.966 22.0464C22.544 22.3902 21.9717 22.5833 21.375 22.5833H7.875L3.375 26.25V11.5833C3.375 11.0971 3.61205 10.6308 4.03401 10.287C4.45597 9.94315 5.02826 9.75 5.625 9.75H21.375C21.9717 9.75 22.544 9.94315 22.966 10.287C23.3879 10.6308 23.625 11.0971 23.625 11.5833V20.75Z' fill='%23757575'/%3E%3Cpath d='M15.625 2.88464C14.925 2.88464 14.2377 3.11041 13.7178 3.53406C13.1953 3.95992 12.8751 4.56214 12.875 5.21765V14.3846C12.875 15.0402 13.1953 15.6423 13.7178 16.0682C14.2377 16.4919 14.925 16.7177 15.625 16.7177H28.9473L33.3096 20.2723C33.4592 20.3941 33.6656 20.4186 33.8398 20.3358C34.014 20.2529 34.125 20.0775 34.125 19.8846V5.21765L34.1104 4.97449C34.0418 4.41432 33.7394 3.90667 33.2822 3.53406C32.7623 3.11041 32.075 2.88464 31.375 2.88464H15.625Z' fill='%23757575' stroke='white' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
 
-.umd-lib-chat-widget.offline .cw--header-sub .cw--status {
+.umd-lib.chat-widget.offline .cw--header-sub .cw--status {
   background-color: var(--medium-gray);
 }
 
-.umd-lib-chat-widget.offline .cw--header-sub .cw--chevron {
+.umd-lib.chat-widget.offline .cw--header-sub .cw--chevron {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='9' viewBox='0 0 16 9' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M7.64841 4.6112L11.7512 1.52588e-05L15.2968 2.8372e-05L9.55456 6.75353L9.55721 6.75652L7.65237 9.00002L7.64841 8.99536L7.64446 9.00001L5.73961 6.75651L5.74226 6.75353L8.93275e-06 2.18221e-05L3.5456 2.18221e-05L7.64841 4.6112Z' fill='%23757575'/%3E%3C/svg%3E");
 }
 
 /* take the full screen width on the smaller device */
 @media (max-width: 550px) {
-  .umd-lib-chat-widget.closed {
+  .umd-lib.chat-widget.closed {
     width: 100%;
   }
 
-  .umd-lib-chat-widget {
+  .umd-lib.chat-widget {
     width: 100%;
     height: calc(100vh - 96px - 56px);
 
@@ -145,25 +145,25 @@
 }
 
 @media (min-width: 551px) {
-  .umd-lib-chat-widget {
+  .umd-lib.chat-widget {
     right: 1.5rem;
   }
 }
 
 @media (min-width: 768px) {
-  .umd-lib-chat-widget {
+  .umd-lib.chat-widget {
     right: 3rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .umd-lib-chat-widget {
+  .umd-lib.chat-widget {
     right: 4rem;
   }
 }
 
 @media (min-width: 1440px) {
-  .umd-lib-chat-widget {
+  .umd-lib.chat-widget {
     right: 7.5rem;
   }
 }

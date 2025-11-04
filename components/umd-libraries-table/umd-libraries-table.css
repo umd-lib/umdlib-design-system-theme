@@ -12,7 +12,8 @@
   border-top: 1px solid var(--white);
 }
 
-.table--header p {
+.table--header tr > *,
+.table--header tr p {
   color: var(--white);
 }
 

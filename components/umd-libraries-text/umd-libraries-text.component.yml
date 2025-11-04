@@ -4,7 +4,14 @@ name: UMD Lib Text
 label: Text
 group: UMD Libraries
 
+props:
+  type: object
+  properties:
+    componentid:
+      type: string
+      title: Component ID
+      description: (Optional) An ID to use for the component. This can be used for section referencing.
+
 slots:
   body_text_slot:
     title: Body Text (WYSIWYG)
-    description: Slot for the main body text elements

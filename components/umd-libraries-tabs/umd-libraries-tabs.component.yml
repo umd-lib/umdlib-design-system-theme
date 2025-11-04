@@ -1,7 +1,6 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 
 name: UMD Lib Tab Main
-replaces: umdds:umd-element-tabs
 label: Tab
 group: UMD Libraries
 
@@ -16,14 +15,18 @@ props:
       type: string
       title: Unique ID
       description: A unique identifier for this tab group (optional).
+    componentid:
+      type: string
+      title: Component ID
+      description: (Optional) An ID to use for the component. This can be used for section referencing.
 
 slots:
   tab_label:
-    title: Accessible Tab Label (String)
+    title: Accessible Tab Label (Text String)
     description: (Optional) An accessible label for the entire tab interface (for screen readers), it will be hidden visually.
   tabs_triggers_slot:
-    title: Tab Triggers (UMD Libraries Tab Trigger)
-    description: Slot for the tab trigger elements
+    title: Tab Triggers (UMD Lib Tab Trigger)
+    description: The tab trigger elements. Use UMD Lib Tab Trigger component(s).
   tabs_content_slot:
-    title: Tab Content (UMD Libraries Tab)
-    description: Slot for the tab content elements
+    title: Tab Content (UMD Lib Tab)
+    description: The tab content elements. Use UMD Lib Tab component(s).

@@ -1,17 +1,16 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 
 name: UMD Lib Navigation
-replaces: umdds:umd-element-navigation-header
 label: Navigation
 group: UMD Libraries
 
 slots:
   main_navigation_slot:
     title: Main Navigation Slot (Main menu)
-    description: Slot for the main navigation
+    description: The main navigation
   utility_navigation_slot:
     title: Utility Navigation Slot (Utility navigation)
-    description: Slot for the secondary navigation
+    description: The secondary navigation
   search_slot:
     title: Search (WYSIWYG)
-    description: Slot for search behavior
+    description: Search behavior

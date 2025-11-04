@@ -1,30 +1,45 @@
-.list {
+.umd-lib.list {
   border-bottom: solid 1px var(--light-gray);
   padding-top: 0rem !important;
+
+  padding: var(--space-md) 0rem;
+
+  position: relative;
 }
 
-.list--title-section {
-  margin-bottom: 0.75rem;
-}
-
-.list--eyebrow {
+.umd-lib.list .list--eyebrow {
   margin-bottom: 0.5rem;
 }
 
-.list--details {
+.umd-lib.list .list--title h2 a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.umd-lib.list .list--details {
   display: flex;
   gap: 0.5rem;
   flex-direction: column-reverse;
   justify-content: space-between;
 }
 
-.list--information {
+.umd-lib.list .list--information {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.list--description {
+.umd-lib.list .list--content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.umd-lib.list .list--description {
   margin-bottom: 0.5rem;
 
   display: -webkit-box;
@@ -34,28 +49,27 @@
   overflow: hidden;
 }
 
-.list--image {
-  order: 1;
-}
-
-.list--image img {
-  aspect-ratio: 4/3;
+.umd-lib.list .list--image img {
+  aspect-ratio: 16/9;
   object-fit: cover;
 }
 
 /* breakpoint */
 /* Tablet */
 @media (min-width: 768px) {
-  .list--details {
+  .umd-lib.list {
+    padding: var(--space-lg) 0rem;
+  }
+
+  .umd-lib.list .list--details {
     gap: 1em;
     flex-direction: row;
     justify-content: space-between;
   }
 
-  .list--image img {
+  .umd-lib.list .list--image img {
     height: 10rem;
     min-width: 17rem;
-    aspect-ratio: 16/9;
   }
 }
 

@@ -16,7 +16,7 @@
 {% set allow_fullscreen = allow_fullscreen | default(true) %}
 
 {% if iframe_title and iframe_url %}
-<iframe class="umd-lib-iframe {{ variant }}" title="{{ iframe_title }}" src="{{ iframe_url }}" frameborder="0" loading="lazy" {% if allow_fullscreen %}allowfullscreen{% endif %}></iframe>
+<iframe class="umd-lib iframe {{ variant }} s-margin-general-medium" title="{{ iframe_title }}" src="{{ iframe_url }}" frameborder="0" loading="lazy" {% if allow_fullscreen %}allowfullscreen{% endif %}></iframe>
 
 {% else %}
  {# variable error handling #}

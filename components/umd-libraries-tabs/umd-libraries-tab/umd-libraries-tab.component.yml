@@ -1,7 +1,6 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 
 name: UMD Lib Tab Child
-replaces: umdds:umd-element-tab
 label: Tab
 group: UMD Libraries
 
@@ -15,8 +14,7 @@ props:
 
 slots:
   tab_heading:
-    title: Tab Heading (String)
+    title: Tab Heading (Text String)
     description: Optional heading displayed at the top of tab content
   body_slot:
     title: Body (WYSIWYG)
-    description: Slot intended for WYSIWYG editor content

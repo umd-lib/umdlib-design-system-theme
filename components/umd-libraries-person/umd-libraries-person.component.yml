@@ -24,38 +24,39 @@ props:
         - list
         - card
       default: bio
-    person_phone:
+    componentid:
       type: string
-      title: Telephone number (String)
-      description: Include area code. Dot seperation. I.e., 5555551212.
-    person_email:
-      type: string
-      title: Email
-      description: The email address of the person.
+      title: Component ID
+      description: (Optional) An ID to use for the component. This can be used for section referencing.
 
 slots:
   person_name:
-    title: Person Name (String)
+    title: Person Name (Text String)
   person_title:
-    title: Person Title (String)
+    title: Person Title (Text String)
+  person_phone:
+    title: Telephone number (Text String)
+    description: Include area code. Dot separation. I.e., 555.555.1212.
+  person_email:
+    title: Email (Text String)
+    description: The email address of the person.
   person_department:
-    title: Department (String)
+    title: Department (Text String)
   person_branch:
-    title: Branch (String)
+    title: Branch (Text String)
   person_pronouns:
-    title: Pronouns (String)
+    title: Pronouns (Text String)
   person_office:
-    title: Office (String)
+    title: Office (Text String)
   person_image:
     title: Person Image (Media Image URL)
   person_image_alt:
-    title: Person Image Alt Text (String)
+    title: Person Image Alt Text (Text String)
   person_profile_link:
     title: Profile Link (Link)
   person_external_link:
     title: External Link (Link)
   person_external_link_text:
-    title: External Link Text (String)
+    title: External Link Text (Text String)
   bio_description_slot:
     title: Bio Description (WYSIWYG)
-    description: Slot for the bio description elements

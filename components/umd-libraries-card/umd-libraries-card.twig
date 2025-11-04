@@ -40,11 +40,12 @@
   {% set hasEyebrow = (selectedVariant == 'standard' or selectedVariant == 'overlay') and eyebrow is defined and eyebrow is not empty %}
   {% set hasDate = (selectedVariant == 'standard' or selectedVariant == 'overlay') and card_date is defined and card_date is not empty %}
   {% set hasButton = (selectedVariant == 'standard' or selectedVariant == 'overlay') and link_text is defined and link_url is not empty %}
-  {% set contentPadding = (selectedVariant == 'overlay' or selectedVariant == 'icon') ? 's-box-small-h' : '' %}
+  {% set contentPadding = (selectedVariant == 'overlay' or selectedVariant == 'icon') ? 's-box-medium-h' : '' %}
 
-  <div role="contentinfo"
-       class="umd-lib-card card--{{ selectedVariant }} {{ bgClass }} c-content-primary"
-       aria-label="">
+  <div role="region"
+       class="umd-lib card card--{{ selectedVariant }} {{ bgClass }} c-content-primary s-margin-general-medium"
+       aria-label="card"
+       id="{{ componentid | default('') }}">
     
     {# Image for standard variant #}
     {% if selectedVariant == 'standard' and card_image %}
@@ -53,14 +54,14 @@
       </div>
     {% endif %}
     
-    <div class="card--content s-box-small-v {{ contentPadding }}">
+    <div class="card--content s-box-medium-v {{ contentPadding }}">
       {# Icon variant has a specific content wrapper #}
       {% if selectedVariant == 'icon' %}<div class="card--content-text">{% endif %}
       
       <div class="card--title">
         {# Eyebrow text #}
         {% if hasEyebrow %}
-          <p class="card--eyebrow t-eyebrow s-stack-small">{% block eyebrow %}{% endblock %}</p>
+          <p class="card--eyebrow t-eyebrow">{% block eyebrow %}{% endblock %}</p>
         {% endif %}
         
         {# Headline with link - present in all variants #}
@@ -70,6 +71,7 @@
           {% endif %}
             {% block card_title %}{% endblock %}
           {% if card_url is defined and card_url is not empty %}
+              <span></span>
             </a>
           {% endif %}
         </h3>

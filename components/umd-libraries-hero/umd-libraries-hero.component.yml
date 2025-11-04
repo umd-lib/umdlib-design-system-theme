@@ -1,7 +1,6 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 
 name: UMD Lib Hero
-replaces: umdds:umd-element-hero
 label: Hero
 group: UMD Libraries
 
@@ -16,7 +15,7 @@ props:
   properties:
     variant:
       type: string
-      title: Hero Varaint
+      title: Hero Variant
       description: Choose the hero variant
       enum:
         - minimal
@@ -28,16 +27,14 @@ props:
 
 slots:
   eyebrow:
-    title: Eyebrow Text (String)
+    title: Eyebrow Text (Text String)
   hero_title:
-    title: Hero Title (String)
+    title: Hero Title (Text String)
   hero_image:
     title: Hero Image (Media Image URL)
   hero_image_alt:
-    title: Hero Image Alt Text (String)
+    title: Hero Image Alt Text (Text String)
   hero_image_caption:
     title: Hero Image Caption Text (WYSIWYG)
-    description: Alternative text for the hero image, used for accessibility
   description_slot:
     title: Description (WYSIWYG)
-    description: Slot intended for WYSIWYG editor content, should use Plain Text format

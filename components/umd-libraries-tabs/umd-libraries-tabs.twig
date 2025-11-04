@@ -13,24 +13,25 @@
 {% if tabs_triggers_slot is defined and tabs_content_slot is defined %}
   {# Generate a unique ID if one isn't provided #}
   {% set tabs_id = id ?? ('tabs-' ~ random()) %}
-
-  <div class="tabs--container c-bg-primary c-content-primary" 
-    data-tabs-container 
-    id="{{ tabs_id }}" 
-    data-default-tab="{{ default_tab }}">
-    {% if tab_label %}
-       <p id="{{ tabs_id }}-label" class="sr-only">{% block tab_label %}{% endblock %}</p>
-    {% endif %}
-    <div class="tabs--triggers" 
-      role="tablist"
-      aria-labelledby="{{ tabs_id }}-label">
-      {% block tabs_triggers_slot %}{% endblock %}
-      <div class="tabs--triggers-deco" id="tabs--trigger-deco">
-        <span class="tabs--triggers-deco-activeline" id="deco-underline"></span>
+  <div id="{{ componentid | default('') }}">
+    <div class="umd-lib tabs--container c-bg-primary c-content-primary s-margin-general-medium" 
+      data-tabs-container 
+      id="{{ tabs_id }}" 
+      data-default-tab="{{ default_tab }}">
+      {% if tab_label %}
+        <p id="{{ tabs_id }}-label" class="sr-only">{% block tab_label %}{% endblock %}</p>
+      {% endif %}
+      <div class="tabs--triggers" 
+        role="tablist"
+        aria-labelledby="{{ tabs_id }}-label">
+        {% block tabs_triggers_slot %}{% endblock %}
+        <div class="tabs--triggers-deco" id="tabs--trigger-deco">
+          <span class="tabs--triggers-deco-activeline" id="deco-underline"></span>
+        </div>
       </div>
-    </div>
-    <div class="tabs--content">
-      {% block tabs_content_slot %}{% endblock %}
+      <div class="tabs--content">
+        {% block tabs_content_slot %}{% endblock %}
+      </div>
     </div>
   </div>
 {% else %}

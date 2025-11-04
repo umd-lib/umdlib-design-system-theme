@@ -1,7 +1,6 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 
 name: UMD Lib Accordion Child
-replaces: umdds:umd-element-accordion-item
 label: Accordion
 group: UMD Libraries
 
@@ -15,12 +14,10 @@ props:
 
 slots:
   title:
-    title: Accordion Item Title (String)
-    description: The title of the accordion item.
+    title: Accordion Item Title (Text String)
   body:
     title: Body (WYSIWYG)
-    description: Internal - to be used in the 'UMD Libraries Accordion' component. Slot for the accordion item content elements.
   link_text:
-    title: Link Text (String)
+    title: Link Text (Text String)
   link_url:
-    title: Link URL (String)
+    title: Link URL (Text String)

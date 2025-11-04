@@ -4,10 +4,7 @@ name: UMD Lib Chat Widget
 label: Chat Widget
 group: UMD Libraries
 
-props:
-  type: object
-  properties:
-    chat_widget_url:
-      type: string
-      title: Chat Widget URL
-      description: If the url is not set, the chat widget will display UMD Libraries' default chat widget.
+slots:
+  chat_widget_url:
+    title: Chat Widget URL (Text String)
+    description: If the url is not set, the chat widget will display UMD Libraries' default chat widget.

@@ -17,7 +17,7 @@
 {% if title is defined and body is defined %}
 <div class="accrodion-child--container">
   <h3>
-    <button class="accordion-child--headline c-bg-secondary" aria-expanded="{{ default_open ? 'true' : 'false' }}">
+    <button class="accordion-child--headline c-bg-secondary s-box-medium-v s-box-medium-h" aria-expanded="{{ default_open ? 'true' : 'false' }}">
       <span class="t-interactive c-content-primary">{% block title %}{% endblock %}</span>
     </button>
   </h3>
@@ -28,11 +28,11 @@
     {% else %} style="display: none;" 
     {% endif %}
   >
-    <div class="accordion-child--body wysiwyg-editor">
+    <div class="accordion-child--body s-box-medium-h s-box-medium-v-bottom wysiwyg-editor">
       {% block body %} {% endblock %}
     </div>
     {% if link_text and link_url %}
-      <div class="accordion-child--body-button">
+      <div class="accordion-child--body-button s-box-medium-h s-box-medium-v-bottom">
         {% include 'umdlib_umdds:umd-libraries-emphasized-link' with {
         'variant': 'secondary',
         'link_text': link_text,

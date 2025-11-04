@@ -1,7 +1,6 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 
 name: UMD Lib Footer
-replaces: umdds:umd-element-footer
 label: Footer
 group: UMD Libraries
 
@@ -10,21 +9,21 @@ props:
   properties:
     telephone:
       type: string
-      title: Telephone number (String)
-      description: Include area code. Dot seperation. I.e., 555.555.1212.
+      title: Telephone number (Text String)
+      description: Include area code. Dot separation. I.e., 555.555.1212.
 
 slots:
   institution_name:
-    title: Institution Name (String)
+    title: Institution Name (Text String)
   full_address:
-    title: Full Address (String)
+    title: Full Address (Text String)
     description: Full address of location.
   navigation_menu_slot:
     title: Footer Menu Slot (Footer menu block)
-    description: Slot intended for footer navigation menu. Each menu item should be placed in separate components.
+    description: Footer navigation menu. Each menu item should be placed in separate components.
   legal_menu_slot:
     title: Legal Menu Slot (Legal menu block)
-    description: Slot intended for legal links (e.g., privacy policy).
+    description: Legal links (e.g., privacy policy).
   social_media_slot:
     title: Social Media (UMD DS Social Icons block)
-    description: Slot intended for social media links.
+    description: Social media links.

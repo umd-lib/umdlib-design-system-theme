@@ -1,0 +1,39 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: UMD Required Header
+label: Header
+group: UMD Libraries
+
+props:
+  type: object
+  properties:
+    show_search:
+      title: Show Search
+      type: boolean
+      default: false
+    search_destination:
+      title: Search Destination (URL)
+      type: string
+    show_events:
+      title: Show Events
+      type: boolean
+      default: false
+    show_news:
+      title: Show News
+      type: boolean
+      default: false
+    show_schools:
+      title: Show Schools
+      type: boolean
+      default: false
+    show_admissions:
+      title: Show Admissions
+      type: boolean
+      default: false
+    show_support:
+      title: Show Support (Giving)
+      type: boolean
+      default: false
+    support_destination:
+      title: Giving Destination (URL)
+      type: string

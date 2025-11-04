@@ -11,6 +11,7 @@
  * - one_to_one
  *
  * Variables:
+ * - orientation: The orientation of the image and caption (landscape or portrait)
  * - image: The URL of the image
  * - image_alt: The alt text for the image
  * - caption: The caption for the image
@@ -21,10 +22,10 @@
 {% set selectedVariant = variant | default('freeform') %}
 
 {% if image is defined %}
-  <figure class="umd-lib-image c-bg-primary">
+  <figure class="umd-lib image c-bg-primary {{ orientation }} s-margin-general-medium" id="{{ componentid | default('') }}">
     <img alt="{{ image_alt|default('') }}" src="{{ image }}" loading="lazy" class="image--image {{ selectedVariant }}" />
-    {% if caption %}
-      <figcaption class="image--caption s-box-small-h t-body-small wysiwg-editor">
+    {% if caption is defined %}
+      <figcaption class="image--caption s-box-medium-h t-body-small t-italic wysiwg-editor">
         {% block caption %}{% endblock %}
       </figcaption>
     {% endif %}

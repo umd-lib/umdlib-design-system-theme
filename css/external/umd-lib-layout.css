@@ -1,0 +1,331 @@
+/* umd lib custom layout */
+.umd-lib-layout.layout--custom {
+  display: flex;
+  flex-direction: row;
+}
+
+.umd-lib-layout.layout--custom {
+  margin-bottom: var(--space-md);
+}
+
+.umd-lib-layout.layout--custom:last-child {
+  margin-bottom: var(--space-2xl);
+}
+
+.umd-lib-layout.layout--custom.top-margin {
+  margin-top: var(--space-md);
+}
+
+.umd-lib-layout.layout--custom.top-margin:first-child {
+  margin-top: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  .umd-lib-layout.layout--custom {
+    margin-bottom: var(--space-lg);
+  }
+
+  .umd-lib-layout.layout--custom:last-child {
+    margin-bottom: var(--space-3xl);
+  }
+
+  .umd-lib-layout.layout--custom.top-margin {
+    margin-top: var(--space-lg);
+  }
+
+  .umd-lib-layout.layout--custom.top-margin:first-child {
+    margin-top: var(--space-xl);
+  }
+}
+
+/* sidebar region */
+.umd-lib-layout.layout--custom .sidebar-navigation {
+  display: none;
+}
+
+/* main column region */
+.umd-lib-layout.layout--custom .main-column {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* layout setup - column layout & card group */
+.umd-lib-layout.layout--custom .main-column .column.layout--1-column,
+.umd-lib-layout.layout--custom .main-column .column.layout--2-column,
+.umd-lib-layout.layout--custom .main-column .column.layout--3-column,
+.umd-lib-layout.layout--custom .main-column .column.layout--4-column,
+.umd-lib-layout.layout--custom
+  .main-column
+  .layout--1-column
+  .card-group-content,
+.umd-lib-layout.layout--custom
+  .main-column
+  .layout--2-column
+  .card-group-content,
+.umd-lib-layout.layout--custom
+  .main-column
+  .layout--3-column
+  .card-group-content,
+.umd-lib-layout.layout--custom
+  .main-column
+  .layout--4-column
+  .card-group-content {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: auto;
+  gap: var(--space-md);
+}
+
+.umd-lib-layout.layout--custom
+  .main-column
+  .layout--1-column
+  .card-group-content,
+.umd-lib-layout.layout--custom
+  .main-column
+  .layout--2-column
+  .card-group-content,
+.umd-lib-layout.layout--custom
+  .main-column
+  .layout--3-column
+  .card-group-content,
+.umd-lib-layout.layout--custom
+  .main-column
+  .layout--4-column
+  .card-group-content {
+  grid-auto-rows: 1fr;
+}
+
+.umd-lib-layout.layout--custom .main-column .col-child,
+.umd-lib-layout.layout--custom .main-column .card-group > div {
+  min-width: 15rem;
+}
+
+.umd-lib-layout.layout--custom .main-column .col-child {
+  display: flex;
+  flex-direction: column;
+}
+
+/* layout - card group */
+.umd-lib-layout.layout--custom
+  .main-column
+  .card-group.layout--1-column
+  .card-group-content {
+  grid-template-columns: 1fr;
+}
+
+/* card group - reset component margin & add section margin */
+.umd-lib-layout.layout--custom
+  .main-column
+  .card-group
+  .card-group-content
+  > div
+  > div {
+  margin: 0 !important;
+}
+
+.umd-lib-layout.layout--custom .main-column .card-group {
+  margin-bottom: var(--space-md);
+}
+
+.umd-lib-layout.layout--custom .main-column .card-group:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* support for the search layout */
+search-root .umd-lib-layout.layout--custom {
+  flex-direction: column;
+}
+
+search-root .umd-lib-layout.layout--custom .search-main-region-container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 767px) {
+  search-root
+    .umd-lib-layout.layout--custom
+    .search-main-region-container
+    .sidebar-navigation {
+    display: initial;
+    margin: 0 !important;
+  }
+}
+
+/* breakpoint */
+/* Tablet */
+@media (min-width: 768px) {
+  .umd-lib-layout.layout--custom .sidebar-navigation {
+    display: initial;
+    max-width: 17.5rem;
+    min-width: 17.5rem;
+  }
+
+  /* column / card group - gap */
+  .umd-lib-layout.layout--custom .main-column .column.layout--1-column,
+  .umd-lib-layout.layout--custom .main-column .column.layout--2-column,
+  .umd-lib-layout.layout--custom .main-column .column.layout--3-column,
+  .umd-lib-layout.layout--custom .main-column .column.layout--4-column,
+  .umd-lib-layout.layout--custom
+    .main-column
+    .layout--1-column
+    .card-group-content,
+  .umd-lib-layout.layout--custom
+    .main-column
+    .layout--2-column
+    .card-group-content,
+  .umd-lib-layout.layout--custom
+    .main-column
+    .layout--3-column
+    .card-group-content,
+  .umd-lib-layout.layout--custom
+    .main-column
+    .layout--4-column
+    .card-group-content {
+    gap: var(--space-lg);
+  }
+
+  /* layout - column */
+  .umd-lib-layout.layout--custom .main-column .column.layout--2-column,
+  .umd-lib-layout.layout--custom .main-column .column.layout--3-column,
+  .umd-lib-layout.layout--custom .main-column .column.layout--4-column {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* layout - card group */
+  .umd-lib-layout.layout--custom
+    .main-column
+    .card-group.layout--2-column
+    .card-group-content,
+  .umd-lib-layout.layout--custom
+    .main-column
+    .card-group.layout--3-column
+    .card-group-content,
+  .umd-lib-layout.layout--custom
+    .main-column
+    .card-group.layout--4-column
+    .card-group-content {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, calc((100% - 2rem) / 2)), 1fr)
+    );
+  }
+
+  .umd-lib-layout.layout--custom
+    .main-column
+    .card-group.layout--2-column.horizontal-none
+    .card-group-content,
+  .umd-lib-layout.layout--custom
+    .main-column
+    .card-group.layout--3-column.horizontal-none
+    .card-group-content,
+  .umd-lib-layout.layout--custom
+    .main-column
+    .card-group.layout--4-column.horizontal-none
+    .card-group-content {
+    gap: 0rem !important;
+
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, calc((100%) / 2)), 1fr)
+    );
+  }
+
+  /* card group - add section margin */
+  .umd-lib-layout.layout--custom .main-column .card-group {
+    margin-bottom: var(--space-lg);
+  }
+
+  /* support for the search layout */
+  search-root .umd-lib-layout.layout--custom .search-main-region-container {
+    flex-direction: row;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  /* layout - column */
+  .umd-lib-layout.layout--custom .main-column .column.layout--3-column {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .umd-lib-layout.layout--custom .main-column .column.layout--4-column {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  /* layout - card group */
+  .umd-lib-layout.layout--custom
+    .main-column
+    .card-group.layout--2-column
+    .card-group-content {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, calc((100% - 2rem) / 2)), 1fr)
+    );
+  }
+
+  .umd-lib-layout.layout--custom
+    .main-column
+    .card-group.layout--3-column
+    .card-group-content {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, calc((100% - 4rem) / 3)), 1fr)
+    );
+  }
+
+  .umd-lib-layout.layout--custom
+    .main-column
+    .card-group.layout--4-column
+    .card-group-content {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, calc((100% - 6rem) / 4)), 1fr)
+    );
+  }
+
+  .umd-lib-layout.layout--custom
+    .main-column
+    .card-group.layout--2-column.horizontal-none
+    .card-group-content {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, calc((100%) / 2)), 1fr)
+    );
+  }
+
+  .umd-lib-layout.layout--custom
+    .main-column
+    .card-group.layout--3-column.horizontal-none
+    .card-group-content {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, calc((100%) / 3)), 1fr)
+    );
+  }
+
+  .umd-lib-layout.layout--custom
+    .main-column
+    .card-group.layout--4-column.horizontal-none
+    .card-group-content {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, calc((100%) / 4)), 1fr)
+    );
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1440px) {
+}

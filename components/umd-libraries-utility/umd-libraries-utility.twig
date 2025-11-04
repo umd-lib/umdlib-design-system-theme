@@ -14,7 +14,7 @@
 
 
 {% if title is defined and utility_content is defined %}
-  <li class="navigation__menu-item utility-content" id="{{ title | lower | replace({' ': '-'}) }}" aria-label="{{ description }}">
+  <li class="umd-lib navigation__menu-item utility-content" id="{{ title | lower | replace({' ': '-'}) }}" aria-label="{{ description }}">
     <a href="/" class="navigation__menu-link">{{ title }}</a>
     <button
       class="navigation__submenu-button"

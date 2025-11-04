@@ -38,6 +38,6 @@ props:
 
 slots:
   iframe_title:
-    title: iFrame Title (String)
+    title: iFrame Title (Text String)
   iframe_url:
-    title: iFrame URL (String)
+    title: iFrame URL (Text String)

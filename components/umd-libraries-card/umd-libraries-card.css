@@ -15,6 +15,18 @@
   flex-direction: column;
 }
 
+.card--eyebrow {
+  margin-bottom: var(--space-xs);
+}
+
+.card--headline a span {
+  display: inline-block;
+  min-width: 1rem;
+  max-width: 1rem;
+  background-position-y: 0px;
+  background-position-x: -2px;
+}
+
 .card--details {
   margin-bottom: auto;
 }
@@ -25,8 +37,9 @@
 }
 
 /* icon card */
-.umd-lib-card.card--icon {
+.umd-lib.card.card--icon {
   height: 100%;
+  position: relative;
 }
 
 .card--content-icon {
@@ -56,6 +69,15 @@
   gap: 0.5rem;
 }
 
+.umd-lib.card.card--icon .card--content .card--title .card--link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
 .card--icon .card--content .card--text {
   margin-bottom: 0 !important;
 }
@@ -69,7 +91,7 @@
 }
 
 @media (min-width: 1024px) {
-  .umd-lib-card {
+  .umd-lib.card {
     max-width: 45rem;
   }
 }

@@ -69,6 +69,54 @@ search-sort .sort-option select {
   padding: 0.5rem;
 }
 
+/* search sort - date ranger */
+date-ranger .search-sort.active h2 {
+  display: inline;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 2px;
+  background-image: linear-gradient(
+    var(--maryland-yellow),
+    var(--maryland-yellow)
+  );
+}
+
+date-ranger .search-sort form.date-ranger .date-input-group .date-input-item {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--black);
+}
+
+date-ranger
+  .search-sort
+  form.date-ranger
+  .date-input-group
+  .date-input-item
+  input {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+date-ranger
+  .search-sort
+  form.date-ranger
+  .date-input-group
+  .date-input-item
+  input::placeholder {
+  color: var(--medium-gray);
+}
+
+date-ranger .search-sort form.date-ranger .button-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+date-ranger .search-sort form.date-ranger .button-group .clear-button {
+  text-decoration: underline;
+}
+
 /* search facet */
 facet-checkbox h2,
 facet-checkbox .facet-label-text {

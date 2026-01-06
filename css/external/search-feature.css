@@ -69,6 +69,16 @@ search-sort .sort-option select {
   padding: 0.5rem;
 }
 
+/* specifically for only one button */
+search-sort .button-group {
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+}
+
 /* search sort - date ranger */
 date-ranger .search-sort.active h2 {
   display: inline;
@@ -340,7 +350,9 @@ standalone-search-results article .item-detail .item-fields > div {
   padding-bottom: 0.5rem;
 }
 
-.bento-search-result-item {
+.bento-search-result-item,
+.bento-search-no-results,
+.loading-item {
   border-bottom: 1px solid var(--light-gray);
 }
 
@@ -379,6 +391,47 @@ standalone-search-results article .item-detail .item-fields > div {
 .bento-search .emphasized-link a:hover,
 .bento-search .emphasized-link a:focus {
   color: initial;
+}
+
+/* bento search loading animation */
+.bento-search .bento-search-loading-animation {
+  display: none;
+}
+
+.bento-search .bento-search-loading-animation.is-loading {
+  display: unset;
+}
+
+.bento-search .bento-search-loading-animation .loading-item > * {
+  background: linear-gradient(
+    135deg,
+    var(--light-gray) 0%,
+    var(--lighter-gray) 50%,
+    var(--light-gray) 100%
+  );
+  background-size: 200% 100%;
+  border-radius: 4px;
+  animation: loading 1.5s infinite;
+  margin-bottom: 0.5rem;
+}
+
+.bento-search .bento-search-loading-animation .loading-item .loading-title {
+  width: 100%;
+  height: 1.74375rem;
+}
+
+.bento-search .bento-search-loading-animation .loading-item .loading-meta {
+  width: 80%;
+  height: 1.12rem;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 /* navigation - result pagination */

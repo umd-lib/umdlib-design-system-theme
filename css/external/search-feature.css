@@ -402,6 +402,11 @@ standalone-search-results article .item-detail .item-fields > div {
   display: unset;
 }
 
+/* result section */
+#bento-search-result-section.is-loading {
+  display: none;
+}
+
 .bento-search .bento-search-loading-animation .loading-item > * {
   background: linear-gradient(
     135deg,

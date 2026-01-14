@@ -108,6 +108,7 @@ ul.social-media-list li {
     flex-direction: row;
     align-items: center;
     gap: var(--space-lg);
+    margin-bottom: var(--space-xl) !important;
   }
 
   .footer--columns {

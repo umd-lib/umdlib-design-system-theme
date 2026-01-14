@@ -1,3 +1,18 @@
+/* set the whole card as a link */
+.umd-lib.card {
+  height: 100%;
+  position: relative;
+}
+
+.umd-lib.card .card--content .card--title .card--link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
 .card--image img {
   aspect-ratio: 3 / 2;
   object-fit: cover;
@@ -37,11 +52,6 @@
 }
 
 /* icon card */
-.umd-lib.card.card--icon {
-  height: 100%;
-  position: relative;
-}
-
 .card--content-icon {
   display: flex;
   align-items: center;
@@ -67,15 +77,6 @@
 .card--icon .card--content {
   flex-direction: row;
   gap: 0.5rem;
-}
-
-.umd-lib.card.card--icon .card--content .card--title .card--link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
 }
 
 .card--icon .card--content .card--text {

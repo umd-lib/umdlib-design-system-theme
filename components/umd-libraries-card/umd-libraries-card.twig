@@ -16,8 +16,6 @@
  * - card_url: The URL the card links to
  * - description: The description of the card
  * - card_date: The date of the card
- * - link_text: The text to display on the emphasized link
- * - link_url: The URL the emphasized link links to
  * - icon_name: The name of the icon to display (for icon variant)
  */
 #}
@@ -39,7 +37,6 @@
   {% set bgClass = selectedVariant == 'standard' ? 'c-bg-primary' : 'c-bg-secondary' %}
   {% set hasEyebrow = (selectedVariant == 'standard' or selectedVariant == 'overlay') and eyebrow is defined and eyebrow is not empty %}
   {% set hasDate = (selectedVariant == 'standard' or selectedVariant == 'overlay') and card_date is defined and card_date is not empty %}
-  {% set hasButton = (selectedVariant == 'standard' or selectedVariant == 'overlay') and link_text is defined and link_url is not empty %}
   {% set contentPadding = (selectedVariant == 'overlay' or selectedVariant == 'icon') ? 's-box-medium-h' : '' %}
 
   <div role="region"
@@ -102,14 +99,6 @@
           <i data-lucide={{ icon_name }} class="card--icon-lucide"></i>
         </div>
       {% endif %}
-      
-      {# Emphasized Link for standard and overlay variants #}
-      {% if hasButton %}
-        {% include 'umdlib_umdds:umd-libraries-emphasized-link' with {
-          'link_text': link_text,
-          'link_url': link_url is defined and link_url is not empty ? link_url : card_url
-        } only %}
-      {% endif %}
     </div>
   </div>
 {% else %}
@@ -132,14 +121,6 @@
 
   {% if card_url is not defined %}
     {% set errors = errors | merge(['Card Link URL']) %}
-  {% endif %}
-
-  {% if link_text is not defined and link_url is defined %}
-    {% set errors = errors | merge(['Link Text']) %}
-  {% endif %}
-
-  {% if link_text is defined and link_url is not defined %}
-    {% set errors = errors | merge(['Link URL']) %}
   {% endif %}
 
   {# Log the errors #}

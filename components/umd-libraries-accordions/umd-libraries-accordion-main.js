@@ -8,11 +8,11 @@
 
   // initialize the accordions
   document.addEventListener("DOMContentLoaded", function () {
-    const accordions = document.querySelectorAll(".accrodion-child--container");
-    accordions.forEach(initialzeAccordion);
+    const accordions = document.querySelectorAll(".accordion-child--container");
+    accordions.forEach(initializeAccordion);
   });
 
-  function initialzeAccordion(accordion) {
+  function initializeAccordion(accordion) {
     const button = accordion.querySelector(".accordion-child--headline");
     const content = accordion.querySelector(".accordion-child--body-wrapper");
 

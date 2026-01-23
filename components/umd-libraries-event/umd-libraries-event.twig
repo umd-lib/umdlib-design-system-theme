@@ -16,8 +16,7 @@
 #}
 
 {% if event_title is defined and event_date is defined %}
-  <article>
-  <div class="umd-lib event s-margin-general-medium" id="{{ componentid | default('') }}">
+  <div class="umd-lib event s-margin-general-medium" id="{{ componentid | default('') }}" role="article">
     <div class="event--sign s-inline-medium" aria-hidden="true">
       <div id="event_month" class="event--month c-content-primary t-body-small t-interactive-sub t-uppercase">
       </div>
@@ -90,7 +89,6 @@
       </div>
     </div>
   </div>
-  </article>
 
 {% else %}
   {# variable error handling #}

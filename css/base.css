@@ -816,6 +816,7 @@ strong {
   padding: 0;
   position: absolute;
   white-space: nowrap;
+  z-index: 2147483648 !important;
 }
 
 .umd-skip-content:focus {
@@ -1153,7 +1154,10 @@ strong {
 }
 
 .ani-bg-interactive {
-  transition: background 0.5s, border 0.5s, color 0.5s;
+  transition:
+    background 0.5s,
+    border 0.5s,
+    color 0.5s;
 }
 
 .ani-icon-interactive:hover path,

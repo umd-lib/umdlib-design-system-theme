@@ -9,9 +9,8 @@
 #}
 
 {% if breadcrumb %}
-  <nav class="umd-lib breadcrumb s-margin-general-medium" role="navigation" aria-label="Breadcrumb navigation">
-    <h2 id="breadcrumb-label" class="sr-only">You are here:</h2>
-    <ol class="breadcrumb" aria-labelledby="breadcrumb-label">
+  <nav class="umd-lib breadcrumb s-margin-general-medium" aria-label="Breadcrumb">
+    <ol class="breadcrumb">
       {% for item in breadcrumb %}
         <li class="breadcrumb-item">
           {% if not loop.first %}

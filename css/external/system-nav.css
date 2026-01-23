@@ -14,6 +14,7 @@
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
+  align-items: center;
 }
 
 .subnav.umd-lib li.subnav-parent span.i-chevron-down {
@@ -61,7 +62,7 @@
 
 .umd-lib.breadcrumb .breadcrumb-link,
 .umd-lib.breadcrumb .breadcrumb--active {
-  margin-left: 0 0.25rem;
+  margin-left: 0.25rem;
 }
 
 .umd-lib.breadcrumb ol li:first-child,

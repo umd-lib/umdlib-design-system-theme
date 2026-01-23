@@ -9,9 +9,9 @@
     {% if menu_level == 0 %}
       {% for item in items %}
         <nav aria-labelledby="{{ title|clean_class }}-heading" class="s-stack-large">
-          <p id="{{ title|clean_class }}-heading" class="t-title-small c-content-dark-primary s-stack-medium">
+          <h3 id="{{ title|clean_class }}-heading" class="t-title-small c-content-dark-primary s-stack-medium">
             {{ link(item.title, item.url) }}
-          </p>
+          </h3>
           {% if item.below %}
             {{ menus.footer_menu_links(item.below, attributes, menu_level + 1) }}
           {% endif %}

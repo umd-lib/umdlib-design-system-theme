@@ -7,7 +7,8 @@
   z-index: 350;
 
   border-top: 4px solid var(--maryland-red);
-  box-shadow: 0px -80px 80px 0px rgba(0, 0, 0, 0.08),
+  box-shadow:
+    0px -80px 80px 0px rgba(0, 0, 0, 0.08),
     80px 0px 80px 0px rgba(0, 0, 0, 0.08),
     -80px 0px 80px 0px rgba(0, 0, 0, 0.08),
     0px -22px 17.869px 0px rgba(0, 0, 0, 0.05),
@@ -63,7 +64,7 @@
   padding: 4px 8px;
 
   color: var(--white);
-  background-color: #0fac49;
+  background-color: #037623;
 
   border-radius: 4px;
 

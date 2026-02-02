@@ -44,7 +44,7 @@
 #}
 <div class="layout-container">
 
-  <main role="main">
+  <div>
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
     {% if page.highlighted %}
@@ -55,12 +55,16 @@
 
     {% if page.header %}
       <div class="layout-header">
-        {{ page.header }}
+       <header>
+          {{ page.header }}
+        </header>
       </div>
     {% endif %}
 
     <div class="layout-content">
-      {{ page.content }}
+      <main id="main">
+        {{ page.content }}
+      </main>
     </div>
 
     {% if page.footer %}
@@ -69,6 +73,6 @@
       </div>
     {% endif %}
 
-  </main>
+  </div>
 
 </div>{# /.layout-container #}

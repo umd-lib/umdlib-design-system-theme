@@ -63,7 +63,7 @@
           <div {{ region_attributes.left_column.addClass('left_column') }}>{{ content.left_column }}</div>
       </div>
     {% endif %}
-    <div class="main-column" id="main" tabindex="-1">
+    <div class="main-column">
       {% for i in 1..num_rows %}
         {% set row_conf = column_config['row_' ~ i] %}
         <div class="{{ row_conf.card_group ? 'card-group' : 'column' }} row row--{{ i }} layout--{{ row_conf.cols }}-column horizontal-{{ row_conf.horizontal }}">

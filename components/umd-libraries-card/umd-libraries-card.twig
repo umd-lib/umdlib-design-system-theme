@@ -39,9 +39,8 @@
   {% set hasDate = (selectedVariant == 'standard' or selectedVariant == 'overlay') and card_date is defined and card_date is not empty %}
   {% set contentPadding = (selectedVariant == 'overlay' or selectedVariant == 'icon') ? 's-box-medium-h' : '' %}
 
-  <div role="region"
+  <div
        class="umd-lib card card--{{ selectedVariant }} {{ bgClass }} c-content-primary s-margin-general-medium"
-       aria-label="card"
        id="{{ componentid | default('') }}">
     
     {# Image for standard variant #}

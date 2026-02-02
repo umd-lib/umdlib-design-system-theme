@@ -16,7 +16,7 @@
 
 {% if title is defined and body is defined %}
 
-{% set accordionId = 'accordion-' ~ random() ~ '-' ~ loop.index|default(0) %}
+{% set accordionId = 'accordion-' ~ random() %}
 <div class="accordion-child--container">
   <h3>
     <button type="button" class="accordion-child--headline c-bg-secondary s-box-medium-v s-box-medium-h" aria-expanded="{{ default_open ? 'true' : 'false' }}" id="{{ accordionId }}" aria-controls="{{ accordionId }}-body" >

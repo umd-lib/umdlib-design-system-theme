@@ -221,8 +221,8 @@
 
 .navigation__menu-link,
 .navigation__site-search {
-  font-size: 1.125rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 /* secondary menu */
@@ -335,8 +335,13 @@
 .navigation__submenu-title {
   margin-bottom: 1.5rem;
 
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 700;
+}
+
+/* remove underline for accessibility compliance SC 1.4.11 Non-text Contrast(Level AA) */
+.navigation__submenu-title a.is-active {
+  background-image: none !important;
 }
 
 /* submenu item */

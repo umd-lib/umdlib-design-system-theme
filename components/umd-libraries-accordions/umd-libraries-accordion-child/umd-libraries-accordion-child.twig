@@ -15,14 +15,19 @@
 
 
 {% if title is defined and body is defined %}
-<div class="accrodion-child--container">
+
+{% set accordionId = 'accordion-' ~ random() %}
+<div class="accordion-child--container">
   <h3>
-    <button class="accordion-child--headline c-bg-secondary s-box-medium-v s-box-medium-h" aria-expanded="{{ default_open ? 'true' : 'false' }}">
+    <button type="button" class="accordion-child--headline c-bg-secondary s-box-medium-v s-box-medium-h" aria-expanded="{{ default_open ? 'true' : 'false' }}" id="{{ accordionId }}" aria-controls="{{ accordionId }}-body" >
       <span class="t-interactive c-content-primary">{% block title %}{% endblock %}</span>
     </button>
   </h3>
   <div
+    role="region"
+    id="{{ accordionId }}-body"
     class="accordion-child--body-wrapper c-bg-secondary"
+    aria-labelledby="{{ accordionId }}"
     aria-hidden="{{ default_open ? 'false' : 'true' }}"
     {% if default_open %} style="height: 100%;" 
     {% else %} style="display: none;" 

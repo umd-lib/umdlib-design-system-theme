@@ -14,15 +14,16 @@
 */
 #}
 
+{% set listId = 'list-' ~ random() %}
+
 {% if list_title is defined and list_url is defined %}
-  <div class="umd-lib list s-margin-general-medium" id="{{ componentid | default('') }}">
-    <article>
+  <div class="umd-lib list s-margin-general-medium" id="{{ componentid | default('') }}" role="article" aria-labelledby="{{ listId }}">
     <div class="list--title-section s-stack-small">
       {% if list_eyebrow is defined and list_eyebrow is not empty %}
         <div class="list--eyebrow t-eyebrow c-content-primary">{% block list_eyebrow %}{% endblock %}</div>
       {% endif %}
       <div class="list--title">
-        <h2 class="t-title-medium c-content-primary">
+        <h2 class="t-title-medium c-content-primary" id="{{ listId }}">
           <a href="{{ list_url }}">{{ list_title }}</a>
         </h2>
       </div>
@@ -45,7 +46,6 @@
         </div>
       {% endif %}
     </div> 
-    </article>
   </div>
 {% else %}
   {# variable error handling #}

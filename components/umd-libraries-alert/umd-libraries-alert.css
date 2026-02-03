@@ -12,7 +12,8 @@
   border: 0.25rem solid var(--maryland-yellow);
 }
 
-.alert--site_wide .alert--content > div:last-of-type h2 {
+.alert--site_wide .alert--content > div:last-of-type h2,
+.alert--site_wide .alert--content > div:last-of-type p {
   margin-bottom: 0;
 }
 
@@ -24,4 +25,8 @@
   position: absolute;
   top: 0;
   right: 0;
+}
+
+.alert--button-close svg {
+  height: 1.5rem;
 }

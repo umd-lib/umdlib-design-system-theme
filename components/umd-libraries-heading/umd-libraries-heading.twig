@@ -48,10 +48,10 @@
 
     {% if page_title == true %}
       {% if subtitle is defined and subtitle is not empty %}
-        <h2 class="c-content-secondary s-stack-small">{{ subtitle }}</h2>
+        <p class="c-content-secondary t-title-medium s-stack-small">{{ subtitle }}</p>
       {% endif %}
       {% if date is defined and date is not empty %}
-        <div class="c-content-secondary t-body-small">{{ date }}</div>
+        <p class="c-content-secondary t-body-small">{{ date }}</p>
       {% endif %}
     {% endif %}
   </div>

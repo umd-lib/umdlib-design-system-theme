@@ -20,9 +20,9 @@ props:
       title: Card Variant
       description: Choose the card variant
       enum:
-      - standard
-      - overlay
-      - icon
+        - standard
+        - overlay
+        - icon
       default: standard
     icon_name:
       type: string
@@ -49,7 +49,3 @@ slots:
     description: Use the format "Month Date, Year" (e.g., "July 4, 2025")
   description:
     title: Description (WYSIWYG)
-  link_text:
-    title: Link Text (Text String)
-  link_url:
-    title: Link URL (Text String)

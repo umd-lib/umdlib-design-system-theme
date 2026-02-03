@@ -1,3 +1,8 @@
+/* layout builder override */
+.ui-dialog-off-canvas.ui-dialog-position-side {
+  min-width: 800px !important;
+}
+
 /* umd lib custom layout */
 .umd-lib-layout.layout--custom {
   display: flex;

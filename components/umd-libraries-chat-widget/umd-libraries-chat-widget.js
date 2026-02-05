@@ -2,13 +2,16 @@
 function expand() {
   let chatwidget = document.getElementById("chatwidget");
   let chevron = document.getElementById("cw--chevron");
+  let button = document.getElementById("cw-service-status");
 
   if (chatwidget.classList.contains("closed")) {
     chatwidget.classList.remove("closed");
     chevron.classList.remove("chevron-ver");
+    button.setAttribute("aria-expanded", "true");
   } else {
     chatwidget.classList.add("closed");
     chevron.classList.add("chevron-ver");
+    button.setAttribute("aria-expanded", "false");
   }
 }
 

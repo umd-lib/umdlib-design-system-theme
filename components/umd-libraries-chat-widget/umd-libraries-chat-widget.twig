@@ -10,17 +10,17 @@
 
 
   <div class="umd-lib chat-widget offline closed" id="chatwidget">
-    <button class="cw--header c-bg-primary" id="cw-service-status" onclick="expand()" type="button" aria-label="Open chat with us chat widget">
+    <button class="cw--header c-bg-primary" id="cw-service-status" onclick="expand()" type="button" aria-label="chat with us!" aria-expanded="false" aria-controls="cw--iframe">
       <div class="cw--header-info">
         <div class="cw--icon" id="cw--icon" aria-hidden="true"></div>
         <div class="cw--text">Chat With Us!</div>
       </div>
-      <div class="cw--header-sub">
+      <div class="cw--header-sub" aria-hidden="true">
         <div class="cw--status" id="cw--status">offline</div>
         <div class="cw--chevron i-chevron-down chevron-ver" id="cw--chevron"></div>
       </div>
     </button>
     <div class="cw--iframe" id="cw--iframe">
-      <iframe src="{{ chat_widget_url is defined ? chat_widget_url : 'https://umd.libanswers.com/chat/widget/5cffd49b55d69387be9a6fa51e3c5fa59efa09ca025ffc7367db9b7d083f17ec' }}" frameborder="0" id="cw-iframe-window"></iframe>
+      <iframe title="Chat with us!" src="{{ chat_widget_url is defined ? chat_widget_url : 'https://umd.libanswers.com/chat/widget/5cffd49b55d69387be9a6fa51e3c5fa59efa09ca025ffc7367db9b7d083f17ec' }}" frameborder="0" id="cw-iframe-window"></iframe>
     </div>
   </div>

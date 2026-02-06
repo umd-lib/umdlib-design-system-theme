@@ -85,19 +85,15 @@
   rotate: 180deg;
 }
 
-.cw--iframe iframe {
+.umd-lib.chat-widget .cw--iframe iframe {
   width: 360px;
   height: 594px;
 
-  opacity: 1;
+  transition: all 0.3s ease-in-out;
 }
 
 .umd-lib.chat-widget.closed .cw--iframe iframe {
   width: 320px;
-
-  opacity: 0;
-
-  transition: all 0.3s ease-in-out;
 }
 
 /* offline */
@@ -138,8 +134,8 @@
     box-shadow: none;
   }
 
-  .cw--iframe,
-  .cw--iframe iframe {
+  .umd-lib.chat-widget .cw--iframe,
+  .umd-lib.chat-widget .cw--iframe iframe {
     width: 100%;
     height: 100%;
   }

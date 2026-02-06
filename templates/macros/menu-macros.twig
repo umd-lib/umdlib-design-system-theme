@@ -8,8 +8,8 @@
   {% if items %}
     {% if menu_level == 0 %}
       {% for item in items %}
-        <nav aria-labelledby="{{ title|clean_class }}-heading" class="s-stack-large">
-          <h3 id="{{ title|clean_class }}-heading" class="t-title-small c-content-dark-primary s-stack-medium">
+        <nav aria-labelledby="{{ item.title|clean_class }}-heading" class="s-stack-large">
+          <h3 id="{{ item.title|clean_class }}-heading" class="t-title-small c-content-dark-primary s-stack-medium">
             {{ link(item.title, item.url) }}
           </h3>
           {% if item.below %}

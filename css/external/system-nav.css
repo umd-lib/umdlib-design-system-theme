@@ -3,21 +3,22 @@
   text-decoration: none;
 }
 
-.subnav.umd-lib li {
+.subnav.umd-lib li,
+.subnav.umd-lib div.subnav-parent {
   padding-bottom: 1rem;
   margin-bottom: 1rem;
 
   border-bottom: 1px solid var(--light-gray);
 }
 
-.subnav.umd-lib li.subnav-parent {
+.subnav.umd-lib div.subnav-parent {
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
   align-items: center;
 }
 
-.subnav.umd-lib li.subnav-parent span.i-chevron-down {
+.subnav.umd-lib div.subnav-parent span.i-chevron-down {
   display: inline-block;
   transform: rotate(90deg);
 }

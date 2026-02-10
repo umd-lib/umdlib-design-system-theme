@@ -4,6 +4,14 @@ name: UMD Lib Navigation
 label: Navigation
 group: UMD Libraries
 
+props:
+  type: object
+  properties:
+    logo_url:
+      type: string
+      title: Alternative Logo URL
+      description: (Optional) Alternate absolute or relative URL to a file to be used as logo. This must be SVG with the dimensions of 300 x 90 (or a matching ratio). Leave empty to use default UMD logo.
+
 slots:
   main_navigation_slot:
     title: Main Navigation Slot (Main menu)

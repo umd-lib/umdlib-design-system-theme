@@ -66,6 +66,7 @@ search-sort .sort-option {
 
 search-sort .sort-option select {
   width: 100%;
+  min-height: 40px;
   padding: 0.5rem;
 }
 
@@ -210,6 +211,10 @@ facet-checkbox .facet-wrapper button:focus {
 
 .facet-label.collapsible.open span.i-chevron-down {
   rotate: 180deg;
+}
+
+.facet-options {
+  padding-top: 0.5rem !important;
 }
 
 .facet-options.closed {
@@ -358,6 +363,10 @@ standalone-search-results article .item-detail .item-fields > div {
 
 .bento-search .bento-search-result-item h3.item-title {
   margin-bottom: 0.5rem;
+}
+
+.bento-search .bento-search-result-item h3.item-title:last-child {
+  margin-bottom: 0rem;
 }
 
 .bento-search .bento-search-result-item div.item-detail > p {

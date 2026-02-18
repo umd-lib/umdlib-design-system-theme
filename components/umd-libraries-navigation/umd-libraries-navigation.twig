@@ -16,7 +16,11 @@
             decoding="async"
             data-nimg="1"
             style="color: transparent"
-            src="/{{ active_theme_path() }}/logo.svg"
+            {% if logo_url is defined %}
+              src="{{ logo_url }}"
+            {% else %}
+              src="/{{ active_theme_path() }}/logo.svg"
+            {% endif %}
           />
         </a>
       </div>

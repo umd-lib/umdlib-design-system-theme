@@ -68,8 +68,10 @@
 }
 
 .navigation__logo img {
+  padding: 0 1rem 0 0;
   height: 100%;
-  width: fit-content;
+  width: auto;
+  object-fit: contain;
 }
 
 /* Menu button and icon */
@@ -90,7 +92,11 @@
   content: "";
   position: absolute;
 
-  transition: left 0s, width 0s, top 0.2s, transform 0.2s;
+  transition:
+    left 0s,
+    width 0s,
+    top 0.2s,
+    transform 0.2s;
 
   background-color: var(--black);
 }
@@ -102,7 +108,11 @@
   content: "";
   position: absolute;
 
-  transition: left 0s, width 0s, top 0.2s, transform 0.2s;
+  transition:
+    left 0s,
+    width 0s,
+    top 0.2s,
+    transform 0.2s;
 
   background-color: var(--black);
 }

@@ -1,0 +1,32 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: UMD Lib Info Card
+label: WWW
+group: UMD Libraries
+
+props:
+  type: object
+  properties:
+    componentid:
+      type: string
+      title: Component ID
+      description: (Optional) An ID to use for the component. This can be used for section referencing.
+    heading_level:
+      type: string
+      title: Heading Level
+      description: Choose the HTML heading level for the card title.
+      enum:
+        - h2
+        - h3
+        - h4
+        - h5
+        - h6
+      default: h3
+
+slots:
+  card_title:
+    title: Card Title (Text String)
+  description:
+    title: Description (WYSIWYG)
+  links:
+    title: Links (Component)

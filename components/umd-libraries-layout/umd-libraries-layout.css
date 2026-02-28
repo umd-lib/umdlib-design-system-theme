@@ -1,0 +1,113 @@
+/* mobile - always 1 column */
+.umd-lib-layout.layout--custom
+  .main-column
+  .umd-lib.component-layout
+  .card-group.layout--2-column
+  .card-group-content,
+.umd-lib-layout.layout--custom
+  .main-column
+  .umd-lib.component-layout
+  .card-group.layout--3-column
+  .card-group-content,
+.umd-lib-layout.layout--custom
+  .main-column
+  .umd-lib.component-layout
+  .card-group.layout--4-column
+  .card-group-content {
+  grid-template-columns: 1fr;
+}
+
+/* tablet - allows 2 columns */
+@media (min-width: 768px) {
+  /* without sidebar area */
+  .umd-lib-layout.layout--custom
+    .main-column
+    .umd-lib.component-layout
+    .card-group.layout--2-column
+    .card-group-content,
+  .umd-lib-layout.layout--custom
+    .main-column
+    .umd-lib.component-layout
+    .card-group.layout--3-column
+    .card-group-content,
+  .umd-lib-layout.layout--custom
+    .main-column
+    .umd-lib.component-layout
+    .card-group.layout--4-column
+    .card-group-content {
+    grid-template-columns: repeat(auto-fit, minmax(0, calc((100% - 2rem) / 2)));
+  }
+
+  /* with sidebar area - limited to 1 column */
+  .umd-lib-layout.layout--custom:has(.sidebar-navigation)
+    .main-column
+    .umd-lib.component-layout
+    .card-group.layout--2-column
+    .card-group-content,
+  .umd-lib-layout.layout--custom:has(.sidebar-navigation)
+    .main-column
+    .umd-lib.component-layout
+    .card-group.layout--3-column
+    .card-group-content,
+  .umd-lib-layout.layout--custom:has(.sidebar-navigation)
+    .main-column
+    .umd-lib.component-layout
+    .card-group.layout--4-column
+    .card-group-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* desktop - allow 3 & 4 columns */
+@media (min-width: 1024px) {
+  /* without sidebar area */
+  .umd-lib-layout.layout--custom
+    .main-column
+    .umd-lib.component-layout
+    .card-group.layout--3-column
+    .card-group-content {
+    grid-template-columns: repeat(auto-fit, minmax(0, calc((100% - 4rem) / 3)));
+  }
+
+  .umd-lib-layout.layout--custom
+    .main-column
+    .umd-lib.component-layout
+    .card-group.layout--4-column
+    .card-group-content {
+    grid-template-columns: repeat(auto-fit, minmax(0, calc((100% - 6rem) / 4)));
+  }
+
+  /* with sidebar area - limited to 2 columns*/
+  .umd-lib-layout.layout--custom:has(.sidebar-navigation)
+    .main-column
+    .umd-lib.component-layout
+    .card-group.layout--3-column
+    .card-group-content,
+  .umd-lib-layout.layout--custom:has(.sidebar-navigation)
+    .main-column
+    .umd-lib.component-layout
+    .card-group.layout--4-column
+    .card-group-content {
+    grid-template-columns: repeat(auto-fit, minmax(0, calc((100% - 2rem) / 2)));
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1440px) {
+  /* with sidebar area */
+  .umd-lib-layout.layout--custom:has(.sidebar-navigation)
+    .main-column
+    .umd-lib.component-layout
+    .card-group.layout--3-column
+    .card-group-content {
+    grid-template-columns: repeat(auto-fit, minmax(0, calc((100% - 4rem) / 3)));
+  }
+
+  .umd-lib-layout.layout--custom:has(.sidebar-navigation)
+    .main-column
+    .umd-lib.component-layout
+    .card-group.layout--4-column
+    .card-group-content {
+    grid-template-columns: repeat(auto-fit, minmax(0, calc((100% - 6rem) / 4)));
+  }
+}

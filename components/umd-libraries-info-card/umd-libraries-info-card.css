@@ -1,0 +1,13 @@
+.umd-lib.card.card--info .card--content {
+  height: 100%;
+}
+
+.umd-lib.card.card--info .card--text p {
+  margin-bottom: 0;
+}
+
+.umd-lib.card.card--info .card--footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}

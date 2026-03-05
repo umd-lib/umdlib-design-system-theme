@@ -22,7 +22,7 @@
 }
 
 .card--content {
-  height: 100%;
+  height: auto;
 
   flex-grow: 1;
 

@@ -83,7 +83,7 @@
 
         {# Date display #}
         {% if hasDate %}
-          <div class="card--date t-label c-content-tertiary">
+          <div class="card--date t-label {% if selectedVariant == 'overlay' %}c-content-secondary{% else %}c-content-tertiary{% endif %}">
             {% block card_date %}{% endblock %}
           </div>
         {% endif %}

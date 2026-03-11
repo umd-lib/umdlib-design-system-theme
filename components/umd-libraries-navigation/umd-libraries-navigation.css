@@ -36,8 +36,8 @@
 }
 
 .navigation button {
-  min-width: 24px;
-  min-height: 24px;
+  min-width: 25px;
+  min-height: 25px;
 
   background: none;
   border: none;
@@ -76,8 +76,8 @@
 
 /* Menu button and icon */
 .navigation__menu-button {
-  height: 24px;
-  width: 24px;
+  height: 25px;
+  width: 25px;
 
   display: block;
 
@@ -86,7 +86,7 @@
 
 .navigation__menu-icon,
 .navigation__menu-icon::before {
-  width: 24px;
+  width: 25px;
   height: 2px;
 
   content: "";
@@ -144,7 +144,7 @@
 }
 
 .navigation__menu-button.is-active .navigation__menu-icon::after {
-  width: 24px;
+  width: 25px;
 
   top: 0;
   left: 0;

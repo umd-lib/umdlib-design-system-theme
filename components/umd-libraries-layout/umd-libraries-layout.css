@@ -1,3 +1,8 @@
+/* component bottom margin override */
+.umd-lib.component-layout .card-group .card-group-content > div {
+  margin-bottom: 0 !important;
+}
+
 /* mobile - always 1 column */
 .umd-lib-layout.layout--custom
   .main-column

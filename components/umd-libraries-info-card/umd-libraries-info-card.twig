@@ -7,29 +7,29 @@
 #}
 
 {% if card_title is defined %}
-<div class="umd-lib www card card--info c-content-primary c-bg-secondary s-margin-general-medium" id="{{ componentid | default('') }}">
-  <div class="card--content s-box-medium-v s-box-medium-h">
+<div class="umd-lib www card card--info c-content-primary c-bg-secondary s-margin-general-medium s-box-medium-v s-box-medium-h" id="{{ componentid | default('') }}">
+  <div class="card--content">
     <div class="card--title">
       <h{{ heading_level | slice(1) }} class="card--headline s-stack-small t-title-medium">
         {% block card_title %}{% endblock %}
       </h{{ heading_level | slice(1) }}>
     </div>
 
-    <div class="card--details">
+    <div class="card--details s-stack-medium">
       {# Description slot - present in all variants #}
       {% if description is defined and description is not empty %}
-        <div class="card--text t-body-small c-content-secondary {% if hasDate %}s-stack-small{% endif %} wysiwyg-editor">
+        <div class="card--text t-body-small c-content-secondary wysiwyg-editor">
           {% block description %}{% endblock %}
         </div>
       {% endif %}
     </div>
+  </div>
 
     {% if links is defined and links is not empty %}
       <div class="card--footer">
         {% block links %}{% endblock %}
       </div>
     {% endif %}
-  </div>
 </div>
 
 {% else %}

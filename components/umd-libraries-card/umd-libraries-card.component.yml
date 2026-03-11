@@ -26,7 +26,7 @@ props:
       default: standard
     icon_name:
       type: string
-      title: Icon Name
+      title: Icon Name (Lucide Icons)
       description: Name of the icon to display in the card (only for icon variant), please refer to Lucide icons documentation for available icons.
     componentid:
       type: string

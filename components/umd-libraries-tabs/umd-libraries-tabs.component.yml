@@ -1,6 +1,6 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 
-name: UMD Lib Tab Main
+name: UMD Lib Tab
 label: Tab
 group: UMD Libraries
 
@@ -28,5 +28,5 @@ slots:
     title: Tab Triggers (UMD Lib Tab Trigger)
     description: The tab trigger elements. Use UMD Lib Tab Trigger component(s).
   tabs_content_slot:
-    title: Tab Content (UMD Lib Tab)
+    title: Tab Content (UMD Lib Tab Content)
     description: The tab content elements. Use UMD Lib Tab component(s).

@@ -1,6 +1,6 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 
-name: UMD Lib Table Main
+name: UMD Lib Table
 label: Table
 group: UMD Libraries
 
@@ -17,11 +17,11 @@ slots:
     title: Table Caption (Text String)
     description: A caption for the table.
   table_header_slot:
-    title: Table Header (UMD Lib Table Cell)
+    title: Table Header (UMD Lib Table Row)
     description: The table header elements. Use UMD Lib Table Cell component(s).
   table_content_slot:
-    title: Table Content (UMD Lib Table Body)
+    title: Table Content (UMD Lib Table Row)
     description: The table content elements. Use UMD Lib Table Body component(s).
   table_footer_slot:
-    title: Table Footer (UMD Lib Table Cell)
+    title: Table Footer (UMD Lib Table Row)
     description: The table footer elements. Use UMD Lib Table Cell component(s).

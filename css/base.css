@@ -637,6 +637,10 @@ strong {
   margin-bottom: var(--space-sm);
 }
 
+.wysiwyg-editor > *:first-child {
+  margin-top: 0;
+}
+
 .wysiwyg-editor > *:last-child {
   margin-bottom: 0;
 }

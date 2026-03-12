@@ -6,6 +6,17 @@ group: UMD Libraries
 props:
   type: object
   properties:
+    heading_level:
+      type: string
+      title: Heading Level
+      description: Choose the HTML heading level for the event title.
+      enum:
+        - h2
+        - h3
+        - h4
+        - h5
+        - h6
+      default: h2
     componentid:
       type: string
       title: Component ID

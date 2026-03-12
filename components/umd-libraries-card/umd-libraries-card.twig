@@ -61,7 +61,7 @@
         {% endif %}
         
         {# Headline with link - present in all variants #}
-        <h3 class="card--headline s-stack-small t-title-medium">
+        <h{{ heading_level | slice(1) }} class="card--headline s-stack-small t-title-medium">
           {% if card_url is defined and card_url is not empty %}
             <a href="{{ card_url }}" class="card--link">
           {% endif %}
@@ -70,7 +70,7 @@
               <span></span>
             </a>
           {% endif %}
-        </h3>
+        </h{{ heading_level | slice(1) }}>
       </div>
       
       <div class="card--details  {% if hasButton %}s-stack-large{% endif %}">

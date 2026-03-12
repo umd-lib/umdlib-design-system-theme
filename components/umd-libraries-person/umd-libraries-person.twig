@@ -65,10 +65,10 @@
           <a href="{% block person_profile_link %}{% endblock %}" class="person--list-link c-underline-secondary ani-underline">
         {% endif %}
 
-          <h2 class="person--{{ selectedVariant }}-name 
+          <h{{ heading_level | default('h2') | slice(1) }} class="person--{{ selectedVariant }}-name
             t-title-{% if selectedVariant == 'bio' %}large t-uppercase{% else %}medium{% endif %}">
             {% block person_name %}{% endblock %}
-          </h2>
+          </h{{ heading_level | default('h2') | slice(1) }}>
 
         {% if selectedVariant == 'list' and person_profile_link is defined %}
           </a>

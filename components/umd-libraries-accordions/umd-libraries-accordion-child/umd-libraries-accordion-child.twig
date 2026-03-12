@@ -18,11 +18,11 @@
 
 {% set accordionId = 'accordion-' ~ random() %}
 <div class="accordion-child--container">
-  <h3>
+  <h{{ heading_level | default('h3') | slice(1) }}>
     <button type="button" class="accordion-child--headline c-bg-secondary s-box-medium-v s-box-medium-h" aria-expanded="{{ default_open ? 'true' : 'false' }}" id="{{ accordionId }}" aria-controls="{{ accordionId }}-body" >
       <span class="t-interactive c-content-primary">{% block title %}{% endblock %}</span>
     </button>
-  </h3>
+  </h{{ heading_level | default('h3') | slice(1) }}>
   <div
     role="region"
     id="{{ accordionId }}-body"

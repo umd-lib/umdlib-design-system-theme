@@ -30,15 +30,15 @@
       
       <div class="alert--title">
         {% if selectedVariant == 'in_page' %}
-          <h2 id="{{ alertId }}-title" class="t-title-small c-content-primary s-stack-small">
+          <h{{ heading_level | default('h2') | slice(1) }} id="{{ alertId }}-title" class="t-title-small c-content-primary s-stack-small">
         {% else %}
           <p id="{{ alertId }}-title" class="t-title-small c-content-primary s-stack-small">
         {% endif %}
-        
+
         {% block title %} {% endblock %}
-   
+
         {% if selectedVariant == 'in_page' %}
-          </h2>
+          </h{{ heading_level | default('h2') | slice(1) }}>
         {% else %}
           </p>
         {% endif %}

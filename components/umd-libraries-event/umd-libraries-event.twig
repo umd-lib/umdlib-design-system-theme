@@ -27,9 +27,9 @@
       </div>
     </div>
     <div class="event--details">
-      <h2 class="event--title c-content-primary t-title-medium s-stack-small" id="{{ eventId }}">
+      <h{{ heading_level | default('h2') | slice(1) }} class="event--title c-content-primary t-title-medium s-stack-small" id="{{ eventId }}">
         <a href="{% block event_url %}{% endblock %}">{% block event_title %}{% endblock %}</a>
-      </h2>
+      </h{{ heading_level | default('h2') | slice(1) }}>
       <div class="event--detail">
         <div class="event--information">
           <div class="event--content">

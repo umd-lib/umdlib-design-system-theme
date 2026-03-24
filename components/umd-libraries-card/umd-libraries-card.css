@@ -38,8 +38,8 @@
   display: inline-block;
   min-width: 1rem;
   max-width: 1rem;
-  background-position-y: 0px;
-  background-position-x: -2px;
+  background-position-y: -3px;
+  background-position-x: -3px;
 }
 
 .card--details {

@@ -7,6 +7,21 @@ group: UMD Libraries
 props:
   type: object
   properties:
+    componentid:
+      type: string
+      title: Component ID
+      description: (Optional) An ID to use for the component. This can be used for section referencing.
+    heading_level:
+      type: string
+      title: Heading Level
+      description: Choose the HTML heading level for the accordion title.
+      enum:
+        - h2
+        - h3
+        - h4
+        - h5
+        - h6
+      default: h3
     default_open:
       type: boolean
       title: Default Open

@@ -4,6 +4,7 @@
   * UMD Libraries Accordion component.
   *
   * Variables:
+  * - componentid: (Optional) An ID for the component, used for section referencing
   * - title: The title of the accordion
   * - default_open: Whether the accordion should be open by default
   * - body: The content of the accordion
@@ -17,8 +18,8 @@
 {% if title is defined and body is defined %}
 
 {% set accordionId = 'accordion-' ~ random() %}
-<div class="accordion-child--container">
-  <h3>
+<div class="accordion-child--container" id="{{ componentid | default('') }}">
+  <h{{ heading_level | default('h3') | slice(1) }}>
     <button type="button" class="accordion-child--headline c-bg-secondary s-box-medium-v s-box-medium-h" aria-expanded="{{ default_open ? 'true' : 'false' }}" id="{{ accordionId }}" aria-controls="{{ accordionId }}-body" >
       <span class="t-interactive c-content-primary">{% block title %}{% endblock %}</span>
     </button>

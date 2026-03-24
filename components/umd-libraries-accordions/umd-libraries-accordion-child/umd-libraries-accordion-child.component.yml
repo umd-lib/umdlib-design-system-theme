@@ -7,6 +7,10 @@ group: UMD Libraries
 props:
   type: object
   properties:
+    componentid:
+      type: string
+      title: Component ID
+      description: (Optional) An ID to use for the component. This can be used for section referencing.
     heading_level:
       type: string
       title: Heading Level

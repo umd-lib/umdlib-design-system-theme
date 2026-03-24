@@ -58,11 +58,13 @@
       {% endif %}
 
       {% if selectedVariant == 'site_wide' %}
-        <button class="alert--button-close s-box-medium-v" 
-          aria-label="Close site notification" 
-          aria-controls="{{ alertId }}">
-          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3.2561" y="0.321533" width="20.75" height="4.15" transform="rotate(45 3.2561 0.321533)" fill="black"></rect><rect x="17.9285" y="3.25598" width="20.75" height="4.15" transform="rotate(135 17.9285 3.25598)" fill="black"></rect></svg>
-        </button>
+        <div class="alert--button-close s-box-medium-v">
+          <button class="" 
+            aria-label="Close site notification" 
+            aria-controls="{{ alertId }}">
+            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3.2561" y="0.321533" width="20.75" height="4.15" transform="rotate(45 3.2561 0.321533)" fill="black"></rect><rect x="17.9285" y="3.25598" width="20.75" height="4.15" transform="rotate(135 17.9285 3.25598)" fill="black"></rect></svg>
+          </button>
+        </div>
       {% endif %}
     </div>
   </div>

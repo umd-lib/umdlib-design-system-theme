@@ -18,7 +18,7 @@
 }
 
 .umd-lib-layout.layout--custom.top-margin {
-  margin-top: var(--space-md);
+  margin-top: var(--space-lg);
 }
 
 .umd-lib-layout.layout--custom.top-margin:first-child {
@@ -35,7 +35,7 @@
   }
 
   .umd-lib-layout.layout--custom.top-margin {
-    margin-top: var(--space-lg);
+    margin-top: var(--space-xl);
   }
 
   .umd-lib-layout.layout--custom.top-margin:first-child {

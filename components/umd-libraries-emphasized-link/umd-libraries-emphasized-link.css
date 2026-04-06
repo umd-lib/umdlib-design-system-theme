@@ -5,6 +5,9 @@
 
 .emphasized-link a {
   text-decoration: none;
+
+  display: inline-block;
+  align-items: baseline;
 }
 
 .emphasized-link a span {

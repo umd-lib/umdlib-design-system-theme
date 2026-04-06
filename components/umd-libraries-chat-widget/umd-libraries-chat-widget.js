@@ -55,6 +55,7 @@ function addRefererToIframe() {
 function updateChatWidgetStatus(status) {
   let widget = document.getElementById("chatwidget");
   let widgetStatus = document.getElementById("cw--status");
+  let button = document.getElementById("cw-service-status");
 
   if (!widget || !widgetStatus) {
     return;
@@ -63,9 +64,18 @@ function updateChatWidgetStatus(status) {
   if (status === true) {
     widgetStatus.innerText = "live";
     widget.classList.remove("offline");
+    button.setAttribute(
+      "aria-label",
+      "Chat With Us! is online. Click to expand the chat widget.",
+    );
+    reloadIframe();
   } else {
     widgetStatus.innerText = "offline";
     widget.classList.add("offline");
+    button.setAttribute(
+      "aria-label",
+      "Chat With Us! is offline. Click to expand the chat widget.",
+    );
     reloadIframe();
   }
 }

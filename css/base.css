@@ -621,6 +621,10 @@ strong {
 }
 
 /* wysiwyg editor */
+.wysiwyg-editor [style] {
+  all: revert;
+}
+
 .wysiwyg-editor {
   color: var(--dark-gray);
   margin-block-start: 0;
@@ -702,8 +706,51 @@ strong {
   margin-bottom: 0;
 }
 
-.wysiwyg-editor [style] {
-  all: revert !important;
+/* table under wysiwyg */
+div:has(> table.table) {
+  overflow-x: auto;
+}
+
+.wysiwyg-editor table {
+  width: 100%;
+
+  caption-side: bottom;
+
+  background-color: var(--white) !important;
+}
+
+.wysiwyg-editor table caption {
+  padding: 0 var(--space-sm);
+  padding-top: 1rem;
+  font-style: italic;
+
+  font-size: 1rem;
+  line-height: 1.375rem;
+}
+
+.wysiwyg-editor table tbody tr {
+  border: none;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.wysiwyg-editor table tbody tr:hover,
+.wysiwyg-editor table tbody tr:focus {
+  background-color: var(--lighest-gray);
+}
+
+.wysiwyg-editor table tbody tr:first-child {
+  background-color: var(--black);
+  color: var(--white);
+
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.375rem;
+}
+
+.wysiwyg-editor table td {
+  padding: var(--space-sm);
+  vertical-align: top;
+  border: none;
 }
 
 @media (min-width: 768px) {
@@ -732,6 +779,20 @@ strong {
   .wysiwyg-editor li {
     font-size: 1.125rem;
     line-height: 1.74375rem;
+  }
+
+  .wysiwyg-editor table caption {
+    padding: 0 var(--space-md);
+    padding-top: 1rem;
+  }
+
+  .wysiwyg-editor table tbody tr:first-child {
+    font-size: 1.125rem;
+    line-height: 1.74375rem;
+  }
+
+  .wysiwyg-editor table td {
+    padding: var(--space-md);
   }
 }
 

@@ -47,11 +47,6 @@
   .umd-lib-layout.layout--custom:has(.sidebar-navigation)
     .main-column
     .umd-lib.component-layout
-    .card-group.layout--2-column
-    .card-group-content,
-  .umd-lib-layout.layout--custom:has(.sidebar-navigation)
-    .main-column
-    .umd-lib.component-layout
     .card-group.layout--3-column
     .card-group-content,
   .umd-lib-layout.layout--custom:has(.sidebar-navigation)

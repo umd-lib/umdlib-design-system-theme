@@ -59,4 +59,4 @@ slots:
     title: Date (Date)
     description: Use the format "Month Date, Year" (e.g., "July 4, 2025")
   description:
-    title: Description (WYSIWYG)
+    title: Description (Text String)

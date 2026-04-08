@@ -621,10 +621,6 @@ strong {
 }
 
 /* wysiwyg editor */
-.wysiwyg-editor [style] {
-  all: revert;
-}
-
 .wysiwyg-editor {
   color: var(--dark-gray);
   margin-block-start: 0;
@@ -711,15 +707,16 @@ div:has(> table.table) {
   overflow-x: auto;
 }
 
-.wysiwyg-editor table {
+.wysiwyg-editor table.table {
   width: 100%;
+  margin-bottom: var(--space-sm);
 
   caption-side: bottom;
 
   background-color: var(--white) !important;
 }
 
-.wysiwyg-editor table caption {
+.wysiwyg-editor table.table caption {
   padding: 0 var(--space-sm);
   padding-top: 1rem;
   font-style: italic;
@@ -728,28 +725,27 @@ div:has(> table.table) {
   line-height: 1.375rem;
 }
 
-.wysiwyg-editor table tbody tr {
+.wysiwyg-editor table.table thead tr {
+  background-color: var(--black);
+  color: var(--white);
+  font-weight: 700;
+}
+
+.wysiwyg-editor table.table tbody tr {
   border: none;
   border-bottom: 1px solid var(--light-gray);
 }
 
-.wysiwyg-editor table tbody tr:hover,
-.wysiwyg-editor table tbody tr:focus {
+.wysiwyg-editor table.table tbody tr:hover,
+.wysiwyg-editor table.table tbody tr:focus {
   background-color: var(--lighest-gray);
 }
 
-.wysiwyg-editor table tbody tr:first-child {
-  background-color: var(--black);
-  color: var(--white);
-
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.375rem;
-}
-
-.wysiwyg-editor table td {
+.wysiwyg-editor table.table td,
+.wysiwyg-editor table.table th {
   padding: var(--space-sm);
   vertical-align: top;
+  text-align: start;
   border: none;
 }
 
@@ -781,18 +777,20 @@ div:has(> table.table) {
     line-height: 1.74375rem;
   }
 
-  .wysiwyg-editor table caption {
+  .wysiwyg-editor table.table {
+    margin-bottom: var(--space-md);
+  }
+
+  .wysiwyg-editor table.table caption {
     padding: 0 var(--space-md);
     padding-top: 1rem;
   }
 
-  .wysiwyg-editor table tbody tr:first-child {
+  .wysiwyg-editor table.table td,
+  .wysiwyg-editor table.table th {
+    padding: var(--space-md);
     font-size: 1.125rem;
     line-height: 1.74375rem;
-  }
-
-  .wysiwyg-editor table td {
-    padding: var(--space-md);
   }
 }
 

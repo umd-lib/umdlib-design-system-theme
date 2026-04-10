@@ -1,0 +1,62 @@
+.accordion-child--headline {
+  width: 100%;
+
+  display: flex;
+  padding-right: 3.5rem !important;
+
+  border-top: 0.125rem solid var(--lighest-gray);
+
+  transition: all 0.3s ease-in-out;
+
+  position: relative;
+
+  text-align: start;
+}
+
+.accordion-child--headline:hover,
+.accordion-child--headline:focus,
+.accordion-child--headline[aria-expanded="true"] {
+  border-color: var(--maryland-red);
+}
+
+.accordion-child--headline:hover span,
+.accordion-child--headline:focus span,
+.accordion-child--headline[aria-expanded="true"] span {
+  color: var(--maryland-red);
+}
+
+.accordion-child--body-wrapper {
+  transition: height 0.3s ease-out;
+  overflow: hidden;
+}
+
+/* accordion button icon */
+.accordion-child--headline:before,
+.accordion-child--headline:after {
+  content: "";
+
+  width: 18px;
+  height: 4px;
+
+  position: absolute;
+  top: calc(50% - 2px);
+  right: 32px;
+
+  background-color: var(--maryland-red);
+
+  transition: transform 0.5s;
+}
+
+.accordion-child--headline:after {
+  transform: rotate(270deg);
+}
+
+.accordion-child--headline[aria-expanded="true"]:after {
+  transform: rotate(180deg);
+}
+
+/* Adjusts the bottom margin when accordions are placed together, while keeping the same bottom margin on the last accordion in the group. */
+div:has(+ div > div.umd-lib.accordion--container)
+  > div.umd-lib.accordion--container {
+  margin-bottom: var(--space-xs);
+}

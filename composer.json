@@ -10,6 +10,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "drupal/core": "^11"
+        "drupal/core": "^11",
+        "umd-lib/umdlib_ds_layout_tools": "^2.0"
       }
 }

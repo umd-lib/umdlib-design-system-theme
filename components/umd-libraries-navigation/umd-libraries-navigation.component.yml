@@ -11,6 +11,22 @@ props:
       type: string
       title: Alternative Logo URL
       description: (Optional) Alternate absolute or relative URL to a file to be used as logo. This must be SVG with the dimensions of 300 x 90 (or a matching ratio). Leave empty to use default UMD logo.
+    sub_site:
+      type: boolean
+      title: Include Navigation back to UMD Libraries' Main Site
+      description: Whether to include a navigation item linking back to the main UMD Libraries website when the current site is not the main site.
+    search_option:
+      type: boolean
+      title: Include Search Option
+      description: Whether to include the search option in the navigation.
+    search_label:
+      type: string
+      title: Search Label
+      description: (Optional) The label for the search option, default to "Search".
+    search_url:
+      type: string
+      title: Search URL
+      description: (Optional) Absolute or relative URL for the search page. This is required if the Search Option is enabled.
 
 slots:
   main_navigation_slot:
@@ -19,6 +35,3 @@ slots:
   utility_navigation_slot:
     title: Utility Navigation Slot (Utility navigation)
     description: The secondary navigation
-  search_slot:
-    title: Search (WYSIWYG)
-    description: Search behavior

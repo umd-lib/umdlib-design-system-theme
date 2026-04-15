@@ -68,7 +68,7 @@
 }
 
 .navigation__logo img {
-  padding: 0 1rem 0 0;
+  padding: 0 2rem 0 0;
   height: 100%;
   width: auto;
   object-fit: contain;
@@ -223,6 +223,9 @@
 
 /* secondary menu list item */
 .navigation__row-sec .navigation__menu-item {
+  display: flex;
+  flex-direction: row;
+
   padding-bottom: 0rem;
   margin-bottom: 1.5rem;
 
@@ -364,90 +367,22 @@
   border-bottom: none;
 }
 
-/* utility navigation */
-.navigation__utility_locations-hours,
-.navigation__utility_system-status {
-  padding: 1rem;
-
-  background-color: var(--lighest-gray);
+/* search option in utility navigation */
+.umd-lib.navigation__menu-item.utility-content#website-search {
+  padding-top: 1.5rem;
+  border-top: solid 1px var(--light-gray);
 }
 
-.navigation__utility_time {
-  margin-bottom: 1rem;
+.umd-lib.navigation__menu-item.utility-content#website-search a {
+  padding-left: 1.25rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M6.37158 1.5C3.31306 1.50019 0.833682 3.97957 0.833496 7.03809C0.833496 10.0968 3.31295 12.577 6.37158 12.5771C7.44259 12.5771 8.44213 12.2715 9.28955 11.7451L11.9634 14.4199H15.1665L10.9624 10.1367C11.5605 9.25236 11.9106 8.18605 11.9106 7.03809C11.9105 3.97945 9.43026 1.5 6.37158 1.5ZM6.37158 3.44336C8.357 3.44336 9.9671 5.05271 9.96729 7.03809C9.96729 9.02362 8.35711 10.6338 6.37158 10.6338C4.38621 10.6336 2.77686 9.0235 2.77686 7.03809C2.77704 5.05283 4.38632 3.44355 6.37158 3.44336Z' fill='black'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position-y: 3px;
 }
 
-.navigation__utility_branch-item {
-  margin-bottom: 1rem;
-
-  display: flex;
-  flex-direction: column;
-}
-
-.navigation__utility_branch-hours {
-  text-align: end;
-}
-
-.navigation a.navigation__utility_branch-name {
-  color: var(--dark-gray);
-  text-decoration: underline;
-}
-
-.navigation a.navigation__utility_branch-name:hover,
-.navigation a.navigation__utility_branch-name:focus {
-  color: var(--maryland-red);
-}
-
-.navigation__utility_description > * {
-  margin-bottom: 0.5rem;
-}
-
-.navigation__utility_system-status-item {
-  margin-bottom: 1rem;
-}
-
-.navigation__utility_system-status-item:last-child {
-  margin-bottom: 0rem;
-}
-
-.navigation__utility_system-status-item-status {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.navigation__utility_system-status-item-icon {
-  width: 1.5rem;
-  height: 1.5rem;
-
-  margin-right: 0.5rem;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* utility navigation - WYSIWYG content */
-.navigation__submenu-content p {
-  padding: 1.5rem;
-
-  font-size: 0.875rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.12rem; /* 128% */
-
-  background-color: var(--lighest-gray);
-}
-
-.navigation__utility_locations-hours p,
-.navigation__utility_system-status p {
-  padding: initial;
-}
-
-@media (min-width: 768px) {
-  .navigation__utility_branch-item {
-    flex-direction: row;
-    justify-content: space-between;
-  }
+.umd-lib.navigation__menu-item.utility-content#website-search a:hover,
+.umd-lib.navigation__menu-item.utility-content#website-search a:focus {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M6.37158 1.5C3.31306 1.50019 0.833682 3.97957 0.833496 7.03809C0.833496 10.0968 3.31295 12.577 6.37158 12.5771C7.44259 12.5771 8.44213 12.2715 9.28955 11.7451L11.9634 14.4199H15.1665L10.9624 10.1367C11.5605 9.25236 11.9106 8.18605 11.9106 7.03809C11.9105 3.97945 9.43026 1.5 6.37158 1.5ZM6.37158 3.44336C8.357 3.44336 9.9671 5.05271 9.96729 7.03809C9.96729 9.02362 8.35711 10.6338 6.37158 10.6338C4.38621 10.6336 2.77686 9.0235 2.77686 7.03809C2.77704 5.05283 4.38632 3.44355 6.37158 3.44336Z' fill='%23E21833'/%3E%3C/svg%3E");
 }
 
 /* custom breakpoint for navigation */
@@ -460,6 +395,16 @@
     top: calc(
       96px + 44px
     ); /* 96px for navigation height, 44px for the umd school width branding */
+  }
+
+  /* search option in utility navigation */
+  .umd-lib.navigation__menu-item.utility-content#website-search {
+    padding-top: unset;
+    border-top: none;
+  }
+
+  .umd-lib.navigation__menu-item.utility-content#website-search a {
+    background-position-y: 0px;
   }
 }
 
@@ -527,6 +472,18 @@
     border-bottom: none;
   }
 
+  .navigation__menu-item > div {
+    text-align: center;
+  }
+
+  .navigation__submenu-item > div {
+    text-align: start;
+  }
+
+  .navigation__submenu-title > a {
+    text-align: start;
+  }
+
   /* item link */
   .navigation__menu-link {
     margin-right: 0.5rem;
@@ -561,6 +518,10 @@
     border-left: solid 1px var(--dark-gray);
   }
 
+  .navigation__row-sec .navigation__menu-item > div {
+    text-align: start;
+  }
+
   .navigation__row-sec .navigation__menu-item:first-child {
     padding-left: 0rem;
 
@@ -568,7 +529,7 @@
   }
 
   .navigation__row-sec .navigation__menu-item:last-child {
-    margin-right: 1rem;
+    margin-right: 0.5rem;
   }
 
   /* secondary menu */
@@ -696,28 +657,5 @@
     width: fit-content;
 
     display: inline;
-  }
-
-  /* utility navigation */
-  #locations_hours .navigation__submenu-content ul.navigation__submenu-list,
-  #system-status .navigation__submenu-content ul.navigation__submenu-list {
-    box-shadow: none;
-  }
-
-  .navigation__menu-item.utility-content .navigation__submenu {
-    width: 33rem;
-  }
-
-  #locations-hours .navigation__submenu {
-    width: 33rem;
-  }
-
-  #system-status .navigation__submenu {
-    width: 20rem;
-  }
-
-  .navigation__utility_locations-hours,
-  .navigation__utility_system-status {
-    padding: 1.5rem;
   }
 }

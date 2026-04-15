@@ -50,10 +50,15 @@
         />
         </div>
       {% endif %}
-      {% if utility_navigation_slot is defined %}
+      {% if utility_navigation_slot is defined or search_option %}
         <div class="navigation__row-sec">
           <nav aria-label="Secondary navigation" class="navigation__sec-menu">
             <ul class="navigation__secmenu-list">
+              {% if sub_site %}
+                <li class="umd-lib navigation__menu-item utility-content" aria-label="Libraries' Main Website">
+                    <a href="https://lib.umd.edu/" class="navigation__menu-link">Libraries' Main Website</a>
+                </li>
+              {% endif %}
               {% block utility_navigation_slot %}
                 {# utility navigation slot demo, should be replaced by Utility Component #}
                 {# locations & hours dropdown#}
@@ -210,9 +215,13 @@
                   </div>
                 </li>
               {% endblock %}
+              {% if search_option %}
+                  <li class="umd-lib navigation__menu-item utility-content" id="website-search" aria-label="website search">
+                    <a href="{{ search_url }}" class="navigation__menu-link">{{ search_label|default('Search') }}</a>
+                  </li>
+              {% endif %}
             </ul>
           </nav>
-          {% block search_slot %}{% endblock %}
         </div>
       {% endif %}
     </div>

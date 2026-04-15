@@ -20,10 +20,6 @@
 }
 
 /* customization for cards without link(s) in footer */
-.umd-lib.card.card--info:not(:has(.card--footer)) {
-  height: fit-content;
-}
-
 .umd-lib.card.card--info:not(:has(.card--footer)) .card--details {
   margin-bottom: 0 !important;
 }

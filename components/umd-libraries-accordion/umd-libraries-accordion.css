@@ -57,6 +57,8 @@
 
 /* Adjusts the bottom margin when accordions are placed together, while keeping the same bottom margin on the last accordion in the group. */
 div:has(+ div > div.umd-lib.accordion--container)
-  > div.umd-lib.accordion--container {
+  > div.umd-lib.accordion--container,
+div.wysiwyg-editor
+  > div.umd-lib.accordion--container:has(+ div.umd-lib.accordion--container) {
   margin-bottom: var(--space-xs);
 }

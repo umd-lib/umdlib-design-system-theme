@@ -798,7 +798,7 @@ homepage-search {
     width: 16rem;
     min-width: 16rem;
     max-width: 16rem;
-    height: auto;
+    height: fit-content;
   }
 }
 

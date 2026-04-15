@@ -45,7 +45,7 @@ slots:
   heading_text:
     title: Heading Text (Text String)
   link_url:
-    title: Link URL (Text String)
+    title: Link URL (Dynamic Link or Text String)
     description: (Optional) The link for the heading, if applicable.
   subtitle:
     title: Subtitle (Text String)

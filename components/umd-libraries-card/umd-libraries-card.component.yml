@@ -54,7 +54,7 @@ slots:
   card_title:
     title: Card Title (Text String)
   card_url:
-    title: Card Link URL (Text String)
+    title: Card Link URL (Dynamic Link or Text String)
   card_date:
     title: Date (Date)
     description: Use the format "Month Date, Year" (e.g., "July 4, 2025")

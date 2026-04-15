@@ -29,4 +29,4 @@ slots:
   link_text:
     title: Link Text (Text String)
   link_url:
-    title: Link URL (Text String)
+    title: Link URL (Dynamic Link or Text String)

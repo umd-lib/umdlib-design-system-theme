@@ -34,7 +34,7 @@
 
 {% if validVariant %}
   {# Common variables based on variant #}
-  {% set bgClass = selectedVariant == 'standard' ? 'c-bg-primary' : 'c-bg-secondary' %}
+  {% set bgClass = selectedVariant == 'standard' ? '' : 'c-bg-secondary' %}
   {% set hasEyebrow = (selectedVariant == 'standard' or selectedVariant == 'overlay') and eyebrow is defined and eyebrow is not empty %}
   {% set hasDate = (selectedVariant == 'standard' or selectedVariant == 'overlay') and card_date is defined and card_date is not empty %}
   {% set contentPadding = (selectedVariant == 'overlay' or selectedVariant == 'icon') ? 's-box-medium-h' : '' %}

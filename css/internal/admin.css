@@ -978,7 +978,7 @@ table .js-media-library-item {
   cursor: pointer;
 
   background-color: #ffffff;
-  border-color: black;
+  border: 1px solid black;
   font-family: Manrope, Interstate, Helvetica, sans-serif;
   transition: all 0.1s ease-in;
 }
@@ -997,4 +997,40 @@ table .js-media-library-item {
   input.form-submit:active {
   background-color: #e21833;
   border-color: #e21833;
+}
+
+/* image alt text input */
+.media-library-widget-modal #media-library-add-form-wrapper .js-form-item-name {
+  width: fit-content;
+
+  min-height: 36px;
+  margin-top: 1rem !important;
+}
+
+.media-library-widget-modal
+  #media-library-add-form-wrapper
+  .js-form-item-name
+  label,
+.media-library-widget-modal
+  #media-library-add-form-wrapper
+  .js-form-item
+  label {
+  font-weight: 700;
+  margin-right: 1rem;
+}
+
+.media-library-widget-modal #media-library-add-form-wrapper .js-form-item input,
+.media-library-widget-modal
+  #media-library-add-form-wrapper
+  .js-form-item
+  select {
+  border-bottom: 1px solid black;
+  min-height: 36px;
+}
+
+.media-library-widget-modal
+  #media-library-add-form-wrapper
+  .js-form-item
+  input {
+  width: 100%;
 }

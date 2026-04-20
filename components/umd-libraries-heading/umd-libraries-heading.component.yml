@@ -13,6 +13,10 @@ variants:
     title: Heading H3
   h4:
     title: Heading H4
+  h5:
+    title: Heading H5
+  h6:
+    title: Heading H6
 
 props:
   type: object

@@ -749,6 +749,53 @@ div:has(> table.table) {
   border: none;
 }
 
+.wysiwyg-editor table.table td > *:first-child,
+.wysiwyg-editor table.table th > *:first-child {
+  margin-top: 0;
+}
+
+/* heading, style follow heading component */
+.wysiwyg-editor h1 {
+  font-family: Interstate;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 2.08rem;
+}
+
+.wysiwyg-editor h2 {
+  font-family: Interstate;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.6875rem;
+}
+
+.wysiwyg-editor h3 {
+  font-family: Interstate;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.71875rem;
+}
+
+.wysiwyg-editor h4 {
+  font-family: Interstate;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.375rem;
+}
+
+.wysiwyg-editor h5,
+.wysiwyg-editor h6 {
+  font-family: Interstate;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.71875rem;
+}
+
 @media (min-width: 768px) {
   .wysiwyg-editor > * {
     margin-bottom: var(--space-md);
@@ -791,6 +838,32 @@ div:has(> table.table) {
     padding: var(--space-md);
     font-size: 1.125rem;
     line-height: 1.74375rem;
+  }
+
+  .wysiwyg-editor h1 {
+    font-size: 3rem;
+    line-height: 3.12rem;
+  }
+
+  .wysiwyg-editor h2 {
+    font-size: 2rem;
+    line-height: 2.25rem;
+  }
+
+  .wysiwyg-editor h3 {
+    font-size: 1.5rem;
+    line-height: 1.875rem;
+  }
+
+  .wysiwyg-editor h4 {
+    font-size: 1.125rem;
+    line-height: 1.74375rem;
+  }
+
+  .wysiwyg-editor h5,
+  .wysiwyg-editor h6 {
+    font-size: 1.5rem;
+    line-height: 1.875rem;
   }
 }
 

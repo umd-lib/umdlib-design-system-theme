@@ -1,0 +1,29 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: UMD Lib Hero Search - Quick Action
+label: Homepage Hero Search Box - Quick Action
+group: UMD Libraries
+
+props:
+  type: object
+  properties:
+    content_type:
+      type: string
+      title: Content Type
+      description: The search target content type (e.g. "Articles")
+    search_tool:
+      type: string
+      title: Search Tool
+      description: The search tool (e.g. "UMD Discover")
+    url:
+      type: string
+      title: URL
+      description: The fallback URL used when no search term has been entered.
+    search_url:
+      type: string
+      title: Search URL
+      description: The base URL that the search term is appended to (Primo format — query=any,contains,{term}). If omitted, falls back to URL.
+    id:
+      type: string
+      title: ID
+      description: A unique identifier for this quick action link (e.g. "search-dropdown-articles")

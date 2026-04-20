@@ -16,3 +16,17 @@ umd-lib-layout:
       css/external/umd-lib-layout.css: {}
   js:
     js/umd-lib-layout.js: {}
+umd-libraries-tabs:
+  css:
+    component:
+      components/umd-libraries-tabs/umd-libraries-tabs.css: {}
+  js:
+    components/umd-libraries-tabs/umd-libraries-tabs.js: {}
+umd-libraries-hero-search:
+  dependencies:
+    - umdlib_umdds/umd-libraries-tabs
+  css:
+    component:
+      components/umd-libraries-hero-search/umd-libraries-hero-search.css: {}
+  js:
+    components/umd-libraries-hero-search/umd-libraries-hero-search.js: {}

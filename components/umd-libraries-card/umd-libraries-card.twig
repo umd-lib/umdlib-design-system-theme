@@ -26,7 +26,7 @@
 {# Check required fields based on variant #}
 {% set standardRequirements = (selectedVariant == 'standard' and card_title is defined and card_url is defined and card_image is defined and card_image_alt is defined) %}
 {% set overlayRequirements = (selectedVariant == 'overlay' and card_title is defined and card_url is defined) %}
-{% set iconRequirements = (selectedVariant == 'icon' and card_title is defined and card_url is defined) %}
+{% set iconRequirements = (selectedVariant == 'icon' and card_title is defined and card_url is defined and icon_name is defined and icon_name is not empty) %}
 
 {% set validVariant = (selectedVariant == 'standard' and standardRequirements) 
                     or (selectedVariant == 'overlay' and overlayRequirements) 
@@ -34,7 +34,7 @@
 
 {% if validVariant %}
   {# Common variables based on variant #}
-  {% set bgClass = selectedVariant == 'standard' ? 'c-bg-primary' : 'c-bg-secondary' %}
+  {% set bgClass = selectedVariant == 'standard' ? '' : 'c-bg-secondary' %}
   {% set hasEyebrow = (selectedVariant == 'standard' or selectedVariant == 'overlay') and eyebrow is defined and eyebrow is not empty %}
   {% set hasDate = (selectedVariant == 'standard' or selectedVariant == 'overlay') and card_date is defined and card_date is not empty %}
   {% set contentPadding = (selectedVariant == 'overlay' or selectedVariant == 'icon') ? 's-box-medium-h' : '' %}
@@ -61,7 +61,7 @@
         {% endif %}
         
         {# Headline with link - present in all variants #}
-        <h3 class="card--headline s-stack-small t-title-medium">
+        <h{{ heading_level | slice(1) }} class="card--headline {% if description is defined and description is not empty or hasDate %}s-stack-small{% endif %}  t-title-medium">
           {% if card_url is defined and card_url is not empty %}
             <a href="{{ card_url }}" class="card--link">
           {% endif %}
@@ -70,10 +70,11 @@
               <span></span>
             </a>
           {% endif %}
-        </h3>
+        </h{{ heading_level | slice(1) }}>
       </div>
       
-      <div class="card--details  {% if hasButton %}s-stack-large{% endif %}">
+      {% if description is defined and description is not empty or hasDate %}
+      <div class="card--details">
         {# Description slot - present in all variants #}
         {% if description is defined and description is not empty %}
           <div class="card--text t-body-small c-content-secondary {% if hasDate %}s-stack-small{% endif %} wysiwyg-editor">
@@ -83,11 +84,12 @@
 
         {# Date display #}
         {% if hasDate %}
-          <div class="card--date t-label c-content-tertiary">
+          <div class="card--date t-label {% if selectedVariant == 'overlay' %}c-content-secondary{% else %}c-content-tertiary{% endif %}">
             {% block card_date %}{% endblock %}
           </div>
         {% endif %}
       </div>
+      {% endif %}
       
       {# Close content-text div for icon variant #}
       {% if selectedVariant == 'icon' %}</div>{% endif %}
@@ -111,6 +113,12 @@
 
     {% if card_image_alt is not defined %}
       {% set errors = errors | merge(['Card Image Alt']) %}
+    {% endif %}
+  {% endif %}
+
+  {% if selectedVariant == 'icon' %}
+    {% if icon_name is not defined or icon_name is empty %}
+      {% set errors = errors | merge(['Icon Name']) %}
     {% endif %}
   {% endif %}
 

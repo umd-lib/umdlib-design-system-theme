@@ -27,6 +27,11 @@
   right: 0;
 }
 
+.alert--button-close button {
+  width: 25px;
+  height: 25px;
+}
+
 .alert--button-close svg {
   height: 1.5rem;
 }

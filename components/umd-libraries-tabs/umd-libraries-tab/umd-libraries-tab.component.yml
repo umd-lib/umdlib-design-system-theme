@@ -1,6 +1,6 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 
-name: UMD Lib Tab Child
+name: UMD Lib Tab - Content
 label: Tab
 group: UMD Libraries
 
@@ -13,8 +13,5 @@ props:
       description: Unique identifier for connecting this content to its trigger
 
 slots:
-  tab_heading:
-    title: Tab Heading (Text String)
-    description: Optional heading displayed at the top of tab content
   body_slot:
-    title: Body (WYSIWYG)
+    title: Body (UMD Lib Text or Component)

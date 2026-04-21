@@ -26,8 +26,19 @@ props:
       default: standard
     icon_name:
       type: string
-      title: Icon Name
+      title: Icon Name (Lucide Icons)
       description: Name of the icon to display in the card (only for icon variant), please refer to Lucide icons documentation for available icons.
+    heading_level:
+      type: string
+      title: Heading Level
+      description: Choose the HTML heading level for the card title.
+      enum:
+        - h2
+        - h3
+        - h4
+        - h5
+        - h6
+      default: h3
     componentid:
       type: string
       title: Component ID
@@ -43,9 +54,9 @@ slots:
   card_title:
     title: Card Title (Text String)
   card_url:
-    title: Card Link URL (Text String)
+    title: Card Link URL (Dynamic Link or Text String)
   card_date:
     title: Date (Date)
     description: Use the format "Month Date, Year" (e.g., "July 4, 2025")
   description:
-    title: Description (WYSIWYG)
+    title: Description (Text String)

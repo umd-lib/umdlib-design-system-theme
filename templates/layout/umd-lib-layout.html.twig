@@ -58,7 +58,7 @@
   {% endif %}
 
     {% if show_sidebar_region %}
-      <div class="sidebar-navigation s-inline-medium" aria-hidden="{{ content.left_column is empty ? 'true' : 'false' }}">
+      <div class="sidebar-navigation s-inline-large" aria-hidden="{{ content.left_column is empty ? 'true' : 'false' }}">
           <div class="region-info" aria-hidden="true">Sidebar</div>
           <div {{ region_attributes.left_column.addClass('left_column') }}>{{ content.left_column }}</div>
       </div>

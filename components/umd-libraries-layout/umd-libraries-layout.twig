@@ -1,0 +1,17 @@
+{# 
+/**
+ * @file
+ * UMD Libraries Component Layout.
+ *
+ * Available variants:
+ */
+#}
+
+<div class="umd-lib component-layout"
+     id="{{ componentid | default('') }}">
+  <div class="card-group layout--{{ columns }}-column">
+    <div class="card-group-content">
+      {% block components %}{% endblock %}
+    </div>
+  </div>
+</div>

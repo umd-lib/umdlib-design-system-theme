@@ -1,3 +1,7 @@
+div:has(> table.umd-lib.table--container) {
+  overflow-x: auto;
+}
+
 .table--container {
   width: 100%;
 
@@ -17,6 +21,15 @@
   color: var(--white);
 }
 
+.table--header .table--body-row {
+  border: none;
+}
+
+.table--header .table--body-row:hover,
+.table--header .table--body-row:focus {
+  background-color: initial;
+}
+
 .table--body-row {
   border-bottom: 1px solid var(--light-gray);
 }
@@ -29,4 +42,9 @@
 .table--body-row .table--cell,
 .table--footer-row .table--cell {
   vertical-align: top;
+}
+
+.table--footer .table--body-row:hover,
+.table--footer .table--body-row:focus {
+  background-color: initial;
 }

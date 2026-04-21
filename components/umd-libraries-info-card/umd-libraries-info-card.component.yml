@@ -1,7 +1,7 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 
-name: UMD Lib Accordions - Child - Deprecated
-label: Accordion
+name: UMD Lib Info Card
+label: WWW
 group: UMD Libraries
 
 props:
@@ -14,7 +14,7 @@ props:
     heading_level:
       type: string
       title: Heading Level
-      description: Choose the HTML heading level for the accordion title.
+      description: Choose the HTML heading level for the card title.
       enum:
         - h2
         - h3
@@ -22,17 +22,11 @@ props:
         - h5
         - h6
       default: h3
-    default_open:
-      type: boolean
-      title: Default Open
-      description: Set to true if the accordion item should be open by default.
 
 slots:
-  title:
-    title: Accordion Item Title (Text String)
-  body:
-    title: Body (UMD Lib Text or Component)
-  link_text:
-    title: Link Text (Text String)
-  link_url:
-    title: Link URL (Dynamic Link or Text String)
+  card_title:
+    title: Card Title (Text String)
+  description:
+    title: Description (WYSIWYG)
+  links:
+    title: Links (Component)

@@ -21,6 +21,17 @@ props:
         - in_page
         - site_wide
       default: in_page
+    heading_level:
+      type: string
+      title: Heading Level
+      description: Choose the HTML heading level for the alert title (in-page variant only).
+      enum:
+        - h2
+        - h3
+        - h4
+        - h5
+        - h6
+      default: h2
     componentid:
       type: string
       title: Component ID
@@ -34,4 +45,4 @@ slots:
   link_text:
     title: Link Text (Text String)
   link_url:
-    title: Link URL (Text String)
+    title: Link URL (Dynamic Link or Text String)

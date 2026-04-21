@@ -24,6 +24,17 @@ props:
         - list
         - card
       default: bio
+    heading_level:
+      type: string
+      title: Heading Level
+      description: Choose the HTML heading level for the person name.
+      enum:
+        - h2
+        - h3
+        - h4
+        - h5
+        - h6
+      default: h2
     componentid:
       type: string
       title: Component ID
@@ -53,9 +64,9 @@ slots:
   person_image_alt:
     title: Person Image Alt Text (Text String)
   person_profile_link:
-    title: Profile Link (Link)
+    title: Profile Link URL(Dynamic Link or Text String)
   person_external_link:
-    title: External Link (Link)
+    title: External Link URL(Dynamic Link or Text String)
   person_external_link_text:
     title: External Link Text (Text String)
   bio_description_slot:

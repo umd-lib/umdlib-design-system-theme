@@ -18,7 +18,7 @@
 }
 
 .umd-lib-layout.layout--custom.top-margin {
-  margin-top: var(--space-md);
+  margin-top: var(--space-lg);
 }
 
 .umd-lib-layout.layout--custom.top-margin:first-child {
@@ -35,7 +35,7 @@
   }
 
   .umd-lib-layout.layout--custom.top-margin {
-    margin-top: var(--space-lg);
+    margin-top: var(--space-xl);
   }
 
   .umd-lib-layout.layout--custom.top-margin:first-child {
@@ -51,6 +51,7 @@
 /* main column region */
 .umd-lib-layout.layout--custom .main-column {
   width: 100%;
+  min-width: 0;
 
   display: flex;
   flex-direction: column;
@@ -84,25 +85,6 @@
   gap: var(--space-md);
 }
 
-.umd-lib-layout.layout--custom
-  .main-column
-  .layout--1-column
-  .card-group-content,
-.umd-lib-layout.layout--custom
-  .main-column
-  .layout--2-column
-  .card-group-content,
-.umd-lib-layout.layout--custom
-  .main-column
-  .layout--3-column
-  .card-group-content,
-.umd-lib-layout.layout--custom
-  .main-column
-  .layout--4-column
-  .card-group-content {
-  grid-auto-rows: 1fr;
-}
-
 .umd-lib-layout.layout--custom .main-column .col-child,
 .umd-lib-layout.layout--custom .main-column .card-group > div {
   min-width: 15rem;
@@ -131,12 +113,8 @@
   margin: 0 !important;
 }
 
-.umd-lib-layout.layout--custom .main-column .card-group {
+.umd-lib-layout.layout--custom .card-group {
   margin-bottom: var(--space-md);
-}
-
-.umd-lib-layout.layout--custom .main-column .card-group:last-child {
-  margin-bottom: 0 !important;
 }
 
 /* support for the search layout */
@@ -203,6 +181,10 @@ search-root .umd-lib-layout.layout--custom .search-main-region-container {
   }
 
   /* layout - card group */
+  .umd-lib-layout.layout--custom .card-group {
+    margin-bottom: var(--space-lg);
+  }
+
   .umd-lib-layout.layout--custom
     .main-column
     .card-group.layout--2-column
@@ -239,11 +221,6 @@ search-root .umd-lib-layout.layout--custom .search-main-region-container {
       auto-fit,
       minmax(min(100%, calc((100%) / 2)), 1fr)
     );
-  }
-
-  /* card group - add section margin */
-  .umd-lib-layout.layout--custom .main-column .card-group {
-    margin-bottom: var(--space-lg);
   }
 
   /* support for the search layout */

@@ -1,18 +1,25 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 
-name: UMD Lib Accordions - Deprecated
-label: Accordions
+name: UMD Lib Component Layout
+label: WWW
 group: UMD Libraries
 
 props:
-  type: object
   properties:
+    columns:
+      type: string
+      title: Columns
+      description: Choose the number of columns
+      enum:
+        - "1"
+        - "2"
+        - "3"
+        - "4"
     componentid:
       type: string
       title: Component ID
       description: (Optional) An ID to use for the component. This can be used for section referencing.
 
 slots:
-  accordion_child_slot:
-    title: Accordion Child (UMD Lib Accordion Child)
-    description: Use UMD Lib Accordion Child component(s).
+  components:
+    title: Component Slot (Components)

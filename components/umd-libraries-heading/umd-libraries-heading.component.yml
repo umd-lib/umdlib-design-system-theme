@@ -13,6 +13,10 @@ variants:
     title: Heading H3
   h4:
     title: Heading H4
+  h5:
+    title: Heading H5
+  h6:
+    title: Heading H6
 
 props:
   type: object
@@ -45,7 +49,7 @@ slots:
   heading_text:
     title: Heading Text (Text String)
   link_url:
-    title: Link URL (Text String)
+    title: Link URL (Dynamic Link or Text String)
     description: (Optional) The link for the heading, if applicable.
   subtitle:
     title: Subtitle (Text String)

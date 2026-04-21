@@ -201,23 +201,38 @@ form.layout-builder-form div.form-item .vertical-tabs {
   display: flex;
   align-items: center;
 
+  margin: 0;
+
   border: 1px solid #bdbfc8;
-  border-radius: 0 0.25rem 0.25rem 0;
+  border-radius: 0.25rem;
   background-color: #ffffff;
 }
 
 form.layout-builder-form div.form-item .vertical-tabs__menu {
   border-top: none;
+  height: 100%;
+
+  float: none;
+  margin: 0;
 }
 
 form.layout-builder-form div.form-item .vertical-tabs__menu-item {
+  border: none;
+  border-radius: 0.25rem;
+}
+
+form.layout-builder-form div.form-item .vertical-tabs__panes {
+  border-left: 1px solid #bdbfc8;
+}
+
+form.layout-builder-form div.form-item .vertical-tabs__panes textarea {
   border: 1px solid #bdbfc8;
-  border-radius: 0.25rem 0 0 0.25rem;
-  background-color: #f8f9fc;
+  border-radius: 0.25rem;
 }
 
 form.layout-builder-form div.form-item .vertical-tabs__menu-item a {
   padding: 1rem;
+  border-radius: 0.25rem;
 }
 
 form.layout-builder-form div.form-item .vertical-tabs__menu-item a:hover,
@@ -674,9 +689,9 @@ ul.js-media-library-menu li a.active {
   flex-wrap: wrap;
 
   padding: 0.5rem;
-  background-color: #f8f9fc;
   border: 1px solid #bdbfc8;
-  border-radius: 0.25rem;
+  border-bottom: none;
+  border-radius: 0.25rem 0.25rem 0 0;
 }
 
 #media-library-content #media-library-view .js-media-library-view a {
@@ -708,12 +723,26 @@ ul.js-media-library-menu li a.active {
   padding: 0.5rem;
   background-color: #f8f9fc;
   border: 1px solid #bdbfc8;
-  border-radius: 0.25rem;
+  border-radius: 0 0 0.25rem 0.25rem;
 }
 
 #media-library-content #media-library-view .js-media-library-view form label {
   font-family: Manrope, Interstate, Helvetica, sans-serif;
+  font-weight: 700;
   margin-top: 0rem;
+}
+
+#media-library-content #media-library-view .js-media-library-view form input {
+  border-bottom: 1px solid black;
+  min-height: 36px;
+  margin-left: 0.5rem;
+}
+
+#media-library-content #media-library-view .js-media-library-view form select {
+  border-bottom: 1px solid black;
+  min-height: 36px;
+  margin-left: 0.5rem;
+  padding: 0.5rem;
 }
 
 #media-library-content
@@ -724,6 +753,7 @@ ul.js-media-library-menu li a.active {
   width: fit-content;
 
   padding: 0.75rem 2rem;
+  margin: 0;
 
   font-weight: 700;
 
@@ -948,7 +978,7 @@ table .js-media-library-item {
   cursor: pointer;
 
   background-color: #ffffff;
-  border-color: black;
+  border: 1px solid black;
   font-family: Manrope, Interstate, Helvetica, sans-serif;
   transition: all 0.1s ease-in;
 }
@@ -967,4 +997,40 @@ table .js-media-library-item {
   input.form-submit:active {
   background-color: #e21833;
   border-color: #e21833;
+}
+
+/* image alt text input */
+.media-library-widget-modal #media-library-add-form-wrapper .js-form-item-name {
+  width: fit-content;
+
+  min-height: 36px;
+  margin-top: 1rem !important;
+}
+
+.media-library-widget-modal
+  #media-library-add-form-wrapper
+  .js-form-item-name
+  label,
+.media-library-widget-modal
+  #media-library-add-form-wrapper
+  .js-form-item
+  label {
+  font-weight: 700;
+  margin-right: 1rem;
+}
+
+.media-library-widget-modal #media-library-add-form-wrapper .js-form-item input,
+.media-library-widget-modal
+  #media-library-add-form-wrapper
+  .js-form-item
+  select {
+  border-bottom: 1px solid black;
+  min-height: 36px;
+}
+
+.media-library-widget-modal
+  #media-library-add-form-wrapper
+  .js-form-item
+  input {
+  width: 100%;
 }

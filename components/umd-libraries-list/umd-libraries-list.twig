@@ -23,9 +23,9 @@
         <div class="list--eyebrow t-eyebrow c-content-primary">{% block list_eyebrow %}{% endblock %}</div>
       {% endif %}
       <div class="list--title">
-        <h2 class="t-title-medium c-content-primary" id="{{ listId }}">
+        <h{{ heading_level | default('h2') | slice(1) }} class="t-title-medium c-content-primary" id="{{ listId }}">
           <a href="{{ list_url }}">{{ list_title }}</a>
-        </h2>
+        </h{{ heading_level | default('h2') | slice(1) }}>
       </div>
     </div>
 

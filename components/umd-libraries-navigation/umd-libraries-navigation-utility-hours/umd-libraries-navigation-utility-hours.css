@@ -1,0 +1,26 @@
+.navigation__utility_branch-item {
+  margin-bottom: 1rem;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.navigation__utility_branch-item dt a {
+  text-decoration: underline;
+}
+
+.navigation__utility_branch-item dt a:hover,
+.navigation__utility_branch-item dt a:focus {
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .navigation__utility_branch-item {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .navigation__row-sec .navigation__submenu.utility-hours {
+    min-width: 600px;
+  }
+}

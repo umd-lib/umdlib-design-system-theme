@@ -1,0 +1,57 @@
+{# 
+/**
+ * @file
+ * UMD Lib Navigation - Utility - General
+ *
+ * Variables:
+ * - title_text: Menu Title
+ * - title_url: URL for the utility title link
+ * - menu_item_slot: Menu item content
+ */
+#}
+
+{% set title_text %}{% block title_text %}{% endblock %}{% endset %}
+{% set title_text = title_text|trim ? : "System Status" %}
+
+{% set title_url %}{% block title_url %}{% endblock %}{% endset %}
+{% set title_url = title_url | trim %}
+
+
+<li class="umd-lib navigation__menu-item utility-content" id="{{ title_text | lower | replace({' ': '-'}) }}">
+  {% if title_url is defined and title_url %}
+    <a href="{{ title_url }}" class="navigation__menu-link">{{ title_text }}</a>
+  {% else %}
+    <div class="navigation__menu-link">{{ title_text }}</div>
+  {% endif %}
+  <button
+    class="navigation__submenu-button"
+    aria-expanded="false"
+    aria-controls="submenu-{{ title_text | lower | replace({' ': '-'}) }}"
+    aria-label="Next level of navigation of {{ title_text }}"
+  >
+      <span class="i-chevron-down"></span>
+  </button>
+  <div class="navigation__submenu utility-general" id="submenu-{{ title_text | lower | replace({' ': '-'}) }}">
+    <div class="navigation__submenu-content">
+      <div class="navigation__submenu-title">
+        {% if title_url is defined and title_url %}
+          <a href="{{ title_url }}">{{ title_text }}</a>
+        {% else %}
+          <div>{{ title_text }}</div>
+        {% endif %}
+      </div>
+      <ul class="navigation__submenu-list">
+        {% block menu_item_slot %}
+        {% endblock %}
+      </ul>
+    </div>
+    <div class="navigation__submenu-header">
+      <button class="navigation__back-button">
+        <span class="i-chevron-down"></span>
+        <p class="t-label ani-underline c-underline-secondary">
+          Back
+        </p>
+      </button>
+    </div>
+  </div>
+</li>

@@ -1,0 +1,17 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: UMD Lib Navigation - Utility - Hours
+label: Navigation
+group: UMD Libraries
+
+slots:
+  title_text:
+    title: Menu Title, defaults to "Locations & Hours"
+  title_url:
+    title: Menu Title URL, (e.g. "https://umd.libcal.com/hours")
+  link_text:
+    title: Menu item Link Text, defaults to "All Libraries Hours"
+  link_url:
+    title: Menu item Link URL, (e.g. "https://umd.libcal.com/hours")
+  hours_slot:
+    title: Library Hours Content

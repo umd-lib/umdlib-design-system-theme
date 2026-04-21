@@ -1,0 +1,19 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: UMD Lib Navigation - Utility - Status
+label: Navigation
+group: UMD Libraries
+
+slots:
+  title_text:
+    title: Menu Title, defaults to "System Status"
+  title_url:
+    title: Menu Title URL, (e.g. "/about/systems")
+  error_number:
+    title: Number of Errors, used for badge display
+  link_text:
+    title: Menu item Link Text, defaults to "All Status of Library Services"
+  link_url:
+    title: Menu item Link URL, (e.g. "/about/systems")
+  status_slot:
+    title: Library System Status Content

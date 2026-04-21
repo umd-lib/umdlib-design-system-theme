@@ -1,0 +1,131 @@
+{# 
+/**
+ * @file
+ * UMD Lib Navigation - Utility - Hours
+ *
+ * Variables:
+ * - title_text: Menu Title
+ * - title_url: URL for the utility title link
+ * - link_text: Text for the utility link
+ * - link_url: URL for the utility link
+ * - hours_slot: Library hours content
+ */
+#}
+
+{% set title_text %}{% block title_text %}{% endblock %}{% endset %}
+{% set title_text = title_text|trim ? : "Locations & Hours" %}
+
+{% set title_url %}{% block title_url %}{% endblock %}{% endset %}
+{% set title_url = title_url | trim %}
+
+{% set link_text %}{% block link_text %}{% endblock %}{% endset %}
+{% set link_text = link_text|trim ?: "All Libraries Hours" %}
+
+{% set link_url %}{% block link_url %}{% endblock %}{% endset %}
+{% set link_url = link_urls | trim %}
+
+
+<li class="umd-lib navigation__menu-item utility-content" id="{{ title_text | lower | replace({' ': '-'}) }}">
+  <a href="{{ title_url }}" class="navigation__menu-link">{{ title_text }}</a>
+  <button
+    class="navigation__submenu-button"
+    aria-expanded="false"
+    aria-controls="submenu-{{ title_text | lower | replace({' ': '-'}) }}"
+    aria-label="Next level of navigation of {{ title_text }}"
+  >
+      <span class="i-chevron-down"></span>
+  </button>
+  <div class="navigation__submenu utility-hours" id="submenu-{{ title_text | lower | replace({' ': '-'}) }}">
+    <div class="navigation__submenu-content">
+      <div class="navigation__submenu-title">
+        <a href="{{ title_url }}">{{ title_text }}</a>
+      </div>
+      
+      {% if link_url is defined and link_text is defined %}
+        <ul class="navigation__submenu-list">
+          <li class="navigation__submenu-item">
+            <a
+              href="{{ link_url }}"
+              class="navigation__submenu-link ani-underline c-underline-primary t-body-small"
+            >
+              {{ link_text }}
+            </a>
+          </li>
+        </ul>
+      {% endif %}
+      {# locations & hours #}
+      <section aria-label="Library hours for {{ 'now'|date('F j, Y') }}" class="c-bg-secondary s-box-medium-v s-box-medium-h branch-hours">
+        <div class="t-title-small s-stack-medium" aria-hidden="true">{{ "now"|date("F j, Y") }}</div>
+        <dl class="navigation__utility_branch-list">
+          {% block hours_slot %}
+          <div class="navigation__utility_branch-item">
+            <dt>
+              <a href="/mckeldin">
+                McKeldin*
+                <span class="visually-hidden">(Campus ID required 11pm–8am)</span>
+              </a>
+            </dt>
+            <dd>24 Hours – 8:00PM</dd>
+          </div>
+
+          <div class="navigation__utility_branch-item">
+            <dt><a href="/architecture">Architecture</a></dt>
+            <dd>Closed</dd>
+          </div>
+
+          <div class="navigation__utility_branch-item">
+            <dt><a href="/architecture">Art</a></dt>
+            <dd>11:00AM - 4:00PM</dd>
+          </div>
+
+          <div class="navigation__utility_branch-item">
+            <dt><a href="/architecture">Hornbake</a></dt>
+            <dd>7:00AM - 10:00PM</dd>
+          </div>
+            
+          <div class="navigation__utility_branch-item">
+            <dt><a href="/architecture">Michelle Smith Performing Arts</a></dt>
+            <dd>9:00AM - 5:00PM</dd>
+          </div>
+            
+          <div class="navigation__utility_branch-item">
+            <dt><a href="/architecture">Special Collections in Hornbake**</a></dt>
+            <dd>10:00AM - 4:00PM</dd>
+          </div>
+
+          <div class="navigation__utility_branch-item">
+            <dt><a href="/architecture">STEM</a></dt>
+            <dd>8:00AM - 6:00PM</dd>
+          </div>
+            
+          <div class="navigation__utility_branch-item">
+            <dt><a href="/architecture">Shady Grove</a></dt>
+            <dd>See website for hours</dd>
+          </div>
+
+          <div class="navigation__utility_branch-item">
+            <dt>
+              <a href="/special-collections">
+                Special Collections in Hornbake
+                <span class="visually-hidden">(Appointment required)</span>
+              </a>
+            </dt>
+            <dd>10:00AM – 4:00PM</dd>
+          </div>
+          {% endblock %}
+        </dl>
+        <div class="t-label s-stack-small">Library Hours are subject to change.</div>
+        <div class="t-label s-stack-small">*Campus ID required 11pm-8am.</div>
+        <div class="t-label">**Appointment required</div>
+      </section>
+    </div>
+    <div class="navigation__submenu-header">
+      <button class="navigation__back-button">
+        <span class="i-chevron-down"></span>
+        <p class="t-label ani-underline c-underline-secondary">
+          Back
+        </p>
+      </button>
+    </div>
+  </div>
+</li>

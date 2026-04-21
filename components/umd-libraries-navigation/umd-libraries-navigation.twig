@@ -41,13 +41,6 @@
               {% block main_navigation_slot %}{% endblock %}
             </ul>
           </nav>
-        <button
-          class="sr-only"
-          id="navigation-in-menu-button"
-          aria-label="Toggle navigation menu"
-          aria-expanded="false"
-          aria-controls="navigation"
-        />
         </div>
       {% endif %}
       {% if utility_navigation_slot is defined or search_option or sub_site %}
@@ -55,14 +48,14 @@
           <nav aria-label="Secondary navigation" class="navigation__sec-menu">
             <ul class="navigation__secmenu-list">
               {% if sub_site %}
-                <li class="umd-lib navigation__menu-item utility-content" aria-label="Libraries' Main Website">
+                <li class="umd-lib navigation__menu-item utility-content">
                     <a href="https://lib.umd.edu/" class="navigation__menu-link">Libraries' Main Website</a>
                 </li>
               {% endif %}
               {% block utility_navigation_slot %}
               {% endblock %}
               {% if search_option %}
-                  <li class="umd-lib navigation__menu-item utility-content" id="website-search" aria-label="website search">
+                  <li class="umd-lib navigation__menu-item utility-content" id="website-search">
                     <a href="{{ search_url }}" class="navigation__menu-link">{{ search_label|default('Search') }}</a>
                   </li>
               {% endif %}
@@ -70,6 +63,13 @@
           </nav>
         </div>
       {% endif %}
+      <button
+          class="sr-only"
+          id="navigation-in-menu-button"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="navigation"
+        />
     </div>
   </div>
 </div>

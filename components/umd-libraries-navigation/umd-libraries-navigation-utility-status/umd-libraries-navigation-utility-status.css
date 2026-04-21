@@ -1,0 +1,46 @@
+/* navigation badge */
+.umd-lib.navigation__menu-item.utility-content.utility-status
+  .badge.badge--error {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-left: 0.5rem;
+
+  display: flex;
+  justify-content: center; /* horizontal */
+  align-items: center; /* vertical */
+
+  color: var(--white);
+  background-color: var(--maryland-red);
+}
+
+/* system status */
+.navigation__utility_system-status-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.navigation__utility_system-status-item-status {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.navigation__utility_system-status-item-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navigation__utility_system-status-list li:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .navigation__row-sec .navigation__submenu.utility-status {
+    min-width: 320px;
+  }
+}

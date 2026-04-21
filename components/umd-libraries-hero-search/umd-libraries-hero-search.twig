@@ -4,6 +4,10 @@
  * UMD Libraries Homepage Hero Search Box component.
  *
  * Available props:
+ * - componentid: Optional outer element ID.
+ *
+ * Available slots:
+ * - page_title: Main heading for the page, screen reader only.
  * - search_title: Heading above the search tabs.
  * - learn_more_text: Text for the info/learn-more link.
  * - learn_more_url: URL for the info/learn-more link.
@@ -19,20 +23,49 @@
  * - image_url: URL of the hero background image.
  * - image_alt: Alt text for the hero image.
  * - tab_label: Screen-reader-only label for the tab group.
- * - componentid: Optional outer element ID.
- *
- * Available slots:
  * - quick_actions_slot: UMD Lib Hero Search Quick Action components.
  * - resource_links_slot: UMD Lib Emphasized Link components.
- * - image_caption_slot: WYSIWYG caption for the hero image.
+ * - image_caption: WYSIWYG caption for the hero image.
  */
 #}
 
 {{ attach_library('umdlib_umdds/umd-libraries-hero-search') }}
 
+{# Capture URL/text slots into variables for use in attributes and conditionals #}
+{% set learn_more_url %}{% block learn_more_url %}{% endblock %}{% endset %}
+{% set learn_more_url = learn_more_url | trim %}
+
+{% set discover_url %}{% block discover_url %}{% endblock %}{% endset %}
+{% set discover_url = discover_url | trim %}
+
+{% set search_all_url %}{% block search_all_url %}{% endblock %}{% endset %}
+{% set search_all_url = search_all_url | trim %}
+
+{% set discover_placeholder %}{% block discover_placeholder %}{% endblock %}{% endset %}
+{% set discover_placeholder = discover_placeholder | trim %}
+{% if not discover_placeholder %}{% set discover_placeholder = 'Search for books, articles, journals, and more...' %}{% endif %}
+
+{% set search_all_placeholder %}{% block search_all_placeholder %}{% endblock %}{% endset %}
+{% set search_all_placeholder = search_all_placeholder | trim %}
+{% if not search_all_placeholder %}{% set search_all_placeholder = 'Search libraries collections, websites, research guides and more...' %}{% endif %}
+
+{% set tab_label %}{% block tab_label %}{% endblock %}{% endset %}
+{% set tab_label = tab_label | trim %}
+{% if not tab_label %}{% set tab_label = 'Search tabs' %}{% endif %}
+
+{% set feedback_url %}{% block feedback_url %}{% endblock %}{% endset %}
+{% set feedback_url = feedback_url | trim %}
+
+{% set image_url %}{% block image_url %}{% endblock %}{% endset %}
+{% set image_url = image_url | trim %}
+
+{% set image_alt %}{% block image_alt %}{% endblock %}{% endset %}
+{% set image_alt = image_alt | trim %}
+
 {% set tabs_id = componentid ? componentid ~ '-tabs' : 'tabs-homepage-search' %}
 
 <div class="umd-lib hero-search--container" {% if componentid %}id="{{ componentid }}"{% endif %}>
+  <h1 class="sr-only">{% block page_title %}UMD Libraries{% endblock %}</h1>
   <div class="hero-search-section s-box-page-medium-h s-center s-page-lock">
     <div class="hero-search-block c-bg-primary">
 
@@ -40,7 +73,7 @@
 
         {# Search heading and learn more link #}
         <div class="search-feature-header">
-          <h2 class="search-feature-title t-title-large">{{ search_title | default('Search') }}</h2>
+          <h2 class="search-feature-title t-title-large">{% block search_title %}Search{% endblock %}</h2>
           {% if learn_more_url %}
             <div class="search-feature-description">
               <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="info" aria-hidden="true" class="lucide lucide-info">
@@ -49,7 +82,7 @@
                 <path d="M12 8h.01"></path>
               </svg>
               <a class="t-label information-link" href="{{ learn_more_url }}">
-                {{ learn_more_text | default('Learn about search options.') }}
+                {% block learn_more_text %}Learn about search options.{% endblock %}
               </a>
             </div>
           {% endif %}
@@ -63,14 +96,13 @@
             id="{{ tabs_id }}"
             data-default-tab=""
           >
-            <p id="{{ tabs_id }}-label" class="sr-only">{{ tab_label | default('Search tabs') }}</p>
-
+          
             {# Tab triggers #}
             <div
               class="tabs--triggers"
               role="tablist"
-              aria-labelledby="{{ tabs_id }}-label"
               aria-orientation="horizontal"
+              aria-label="Search options"
             >
               <button
                 class="tab--trigger t-interactive c-content-secondary s-box-medium-h s-box-small-v"
@@ -116,12 +148,12 @@
                   <form
                     class="hero-search-form"
                     data-search-form="discover"
-                    data-search-base-url="{{ discover_url | default('') }}"
+                    data-search-base-url="{{ discover_url }}"
                     data-search-url-mode="append"
                   >
                     <div class="hero-search-input c-bg-secondary">
                       <label class="sr-only" for="search-query-input-discover">
-                        {{ discover_placeholder | default('Search for books, articles, journals, and more...') }}
+                        {{ discover_placeholder }}
                       </label>
                       <input
                         id="search-query-input-discover"
@@ -129,8 +161,8 @@
                         name="search_query"
                         autocomplete="off"
                         class="form-text c-bg-secondary"
-                        placeholder="{{ discover_placeholder | default('Search for books, articles, journals, and more...') }}"
-                        aria-label="{{ discover_placeholder | default('Search for books, articles, journals, and more...') }}"
+                        placeholder="{{ discover_placeholder }}"
+                        aria-label="{{ discover_placeholder }}"
                         data-search-input="discover"
                       >
                       <button type="submit" class="button js-form-submit form-submit btn btn-primary">
@@ -140,9 +172,10 @@
                   </form>
                 </div>
 
-                {% if discover_description %}
+                {% set discover_description %}{% block discover_description %}{% endblock %}{% endset %}
+                {% if discover_description | trim %}
                   <div class="tab-description t-label">
-                    <p>{{ discover_description }}</p>
+                    <p>{{ discover_description | trim }}</p>
                   </div>
                 {% endif %}
 
@@ -174,12 +207,12 @@
                   <form
                     class="hero-search-form"
                     data-search-form="search-all"
-                    data-search-base-url="{{ search_all_url | default('') }}"
+                    data-search-base-url="{{ search_all_url }}"
                     data-search-url-mode="query"
                   >
                     <div class="hero-search-input c-bg-secondary">
                       <label class="sr-only" for="search-query-input-search-all">
-                        {{ search_all_placeholder | default('Search libraries collections, websites, research guides and more...') }}
+                        {{ search_all_placeholder }}
                       </label>
                       <input
                         id="search-query-input-search-all"
@@ -187,8 +220,8 @@
                         name="search_query"
                         autocomplete="off"
                         class="form-text c-bg-secondary"
-                        placeholder="{{ search_all_placeholder | default('Search libraries collections, websites, research guides and more...') }}"
-                        aria-label="{{ search_all_placeholder | default('Search libraries collections, websites, research guides and more...') }}"
+                        placeholder="{{ search_all_placeholder }}"
+                        aria-label="{{ search_all_placeholder }}"
                         data-search-input="search-all"
                       >
                       <button type="submit" class="button js-form-submit form-submit btn btn-primary">
@@ -198,9 +231,10 @@
                   </form>
                 </div>
 
-                {% if search_all_description %}
+                {% set search_all_description %}{% block search_all_description %}{% endblock %}{% endset %}
+                {% if search_all_description | trim %}
                   <div class="tab-description t-label">
-                    <p>{{ search_all_description }}</p>
+                    <p>{{ search_all_description | trim }}</p>
                   </div>
                 {% endif %}
               </div>
@@ -213,7 +247,7 @@
       {# Resource links #}
       {% if resource_links_slot is defined %}
         <div class="resource-links">
-          <h3 class="resource-links-title t-title-medium">{{ resources_title | default('Resources') }}</h3>
+          <h3 class="resource-links-title t-title-medium">{% block resources_title %}Resources{% endblock %}</h3>
           <div class="resource-links-list">
             {% block resource_links_slot %}{% endblock %}
           </div>
@@ -230,7 +264,7 @@
           </svg>
           <p class="help t-label">
             Any suggestions? Fill out
-            <a href="{{ feedback_url }}">{{ feedback_link_text | default('the feedback form') }}</a>.
+            <a href="{{ feedback_url }}">{% block feedback_link_text %}this feedback form{% endblock %}</a>.
           </p>
         </div>
       {% endif %}
@@ -241,10 +275,10 @@
     {% if image_url %}
       <div class="hero-search-image">
         <figure>
-          <img loading="lazy" alt="{{ image_alt | default('') }}" src="{{ image_url }}">
+          <img loading="lazy" alt="{{ image_alt }}" src="{{ image_url }}">
           {% if image_caption_slot is defined %}
             <figcaption class="t-label wysiwyg-editor">
-              {% block image_caption_slot %}{% endblock %}
+              {% block image_caption %}{% endblock %}
             </figcaption>
           {% endif %}
         </figure>

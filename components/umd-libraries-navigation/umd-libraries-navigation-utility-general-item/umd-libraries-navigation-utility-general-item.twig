@@ -11,10 +11,10 @@
 #}
 
 {% set link_text %}{% block link_text %}{% endblock %}{% endset %}
-{% set link_text = link_text|trim ?: "All Status of Library Services" %}
+{% set link_text = link_text | trim %}
 
 {% set link_url %}{% block link_url %}{% endblock %}{% endset %}
-{% set link_url = link_urls | trim %}
+{% set link_url = link_url | trim %}
 
 {% set link_description %}{% block link_description %}{% endblock %}{% endset %}
 {% set link_description = link_description | trim %}

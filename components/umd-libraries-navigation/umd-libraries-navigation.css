@@ -552,8 +552,17 @@
     border-bottom: none;
   }
 
+  /* keep the menu dropdown button, but make it visible only to screen readers */
   .navigation__row-sec .navigation__submenu-button {
-    display: none;
+    clip: rect(0, 0, 0, 0);
+    border-width: 0;
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
   }
 
   /* 2nd level menu animation */

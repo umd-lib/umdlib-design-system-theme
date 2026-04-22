@@ -1,13 +1,21 @@
 /* navigation badge */
 .umd-lib.navigation__menu-item.utility-content.utility-status
+  .navigation__menu-link {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.umd-lib.navigation__menu-item.utility-content.utility-status
   .badge.badge--error {
   width: 1.25rem;
   height: 1.25rem;
   margin-left: 0.5rem;
 
   display: flex;
-  justify-content: center; /* horizontal */
-  align-items: center; /* vertical */
+  justify-content: center;
+  align-items: center;
 
   color: var(--white);
   background-color: var(--maryland-red);

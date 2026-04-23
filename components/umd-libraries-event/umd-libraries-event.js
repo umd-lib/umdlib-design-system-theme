@@ -18,3 +18,16 @@ if (eventDate) {
     console.error("Target elements not found.");
   }
 }
+
+// external link
+const currenteventlocation = window.location;
+const eventLinks = document.querySelectorAll(".event--link");
+
+eventLinks.forEach((link) => {
+  const eventLinks = link.querySelector("span");
+  if (eventLinks && link.host !== currenteventlocation.host) {
+    eventLinks.classList.add("i-external-arrow");
+  } else {
+    eventLinks.style.display = "none";
+  }
+});

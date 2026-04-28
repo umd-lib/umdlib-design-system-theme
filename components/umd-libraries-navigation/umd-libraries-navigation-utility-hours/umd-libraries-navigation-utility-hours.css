@@ -1,26 +1,32 @@
-.navigation__utility_branch-item {
+/* utility hours style for the umdlib-hours module */
+.utility-branch-list dl div.utility-border {
   margin-bottom: 1rem;
 
   display: flex;
   flex-direction: column;
+
+  gap: 0.5rem;
 }
 
-.navigation__utility_branch-item dt a {
+.utility-branch-list dl div.utility-border dt.utility-location {
+  color: var(--black);
+}
+
+.utility-branch-list dl div.utility-border dd.utility-hours {
+  text-align: right;
+}
+
+.utility-branch-list dl a {
   text-decoration: underline;
 }
 
-.navigation__utility_branch-item dt a:hover,
-.navigation__utility_branch-item dt a:focus {
+.utility-branch-list dl a:hover,
+.utility-branch-list dl a:focus {
   text-decoration: underline;
 }
 
 @media (min-width: 768px) {
-  .navigation__utility_branch-item {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
   .navigation__row-sec .navigation__submenu.utility-hours {
-    min-width: 600px;
+    min-width: 480px;
   }
 }

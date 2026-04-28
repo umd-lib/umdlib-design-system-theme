@@ -56,64 +56,10 @@
       {# locations & hours #}
       <section aria-label="Library hours for {{ 'now'|date('F j, Y') }}" class="c-bg-secondary s-box-medium-v s-box-medium-h branch-hours">
         <div class="t-title-small s-stack-medium" aria-hidden="true">{{ "now"|date("F j, Y") }}</div>
-        <dl class="navigation__utility_branch-list">
+        <div class="navigation__utility_branch-list">
           {% block hours_slot %}
-          <div class="navigation__utility_branch-item">
-            <dt>
-              <a href="/mckeldin">
-                McKeldin*
-                <span class="visually-hidden">(Campus ID required 11pm–8am)</span>
-              </a>
-            </dt>
-            <dd>24 Hours – 8:00PM</dd>
-          </div>
-
-          <div class="navigation__utility_branch-item">
-            <dt><a href="/architecture">Architecture</a></dt>
-            <dd>Closed</dd>
-          </div>
-
-          <div class="navigation__utility_branch-item">
-            <dt><a href="/architecture">Art</a></dt>
-            <dd>11:00AM - 4:00PM</dd>
-          </div>
-
-          <div class="navigation__utility_branch-item">
-            <dt><a href="/architecture">Hornbake</a></dt>
-            <dd>7:00AM - 10:00PM</dd>
-          </div>
-            
-          <div class="navigation__utility_branch-item">
-            <dt><a href="/architecture">Michelle Smith Performing Arts</a></dt>
-            <dd>9:00AM - 5:00PM</dd>
-          </div>
-            
-          <div class="navigation__utility_branch-item">
-            <dt><a href="/architecture">Special Collections in Hornbake**</a></dt>
-            <dd>10:00AM - 4:00PM</dd>
-          </div>
-
-          <div class="navigation__utility_branch-item">
-            <dt><a href="/architecture">STEM</a></dt>
-            <dd>8:00AM - 6:00PM</dd>
-          </div>
-            
-          <div class="navigation__utility_branch-item">
-            <dt><a href="/architecture">Shady Grove</a></dt>
-            <dd>See website for hours</dd>
-          </div>
-
-          <div class="navigation__utility_branch-item">
-            <dt>
-              <a href="/special-collections">
-                Special Collections in Hornbake
-                <span class="visually-hidden">(Appointment required)</span>
-              </a>
-            </dt>
-            <dd>10:00AM – 4:00PM</dd>
-          </div>
           {% endblock %}
-        </dl>
+        </div>
         <div class="t-label s-stack-small">Library Hours are subject to change.</div>
         <div class="t-label s-stack-small">*Campus ID required 11pm-8am.</div>
         <div class="t-label">**Appointment required</div>

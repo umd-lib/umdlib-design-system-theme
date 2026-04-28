@@ -11,20 +11,23 @@
 
   // Initialize all tab containers on the page
   document.addEventListener("DOMContentLoaded", function () {
-    const tabContainers = document.querySelectorAll("[data-tabs-container]");
-    tabContainers.forEach(initializeTabs);
-
-    // Check if URL has hash that matches a tab
-    const hash = window.location.hash.substring(1);
-    if (hash) {
-      const tabWithHash = document.querySelector(
-        `[role="tab"][aria-controls="tabpanel-${hash}"]`
-      );
-      if (tabWithHash) {
-        const container = tabWithHash.closest("[data-tabs-container]");
-        selectTab(container, hash);
+    // Parse hash once before initializing so tabs open to the correct state from the start
+    const rawHash = window.location.hash.substring(1);
+    let hashConfig = null;
+    if (rawHash) {
+      if (rawHash.includes("--")) {
+        const sep = rawHash.indexOf("--");
+        hashConfig = {
+          containerId: rawHash.substring(0, sep),
+          tabValue: rawHash.substring(sep + 2),
+        };
+      } else {
+        hashConfig = { containerId: null, tabValue: rawHash };
       }
     }
+
+    const tabContainers = document.querySelectorAll("[data-tabs-container]");
+    tabContainers.forEach((container) => initializeTabs(container, hashConfig));
   });
 
   // Window resize handler - calls individual container handlers
@@ -40,8 +43,9 @@
   /**
    * Initialize a tab container
    * @param {HTMLElement} container - The tab container element
+   * @param {{containerId: string|null, tabValue: string}|null} hashConfig - Parsed URL hash
    */
-  function initializeTabs(container) {
+  function initializeTabs(container, hashConfig) {
     // Container-specific variables (moved from global scope)
     const triggerList = container.querySelector(".tabs--triggers");
     const triggers = container.querySelectorAll('[role="tab"]');
@@ -152,6 +156,9 @@
     // Store the resize handler
     resizeHandlers.set(container, containerResizeHandler);
 
+    // Best ID for URL hashing: prefer outer wrapper's componentid, fall back to container's own id
+    const urlHashId = container.parentElement?.id || container.id || null;
+
     // Set up event handlers for all triggers
     triggers.forEach((trigger) => {
       // Click handler
@@ -159,18 +166,32 @@
         event.preventDefault();
         const tabId = trigger.id.replace("tab-", "");
         selectTab(container, tabId);
-        updateURLHash(tabId);
+        updateURLHash(urlHashId, tabId);
       });
 
       // Keyboard handler
       trigger.addEventListener("keydown", (event) => {
-        handleKeyDown(event, container, isVertical);
+        handleKeyDown(event, container, isVertical, urlHashId);
       });
     });
 
-    // Initialize with default tab or first tab
+    // Determine if the URL hash targets a tab in this container
+    let hashTabValue = null;
+    if (hashConfig) {
+      const { containerId, tabValue } = hashConfig;
+      const containerMatches = !containerId ||
+        container.id === containerId ||
+        container.closest("#" + CSS.escape(containerId)) !== null;
+      if (containerMatches && container.querySelector(`#tab-${tabValue}`)) {
+        hashTabValue = tabValue;
+      }
+    }
+
+    // Hash tab takes priority over default tab
     let initialTabValue;
-    if (defaultTab && container.querySelector(`#tab-${defaultTab}`)) {
+    if (hashTabValue) {
+      initialTabValue = hashTabValue;
+    } else if (defaultTab && container.querySelector(`#tab-${defaultTab}`)) {
       initialTabValue = defaultTab;
     } else if (triggers.length > 0) {
       initialTabValue = triggers[0].id.replace("tab-", "");
@@ -178,6 +199,13 @@
 
     if (initialTabValue) {
       selectTab(container, initialTabValue);
+    }
+
+    // Scroll into view for compound hash (simple hash relies on browser's native scroll)
+    if (hashTabValue && hashConfig.containerId) {
+      const scrollTarget =
+        container.closest("#" + CSS.escape(hashConfig.containerId)) || container;
+      requestAnimationFrame(() => scrollTarget.scrollIntoView({ behavior: "smooth" }));
     }
 
     // Initial layout setup
@@ -192,8 +220,9 @@
    * @param {KeyboardEvent} event - The keyboard event
    * @param {HTMLElement} container - The tab container element
    * @param {boolean} isVertical - Whether the tabs are vertically oriented
+   * @param {string|null} urlHashId - Container ID used for URL hash formatting
    */
-  function handleKeyDown(event, container, isVertical) {
+  function handleKeyDown(event, container, isVertical, urlHashId) {
     const triggers = Array.from(container.querySelectorAll('[role="tab"]'));
     const currentTrigger = event.target;
     const currentIndex = triggers.indexOf(currentTrigger);
@@ -234,7 +263,7 @@
         event.preventDefault();
         const tabId = currentTrigger.id.replace("tab-", "");
         selectTab(container, tabId);
-        updateURLHash(tabId);
+        updateURLHash(urlHashId, tabId);
         break;
 
       case "PageUp":
@@ -329,13 +358,15 @@
 
   /**
    * Update URL hash to match selected tab for bookmarking/sharing
+   * @param {string|null} containerId - Container ID (produces compound hash when present)
    * @param {string} tabValue - Tab value to set in URL hash
    */
-  function updateURLHash(tabValue) {
+  function updateURLHash(containerId, tabValue) {
+    const hash = containerId ? `${containerId}--${tabValue}` : tabValue;
     if (history.pushState) {
-      history.pushState(null, null, `#${tabValue}`);
+      history.pushState(null, null, `#${hash}`);
     } else {
-      location.hash = tabValue;
+      location.hash = hash;
     }
   }
 })();

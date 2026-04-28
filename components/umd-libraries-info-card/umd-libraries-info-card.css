@@ -23,3 +23,9 @@
 .umd-lib.card.card--info:not(:has(.card--footer)) .card--details {
   margin-bottom: 0 !important;
 }
+
+@media (min-width: 1024px) {
+  .umd-lib.card {
+    max-width: 45rem;
+  }
+}

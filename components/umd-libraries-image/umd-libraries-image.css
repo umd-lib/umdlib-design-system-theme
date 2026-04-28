@@ -51,6 +51,22 @@
   padding-top: var(--space-xs);
 }
 
+/* support for the image in the wysiwyg editor to respect the actuall image size */
+.wysiwyg-editor .umd-lib.image {
+  width: auto; /* shrinks to fit content */
+  max-width: 100%; /* never exceeds container */
+  height: auto;
+  display: block;
+}
+
+.wysiwyg-editor .umd-lib.image .image--image {
+  width: auto; /* respects natural image width */
+  max-width: 100%; /* caps at container width */
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
 /* tablet */
 @media (min-width: 768px) {
   .umd-lib.image .image--caption > *:first-child {

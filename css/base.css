@@ -796,6 +796,17 @@ div:has(> table.table) {
   line-height: 1.71875rem;
 }
 
+.wysiwyg-editor > h1:first-child,
+.wysiwyg-editor > h2:first-child,
+.wysiwyg-editor > h3:first-child,
+.wysiwyg-editor > h4:first-child,
+.wysiwyg-editor > h1,
+.wysiwyg-editor > h2,
+.wysiwyg-editor > h3,
+.wysiwyg-editor > h4 {
+  margin-top: var(--space-lg);
+}
+
 @media (min-width: 768px) {
   .wysiwyg-editor > * {
     margin-bottom: var(--space-md);
@@ -864,6 +875,17 @@ div:has(> table.table) {
   .wysiwyg-editor h6 {
     font-size: 1.5rem;
     line-height: 1.875rem;
+  }
+
+  .wysiwyg-editor > h1:first-child,
+  .wysiwyg-editor > h2:first-child,
+  .wysiwyg-editor > h3:first-child,
+  .wysiwyg-editor > h4:first-child,
+  .wysiwyg-editor > h1,
+  .wysiwyg-editor > h2,
+  .wysiwyg-editor > h3,
+  .wysiwyg-editor > h4 {
+    margin-top: var(--space-xl);
   }
 }
 

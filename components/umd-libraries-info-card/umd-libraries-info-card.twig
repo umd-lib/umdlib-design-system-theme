@@ -10,7 +10,7 @@
 
 <div class="umd-lib www card card--info c-content-primary c-bg-secondary s-margin-general-medium s-box-medium-v s-box-medium-h" id="{{ componentid | default('') }}">
   <div class="card--content">
-    {% if title is defined and title is not empty %}
+    {% if card_title is defined and card_title is not empty %}
     <div class="card--title">
       <h{{ heading_level | slice(1) }} class="card--headline s-stack-small t-title-medium">
         {% block card_title %}{% endblock %}

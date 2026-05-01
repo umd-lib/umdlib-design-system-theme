@@ -31,7 +31,7 @@
 
 <li class="umd-lib navigation__menu-item utility-content utility-status" id="{{ title_text | lower | replace({' ': '-'}) }}">
   <a href="{{ title_url }}" class="navigation__menu-link">{{ title_text }} 
-    {% if error_number %}<div class="badge badge--error t-label">{{ error_number }}</div>{% endif %}
+    {% if error_number %}<div class="badge badge--ok t-label">{{ error_number }}</div>{% endif %}
   </a>
   <button
     class="navigation__submenu-button"

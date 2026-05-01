@@ -60,48 +60,48 @@
         </ul>
       {% endif %}
       {# System Status #}
-      <section aria-label="Library system status as of {{ 'now'|date('F j, Y \\a\\t g:iA') }}" class="c-bg-secondary s-box-medium-v s-box-medium-h">
-        <div class="t-title-small s-stack-medium" aria-hidden="true">{{ 'now'|date('F j, Y \\a\\t g:iA') }}</div>
-        <ul class="navigation__utility_system-status-list">
-          {% block status_slot %}
-            {# all system are operational #}
-            <li class="navigation__utility_system-status-item s-stack-small">
-              <div class="navigation__utility_system-status-item-status t-body-small">
-                <span class="navigation__utility_system-status-item-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M7.65 12.59L18.51 0L18.92 5.21C14.7453 10.0994 12.4047 12.8406 8.23 17.73L7.99 17.53L7.87 17.67L0 11.25L4.8 10.26L7.65 12.58V12.59Z" fill="#037623"/>
-                  </svg>
-                </span>
-                All Systems are Operational
-              </div>
-            </li>
-            {# If there are system errors, display the list of affected services. #}
-            <li class="navigation__utility_system-status-item s-stack-small  t-body-small">
-              <div class="navigation__utility_system-status-item-status t-body-small">
-                <span class="navigation__utility_system-status-item-icon">
+      {% block status_slot %}
+        <section aria-label="Library system status as of {{ 'now'|date('F j, Y \\a\\t g:iA') }}" class="c-bg-secondary s-box-medium-v s-box-medium-h">
+          <div class="t-title-small s-stack-medium" aria-hidden="true">{{ 'now'|date('F j, Y \\a\\t g:iA') }}</div>
+            <ul class="navigation__utility_system-status-list">
+              {# all system are operational #}
+              <li class="navigation__utility_system-status-item s-stack-small">
+                <div class="navigation__utility_system-status-item-status t-body-small">
+                  <span class="navigation__utility_system-status-item-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M7.65 12.59L18.51 0L18.92 5.21C14.7453 10.0994 12.4047 12.8406 8.23 17.73L7.99 17.53L7.87 17.67L0 11.25L4.8 10.26L7.65 12.58V12.59Z" fill="#037623"/>
+                    </svg>
+                  </span>
+                  All Systems are Operational
+                </div>
+              </li>
+              {# If there are system errors, display the list of affected services. #}
+              <li class="navigation__utility_system-status-item s-stack-small  t-body-small">
+                <div class="navigation__utility_system-status-item-status t-body-small">
+                  <span class="navigation__utility_system-status-item-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="4" height="17" viewBox="0 0 4 17" fill="none">
                       <path d="M3.5 0H0V11.38H3.5V0Z" fill="#E21833"/>
                       <path d="M3.5 13.38H0V16.88H3.5V13.38Z" fill="#E21833"/>
                     </svg>
-                </span>
-                Web of Science
-              </div>
-            </li>
-            <li class="navigation__utility_system-status-item s-stack-small t-body-small">
-              <div class="navigation__utility_system-status-item-status t-body-small">
-                <span class="navigation__utility_system-status-item-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="4" height="17" viewBox="0 0 4 17" fill="none">
-                    <path d="M3.5 0H0V11.38H3.5V0Z" fill="#E21833"/>
+                  </span>
+                  Web of Science
+                </div>
+              </li>
+              <li class="navigation__utility_system-status-item s-stack-small t-body-small">
+                <div class="navigation__utility_system-status-item-status t-body-small">
+                  <span class="navigation__utility_system-status-item-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="4" height="17" viewBox="0 0 4 17" fill="none">
+                      <path d="M3.5 0H0V11.38H3.5V0Z" fill="#E21833"/>
                       <path d="M3.5 13.38H0V16.88H3.5V13.38Z" fill="#E21833"/>
-                  </svg>
-                </span>
-                Harvard Education Review
-              </div>
-            </li>
-          {% endblock %}
-        </ul>
-      </section>
-    </div>
+                    </svg>
+                  </span>
+                  Harvard Education Review
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+      {% endblock %}
     <div class="navigation__submenu-header">
       <button class="navigation__back-button">
         <span class="i-chevron-down"></span>

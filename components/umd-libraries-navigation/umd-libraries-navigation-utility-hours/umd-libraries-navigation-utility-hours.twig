@@ -22,7 +22,7 @@
 {% set link_text = link_text|trim ?: "All Libraries Hours" %}
 
 {% set link_url %}{% block link_url %}{% endblock %}{% endset %}
-{% set link_url = link_urls | trim %}
+{% set link_url = link_url | trim %}
 
 
 <li class="umd-lib navigation__menu-item utility-content utility-hours" id="{{ title_text | lower | replace({' ': '-'}) }}">

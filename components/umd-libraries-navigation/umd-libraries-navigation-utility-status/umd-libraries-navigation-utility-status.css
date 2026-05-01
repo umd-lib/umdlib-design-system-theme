@@ -47,8 +47,131 @@
   margin-bottom: 0;
 }
 
+/* /about/systems style update for the springshare embed */
+.umd-lib #s-la-widget-st-213 {
+  border: none;
+  padding: 0;
+}
+
+/* section label */
+.umd-lib #s-la-widget-st-213 #s-la-widget-st-label {
+  display: none;
+}
+
+.umd-lib #s-la-widget-st-213 a {
+  text-decoration: underline;
+}
+
+/* bottom link to springshare */
+.umd-lib #s-la-widget-st-213 .s-la-widget-st-dashlink {
+  display: none;
+}
+
+.umd-lib #s-la-widget-st-213 .s-la-widget-st-list li {
+  border: none;
+  padding-top: var(--space-sm);
+  padding-bottom: var(--space-sm);
+  padding-left: var(--space-2xl);
+  padding-right: var(--space-md);
+  margin: 0;
+
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.umd-lib #s-la-widget-st-213 .s-la-widget-st-list li:first-child {
+  border-top: 1px solid var(--light-gray);
+}
+
+.umd-lib #s-la-widget-st-213 .s-la-widget-st-list li:hover {
+  background-color: var(--lighest-gray);
+}
+
+/* databases with a list in folder */
+.umd-lib
+  #s-la-widget-st-213
+  .s-la-widget-st-list
+  li.s-la-productfolder-div
+  > a {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.umd-lib
+  #s-la-widget-st-213
+  .s-la-widget-st-list
+  li.s-la-productfolder-div:has(ol[aria-hidden="false"]) {
+  padding-bottom: 0;
+}
+
+.umd-lib #s-la-widget-st-213 .s-la-widget-st-list li.s-la-productfolder-div ol {
+  margin-top: var(--space-sm);
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+.umd-lib
+  #s-la-widget-st-213
+  .s-la-widget-st-list
+  li.s-la-productfolder-div
+  ol
+  li:last-child {
+  border: none;
+}
+
+/* status badge */
+.umd-lib #s-la-widget-st-213 .s-la-widget-st-list li .s-la-float-right {
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+}
+
+.umd-lib #s-la-widget-st-213 .s-la-widget-st-list li .s-la-product-status {
+  border-radius: 0;
+  font-size: 0.875rem;
+  line-height: 1.12rem;
+  padding: 4px 8px;
+}
+
+.umd-lib
+  #s-la-widget-st-213
+  .s-la-widget-st-list
+  li
+  .s-la-product-status.label-danger {
+  background-color: var(--maryland-red);
+  color: var(--white);
+}
+
+.umd-lib
+  #s-la-widget-st-213
+  .s-la-widget-st-list
+  li
+  .s-la-product-status.label-success {
+  background-color: #037623;
+  color: var(--white);
+}
+
 @media (min-width: 768px) {
   .navigation__row-sec .navigation__submenu.utility-status {
     min-width: 320px;
+  }
+
+  .umd-lib #s-la-widget-st-213 .s-la-widget-st-list li {
+    padding-top: var(--space-md);
+    padding-bottom: var(--space-md);
+    padding-left: 4.5rem;
+    padding-right: var(--space-md);
+  }
+
+  .umd-lib
+    #s-la-widget-st-213
+    .s-la-widget-st-list
+    li.s-la-productfolder-div
+    ol {
+    margin-top: var(--space-md);
+  }
+
+  .umd-lib #s-la-widget-st-213 .s-la-widget-st-list li .s-la-float-right {
+    margin-top: 0;
+    margin-left: 0;
   }
 }

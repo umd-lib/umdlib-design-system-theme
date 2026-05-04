@@ -34,6 +34,25 @@
 
 {#
 /**
+ * Utility menu supports one level
+ * The <ul> is provided by the component.
+ */
+#}
+{% macro utility_menu_links(items, attributes, menu_level) %}
+  {% if items %}
+    {% if menu_level == 0 %}
+      {% for item in items %}
+        <li class="navigation__submenu-item utility-general-item">
+          {{ link(item.title, item.url, { 'class':['navigation__submenu-link', 'ani-underline', 'c-underline-primary', 't-body-small'] }) }}
+        </li>
+      {% endfor %}
+    {% endif %}
+  {% endif %}
+{% endmacro %}
+
+
+{#
+/**
  * Legal menu supports one level
  */
 #}

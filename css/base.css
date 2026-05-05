@@ -637,12 +637,13 @@ strong {
   margin-bottom: var(--space-sm);
 }
 
+/* why not enforce !important - in the page content, by adding this, there will be on top margin for the heading. */
 .wysiwyg-editor > *:first-child {
   margin-top: 0;
 }
 
 .wysiwyg-editor > *:last-child {
-  margin-bottom: 0;
+  margin-bottom: 0 !important;
 }
 
 .wysiwyg-editor strong {
@@ -796,15 +797,22 @@ div:has(> table.table) {
   line-height: 1.71875rem;
 }
 
-.wysiwyg-editor > h1:first-child,
-.wysiwyg-editor > h2:first-child,
-.wysiwyg-editor > h3:first-child,
-.wysiwyg-editor > h4:first-child,
 .wysiwyg-editor > h1,
 .wysiwyg-editor > h2,
 .wysiwyg-editor > h3,
 .wysiwyg-editor > h4 {
   margin-top: var(--space-lg);
+}
+
+.accordion-child--body.wysiwyg-editor > h1:first-child,
+.accordion-child--body.wysiwyg-editor > h2:first-child,
+.accordion-child--body.wysiwyg-editor > h3:first-child,
+.accordion-child--body.wysiwyg-editor > h4:first-child,
+.umd-lib .tab--panel .wysiwyg-editor > h1:first-child,
+.umd-lib .tab--panel .wysiwyg-editor > h2:first-child,
+.umd-lib .tab--panel .wysiwyg-editor > h3:first-child,
+.umd-lib .tab--panel .wysiwyg-editor > h4:first-child {
+  margin-top: 0;
 }
 
 @media (min-width: 768px) {
@@ -877,10 +885,6 @@ div:has(> table.table) {
     line-height: 1.875rem;
   }
 
-  .wysiwyg-editor > h1:first-child,
-  .wysiwyg-editor > h2:first-child,
-  .wysiwyg-editor > h3:first-child,
-  .wysiwyg-editor > h4:first-child,
   .wysiwyg-editor > h1,
   .wysiwyg-editor > h2,
   .wysiwyg-editor > h3,

@@ -19,9 +19,12 @@
   border-color: var(--maryland-red);
 }
 
-.accordion-child--headline:hover span,
-.accordion-child--headline:focus span,
-.accordion-child--headline[aria-expanded="true"] span {
+.accordion-child--headline:hover div,
+.accordion-child--headline:hover div p,
+.accordion-child--headline:focus div,
+.accordion-child--headline:focus div p,
+.accordion-child--headline[aria-expanded="true"] div,
+.accordion-child--headline[aria-expanded="true"] div p {
   color: var(--maryland-red);
 }
 

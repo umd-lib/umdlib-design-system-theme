@@ -14,6 +14,7 @@
  * - eyebrow: The eyebrow of the card
  * - card_title: The title of the card
  * - card_url: The URL the card links to
+ * - card_url_optional: Set to true to allow the card to render without a card_url
  * - description: The description of the card
  * - card_date: The date of the card
  * - icon_name: The name of the icon to display (for icon variant)
@@ -24,9 +25,10 @@
 {% set selectedVariant = variant | default('standard') %}
 
 {# Check required fields based on variant #}
-{% set standardRequirements = (selectedVariant == 'standard' and card_title is defined and card_url is defined and card_image is defined and card_image_alt is defined) %}
-{% set overlayRequirements = (selectedVariant == 'overlay' and card_title is defined and card_url is defined) %}
-{% set iconRequirements = (selectedVariant == 'icon' and card_title is defined and card_url is defined and icon_name is defined and icon_name is not empty) %}
+{% set urlRequired = card_url_optional is not defined or not card_url_optional %}
+{% set standardRequirements = (selectedVariant == 'standard' and card_title is defined and (not urlRequired or card_url is defined) and card_image is defined and card_image_alt is defined) %}
+{% set overlayRequirements = (selectedVariant == 'overlay' and card_title is defined and (not urlRequired or card_url is defined)) %}
+{% set iconRequirements = (selectedVariant == 'icon' and card_title is defined and (not urlRequired or card_url is defined) and icon_name is defined and icon_name is not empty) %}
 
 {% set validVariant = (selectedVariant == 'standard' and standardRequirements) 
                     or (selectedVariant == 'overlay' and overlayRequirements) 
@@ -126,9 +128,9 @@
     {% set errors = errors | merge(['Card Title']) %}
   {% endif %}
 
-  {% if card_url is not defined %}
+  {# {% if card_url is not defined %}
     {% set errors = errors | merge(['Card Link URL']) %}
-  {% endif %}
+  {% endif %} #}
 
   {# Log the errors #}
   {% if errors is not empty %}

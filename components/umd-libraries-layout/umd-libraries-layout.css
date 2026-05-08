@@ -98,8 +98,8 @@
     .card-group.layout--3-column
     .card-group-content.homepage-news {
     grid-template-columns:
-      calc((100% - 4rem) * 0.5) calc((100% - 4rem) * 0.25)
-      calc((100% - 4rem) * 0.25);
+      calc((100% * 0.5) - 1rem) calc((100% * 0.25) - 1.5rem)
+      calc((100% * 0.25) - 1.5rem);
   }
 }
 

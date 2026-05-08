@@ -118,6 +118,10 @@
     height: 100%;
   }
 
+  .homepage-news
+    .umd-lib.card--standard:first-child
+    .card--content
+    .card--eyebrow,
   .homepage-news .umd-lib.card--standard:first-child .card--content .card--link,
   .homepage-news .umd-lib.card--standard:first-child .card--content .card--text,
   .homepage-news
@@ -140,6 +144,7 @@
     .card--details {
     margin: 0;
   }
+
   .homepage-news .umd-lib.card--standard:first-child .card--image {
     position: absolute;
     bottom: 0;

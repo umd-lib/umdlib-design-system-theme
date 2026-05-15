@@ -798,12 +798,17 @@ div:has(> table.table) {
 }
 
 .wysiwyg-editor > h1,
+.wysiwyg-editor > h1:first-child,
 .wysiwyg-editor > h2,
+.wysiwyg-editor > h2:first-child,
 .wysiwyg-editor > h3,
-.wysiwyg-editor > h4 {
+.wysiwyg-editor > h3:first-child,
+.wysiwyg-editor > h4,
+.wysiwyg-editor > h4:first-child {
   margin-top: var(--space-lg);
 }
 
+/* first heading in accordion, tab and table should have 0 top margin */
 .accordion-child--body.wysiwyg-editor > h1:first-child,
 .accordion-child--body.wysiwyg-editor > h2:first-child,
 .accordion-child--body.wysiwyg-editor > h3:first-child,
@@ -811,7 +816,15 @@ div:has(> table.table) {
 .umd-lib .tab--panel .wysiwyg-editor > h1:first-child,
 .umd-lib .tab--panel .wysiwyg-editor > h2:first-child,
 .umd-lib .tab--panel .wysiwyg-editor > h3:first-child,
-.umd-lib .tab--panel .wysiwyg-editor > h4:first-child {
+.umd-lib .tab--panel .wysiwyg-editor > h4:first-child,
+.wysiwyg-editor th > h1:first-child,
+.wysiwyg-editor td > h1:first-child,
+.wysiwyg-editor th > h2:first-child,
+.wysiwyg-editor td > h2:first-child,
+.wysiwyg-editor th > h3:first-child,
+.wysiwyg-editor td > h3:first-child,
+.wysiwyg-editor th > h4:first-child,
+.wysiwyg-editor td > h4:first-child {
   margin-top: 0;
 }
 
@@ -885,10 +898,15 @@ div:has(> table.table) {
     line-height: 1.875rem;
   }
 
+  /* overwrite 0 top margin for the first child in wysiwyg editor */
   .wysiwyg-editor > h1,
+  .wysiwyg-editor > h1:first-child,
   .wysiwyg-editor > h2,
+  .wysiwyg-editor > h2:first-child,
   .wysiwyg-editor > h3,
-  .wysiwyg-editor > h4 {
+  .wysiwyg-editor > h3:first-child,
+  .wysiwyg-editor > h4,
+  .wysiwyg-editor > h4:first-child {
     margin-top: var(--space-xl);
   }
 }

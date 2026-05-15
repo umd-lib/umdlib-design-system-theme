@@ -57,7 +57,6 @@
   width: auto; /* shrinks to fit content */
   max-width: 100%; /* never exceeds container */
   height: auto;
-  max-width: 100%;
 }
 
 .wysiwyg-editor .umd-lib.image .image--image {

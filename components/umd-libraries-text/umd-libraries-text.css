@@ -1,0 +1,47 @@
+/* add support the springshare  */
+/* title */
+h3.s-lc-ea-h3 {
+  display: none;
+}
+
+/* event detail - table */
+.s-lc-ea-tb {
+  width: 100%;
+  border-bottom: none !important;
+  font: inherit !important;
+}
+
+.s-lc-ea-tb td,
+.s-lc-ea-tb td > * {
+  padding-bottom: var(--space-sm) !important;
+  font-size: 1rem !important;
+}
+
+.s-lc-ea-tb tr:last-child td,
+.s-lc-ea-tb td > *:last-child {
+  padding-bottom: 0 !important;
+}
+
+.s-lc-ea-l {
+  font-weight: 700 !important;
+  width: 9rem !important;
+}
+
+@media (min-width: 768px) {
+  .s-lc-ea-tb td,
+  .s-lc-ea-tb td > * {
+    padding-bottom: var(--space-md) !important;
+    font-size: 1.125rem !important;
+  }
+}
+
+/* no event */
+.s-lc-ea-noe {
+  font-size: 1rem !important;
+}
+
+@media (min-width: 768px) {
+  .s-lc-ea-noe {
+    font-size: 1.125rem !important;
+  }
+}

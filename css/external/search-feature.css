@@ -290,7 +290,7 @@ search-result-element-umd-libraries article img {
 }
 
 search-result-element-umd-libraries article.orientation-right img {
-  aspect-ratio: 4/3;
+  aspect-ratio: 1/1;
   object-fit: cover;
 }
 
@@ -298,7 +298,12 @@ search-result-element-umd-libraries article .item-detail {
   flex-grow: 1;
 }
 
-search-result-element-umd-libraries article .item-detail .item-title a::after,
+/* Expand the clickable area to the full list item for standalone search results and the orientation-left result item with left-aligned images (mainly Digital Collections). For the orientation-right item (Space, Equipment, and Directory results), do not expand the clickable area because descriptions may contain additional links. */
+search-result-element-umd-libraries
+  article.orientation-left
+  .item-detail
+  .item-title
+  a::after,
 standalone-search-results article .item-detail .item-title a::after {
   content: "";
   position: absolute;

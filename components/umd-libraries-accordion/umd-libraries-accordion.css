@@ -4,7 +4,7 @@
   display: flex;
   padding-right: 3.5rem !important;
 
-  border-top: 0.125rem solid var(--lighest-gray);
+  border-top: 0.125rem solid var(--lightest-gray);
 
   transition: all 0.3s ease-in-out;
 

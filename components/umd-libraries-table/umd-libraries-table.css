@@ -36,7 +36,7 @@ div:has(> table.umd-lib.table--container) {
 
 .table--body-row:hover,
 .table--body-row:focus {
-  background-color: var(--lighest-gray);
+  background-color: var(--lightest-gray);
 }
 
 .table--body-row .table--cell,

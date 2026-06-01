@@ -285,6 +285,10 @@ search-result-element-umd-libraries article {
   position: relative;
 }
 
+search-result-element-umd-libraries article .is-eyebrow {
+  margin-bottom: 0.5rem;
+}
+
 search-result-element-umd-libraries article img {
   width: auto;
 }
@@ -292,6 +296,13 @@ search-result-element-umd-libraries article img {
 search-result-element-umd-libraries article.orientation-right img {
   aspect-ratio: 1/1;
   object-fit: cover;
+}
+
+search-results.news
+  search-result-element-umd-libraries
+  article.orientation-right
+  img {
+  aspect-ratio: 2/1;
 }
 
 search-result-element-umd-libraries article .item-detail {

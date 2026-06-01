@@ -156,6 +156,11 @@
   width: 100%;
 }
 
+/* when there is no image for the person when using the person block, hide the image entirely */
+.person--card-image:has(img[src=""]) {
+  display: none;
+}
+
 .person--card-image img {
   width: 100%;
   height: auto;

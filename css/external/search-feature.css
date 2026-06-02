@@ -302,20 +302,26 @@ search-results.news
   search-result-element-umd-libraries
   article.orientation-right
   img {
-  aspect-ratio: 2/1;
+  aspect-ratio: 3/2;
 }
 
 search-result-element-umd-libraries article .item-detail {
   flex-grow: 1;
 }
 
-/* Expand the clickable area to the full list item for standalone search results and the orientation-left result item with left-aligned images (mainly Digital Collections). For the orientation-right item (Space, Equipment, and Directory results), do not expand the clickable area because descriptions may contain additional links. */
+/* Expand the clickable area to the full list item for standalone search results and the orientation-left result item with left-aligned images (mainly Digital Collections) and the news item in the list. For the orientation-right item (Space, Equipment, and Directory results), do not expand the clickable area because descriptions may contain additional links. */
 search-result-element-umd-libraries
   article.orientation-left
   .item-detail
   .item-title
   a::after,
-standalone-search-results article .item-detail .item-title a::after {
+standalone-search-results article .item-detail .item-title a::after,
+search-results.news
+  search-result-element-umd-libraries
+  article.orientation-right
+  .item-detail
+  .item-title
+  a::after {
   content: "";
   position: absolute;
   left: 0;

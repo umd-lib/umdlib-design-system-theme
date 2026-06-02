@@ -274,7 +274,7 @@
     width: fit-content;
     padding: 0.25rem 0.5rem;
     background-color: rgba(0, 0, 0, 0.6);
-    color: #ffffff;
+    color: #ffffff; /* on fixed dark image overlay — theme-independent, intentionally not tokenized */
     text-align: end;
     z-index: 3;
   }

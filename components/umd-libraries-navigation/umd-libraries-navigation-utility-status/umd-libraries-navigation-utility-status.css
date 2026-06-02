@@ -38,6 +38,9 @@
   width: 1.5rem;
   height: 1.5rem;
 
+  min-width: 1.5rem;
+  max-width: 1.5rem;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -146,7 +149,7 @@
   .s-la-widget-st-list
   li
   .s-la-product-status.label-success {
-  background-color: #037623;
+  background-color: var(--green);
   color: var(--white);
 }
 

@@ -22,7 +22,7 @@
 
 .quote--text {
   padding-left: 1rem;
-  border-left: 2px solid #e21833;
+  border-left: 2px solid var(--maryland-red);
 }
 
 .quote--text:last-child {

@@ -396,6 +396,10 @@ standalone-search-results article .item-detail .item-fields > div {
   text-overflow: ellipsis;
 }
 
+standalone-search-results article {
+  position: relative;
+}
+
 /* bento search footer link */
 .bento-search .emphasized-link {
   width: fit-content;
@@ -455,6 +459,12 @@ standalone-search-results article .item-detail .item-fields > div {
 .bento-search .bento-search-loading-animation .loading-item .loading-meta {
   width: 80%;
   height: 1.12rem;
+}
+
+/* customization for Search All on WWW */
+/* hide best bet when there is no result */
+div:has(> standalone-search-results .bento-block-standalone-bestbets-0) {
+  display: none !important;
 }
 
 @keyframes loading {

@@ -362,8 +362,6 @@ Special cases worth noting:
 
 - `umd-libraries-text` and `umd-libraries-event` carry **Springshare LibCal**
   overrides (`.s-lc-ea-*` selectors) styled to match the token system.
-- `umd-www-card` is a thin variant layered on top of `.umd-lib.card` (shares the
-  base card structure, adds `card--info` / `card--footer`).
 - `.wysiwyg-editor` in `base.css` is a "prose" reset that re‑applies the type
   ramp and spacing tokens to author‑entered HTML (headings, lists, tables) so
   free‑form content matches the system automatically.

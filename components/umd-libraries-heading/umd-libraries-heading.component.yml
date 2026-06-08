@@ -40,6 +40,11 @@ props:
       title: Top Margin
       description: Whether to add top margin to the heading, unchecked if the heading is the first item in the content or underneath the breadcrumb.
       default: true
+    screen_reader_only:
+      type: boolean
+      title: Screen Reader Only
+      description: Whether this heading is only for screen readers. This will visually hide the heading but it will still be read by screen readers.
+      default: false
     componentid:
       type: string
       title: Component ID

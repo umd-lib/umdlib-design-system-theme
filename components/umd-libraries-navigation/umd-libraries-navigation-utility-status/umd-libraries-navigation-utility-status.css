@@ -135,6 +135,7 @@
   padding: 4px 8px;
 }
 
+/* service down */
 .umd-lib
   #s-la-widget-st-213
   .s-la-widget-st-list
@@ -144,6 +145,7 @@
   color: var(--white);
 }
 
+/* normal */
 .umd-lib
   #s-la-widget-st-213
   .s-la-widget-st-list
@@ -151,6 +153,16 @@
   .s-la-product-status.label-success {
   background-color: var(--green);
   color: var(--white);
+}
+
+/* maintenance schedule */
+.umd-lib
+  #s-la-widget-st-213
+  .s-la-widget-st-list
+  li
+  .s-la-product-status.label-prodstatus-852 {
+  background-color: var(--maryland-yellow);
+  color: var(--black);
 }
 
 @media (min-width: 768px) {

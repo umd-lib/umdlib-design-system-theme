@@ -95,6 +95,11 @@
   flex-direction: column;
 }
 
+/* to hide the usless gap between columns, when column layout is used but there are no components places inside */
+.umd-lib-layout.layout--custom .main-column .col-child:has(> div:empty) {
+  display: none;
+}
+
 /* layout - card group */
 .umd-lib-layout.layout--custom
   .main-column

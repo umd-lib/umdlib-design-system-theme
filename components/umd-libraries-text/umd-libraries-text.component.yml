@@ -11,6 +11,10 @@ props:
       type: string
       title: Component ID
       description: (Optional) An ID to use for the component. This can be used for section referencing.
+    component_class:
+      type: string
+      title: CSS Class
+      description: (Optional) A CSS class to apply to the component.
 
 slots:
   body_text_slot:

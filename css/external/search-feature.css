@@ -326,7 +326,8 @@ search-results.news
   article.orientation-right
   .item-detail
   .item-title
-  a::after {
+  a::after,
+.bento-search .bento-search-result-item article .item-title a::after {
   content: "";
   position: absolute;
   left: 0;
@@ -402,7 +403,8 @@ more-searchers ul li .item-fields > div {
   text-overflow: ellipsis;
 }
 
-standalone-search-results article {
+standalone-search-results article,
+.bento-search .bento-search-result-item article {
   position: relative;
 }
 

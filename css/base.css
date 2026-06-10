@@ -1140,7 +1140,9 @@ div:has(> table.table) {
 }
 
 .t-bold,
-.t-bold * {
+.t-bold *,
+.t-interactive-sub,
+.t-interactive-sub * {
   font-weight: 700 !important;
 }
 

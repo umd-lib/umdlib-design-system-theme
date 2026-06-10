@@ -41,6 +41,11 @@
   background-position-y: center;
 }
 
+/* description in the search box */
+.search-box p.description {
+  margin-top: 0.5rem;
+}
+
 /* reusable search box */
 .reusable-search-box .search-box-action-area {
   align-items: end;
@@ -339,7 +344,8 @@ standalone-search-results article .item-detail .item-fields {
 
 /* metadata fields */
 search-result-element-umd-libraries article .item-detail .item-fields > div,
-standalone-search-results article .item-detail .item-fields > div {
+standalone-search-results article .item-detail .item-fields > div,
+more-searchers ul li .item-fields > div {
   display: grid;
   grid-template-columns: 9rem 1fr;
   column-gap: 0;
@@ -467,6 +473,46 @@ div:has(> standalone-search-results .bento-block-standalone-bestbets-0) {
   display: none !important;
 }
 
+/* sidebar facet using <more-searchers> */
+more-searchers section.collapsible button.bento-search-header {
+  width: 100%;
+}
+
+more-searchers
+  section.collapsible
+  button.bento-search-header
+  span.i-chevron-down {
+  margin-left: auto;
+  transition: all 0.3s;
+}
+
+more-searchers
+  section.collapsible
+  button.bento-search-header.collapsible.open
+  span.i-chevron-down {
+  rotate: 180deg;
+}
+
+more-searchers section.collapsible ul li:first-child {
+  padding-top: 0;
+}
+
+/* sidebar information */
+.bento-sidebar-info {
+  padding: 1rem;
+  background-color: var(--lightest-gray);
+}
+
+.bento-sidebar-info p {
+  font-size: 0.875rem;
+  line-height: 1.12rem; /* 128% */
+}
+
+.bento-sidebar-info button {
+  text-decoration: underline;
+  color: var(--black);
+}
+
 @keyframes loading {
   0% {
     background-position: 200% 0;
@@ -524,6 +570,11 @@ div:has(> standalone-search-results .bento-block-standalone-bestbets-0) {
 /* breakpoint */
 /* Tablet */
 @media (min-width: 768px) {
+  /* search box */
+  .search-box p.description {
+    margin-top: 1rem;
+  }
+
   /* search result toolbar */
   .search-result-toolbar {
     align-items: center;

@@ -495,7 +495,7 @@ more-searchers
   rotate: 180deg;
 }
 
-more-searchers section.collapsible ul li:first-child {
+more-searchers section.collapsible ul li {
   padding-top: 0;
 }
 

@@ -475,6 +475,11 @@ div:has(> standalone-search-results .bento-block-standalone-bestbets-0) {
   display: none !important;
 }
 
+#layout-builder
+  div:has(> standalone-search-results .bento-block-standalone-bestbets-0) {
+  display: block !important;
+}
+
 /* sidebar facet using <more-searchers> */
 more-searchers section.collapsible button.bento-search-header {
   width: 100%;

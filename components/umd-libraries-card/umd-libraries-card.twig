@@ -29,7 +29,7 @@
 {% set urlRequired = card_url_optional is not defined or not card_url_optional %}
 {% set standardRequirements = (selectedVariant == 'standard' and card_title is defined and (not urlRequired or card_url is defined) and card_image is defined and card_image_alt is defined) %}
 {% set overlayRequirements = (selectedVariant == 'overlay' and card_title is defined and (not urlRequired or card_url is defined)) %}
-{% set iconRequirements = (selectedVariant == 'icon' and card_title is defined and (not urlRequired or card_url is defined) and ((icon_name is defined and icon_name is not empty) or (icon_slot is defined and icon_slot is not empty))) %}
+{% set iconRequirements = (selectedVariant == 'icon' and card_title is defined and (not urlRequired or card_url is defined)) %}
 
 {% set validVariant = (selectedVariant == 'standard' and standardRequirements) 
                     or (selectedVariant == 'overlay' and overlayRequirements) 
@@ -100,7 +100,7 @@
       {# Icon display for icon variant #}
       {% if selectedVariant == 'icon' %}
         <div class="card--content-icon">
-          <i data-lucide={{ icon_slot or icon_name }} class="card--icon-lucide"></i>
+          <i data-lucide={% block icon_slot %}{{ icon_name|default('info') }}{% endblock %} class="card--icon-lucide"></i>
         </div>
       {% endif %}
     </div>
@@ -116,12 +116,6 @@
 
     {% if card_image_alt is not defined %}
       {% set errors = errors | merge(['Card Image Alt']) %}
-    {% endif %}
-  {% endif %}
-
-  {% if selectedVariant == 'icon' %}
-    {% if (icon_name is not defined or icon_name is empty) or (icon_slot is not defined or icon_slot is empty) %}
-      {% set errors = errors | merge(['Icon Name']) %}
     {% endif %}
   {% endif %}
 

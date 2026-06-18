@@ -26,8 +26,8 @@ props:
       default: standard
     icon_name:
       type: string
-      title: Icon Name (Lucide Icons)
-      description: Name of the icon to display in the card (only for icon variant), please refer to Lucide icons documentation for available icons.
+      title: Icon Name (Deprecated)
+      description: Deprecated. Use icon_slot.
     heading_level:
       type: string
       title: Heading Level
@@ -64,3 +64,6 @@ slots:
     description: Use the format "Month Date, Year" (e.g., "July 4, 2025")
   description:
     title: Description (Text String)
+  icon_slot:
+    title: Icon Name (Lucide Icons name)
+    description: Name of the icon to display in the card (only for icon variant), please refer to Lucide icons documentation for available icons.

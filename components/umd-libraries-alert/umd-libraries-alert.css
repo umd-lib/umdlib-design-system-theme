@@ -35,3 +35,50 @@
 .alert--button-close svg {
   height: 1.5rem;
 }
+
+/* specific customizations for site-wide alerts with an image, and different style */
+.alert--content-with-image {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--space-sm);
+  align-items: stretch;
+}
+
+.alert--content-text {
+  flex: 1;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.alert--image {
+  flex-shrink: 0;
+  max-width: 100%;
+  aspect-ratio: 3 / 2;
+  align-self: flex-start;
+  overflow: hidden;
+}
+
+.alert--image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.alert--site_wide.information {
+  background-color: var(--lightest-gray);
+}
+
+@media (min-width: 768px) {
+  .alert--content-with-image {
+    flex-direction: row;
+    gap: var(--space-md);
+  }
+
+  .alert--image {
+    max-width: 300px;
+  }
+}

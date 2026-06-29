@@ -18,11 +18,25 @@
 {# Get the variant, defaulting to standard if not specified #}
 {% set selectedVariant = variant | default('in_page') %}
 
-{% if title is defined %}
+{# Single source of truth: render the image only on site-wide alerts that supply
+   both the image and its alt text. #}
+{% set has_image = selectedVariant == 'site_wide' and alert_image is defined and alert_image_alt is defined %}
+
+{# missing fields #}
+{% set errors = [] %}
+{% if title is not defined or title is empty %}
+  {% set errors = errors | merge(['Alert Title']) %}
+{% endif %}
+{% if selectedVariant == 'site_wide' and alert_image is defined and not has_image %}
+  {% set errors = errors | merge(['Alert Image Alt Text']) %}
+{% endif %}
+
+{# component content #}
+{% if errors is empty %}
 {% set alertId = componentid | default('alert-' ~ random()) %}
 <div 
   {% if selectedVariant == 'in_page' %}role="note" {% else %}role="region"{% endif %}
-  class="umd-lib alert alert--{{ selectedVariant }}" 
+  class="umd-lib alert alert--{{ selectedVariant }} {% if selectedVariant == 'site_wide' and site_wide_alert_customization_class is defined %}{{ site_wide_alert_customization_class }}{% endif %}" 
   aria-labelledby="{{ alertId }}-title"
   id="{{ alertId }}">
   <div class="alert--container {% if selectedVariant == 'site_wide' %}s-box-page-medium-h s-center s-page-lock {% else %} s-margin-general-medium {% endif %}">
@@ -44,17 +58,30 @@
         {% endif %}
       </div>
       
+      {% if has_image %}
+        <div class="alert--content-with-image">
+         <div class="alert--content-text">
+      {% endif %}
+      
       {% if alert_description is defined and alert_description is not empty %}
-        <div class="alert--description {% if link_text and link_url %}s-stack-medium{% endif %} wysiwyg-editor">
+        <div class="alert--description {% if link_text is not empty and link_url is not empty %}s-stack-medium{% endif %} wysiwyg-editor">
           {% block alert_description %} {% endblock %}
         </div>
       {% endif %}
 
-      {% if link_text is defined and link_url is defined %}
+      {% if link_text is not empty and link_url is not empty %}
         {% include 'umdlib_umdds:umd-libraries-emphasized-link' with {
           'link_text': link_text,
           'link_url': link_url,
         } only %}
+      {% endif %}
+
+      {% if has_image %}
+        </div>
+        <div class="alert--image">
+          <img src="{{ alert_image }}" alt="{{ alert_image_alt }}" loading="lazy">
+        </div>
+        </div>
       {% endif %}
 
       {% if selectedVariant == 'site_wide' %}
@@ -72,6 +99,6 @@
 
 {% else %}
   {# variable error handling #}
-  <div class="c-content-interactive-primary c-bg-interactive-primary s-box-small-h"> [ERROR] - UMD Libraries Alert / Variant - {{ selectedVariant }}</div>
-  <div class="s-box-small-h"> Required fields missing: <strong>Alert Title</strong></div>
+  <div class="c-content-interactive-primary c-bg-interactive-primary s-box-small-h">[ERROR] - UMD Libraries Alert / Variant - {{ selectedVariant }}</div>
+  <div class="s-box-small-h">Required fields missing: <strong>{{ errors|join(', ') }}</strong></div>
 {% endif %}

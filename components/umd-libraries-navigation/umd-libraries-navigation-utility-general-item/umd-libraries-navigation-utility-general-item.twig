@@ -1,0 +1,32 @@
+{# 
+/**
+ * @file
+ * UMD Lib Navigation - Utility - General - Item
+ *
+ * Variables:
+ * - link_text: link item text
+ * - link_url: URL for the link
+ * - link_description: Description for the link
+ */
+#}
+
+{% set link_text %}{% block link_text %}{% endblock %}{% endset %}
+{% set link_text = link_text | trim %}
+
+{% set link_url %}{% block link_url %}{% endblock %}{% endset %}
+{% set link_url = link_url | trim %}
+
+{% set link_description %}{% block link_description %}{% endblock %}{% endset %}
+{% set link_description = link_description | trim %}
+
+<li class="navigation__submenu-item utility-general-item">
+  <a
+    href="{{ link_url }}"
+    class="navigation__submenu-link ani-underline c-underline-primary t-body-small"
+  >
+    {{ link_text }}
+  </a>
+  <div class="navigation__submenu-description t-label">
+    {{ link_description }}
+  </div>
+</li>

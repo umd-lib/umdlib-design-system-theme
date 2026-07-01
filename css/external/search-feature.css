@@ -41,6 +41,11 @@
   background-position-y: center;
 }
 
+/* description in the search box */
+.search-box p.description {
+  margin-top: 0.5rem;
+}
+
 /* reusable search box */
 .reusable-search-box .search-box-action-area {
   align-items: end;
@@ -285,21 +290,44 @@ search-result-element-umd-libraries article {
   position: relative;
 }
 
+search-result-element-umd-libraries article .is-eyebrow {
+  margin-bottom: 0.5rem;
+}
+
 search-result-element-umd-libraries article img {
   width: auto;
 }
 
 search-result-element-umd-libraries article.orientation-right img {
-  aspect-ratio: 4/3;
+  aspect-ratio: 1/1;
   object-fit: cover;
+}
+
+search-results.news
+  search-result-element-umd-libraries
+  article.orientation-right
+  img {
+  aspect-ratio: 3/2;
 }
 
 search-result-element-umd-libraries article .item-detail {
   flex-grow: 1;
 }
 
-search-result-element-umd-libraries article .item-detail .item-title a::after,
-standalone-search-results article .item-detail .item-title a::after {
+/* Expand the clickable area to the full list item for standalone search results and the orientation-left result item with left-aligned images (mainly Digital Collections) and the news item in the list. For the orientation-right item (Space, Equipment, and Directory results), do not expand the clickable area because descriptions may contain additional links. */
+search-result-element-umd-libraries
+  article.orientation-left
+  .item-detail
+  .item-title
+  a::after,
+standalone-search-results article .item-detail .item-title a::after,
+search-results.news
+  search-result-element-umd-libraries
+  article.orientation-right
+  .item-detail
+  .item-title
+  a::after,
+.bento-search .bento-search-result-item article .item-title a::after {
   content: "";
   position: absolute;
   left: 0;
@@ -317,7 +345,8 @@ standalone-search-results article .item-detail .item-fields {
 
 /* metadata fields */
 search-result-element-umd-libraries article .item-detail .item-fields > div,
-standalone-search-results article .item-detail .item-fields > div {
+standalone-search-results article .item-detail .item-fields > div,
+more-searchers ul li .item-fields > div {
   display: grid;
   grid-template-columns: 9rem 1fr;
   column-gap: 0;
@@ -372,6 +401,11 @@ standalone-search-results article .item-detail .item-fields > div {
 
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+standalone-search-results article,
+.bento-search .bento-search-result-item article {
+  position: relative;
 }
 
 /* bento search footer link */
@@ -435,6 +469,57 @@ standalone-search-results article .item-detail .item-fields > div {
   height: 1.12rem;
 }
 
+/* customization for Search All on WWW */
+/* hide best bet when there is no result */
+div:has(> standalone-search-results .bento-block-standalone-bestbets-0) {
+  display: none !important;
+}
+
+#layout-builder
+  div:has(> standalone-search-results .bento-block-standalone-bestbets-0) {
+  display: block !important;
+}
+
+/* sidebar facet using <more-searchers> */
+more-searchers section.collapsible button.bento-search-header {
+  width: 100%;
+}
+
+more-searchers
+  section.collapsible
+  button.bento-search-header
+  span.i-chevron-down {
+  margin-left: auto;
+  transition: all 0.3s;
+}
+
+more-searchers
+  section.collapsible
+  button.bento-search-header.collapsible.open
+  span.i-chevron-down {
+  rotate: 180deg;
+}
+
+more-searchers section.collapsible ul li {
+  padding-top: 0;
+}
+
+/* sidebar information */
+.bento-sidebar-info {
+  padding: 1rem;
+  background-color: var(--lightest-gray);
+}
+
+.bento-sidebar-info p {
+  font-size: 0.875rem;
+  line-height: 1.12rem; /* 128% */
+}
+
+.bento-sidebar-info button {
+  text-decoration: underline;
+  color: var(--black);
+}
+
 @keyframes loading {
   0% {
     background-position: 200% 0;
@@ -489,279 +574,14 @@ standalone-search-results article .item-detail .item-fields > div {
   height: 46px;
 }
 
-/* hero search box */
-.hero-search-section {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-.hero-search-block {
-  padding: 1rem;
-
-  width: 100%;
-  height: fit-content;
-}
-
-.search-feature-header {
-  display: flex;
-  flex-direction: row;
-  align-items: end;
-  justify-content: space-between;
-
-  margin-bottom: 1rem;
-}
-
-.search-feature-description,
-.hero-search-footer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 0.25rem;
-}
-
-.search-feature {
-  margin-bottom: 1.5rem;
-}
-
-.search-feature-tab {
-  padding: 1rem;
-  border-left: 2px solid var(--maryland-red);
-}
-
-.hero-search-block .tab--trigger {
-  min-height: 2.75rem;
-  padding: 0.5rem 1rem;
-
-  align-items: center;
-}
-
-.hero-search-block .tab--trigger.active {
-  background-color: var(--lighter-gray);
-}
-
-.hero-search-input {
-  height: 3.5rem;
-  padding-top: 0.5rem;
-  margin-bottom: 1rem;
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-
-  border-bottom: 1px solid var(--darker-gray);
-}
-
-.hero-search-input input {
-  width: 100%;
-  height: 100%;
-  padding: 0.5rem;
-  outline: none;
-
-  color: var(--black);
-}
-
-.hero-search-input input::placeholder {
-  color: var(--medium-gray);
-}
-
-/* umd discover panel */
-#tabs-homepage-search {
-  position: relative;
-}
-
-#tabpanel-umd-discover #hero-search-box-dropdown {
-  display: none;
-}
-
-.resource-links {
-  margin-bottom: 2rem;
-}
-
-.resource-links-title {
-  margin-bottom: 1rem;
-}
-
-.resource-links ul {
-  width: 100%;
-  display: grid;
-  gap: 8px;
-  grid-template-columns: 1fr 1fr;
-  justify-self: center;
-  align-self: center;
-}
-
-.resource-links ul li div.emphasized-link {
-  width: 100%;
-  height: 100%;
-}
-
-.resource-links ul div.emphasized-link span {
-  display: none;
-}
-
-.resource-links ul li div.emphasized-link a {
-  height: 100%;
-  min-height: 2.75rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 0.75rem;
-  text-decoration: none;
-  text-align: center;
-  color: var(--black);
-  background-color: var(--white);
-  border: 1px solid var(--black);
-  transition: all 0.5s;
-
-  background-image: none;
-}
-
-.resource-links ul li div.emphasized-link a:hover,
-.resource-links ul li div.emphasized-link a:focus {
-  color: var(--white);
-  background-color: var(--black);
-}
-
-homepage-search {
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-search-image {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-
-.hero-search-image figure {
-  height: 100%;
-  width: 100%;
-  position: relative;
-}
-
-.hero-search-image figure img {
-  object-fit: cover;
-  object-position: center;
-  height: 100%;
-  width: 100%;
-}
-
-.hero-search-image figure figcaption {
-  display: none;
-}
-
-/* home breakpoint  */
-@media (min-width: 576px) {
-  #tabpanel-umd-discover #hero-search-box-dropdown {
-    position: absolute;
-    top: 100px;
-    left: 0;
-    right: 0;
-
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-
-    padding: 1rem;
-    border: solid 1px var(--light-gray);
-    background-color: var(--white);
-  }
-
-  #tabpanel-umd-discover #hero-search-box-dropdown ul li a {
-    align-items: center;
-  }
-
-  #tabpanel-umd-discover #hero-search-box-dropdown ul li:last-child {
-    margin-bottom: 0;
-  }
-
-  .resource-links ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    width: fit-content;
-  }
-
-  .resource-links ul li div.emphasized-link {
-    width: fit-content;
-  }
-
-  .resource-links ul div.emphasized-link span {
-    display: inline-block;
-  }
-
-  .resource-links ul li div.emphasized-link a {
-    min-height: unset;
-
-    display: inline-flex;
-    align-items: baseline;
-    gap: 0rem;
-
-    padding: unset;
-    text-decoration: none;
-    text-align: unset;
-    color: var(--black);
-    background-color: unset;
-    border: none;
-    transition: background 0.5s;
-
-    background-image: linear-gradient(var(--maryland-red), var(--maryland-red));
-  }
-
-  .resource-links ul li div.emphasized-link a:hover,
-  .resource-links ul li div.emphasized-link a:focus {
-    color: unset;
-    background-color: unset;
-  }
-}
-
-@media (min-width: 896px) {
-  .hero-search-section {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-
-  .hero-search-block {
-    padding: 1.5rem 3rem;
-
-    width: 50rem;
-  }
-
-  .search-feature {
-    margin-bottom: 2rem;
-  }
-
-  .search-feature-tab {
-    padding: 1rem 2rem;
-  }
-
-  .hero-search-block .tab--trigger {
-    padding: 0.5rem 1.5rem;
-  }
-
-  .hero-search-image figure figcaption {
-    display: block;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: fit-content;
-    padding: 0.25rem 0.5rem;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: #ffffff;
-    text-align: end;
-    z-index: 3;
-  }
-}
-
 /* breakpoint */
 /* Tablet */
 @media (min-width: 768px) {
+  /* search box */
+  .search-box p.description {
+    margin-top: 1rem;
+  }
+
   /* search result toolbar */
   .search-result-toolbar {
     align-items: center;

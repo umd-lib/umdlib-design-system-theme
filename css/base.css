@@ -487,7 +487,7 @@ video {
   --white: #ffffff;
   --black: #000000;
 
-  --lighest-gray: #fafafa;
+  --lightest-gray: #fafafa;
   --lighter-gray: #f1f1f1;
   --light-gray: #e6e6e6;
   --medium-gray: #757575;
@@ -495,6 +495,8 @@ video {
   --darker-gray: #242424;
 
   --dark-red: #a90007;
+
+  --green: #037623; /* status only (e.g. open/available); no dark-theme remap */
 
   /* spacing scale - fixed values */
   --space-xs: 0.5rem; /* 8px */
@@ -513,7 +515,7 @@ video {
   --white: #000000;
   --black: #ffffff;
 
-  --lighest-gray: #242424;
+  --lightest-gray: #242424;
   --lighter-gray: #454545;
   --light-gray: #757575;
   --medium-gray: #e6e6e6;
@@ -637,12 +639,13 @@ strong {
   margin-bottom: var(--space-sm);
 }
 
+/* why not enforce !important - in the page content, by adding this, there will be on top margin for the heading. */
 .wysiwyg-editor > *:first-child {
   margin-top: 0;
 }
 
 .wysiwyg-editor > *:last-child {
-  margin-bottom: 0;
+  margin-bottom: 0 !important;
 }
 
 .wysiwyg-editor strong {
@@ -738,7 +741,7 @@ div:has(> table.table) {
 
 .wysiwyg-editor table.table tbody tr:hover,
 .wysiwyg-editor table.table tbody tr:focus {
-  background-color: var(--lighest-gray);
+  background-color: var(--lightest-gray);
 }
 
 .wysiwyg-editor table.table td,
@@ -794,6 +797,37 @@ div:has(> table.table) {
   font-style: normal;
   font-weight: 400;
   line-height: 1.71875rem;
+}
+
+.wysiwyg-editor > h1,
+.wysiwyg-editor > h1:first-child,
+.wysiwyg-editor > h2,
+.wysiwyg-editor > h2:first-child,
+.wysiwyg-editor > h3,
+.wysiwyg-editor > h3:first-child,
+.wysiwyg-editor > h4,
+.wysiwyg-editor > h4:first-child {
+  margin-top: var(--space-lg);
+}
+
+/* first heading in accordion, tab and table should have 0 top margin */
+.accordion-child--body.wysiwyg-editor > h1:first-child,
+.accordion-child--body.wysiwyg-editor > h2:first-child,
+.accordion-child--body.wysiwyg-editor > h3:first-child,
+.accordion-child--body.wysiwyg-editor > h4:first-child,
+.umd-lib .tab--panel .wysiwyg-editor > h1:first-child,
+.umd-lib .tab--panel .wysiwyg-editor > h2:first-child,
+.umd-lib .tab--panel .wysiwyg-editor > h3:first-child,
+.umd-lib .tab--panel .wysiwyg-editor > h4:first-child,
+.wysiwyg-editor th > h1:first-child,
+.wysiwyg-editor td > h1:first-child,
+.wysiwyg-editor th > h2:first-child,
+.wysiwyg-editor td > h2:first-child,
+.wysiwyg-editor th > h3:first-child,
+.wysiwyg-editor td > h3:first-child,
+.wysiwyg-editor th > h4:first-child,
+.wysiwyg-editor td > h4:first-child {
+  margin-top: 0;
 }
 
 @media (min-width: 768px) {
@@ -864,6 +898,18 @@ div:has(> table.table) {
   .wysiwyg-editor h6 {
     font-size: 1.5rem;
     line-height: 1.875rem;
+  }
+
+  /* overwrite 0 top margin for the first child in wysiwyg editor */
+  .wysiwyg-editor > h1,
+  .wysiwyg-editor > h1:first-child,
+  .wysiwyg-editor > h2,
+  .wysiwyg-editor > h2:first-child,
+  .wysiwyg-editor > h3,
+  .wysiwyg-editor > h3:first-child,
+  .wysiwyg-editor > h4,
+  .wysiwyg-editor > h4:first-child {
+    margin-top: var(--space-xl);
   }
 }
 
@@ -1064,11 +1110,6 @@ div:has(> table.table) {
   line-height: 1.375rem;
 }
 
-.t-interactive-sub,
-.t-interactive-sub * {
-  font-weight: 700 !important;
-}
-
 .t-label,
 .t-label * {
   font-family: Interstate;
@@ -1099,7 +1140,9 @@ div:has(> table.table) {
 }
 
 .t-bold,
-.t-bold * {
+.t-bold *,
+.t-interactive-sub,
+.t-interactive-sub * {
   font-weight: 700 !important;
 }
 
@@ -1188,7 +1231,7 @@ div:has(> table.table) {
   color: var(--maryland-red);
 }
 
-.c-content-interactive-tertiarty {
+.c-content-interactive-tertiary {
   color: var(--maryland-red);
 }
 
@@ -1209,7 +1252,7 @@ div:has(> table.table) {
 }
 
 .c-bg-secondary {
-  background-color: var(--lighest-gray);
+  background-color: var(--lightest-gray);
 }
 
 .c-bg-tertiary {
@@ -1234,7 +1277,7 @@ div:has(> table.table) {
 }
 
 .c-bg-interactive-secondary {
-  background-color: var(--lighest-gray);
+  background-color: var(--lightest-gray);
 }
 
 .c-bg-interactive-secondary:hover,
@@ -1332,6 +1375,8 @@ div:has(> table.table) {
 /* icons */
 .i-chevron {
   width: 1rem;
+  min-width: 1rem;
+  max-width: 1rem;
   height: 1rem;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M7.7183 6.98255L2.625 1.89587H6.15621L11.306 6.93281L11.2563 6.98256L11.306 7.0323L6.15621 12.0692H2.625L7.7183 6.98255Z' fill='%23E21833'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
@@ -1340,6 +1385,8 @@ div:has(> table.table) {
 
 .i-chevron-down {
   width: 25px;
+  min-width: 25px;
+  max-width: 25px;
   height: 25px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='9' viewBox='0 0 16 9' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M7.64841 4.6112L11.7512 1.52588e-05L15.2968 2.8372e-05L9.55456 6.75353L9.55721 6.75652L7.65237 9.00002L7.64841 8.99536L7.64446 9.00001L5.73961 6.75651L5.74226 6.75353L8.93275e-06 2.18221e-05L3.5456 2.18221e-05L7.64841 4.6112Z' fill='%23E21833'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
@@ -1349,6 +1396,8 @@ div:has(> table.table) {
 
 .i-menu-toggle {
   width: 20px;
+  min-width: 20px;
+  max-width: 20px;
   height: 19px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='19' viewBox='0 0 20 19' fill='none'%3E%3Cline y1='1.75' x2='20' y2='1.75' stroke='black' stroke-width='2.5'/%3E%3Cline y1='9.75' x2='20' y2='9.75' stroke='black' stroke-width='2.5'/%3E%3Cline x1='4' y1='17.75' x2='20' y2='17.75' stroke='black' stroke-width='2.5'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
@@ -1356,6 +1405,8 @@ div:has(> table.table) {
 
 .i-search {
   width: 1rem;
+  min-width: 1rem;
+  max-width: 1rem;
   height: 1rem;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M6.37158 1.5C3.31306 1.50019 0.833682 3.97957 0.833496 7.03809C0.833496 10.0968 3.31295 12.577 6.37158 12.5771C7.44259 12.5771 8.44213 12.2715 9.28955 11.7451L11.9634 14.4199H15.1665L10.9624 10.1367C11.5605 9.25236 11.9106 8.18605 11.9106 7.03809C11.9105 3.97945 9.43026 1.5 6.37158 1.5ZM6.37158 3.44336C8.357 3.44336 9.9671 5.05271 9.96729 7.03809C9.96729 9.02362 8.35711 10.6338 6.37158 10.6338C4.38621 10.6336 2.77686 9.0235 2.77686 7.03809C2.77704 5.05283 4.38632 3.44355 6.37158 3.44336Z' fill='black'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
@@ -1371,6 +1422,8 @@ div:has(> table.table) {
 
 .i-external-arrow {
   width: 1rem;
+  min-width: 1rem;
+  max-width: 1rem;
   height: 1rem;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4.28 5.28H9.67L3 12.12L4.55 13.67L11.12 6.95V12.12L13.41 9.77V5.28V3H11.12H6.63L4.28 5.28Z' fill='%23E21833'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
@@ -1380,6 +1433,8 @@ div:has(> table.table) {
 
 .i-internal-arrow {
   width: 1rem;
+  min-width: 1rem;
+  max-width: 1rem;
   height: 1rem;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M10.5058 6.66675L5.99992 2.16675H10.0356L15.9211 7.92325L15.8642 7.9801L15.9211 8.03695L10.0356 13.7934H5.99992L10.4658 9.33341H0.833252V6.66675H10.5058Z' fill='%23E21833'/%3E%3C/svg%3E");
   background-repeat: no-repeat;

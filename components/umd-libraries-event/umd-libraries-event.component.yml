@@ -17,6 +17,10 @@ props:
         - h5
         - h6
       default: h2
+    homepage_events:
+      type: boolean
+      title: Homepage Events
+      description: Whether this event is used on the homepage event section.
     componentid:
       type: string
       title: Component ID

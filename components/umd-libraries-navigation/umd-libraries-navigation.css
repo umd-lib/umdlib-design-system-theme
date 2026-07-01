@@ -539,6 +539,10 @@
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 0.875rem;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 
   .navigation__row-sec .navigation__menu-item:last-child {
@@ -548,8 +552,17 @@
     border-bottom: none;
   }
 
+  /* keep the menu dropdown button, but make it visible only to screen readers */
   .navigation__row-sec .navigation__submenu-button {
-    display: none;
+    clip: rect(0, 0, 0, 0);
+    border-width: 0;
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
   }
 
   /* 2nd level menu animation */
@@ -657,5 +670,44 @@
     width: fit-content;
 
     display: inline;
+  }
+}
+
+/* Pin the UMD School Header and UMD Libraries Navigation to the top when the mobile version of the dropdown is open*/
+
+@media (max-width: 1239px) {
+  html {
+    scrollbar-gutter: stable;
+  }
+
+  body:has(.navigation__menu-button.is-active) {
+    padding-top: 140px;
+  }
+
+  body:has(.navigation__menu-button.is-active) #umdheader-main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 499;
+  }
+
+  body:has(.navigation__menu-button.is-active) #umdlib-navigation {
+    position: fixed;
+    top: 44px;
+    left: 0;
+    right: 0;
+    z-index: 499;
+    background-color: var(--white);
+  }
+}
+
+@media (max-width: 1099px) {
+  body:has(.navigation__menu-button.is-active) {
+    padding-top: 152px;
+  }
+
+  body:has(.navigation__menu-button.is-active) #umdlib-navigation {
+    top: 56px;
   }
 }

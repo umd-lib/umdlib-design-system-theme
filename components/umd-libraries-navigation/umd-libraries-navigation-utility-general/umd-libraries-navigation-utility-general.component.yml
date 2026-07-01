@@ -1,0 +1,13 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: UMD Lib Navigation - Utility - General
+label: Navigation
+group: UMD Libraries
+
+slots:
+  title_text:
+    title: Menu Title
+  title_url:
+    title: Menu Title URL
+  menu_item_slot:
+    title: Menu Item Content

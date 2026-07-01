@@ -1,0 +1,69 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: UMD Lib Hero Search
+label: Homepage Hero Search Box
+group: UMD Libraries
+
+props:
+  type: object
+  properties:
+    componentid:
+      type: string
+      title: Component ID
+      description: (Optional) An ID to use for the component. This can be used for section referencing.
+
+slots:
+  page_title:
+    title: Page Title (Text String)
+    description: The main heading for the page, screen reader only, defaults to "UMD Libraries".
+  search_title:
+    title: Search Title
+    description: The heading displayed above the search tabs, defaults to "Search".
+  learn_more_text:
+    title: Learn More Link Text
+    description: Text for the support link next to the search title, defaults to "Learn about search options".
+  learn_more_url:
+    title: Learn More URL
+    description: URL for the support link next to the search title.
+  discover_url:
+    title: UMD Discover URL
+    description: Base URL for UMD Discover. The search term is appended directly to this URL.
+  search_all_url:
+    title: Search All URL
+    description: URL for the Search All form. The search term is appended as a "query" parameter.
+  discover_placeholder:
+    title: UMD Discover Input Placeholder
+    description: Placeholder text for the UMD Discover search input.
+  search_all_placeholder:
+    title: Search All Input Placeholder
+    description: Placeholder text for the Search All search input.
+  discover_description:
+    title: UMD Discover Tab Description
+    description: Short description displayed below the UMD Discover search input.
+  search_all_description:
+    title: Search All Tab Description
+    description: Short description displayed below the Search All search input.
+  quick_actions_slot:
+    title: Quick Actions (UMD Lib Hero Search Quick Action)
+    description: Place UMD Lib Hero Search Quick Action components here.
+  resources_title:
+    title: Resources Section Title
+    description: Heading for the resources section, defaults to "Resources". It would only show if there are links added to the resource_links_slot.
+  resource_links_slot:
+    title: Resource Links (UMD Lib Emphasized Link)
+    description: Place UMD Lib Emphasized Link components here.
+  feedback_link_text:
+    title: Feedback Link Text
+    description: The linked portion of the feedback footer text, defaults to "this feedback form".
+  feedback_url:
+    title: Feedback Form URL
+    description: URL for the feedback form link in the footer.
+  image_url:
+    title: Hero Image URL
+    description: URL of the hero background image.
+  image_alt:
+    title: Hero Image Alt Text
+    description: Alt text for the hero image.
+  image_caption:
+    title: Hero Image Caption (WYSIWYG)
+    description: Caption text displayed over the hero image.

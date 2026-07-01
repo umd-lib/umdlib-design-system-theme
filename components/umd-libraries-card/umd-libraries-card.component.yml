@@ -26,8 +26,8 @@ props:
       default: standard
     icon_name:
       type: string
-      title: Icon Name (Lucide Icons)
-      description: Name of the icon to display in the card (only for icon variant), please refer to Lucide icons documentation for available icons.
+      title: Icon Name (Deprecated)
+      description: Deprecated. Use icon_slot.
     heading_level:
       type: string
       title: Heading Level
@@ -39,6 +39,10 @@ props:
         - h5
         - h6
       default: h3
+    card_url_optional:
+      type: boolean
+      title: Card URL Optional
+      description: Set to true to allow the card to render without a card_url. By default, card_url is required for all variants.
     componentid:
       type: string
       title: Component ID
@@ -60,3 +64,6 @@ slots:
     description: Use the format "Month Date, Year" (e.g., "July 4, 2025")
   description:
     title: Description (Text String)
+  icon_slot:
+    title: Icon Name (Lucide Icons name)
+    description: Name of the icon to display in the card (only for icon variant), please refer to Lucide icons documentation for available icons.

@@ -19,6 +19,10 @@ props:
       type: string
       title: Component ID
       description: (Optional) An ID to use for the component. This can be used for section referencing.
+    homepage_news:
+      type: boolean
+      title: Homepage News
+      description: Whether this component is used on the homepage news section.
 
 slots:
   components:

@@ -6,43 +6,30 @@
  */
 #}
 
-{% if card_title is defined %}
+{# info card remove all of the required fields #}
+
 <div class="umd-lib www card card--info c-content-primary c-bg-secondary s-margin-general-medium s-box-medium-v s-box-medium-h" id="{{ componentid | default('') }}">
   <div class="card--content">
+    {% if card_title is defined and card_title is not empty %}
     <div class="card--title">
       <h{{ heading_level | slice(1) }} class="card--headline s-stack-small t-title-medium">
         {% block card_title %}{% endblock %}
       </h{{ heading_level | slice(1) }}>
     </div>
-
+    {% endif %}
+    {% if description is defined and description is not empty %}
     <div class="card--details s-stack-medium">
       {# Description slot - present in all variants #}
-      {% if description is defined and description is not empty %}
         <div class="card--text t-body-small c-content-secondary wysiwyg-editor">
           {% block description %}{% endblock %}
         </div>
-      {% endif %}
     </div>
+    {% endif %}
   </div>
 
-    {% if links is defined and links is not empty %}
-      <div class="card--footer">
-        {% block links %}{% endblock %}
-      </div>
-    {% endif %}
+  {% if links is defined and links is not empty %}
+  <div class="card--footer">
+      {% block links %}{% endblock %}
+  </div>
+  {% endif %}
 </div>
-
-{% else %}
-  {# variable error handling #}
-  {% set errors = [] %}
-
-  {% if card_title is not defined %}
-    {% set errors = errors | merge(['Card Title']) %}
-  {% endif %}
-
-  {# Log the errors #}
-  {% if errors is not empty %}
-    <div class="c-content-interactive-primary c-bg-interactive-primary s-box-small-h"> [ERROR] - UMD Libraries Info Card / Variant - {{ variant }}</div>
-    <div class="s-box-small-h"> Required fields missing: <strong>{{ errors | join(', ') }}</strong></div>
-  {% endif %}
-{% endif %}

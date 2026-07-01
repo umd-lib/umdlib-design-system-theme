@@ -1,5 +1,5 @@
 .text-callout--feature {
-  border-left: 4px solid #e21833;
+  border-left: 4px solid var(--maryland-red);
 }
 
 .text-callout--text > *:last-child {

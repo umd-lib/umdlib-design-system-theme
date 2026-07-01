@@ -1,0 +1,60 @@
+{#
+/**
+ * @file
+ * UMD Libraries Hero Search Quick Action component.
+ *
+ * Available props:
+ * - id: Unique identifier for this quick action link.
+ *
+ * Available slots:
+ * - content_type: The search target content type (e.g. "Articles").
+ * - search_tool: The search tool (e.g. "UMD Discover").
+ * - url: Fallback URL used when no search term has been entered.
+ * - search_url: Base URL that the search term is appended to.
+ */
+#}
+
+{# Capture URL slots into variables for use in attributes and conditionals #}
+{% set url %}{% block url %}{% endblock %}{% endset %}
+{% set url = url | trim %}
+
+{% set search_url %}{% block search_url %}{% endblock %}{% endset %}
+{% set search_url = search_url | trim %}
+
+{% set content_type %}{% block content_type %}{% endblock %}{% endset %}
+{% set content_type = content_type | trim %}
+
+{% set search_tool %}{% block search_tool %}{% endblock %}{% endset %}
+{% set search_tool = search_tool | trim %}
+
+{% if url and id %}
+  <li class="s-stack-small">
+    <a
+      class="quick-action-option l-flex-row"
+      href="{{ url }}"
+      id="{{ id }}"
+      data-quick-action-url="{{ search_url ?: url }}"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="search" aria-hidden="true" style="margin-right: 0.5rem;" class="lucide lucide-search">
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21-4.3-4.3"></path>
+      </svg>
+      <span>
+        Search {% if content_type %}<span class="t-bold">{{ content_type }}</span>{% endif %} in {% if search_tool %}<span class="t-bold">{{ search_tool }}</span>{% endif %}
+      </span>
+    </a>
+  </li>
+
+{% else %}
+  {% set errors = [] %}
+  {% if not url %}
+    {% set errors = errors | merge(['URL']) %}
+  {% endif %}
+  {% if not id %}
+    {% set errors = errors | merge(['ID']) %}
+  {% endif %}
+  {% if errors is not empty %}
+    <div class="c-content-interactive-primary c-bg-interactive-primary s-box-small-h"> [ERROR] - UMD Lib Hero Search Quick Action</div>
+    <div class="s-box-small-h"> Required fields missing: <strong>{{ errors | join(', ') }}</strong></div>
+  {% endif %}
+{% endif %}

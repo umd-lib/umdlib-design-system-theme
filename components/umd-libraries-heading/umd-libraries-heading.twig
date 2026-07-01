@@ -36,7 +36,7 @@
 
 {% if heading_text is defined and heading_text is not empty %}
   <div class="umd-lib heading heading--{{ selectedVariant }} {{ classes | join(' ') }}" id="{{ componentid | default('') }}">
-    <h{{ selectedVariant | slice(1) }} class="c-content-primary {% if page_title == true %}s-stack-small{% endif %}">
+    <h{{ selectedVariant | slice(1) }} class="c-content-primary {% if page_title == true %}s-stack-small{% endif %} {% if screen_reader_only == true %}sr-only{% endif %}">
       {% if link_url is defined and link_url is not empty %}
         <a href="{{ link_url }}" class="c-content-primary heading--link">
           {{ heading_text }}

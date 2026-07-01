@@ -23,7 +23,7 @@
       {% endif %}
       <div class="tabs--triggers" 
         role="tablist"
-        aria-labelledby="{{ tabs_id }}-label">
+        {% if tab_label %}aria-labelledby="{{ tabs_id }}-label"{% endif %}>
         {% block tabs_triggers_slot %}{% endblock %}
         <div class="tabs--triggers-deco" id="tabs--trigger-deco">
           <span class="tabs--triggers-deco-activeline" id="deco-underline"></span>

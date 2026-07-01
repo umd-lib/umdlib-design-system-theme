@@ -147,13 +147,18 @@
   align-items: start;
 
   height: 100%;
-  max-width: 24rem;
+  max-width: 350px;
 
   position: relative;
 }
 
 .person--card-image {
   width: 100%;
+}
+
+/* when there is no image for the person when using the person block, hide the image entirely */
+.person--card-image:has(img[src=""]) {
+  display: none;
 }
 
 .person--card-image img {

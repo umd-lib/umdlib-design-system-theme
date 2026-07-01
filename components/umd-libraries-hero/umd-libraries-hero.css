@@ -48,19 +48,19 @@
   padding: 0.25rem 0.5rem;
 
   background-color: rgba(0, 0, 0, 0.6);
-  color: #ffffff;
+  color: #ffffff; /* on fixed dark image overlay — theme-independent, intentionally not tokenized */
   text-align: end;
   z-index: 3;
 }
 
 .hero--minimal .hero--image figure figcaption *,
 .hero--overlay .hero--image figure figcaption * {
-  color: #ffffff;
+  color: #ffffff; /* on fixed dark image overlay — theme-independent, intentionally not tokenized */
 }
 
 .hero--minimal .hero--image figure figcaption a,
 .hero--overlay .hero--image figure figcaption a {
-  color: #ffd200;
+  color: #ffd200; /* on fixed dark image overlay — theme-independent, intentionally not tokenized */
 }
 
 .hero--minimal .hero--content .hero--headline:last-child,
@@ -78,18 +78,20 @@
 
 /* variant - overlay */
 .hero--overlay .hero--eyebrow {
-  color: #000000;
+  color: var(--black);
 
-  background-color: #ffd200;
+  background-color: var(--maryland-yellow);
   padding: 0.5rem 1.5rem;
   display: inline-block;
   clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);
 }
 
 .hero--overlay .hero--eyebrow p {
-  color: #000;
+  color: var(--black);
 }
 
+/* explicit dark-theme override; literal values are required here because token
+   swaps would invert this rule's intent (white text on Maryland red) */
 .hero--overlay.dark-theme .hero--content a {
   color: #ffffff !important;
   background-color: #e21833 !important;

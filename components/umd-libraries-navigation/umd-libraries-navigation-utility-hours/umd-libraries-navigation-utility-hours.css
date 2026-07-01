@@ -1,0 +1,73 @@
+/* utility hours style for the umdlib-hours module */
+.utility-branch-list dl div.utility-border {
+  margin-bottom: 1rem;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.5rem;
+}
+
+.utility-branch-list dl div.utility-border dt.utility-location {
+  color: var(--black);
+}
+
+.utility-branch-list dl div.utility-border dd.utility-hours {
+  text-align: right;
+}
+
+.utility-branch-list dl a {
+  text-decoration: underline;
+}
+
+.utility-branch-list dl a:hover,
+.utility-branch-list dl a:focus {
+  text-decoration: underline;
+}
+
+/* homepage block placed in the info card */
+.umd-lib.card--info .utility-branch-list dl div.utility-border {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.umd-lib.card--info .utility-branch-list dl div.utility-border:last-child {
+  margin-bottom: 0 !important;
+}
+
+.umd-lib.card--info
+  .utility-branch-list
+  dl
+  div.utility-border
+  dt.utility-location {
+  font-weight: 700;
+}
+
+.umd-lib.card--info .utility-branch-list dl div.utility-border dd.utility-hours,
+.umd-lib.card--info
+  .utility-branch-list
+  dl
+  div.utility-border
+  dd.utility-hours
+  a {
+  /* follow t-body-medium */
+  font-size: 1rem;
+  line-height: 1.375rem;
+}
+
+.umd-lib.card--info .card--text .utility-branch-list > p {
+  /* follow s-stack-medium */
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .navigation__row-sec .navigation__submenu.utility-hours {
+    min-width: 480px;
+  }
+
+  .umd-lib.card--info .utility-branch-list dl div.utility-border,
+  .umd-lib.card--info .card--text .utility-branch-list > p {
+    /* follow s-stack-medium */
+    margin-bottom: 1.5rem;
+  }
+}

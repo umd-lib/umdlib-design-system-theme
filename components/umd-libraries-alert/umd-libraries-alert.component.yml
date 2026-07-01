@@ -46,3 +46,9 @@ slots:
     title: Link Text (Text String)
   link_url:
     title: Link URL (Dynamic Link or Text String)
+  alert_image:
+    title: Alert Image (Media Image URL)
+  alert_image_alt:
+    title: Alert Image Alt Text (Text String)
+  site_wide_alert_customization_class:
+    title: Site-Wide Alert Customization Class (Text String)

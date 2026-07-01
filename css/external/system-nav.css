@@ -49,7 +49,7 @@
 .subnav.umd-lib li.active-submenu ul {
   padding-top: 1rem;
 
-  background-color: var(--lighest-gray);
+  background-color: var(--lightest-gray);
 }
 
 .subnav.umd-lib li.active-submenu ul li {

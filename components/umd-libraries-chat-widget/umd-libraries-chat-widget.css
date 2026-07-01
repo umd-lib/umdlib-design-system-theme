@@ -4,7 +4,9 @@
 
   position: fixed;
   bottom: 0px;
-  z-index: 350;
+  /* z-index: 350; */
+  /* bump to 410 to cover navigation on desktop view */
+  z-index: 410;
 
   border-top: 4px solid var(--maryland-red);
   box-shadow:
@@ -64,7 +66,7 @@
   padding: 4px 8px;
 
   color: var(--white);
-  background-color: #037623;
+  background-color: var(--green);
 
   border-radius: 4px;
 
@@ -132,6 +134,8 @@
     bottom: 0px;
 
     box-shadow: none;
+    /* revert to original z-index */
+    z-index: 350;
   }
 
   .umd-lib.chat-widget .cw--iframe,

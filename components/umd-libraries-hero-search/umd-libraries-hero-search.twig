@@ -1,0 +1,289 @@
+{#
+/**
+ * @file
+ * UMD Libraries Homepage Hero Search Box component.
+ *
+ * Available props:
+ * - componentid: Optional outer element ID.
+ *
+ * Available slots:
+ * - page_title: Main heading for the page, screen reader only.
+ * - search_title: Heading above the search tabs.
+ * - learn_more_text: Text for the info/learn-more link.
+ * - learn_more_url: URL for the info/learn-more link.
+ * - discover_url: Base URL for UMD Discover (search term appended directly).
+ * - search_all_url: URL for Search All (search term appended as ?query=).
+ * - discover_placeholder: Placeholder for the UMD Discover input.
+ * - search_all_placeholder: Placeholder for the Search All input.
+ * - discover_description: Description below the UMD Discover input.
+ * - search_all_description: Description below the Search All input.
+ * - resources_title: Heading for the resources section.
+ * - feedback_url: URL for the feedback form.
+ * - feedback_link_text: Link text for the feedback form.
+ * - image_url: URL of the hero background image.
+ * - image_alt: Alt text for the hero image.
+ * - tab_label: Screen-reader-only label for the tab group.
+ * - quick_actions_slot: UMD Lib Hero Search Quick Action components.
+ * - resource_links_slot: UMD Lib Emphasized Link components.
+ * - image_caption: WYSIWYG caption for the hero image.
+ */
+#}
+
+{{ attach_library('umdlib_umdds/umd-libraries-hero-search') }}
+
+{# Capture URL/text slots into variables for use in attributes and conditionals #}
+{% set learn_more_url %}{% block learn_more_url %}{% endblock %}{% endset %}
+{% set learn_more_url = learn_more_url | trim %}
+
+{% set discover_url %}{% block discover_url %}{% endblock %}{% endset %}
+{% set discover_url = discover_url | trim %}
+
+{% set search_all_url %}{% block search_all_url %}{% endblock %}{% endset %}
+{% set search_all_url = search_all_url | trim %}
+
+{% set discover_placeholder %}{% block discover_placeholder %}{% endblock %}{% endset %}
+{% set discover_placeholder = discover_placeholder | trim %}
+{% if not discover_placeholder %}{% set discover_placeholder = 'Search for books, articles, journals, and more...' %}{% endif %}
+
+{% set search_all_placeholder %}{% block search_all_placeholder %}{% endblock %}{% endset %}
+{% set search_all_placeholder = search_all_placeholder | trim %}
+{% if not search_all_placeholder %}{% set search_all_placeholder = 'Search libraries collections, websites, research guides and more...' %}{% endif %}
+
+{% set tab_label %}{% block tab_label %}{% endblock %}{% endset %}
+{% set tab_label = tab_label | trim %}
+{% if not tab_label %}{% set tab_label = 'Search tabs' %}{% endif %}
+
+{% set feedback_url %}{% block feedback_url %}{% endblock %}{% endset %}
+{% set feedback_url = feedback_url | trim %}
+
+{% set image_url %}{% block image_url %}{% endblock %}{% endset %}
+{% set image_url = image_url | trim %}
+
+{% set image_alt %}{% block image_alt %}{% endblock %}{% endset %}
+{% set image_alt = image_alt | trim %}
+
+{% set tabs_id = componentid ? componentid ~ '-tabs' : 'tabs-homepage-search' %}
+
+<div class="umd-lib hero-search--container" {% if componentid %}id="{{ componentid }}"{% endif %}>
+  <h1 class="sr-only">{% block page_title %}UMD Libraries{% endblock %}</h1>
+  <div class="hero-search-section s-box-page-medium-h s-center s-page-lock">
+    <div class="hero-search-block c-bg-primary">
+
+      <div class="search-feature">
+
+        {# Search heading and learn more link #}
+        <div class="search-feature-header">
+          <h2 class="search-feature-title t-title-large">{% block search_title %}Search{% endblock %}</h2>
+          {% if learn_more_url %}
+            <div class="search-feature-description">
+              <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="info" aria-hidden="true" class="lucide lucide-info">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+              <a class="t-label information-link" href="{{ learn_more_url }}">
+                {% block learn_more_text %}Learn about search options.{% endblock %}
+              </a>
+            </div>
+          {% endif %}
+        </div>
+
+        {# Search tabs — reuses data-tabs-container so umd-libraries-tabs.js initialises it #}
+        <div class="search-feature-tab c-bg-secondary">
+          <div
+            class="umd-lib tabs--container"
+            data-tabs-container
+            id="{{ tabs_id }}"
+            data-default-tab=""
+          >
+          
+            {# Tab triggers #}
+            <div
+              class="tabs--triggers"
+              role="tablist"
+              aria-orientation="horizontal"
+              aria-label="Search options"
+            >
+              <button
+                class="tab--trigger t-interactive c-content-secondary s-box-medium-h s-box-small-v"
+                id="tab-umd-discover"
+                type="button"
+                role="tab"
+                aria-controls="tabpanel-umd-discover"
+                aria-selected="true"
+                tabindex="0"
+              >
+                <span class="focus t-title-small">UMD Discover</span>
+              </button>
+
+              <button
+                class="tab--trigger t-interactive c-content-secondary s-box-medium-h s-box-small-v"
+                id="tab-search-all"
+                type="button"
+                role="tab"
+                aria-controls="tabpanel-search-all"
+                aria-selected="false"
+                tabindex="-1"
+              >
+                <span class="focus t-title-small">Search All</span>
+              </button>
+
+              <div class="tabs--triggers-deco" id="tabs--trigger-deco">
+                <span class="tabs--triggers-deco-activeline" id="deco-underline"></span>
+              </div>
+            </div>
+
+            {# Tab panels #}
+            <div class="tabs--content">
+
+              {# UMD Discover panel #}
+              <div
+                class="tab--panel"
+                id="tabpanel-umd-discover"
+                role="tabpanel"
+                tabindex="0"
+                aria-labelledby="tab-umd-discover"
+              >
+                <div class="input-form">
+                  <form
+                    class="hero-search-form"
+                    data-search-form="discover"
+                    data-search-base-url="{{ discover_url }}"
+                    data-search-url-mode="append"
+                  >
+                    <div class="hero-search-input c-bg-secondary">
+                      <label class="sr-only" for="search-query-input-discover">
+                        {{ discover_placeholder }}
+                      </label>
+                      <input
+                        id="search-query-input-discover"
+                        type="text"
+                        name="search_query"
+                        autocomplete="off"
+                        class="form-text c-bg-secondary"
+                        placeholder="{{ discover_placeholder }}"
+                        aria-label="{{ discover_placeholder }}"
+                        data-search-input="discover"
+                      >
+                      <button type="submit" class="button js-form-submit form-submit btn btn-primary">
+                        <div class="sr-only">Search</div>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+
+                {% set discover_description %}{% block discover_description %}{% endblock %}{% endset %}
+                {% if discover_description | trim %}
+                  <div class="tab-description t-label">
+                    <p>{{ discover_description | trim }}</p>
+                  </div>
+                {% endif %}
+
+                {# Quick actions dropdown #}
+                {% if quick_actions_slot is defined %}
+                  <div class="hero-search-box-dropdown" id="hero-search-box-dropdown">
+                    <div class="hero-search-dropdown-content">
+                      <div class="quick-action">
+                        <h3 class="drop-down-subtitle t-body-small s-stack-small">Quick Actions</h3>
+                        <ul class="quick-action-options t-label" role="list">
+                          {% block quick_actions_slot %}{% endblock %}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+              </div>
+
+              {# Search All panel #}
+              <div
+                class="tab--panel hidden"
+                id="tabpanel-search-all"
+                role="tabpanel"
+                tabindex="0"
+                aria-labelledby="tab-search-all"
+                hidden="true"
+              >
+                <div class="input-form">
+                  <form
+                    class="hero-search-form"
+                    data-search-form="search-all"
+                    data-search-base-url="{{ search_all_url }}"
+                    data-search-url-mode="query"
+                  >
+                    <div class="hero-search-input c-bg-secondary">
+                      <label class="sr-only" for="search-query-input-search-all">
+                        {{ search_all_placeholder }}
+                      </label>
+                      <input
+                        id="search-query-input-search-all"
+                        type="text"
+                        name="search_query"
+                        autocomplete="off"
+                        class="form-text c-bg-secondary"
+                        placeholder="{{ search_all_placeholder }}"
+                        aria-label="{{ search_all_placeholder }}"
+                        data-search-input="search-all"
+                      >
+                      <button type="submit" class="button js-form-submit form-submit btn btn-primary">
+                        <div class="sr-only">Search</div>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+
+                {% set search_all_description %}{% block search_all_description %}{% endblock %}{% endset %}
+                {% if search_all_description | trim %}
+                  <div class="tab-description t-label">
+                    <p>{{ search_all_description | trim }}</p>
+                  </div>
+                {% endif %}
+              </div>
+
+            </div>{# /.tabs--content #}
+          </div>{# /.tabs--container #}
+        </div>{# /.search-feature-tab #}
+      </div>{# /.search-feature #}
+
+      {# Resource links #}
+      {% if resource_links_slot is defined %}
+        <div class="resource-links">
+          <h3 class="resource-links-title t-title-medium">{% block resources_title %}Resources{% endblock %}</h3>
+          <div class="resource-links-list">
+            {% block resource_links_slot %}{% endblock %}
+          </div>
+        </div>
+      {% endif %}
+
+      {# Footer feedback line #}
+      {% if feedback_url %}
+        <div class="hero-search-footer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="info" aria-hidden="true" class="lucide lucide-info">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 16v-4"></path>
+            <path d="M12 8h.01"></path>
+          </svg>
+          <p class="help t-label">
+            Any suggestions? Fill out
+            <a href="{{ feedback_url }}">{% block feedback_link_text %}this feedback form{% endblock %}</a>.
+          </p>
+        </div>
+      {% endif %}
+
+    </div>{# /.hero-search-block #}
+
+    {# Hero image #}
+    {% if image_url %}
+      <div class="hero-search-image">
+        <figure>
+          <img loading="lazy" alt="{{ image_alt }}" src="{{ image_url }}">
+          {% if image_caption_slot is defined %}
+            <figcaption class="t-label wysiwyg-editor">
+              {% block image_caption %}{% endblock %}
+            </figcaption>
+          {% endif %}
+        </figure>
+      </div>
+    {% endif %}
+
+  </div>{# /.hero-search-section #}
+</div>{# /.hero-search--container #}

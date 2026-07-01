@@ -22,7 +22,7 @@
   <div class="accordion-child--container">
     <h{{ heading_level | default('h3') | slice(1) }}>
       <button type="button" class="accordion-child--headline c-bg-secondary s-box-medium-v s-box-medium-h" aria-expanded="{{ default_open ? 'true' : 'false' }}" id="{{ accordionId }}" aria-controls="{{ accordionId }}-body" >
-        <span class="t-interactive c-content-primary">{% block title %}{% endblock %}</span>
+        <div class="t-interactive c-content-primary">{% block title %}{% endblock %}</div>
       </button>
     </h{{ heading_level | default('h3') | slice(1) }}>
     <div

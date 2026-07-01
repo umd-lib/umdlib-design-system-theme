@@ -10,7 +10,7 @@
 <div class="umd-lib component-layout"
      id="{{ componentid | default('') }}">
   <div class="card-group layout--{{ columns }}-column">
-    <div class="card-group-content">
+    <div class="card-group-content {% if homepage_news %}homepage-news{% endif %}">
       {% block components %}{% endblock %}
     </div>
   </div>

@@ -1,0 +1,192 @@
+/* navigation badge */
+.umd-lib.navigation__menu-item.utility-content.utility-status
+  .navigation__menu-link {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.umd-lib.navigation__menu-item.utility-content.utility-status
+  .badge.badge--error {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-left: 0.5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--white);
+  background-color: var(--maryland-red);
+}
+
+/* system status */
+.navigation__utility_system-status-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.navigation__utility_system-status-item-status {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.navigation__utility_system-status-item-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+
+  min-width: 1.5rem;
+  max-width: 1.5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navigation__utility_system-status-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* /about/systems style update for the springshare embed */
+.umd-lib #s-la-widget-st-213 {
+  border: none;
+  padding: 0;
+}
+
+/* section label */
+.umd-lib #s-la-widget-st-213 #s-la-widget-st-label {
+  display: none;
+}
+
+.umd-lib #s-la-widget-st-213 a {
+  text-decoration: underline;
+}
+
+/* bottom link to springshare */
+.umd-lib #s-la-widget-st-213 .s-la-widget-st-dashlink {
+  display: none;
+}
+
+.umd-lib #s-la-widget-st-213 .s-la-widget-st-list li {
+  border: none;
+  padding-top: var(--space-sm);
+  padding-bottom: var(--space-sm);
+  padding-left: var(--space-2xl);
+  padding-right: var(--space-md);
+  margin: 0;
+
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.umd-lib #s-la-widget-st-213 .s-la-widget-st-list li:first-child {
+  border-top: 1px solid var(--light-gray);
+}
+
+.umd-lib #s-la-widget-st-213 .s-la-widget-st-list li:hover {
+  background-color: var(--lightest-gray);
+}
+
+/* databases with a list in folder */
+.umd-lib
+  #s-la-widget-st-213
+  .s-la-widget-st-list
+  li.s-la-productfolder-div
+  > a {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.umd-lib
+  #s-la-widget-st-213
+  .s-la-widget-st-list
+  li.s-la-productfolder-div:has(ol[aria-hidden="false"]) {
+  padding-bottom: 0;
+}
+
+.umd-lib #s-la-widget-st-213 .s-la-widget-st-list li.s-la-productfolder-div ol {
+  margin-top: var(--space-sm);
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+.umd-lib
+  #s-la-widget-st-213
+  .s-la-widget-st-list
+  li.s-la-productfolder-div
+  ol
+  li:last-child {
+  border: none;
+}
+
+/* status badge */
+.umd-lib #s-la-widget-st-213 .s-la-widget-st-list li .s-la-float-right {
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+}
+
+.umd-lib #s-la-widget-st-213 .s-la-widget-st-list li .s-la-product-status {
+  border-radius: 0;
+  font-size: 0.875rem;
+  line-height: 1.12rem;
+  padding: 4px 8px;
+}
+
+/* service down */
+.umd-lib
+  #s-la-widget-st-213
+  .s-la-widget-st-list
+  li
+  .s-la-product-status.label-danger {
+  background-color: var(--maryland-red);
+  color: var(--white);
+}
+
+/* normal */
+.umd-lib
+  #s-la-widget-st-213
+  .s-la-widget-st-list
+  li
+  .s-la-product-status.label-success {
+  background-color: var(--green);
+  color: var(--white);
+}
+
+/* maintenance schedule */
+.umd-lib
+  #s-la-widget-st-213
+  .s-la-widget-st-list
+  li
+  .s-la-product-status.label-prodstatus-852 {
+  background-color: var(--maryland-yellow);
+  color: var(--black);
+}
+
+@media (min-width: 768px) {
+  .navigation__row-sec .navigation__submenu.utility-status {
+    min-width: 320px;
+  }
+
+  .umd-lib #s-la-widget-st-213 .s-la-widget-st-list li {
+    padding-top: var(--space-md);
+    padding-bottom: var(--space-md);
+    padding-left: 4.5rem;
+    padding-right: var(--space-md);
+  }
+
+  .umd-lib
+    #s-la-widget-st-213
+    .s-la-widget-st-list
+    li.s-la-productfolder-div
+    ol {
+    margin-top: var(--space-md);
+  }
+
+  .umd-lib #s-la-widget-st-213 .s-la-widget-st-list li .s-la-float-right {
+    margin-top: 0;
+    margin-left: 0;
+  }
+}

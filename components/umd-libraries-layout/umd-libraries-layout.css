@@ -90,6 +90,17 @@
     .card-group-content {
     grid-template-columns: repeat(auto-fit, minmax(0, calc((100% - 2rem) / 2)));
   }
+
+  /* homepage news section */
+  .umd-lib-layout.layout--custom
+    .main-column
+    .umd-lib.component-layout
+    .card-group.layout--3-column
+    .card-group-content.homepage-news {
+    grid-template-columns:
+      calc((100% * 0.5) - 1rem) calc((100% * 0.25) - 1.5rem)
+      calc((100% * 0.25) - 1.5rem);
+  }
 }
 
 /* Large Desktop */

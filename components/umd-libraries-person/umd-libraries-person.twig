@@ -32,7 +32,7 @@
 {# Check required fields #}
 {% if person_name is defined and person_name is not empty and person_title is defined and person_title is not empty %}
   <div class="umd-lib person--{{ selectedVariant }}
-    {% if selectedVariant == 'card'%}c-border-primary s-box-medium-v s-box-medium-h{% endif %}
+    {% if selectedVariant == 'card'%}c-border-primary s-box-medium-v s-box-medium-h c-bg-primary{% endif %}
     {% if selectedVariant == 'list'%}s-box-small-v{% endif %}
      s-margin-general-medium" id="{{ componentid | default('') }}">
 

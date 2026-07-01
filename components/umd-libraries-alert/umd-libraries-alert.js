@@ -96,22 +96,9 @@
   // initialize the alerts
   document.addEventListener("DOMContentLoaded", function () {
     const alerts = document.querySelectorAll(".alert");
-    if (alerts) {
-      alerts.forEach(function (alert, idx) {
-        initializeAlert(alert);
-        new SiteAlert(`maintenance_notice_${idx}`, alert);
-      });
-    }
+    alerts.forEach(function (alert, idx) {
+      // Key dismissal to the alert's stable id so the correct alert is remembered.
+      new SiteAlert(alert.id || `alert_${idx}`, alert);
+    });
   });
-
-  function initializeAlert(alert) {
-    const button = alert.querySelector(".alert--button-close");
-    const content = alert.querySelector(".alert--container");
-    if (button && content) {
-      // Add click event listener to toggle accordion
-      button.addEventListener("click", function () {
-        content.style.display = "none";
-      });
-    }
-  }
 })();

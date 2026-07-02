@@ -15,6 +15,10 @@ props:
       type: string
       title: CSS Class
       description: (Optional) A CSS class to apply to the component.
+    label:
+      type: string
+      title: Label
+      description: (Optional) A label for the component.
 
 slots:
   body_text_slot:

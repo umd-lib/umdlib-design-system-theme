@@ -12,6 +12,9 @@
  #}
 
 {% if body_text_slot is defined %}
+  {% if label %}
+    <span class="text--label t-label c-content-tertiary">{{ label }}</span>
+  {% endif %}
   <div class="umd-lib body body--content wysiwyg-editor s-margin-general-medium {{ component_class | default('') }}" id="{{ componentid | default('') }}">
    {{ body_text_slot | raw }}
   </div>

@@ -1,0 +1,68 @@
+{#
+/**
+ * @file
+ * Theme override for a set of links.
+ *
+ * Available variables:
+ * - attributes: Attributes for the UL containing the list of links.
+ * - links: Links to be output.
+ *   Each link will have the following elements:
+ *   - link: (optional) A render array that returns a link. See
+ *     template_preprocess_links() for details how it is generated.
+ *   - text: The link text.
+ *   - attributes: HTML attributes for the list item element.
+ *   - text_attributes: (optional) HTML attributes for the span element if no
+ *     'url' was supplied.
+ * - heading: (optional) A heading to precede the links.
+ *   - text: The heading text.
+ *   - level: The heading level (e.g. 'h2', 'h3').
+ *   - attributes: (optional) A keyed list of attributes for the heading.
+ *   If the heading is a string, it will be used as the text of the heading and
+ *   the level will default to 'h2'.
+ *
+ *   Headings should be used on navigation menus and any list of links that
+ *   consistently appears on multiple pages. To make the heading invisible use
+ *   the 'visually-hidden' CSS class. Do not use 'display:none', which
+ *   removes it from screen readers and assistive technology. Headings allow
+ *   screen reader and keyboard only users to navigate to or skip the links.
+ *   See http://juicystudio.com/article/screen-readers-display-none.php and
+ *   http://www.w3.org/TR/WCAG-TECHS/H42.html for more information.
+ *
+ * @see template_preprocess_links()
+ */
+#}
+
+{% if links %}
+  <div class="langugae-block max-bound outer-pad" id="page-language-links">
+    <div class="multilang" id="langugae-block">
+      {# show language used on the page #}
+      <button class="multilang-btn" onclick="showList()" aria-hidden="false" aria-label="Language Options">
+        <div class="multilang-icon" aria-hidden="true"></div>
+        <div class="multilang-divider" aria-hidden="true"></div>
+        {# inactive language is hidden by CSS #}
+        {% for language in links %}
+          <div class="multilang-item" {{ language.attributes }} aria-hidden="true">
+            <div class="multilang-text" aria-hidden="true">
+            {{ language.nationAbbreviation }} - {{ language.nativeName }}
+            </div>
+          </div>
+        {% endfor %}
+      </button>
+      {# provide other language options #}
+      <div class="multilang-dropdown">
+        <ul class="multilang-list" aria-label="Other languages for this page">
+          {% for language in links %}
+            <li class="multilang-item" {{ language.attributes }}>
+              <a href="{{ language.href }}" aria-hidden="false" role="link" aria-label="{{ language.nation }}/{{ language.text }}">
+                <div class="multilang-divider" aria-hidden="true"></div>
+                <div class="multilang-text" aria-hidden="true">
+                {{ language.nationAbbreviation }} - {{ language.nativeName }}
+                </div>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endif %}

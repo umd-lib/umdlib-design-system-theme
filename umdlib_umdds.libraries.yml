@@ -7,9 +7,11 @@ umdlib:
       css/external/system-nav.css: {}
       css/external/search-feature.css: {}
       css/external/umd-lib-layout.css: {}
+      css/external/multilang.css: {}
   js:
     js/lucide.min.js: {}
     js/clipboard.min.js: {}
+    js/language-block.js
 umd-lib-layout:
   css:
     theme:

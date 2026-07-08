@@ -33,20 +33,22 @@
 #}
 
 {% if links %}
-  <div class="langugae-block max-bound outer-pad" id="page-language-links">
-    <div class="multilang" id="langugae-block">
+  <div class="language-block max-bound outer-pad" id="page-language-links">
+    <div class="multilang" id="language-block">
       {# show language used on the page #}
       <button class="multilang-btn" onclick="showList()" aria-hidden="false" aria-label="Language Options">
         <div class="multilang-icon" aria-hidden="true"></div>
         <div class="multilang-divider" aria-hidden="true"></div>
         {# inactive language is hidden by CSS #}
-        {% for language in links %}
-          <div class="multilang-item" {{ language.attributes }} aria-hidden="true">
-            <div class="multilang-text" aria-hidden="true">
-            {{ language.nationAbbreviation }} - {{ language.nativeName }}
-            </div>
-          </div>
-        {% endfor %}
+        <ul>
+          {% for language in links %}
+            <li aria-hidden="true" class="multilang-item" {{ language.attributes }}>
+              <div aria-hidden="true" class="multilang-text">
+             {{ language.nationAbbreviation }} - {{ language.nativeName }}
+             </div>
+            </li>
+          {% endfor %}
+        </ul>
       </button>
       {# provide other language options #}
       <div class="multilang-dropdown">

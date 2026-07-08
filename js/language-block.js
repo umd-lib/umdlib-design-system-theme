@@ -1,5 +1,5 @@
 function showList() {
-  let btn = document.getElementById("langugae-block");
+  let btn = document.getElementById("language-block");
 
   if (btn.classList.contains("expand")) {
     btn.classList.remove("expand");

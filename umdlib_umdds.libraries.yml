@@ -11,7 +11,7 @@ umdlib:
   js:
     js/lucide.min.js: {}
     js/clipboard.min.js: {}
-    js/language-block.js
+    js/language-block.js: {}
 umd-lib-layout:
   css:
     theme:

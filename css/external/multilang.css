@@ -58,8 +58,8 @@
 }
 
 .multilang-btn {
-  min-width: 148px;
-  max-width: 148px;
+  min-width: 168px;
+  max-width: 168px;
   height: 36px;
 
   display: flex;
@@ -98,10 +98,10 @@
 .multilang-item {
   display: flex;
   flex-direction: column;
-  width: 80px;
+  width: 100px;
   align-items: center;
 
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 500;
 
   line-height: 1.3;

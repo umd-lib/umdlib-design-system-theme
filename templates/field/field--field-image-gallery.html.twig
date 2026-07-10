@@ -41,16 +41,8 @@
   "components": items,
 } %}
   {% block components %}
-    {% if multiple %}
-      <div{{ attributes }}>
-        {% for item in items %}
-          <div{{ item.attributes }}>{{ item.content }}</div>
-        {% endfor %}
-      </div>
-    {% else %}
-      {% for item in items %}
-        <div{{ attributes }}>{{ item.content }}</div>
-      {% endfor %}
-    {% endif %}
+    {% for item in items %}
+      <div{{ item.attributes }}>{{ item.content }}</div>
+    {% endfor %}
   {% endblock %}
 {% endembed %}

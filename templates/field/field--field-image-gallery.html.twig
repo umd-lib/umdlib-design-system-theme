@@ -38,7 +38,19 @@
 #}
 {% embed "umdlib_umdds:umd-libraries-layout" with {
   "columns": "3",
-  "components": item.content,
+  "components": items,
 } %}
-  {% block component %}{{ item.content }}{% endblock %}
+  {% block components %}
+    {% if multiple %}
+      <div{{ attributes }}>
+        {% for item in items %}
+          <div{{ item.attributes }}>{{ item.content }}</div>
+        {% endfor %}
+      </div>
+    {% else %}
+      {% for item in items %}
+        <div{{ attributes }}>{{ item.content }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endblock %}
 {% endembed %}

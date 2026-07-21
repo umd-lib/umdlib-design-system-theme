@@ -8,6 +8,7 @@ umdlib:
       css/external/search-feature.css: {}
       css/external/umd-lib-layout.css: {}
       css/external/multilang.css: {}
+      css/external/webforms.css: {}
   js:
     js/lucide.min.js: {}
     js/clipboard.min.js: {}

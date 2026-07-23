@@ -1,5 +1,31 @@
+# Design tokens only: :root custom properties and the .dark-theme remap.
+# Self-contained and safe to attach on its own by consumers that just want the
+# token layer.
+tokens:
+  css:
+    theme:
+      css/tokens.css: {}
+# Font faces. Kept separate so the token and utility layers can depend on it
+# without carrying the base64 payload inline.
+fonts:
+  css:
+    theme:
+      css/fonts.css: {}
+# Utility classes (typography, color, animation, icons, layout, spacing).
+# Depend on tokens (var(--*)) and fonts (font-family names).
+utilities:
+  dependencies:
+    - umdlib_umdds/tokens
+    - umdlib_umdds/fonts
+  css:
+    theme:
+      css/utilities.css: {}
 umdlib:
   header: true
+  dependencies:
+    - umdlib_umdds/tokens
+    - umdlib_umdds/fonts
+    - umdlib_umdds/utilities
   css:
     theme:
       css/base.css: {}

@@ -1,0 +1,45 @@
+/* Design tokens: color, spacing, dark-theme remap. Split out of base.css. */
+
+/* base */
+:root {
+  /* color */
+  --maryland-red: #e21833;
+  --maryland-yellow: #ffd200;
+  --white: #ffffff;
+  --black: #000000;
+
+  --lightest-gray: #fafafa;
+  --lighter-gray: #f1f1f1;
+  --light-gray: #e6e6e6;
+  --medium-gray: #757575;
+  --dark-gray: #454545;
+  --darker-gray: #242424;
+
+  --dark-red: #a90007;
+
+  --green: #037623; /* status only (e.g. open/available); no dark-theme remap */
+
+  /* spacing scale - fixed values */
+  --space-xs: 0.5rem; /* 8px */
+  --space-sm: 1rem; /* 16px */
+  --space-md: 1.5rem; /* 24px */
+  --space-lg: 2rem; /* 32px */
+  --space-xl: 3rem; /* 48px */
+  --space-2xl: 4rem; /* 64px */
+  --space-3xl: 7.5rem; /* 120px */
+}
+
+/* dark theme */
+.dark-theme {
+  --maryland-red: #ffd200;
+  --maryland-yellow: #e21833;
+  --white: #000000;
+  --black: #ffffff;
+
+  --lightest-gray: #242424;
+  --lighter-gray: #454545;
+  --light-gray: #757575;
+  --medium-gray: #e6e6e6;
+  --dark-gray: #f1f1f1;
+  --darker-gray: #fafafa;
+}

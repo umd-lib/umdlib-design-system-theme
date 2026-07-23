@@ -1,3 +1,5 @@
+umdlib:
+  header: true
   css:
     theme:
       css/base.css: { preprocess: false }

@@ -7,12 +7,16 @@
  * body_text_slot: Slot for the main body text elements.
  * componentid: (optional) An ID to use for the component. This can be used for section referencing.
  * component_class: (optional) A CSS class to apply to the component.
+ * label: (optional) A label for the component.
  */
  #}
 
 {% if body_text_slot is defined %}
   <div class="umd-lib body body--content wysiwyg-editor s-margin-general-medium {{ component_class | default('') }}" id="{{ componentid | default('') }}">
-   {{ body_text_slot | raw }}
+    {% if label %}
+      <span class="text--label c-content-secondary">{{ label }}</span>
+    {% endif %}
+    {{ body_text_slot | raw }}
   </div>
 
 {% else %}

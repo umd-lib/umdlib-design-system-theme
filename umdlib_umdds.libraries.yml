@@ -2,14 +2,20 @@ umdlib:
   header: true
   css:
     theme:
-      css/base.css: {}
+      css/base.css: { preprocess: false }
+      css/tokens.css: { preprocess: false }
+      css/fonts.css: { preprocess: false }
+      css/utilities.css: { preprocess: false }
       css/internal/admin.css: {}
       css/external/system-nav.css: {}
       css/external/search-feature.css: {}
       css/external/umd-lib-layout.css: {}
+      css/external/multilang.css: {}
+      css/external/webforms.css: {}
   js:
     js/lucide.min.js: {}
     js/clipboard.min.js: {}
+    js/language-block.js: {}
 umd-lib-layout:
   css:
     theme:

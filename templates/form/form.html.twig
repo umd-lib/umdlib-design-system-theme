@@ -1,0 +1,28 @@
+{#
+/**
+ * @file
+ * Theme override for a 'form' element.
+ *
+ * Available variables
+ * - attributes: A list of HTML attributes for the wrapper element.
+ * - children: The child elements of the form.
+ *
+ * @see \Drupal\Core\Form\FormPreprocess::preprocessForm()
+ */
+#}
+{%
+  set form_classes = [
+    logged_in ? 'user-logged-in',
+    not root_path ? 'path-frontpage' : 'path-' ~ root_path|clean_class,
+    node_type ? 'page-node-type-' ~ node_type|clean_class,
+    db_offline ? 'db-offline',
+    's-box-large-h',
+    's-box-medium-v',
+    'c-bg-secondary',
+    's-margin-general-medium',
+    'reusable-search-box'
+  ]
+%}
+<form{{ attributes.addClass(form_classes) }}>
+  {{ children }}
+</form>

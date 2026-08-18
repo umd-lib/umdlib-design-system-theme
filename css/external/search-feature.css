@@ -22,7 +22,8 @@
 }
 
 .search-box .search-box-action-area input::placeholder,
-.reusable-search-box .search-box-action-area input::placeholder {
+.reusable-search-box .search-box-action-area input::placeholder,
+.umd-form-element input::placeholder {
   color: var(--medium-gray);
 }
 
@@ -84,6 +85,20 @@ search-sort .button-group {
   flex-direction: row;
   justify-content: end;
   align-items: center;
+}
+
+/* core search element overrides */
+.umd-form-element input, .umd-form-element select {
+  border-bottom: 1px solid var(--darker-gray);
+}
+
+.umd-form-element label {
+  display: block;
+}
+
+.umd-form-element input,
+.umd-form-element select {
+  padding: 0.5rem;
 }
 
 /* search sort - date ranger */

@@ -1036,39 +1036,39 @@ table .js-media-library-item {
 }
 
 /* CKEditor */
-#drupal-off-canvas .ck-editor ul li {
+.ck-editor ul li {
   list-style-type: disc !important;
 }
 
-#drupal-off-canvas .ck-editor ol li {
+.ck-editor ol li {
   list-style-type: decimal !important;
 }
 
-#drupal-off-canvas .ck-editor a {
+.ck-editor a {
   text-decoration: underline !important;
   color: #e21833 !important;
 }
 
-#drupal-off-canvas .ck-editor table {
+.ck-editor table {
   width: auto !important;
 }
 
-#drupal-off-canvas .ck-editor h2 {
+.ck-editor h2 {
   font-size: 2.25rem !important;
 }
 
-#drupal-off-canvas .ck-editor h3 {
+.ck-editor h3 {
   font-size: 2rem !important;
 }
 
-#drupal-off-canvas .ck-editor h4 {
+.ck-editor h4 {
   font-size: 1.75rem !important;
 }
 
-#drupal-off-canvas .ck-editor h5 {
+.ck-editor h5 {
   font-size: 1.5rem !important;
 }
 
-#drupal-off-canvas .ck-editor h6 {
+.ck-editor h6 {
   font-size: 1.25rem !important;
 }

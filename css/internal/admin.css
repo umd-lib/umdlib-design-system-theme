@@ -1036,6 +1036,10 @@ table .js-media-library-item {
 }
 
 /* CKEditor */
-#drupal-off-canvas-wrapper [data-drupal-ck-style-fence] .ck.ck-content li {
-  list-style-type: disc;
+.ck-editor li {
+  list-style-type: disc !important;
+}
+
+.ck-editor a {
+  text-decoration: underline !important;
 }

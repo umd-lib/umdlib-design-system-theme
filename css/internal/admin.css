@@ -1036,10 +1036,15 @@ table .js-media-library-item {
 }
 
 /* CKEditor */
-.ck-editor li {
+.ck-editor ul li {
   list-style-type: disc !important;
+}
+
+.ck-editor ol li {
+  list-style-type: decimal !important;
 }
 
 .ck-editor a {
   text-decoration: underline !important;
+  color: #e21833 !important;
 }

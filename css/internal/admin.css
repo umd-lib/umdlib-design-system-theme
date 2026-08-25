@@ -1034,3 +1034,8 @@ table .js-media-library-item {
   input {
   width: 100%;
 }
+
+/* CKEditor */
+#drupal-off-canvas-wrapper [data-drupal-ck-style-fence] .ck.ck-content li {
+  list-style-type: disc;
+}

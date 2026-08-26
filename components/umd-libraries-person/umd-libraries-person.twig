@@ -45,7 +45,7 @@
       {% set applied_image = person_image %}
       {% set applied_image_alt = person_image_alt %}
     {% else %}
-      {% set applied_image = base_path - directory - '/components/umd-libraries-person/person.svg' %}
+      {% set applied_image = base_path ~ directory ~ '/components/umd-libraries-person/person.svg' %}
       {% set applied_image_alt = '' %}
     {% endif %}
     <div class="person--{{ selectedVariant }}-image 

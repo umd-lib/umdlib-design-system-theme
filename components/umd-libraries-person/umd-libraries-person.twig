@@ -42,12 +42,17 @@
     {% endif %}
 
     {% if person_image is defined and person_image_alt is defined %}
-      <div class="person--{{ selectedVariant }}-image 
-        {% if selectedVariant == 'list' %}s-inline-medium{% endif %}
-        {% if selectedVariant == 'card' %}s-stack-small{% endif %}">
-        <img alt="{{ person_image_alt|default('') }}" src="{{ person_image }}" loading="lazy">
-      </div>
+      {% set applied_image = person_image %}
+      {% set applied_image_alt = person_image_alt %}
+    {% else %}
+      {% set applied_image = base_path - directory - '/components/umd-libraries-person/person.svg' %}
+      {% set applied_image_alt = '' %}
     {% endif %}
+    <div class="person--{{ selectedVariant }}-image 
+      {% if selectedVariant == 'list' %}s-inline-medium{% endif %}
+      {% if selectedVariant == 'card' %}s-stack-small{% endif %}">
+      <img alt="{{ applied_image_alt|default('') }}" src="{{ applied_image }}" loading="lazy">
+    </div>
 
     {% if selectedVariant == 'bio' %}
       <div class="person--bio-info">

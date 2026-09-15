@@ -1,8 +1,9 @@
 .separator {
-	width: 80%;
-	margin: 0 auto;
+	width: 100%;
+	margin: var(--space-lg) auto 0 auto;
 	border: 0;
-	border-top: 2px solid;
+	border-top: 1px solid;
+
 }
 
 .separator--red {

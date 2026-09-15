@@ -10,15 +10,20 @@
  * - Bronze
  * - Black
  *
+ * Available Margins:
+ * - wide
+ * - medium
+ * - small
+ *
  * Variables:
  * - componentid: The ID used for referencing
  */
 #}
 
 {% set selectedVariant = variant | default('red') %}
+{% set selectedMargin = margin | default('medium') %}
 
 <hr
-	class="separator separator--{{ selectedVariant }}"
+	class="separator separator--{{ selectedVariant }} separator--{{ selectedMargin }}"
 	{% if componentid is defined and componentid is not empty %}id="{{ componentid }}"{% endif %}
 >
-

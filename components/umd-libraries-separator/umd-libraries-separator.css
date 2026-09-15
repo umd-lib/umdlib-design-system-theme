@@ -25,3 +25,15 @@
 .separator--black {
 	border-color: #000;
 }
+
+.separator--wide {
+	margin: var(--space-lg) auto;
+}
+
+.separator--medium {
+	margin: var(--space-sm) auto;
+}
+
+.separator--small {
+	margin: var(--space-xs) auto;
+}

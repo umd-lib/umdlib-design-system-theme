@@ -15,6 +15,12 @@ variants:
     title: Bronze
   black:
     title: Black
+  wide:
+    title: Wide
+  medium:
+    title: Medium
+  small:
+    title: Small
 
 props:
   type: object
@@ -22,13 +28,21 @@ props:
     variant:
       type: string
       title: Line Type
-      description: Choose the line type
+      description: Line color.
       enum:
         - red
         - yellow
         - gray
         - bronze
         - black
+    margin:
+      type: string
+      title: Height
+      description: Margin height.
+      enum:
+        - wide
+        - medium
+        - small
     componentid:
       type: string
       title: Component ID

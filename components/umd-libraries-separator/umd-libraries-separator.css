@@ -1,0 +1,26 @@
+.separator {
+	width: 80%;
+	margin: 0 auto;
+	border: 0;
+	border-top: 2px solid;
+}
+
+.separator--red {
+	border-color: #e21833;
+}
+
+.separator--yellow {
+	border-color: #ffd200;
+}
+
+.separator--gray {
+	border-color: #e6e6e6;
+}
+
+.separator--bronze {
+	border-color: #ad7231;
+}
+
+.separator--black {
+	border-color: #000;
+}

@@ -1,0 +1,35 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: UMD Lib Separator
+label: Separator
+group: UMD Libraries
+
+variants:
+  red:
+    title: Red
+  yellow:
+    title: Yellow
+  gray:
+    title: Gray
+  bronze:
+    title: Bronze
+  black:
+    title: Black
+
+props:
+  type: object
+  properties:
+    variant:
+      type: string
+      title: Line Type
+      description: Choose the line type
+      enum:
+        - red
+        - yellow
+        - gray
+        - bronze
+        - black
+    componentid:
+      type: string
+      title: Component ID
+      description: (Optional) An ID to use for the component. This can be used for section referencing.

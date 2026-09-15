@@ -1,0 +1,24 @@
+{# 
+/**
+ * @file
+ * UMD Libraries Separator component.
+ *
+ * Available variants:
+ * - Red
+ * - Yellow
+ * - Gray
+ * - Bronze
+ * - Black
+ *
+ * Variables:
+ * - componentid: The ID used for referencing
+ */
+#}
+
+{% set selectedVariant = variant | default('red') %}
+
+<hr
+	class="separator separator--{{ selectedVariant }}"
+	{% if componentid is defined and componentid is not empty %}id="{{ componentid }}"{% endif %}
+>
+

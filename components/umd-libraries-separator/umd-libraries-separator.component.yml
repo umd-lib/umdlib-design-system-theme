@@ -15,12 +15,6 @@ variants:
     title: Bronze
   black:
     title: Black
-  wide:
-    title: Wide
-  medium:
-    title: Medium
-  small:
-    title: Small
 
 props:
   type: object

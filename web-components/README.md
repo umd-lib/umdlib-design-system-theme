@@ -27,6 +27,41 @@ Include both files in the consuming HTML document. The JavaScript must be loaded
 
 The filenames are configured in `vite.config.js` through Vite's Rollup output configuration. The JavaScript and CSS files are intentionally un-hashed, so deployment systems should replace or version the assets as a unit when publishing a new build.
 
+### Markup Audit
+
+Run the markup audit before or during a build:
+
+```bash
+npm run audit:markup
+```
+
+The audit compares each migrated Lit element with its matching Drupal Twig template and reports differences in:
+
+- Element names
+- Literal CSS class tokens
+- Literal `role`, `aria-*`, and `data-*` attributes
+
+It intentionally does not treat Twig expressions, Lit expressions, slots, or conditional branches as equivalent source text. Those cases need rendered DOM tests because the source representations are structurally different. For CI, use strict mode to make reported differences fail the command:
+
+```bash
+npm run audit:markup:strict
+```
+
+The audit is informational in the normal build, so expected differences such as standalone custom-element wrappers and explicit external asset URLs can be reviewed without blocking packaging.
+
+### Recommended Drift-Prevention Strategy
+
+Use the source audit as an early warning system, not as a complete equivalence test. Twig and Lit represent conditional content, slots, and dynamic attributes differently, so source comparison cannot prove that their rendered DOM is identical.
+
+For stronger coverage, keep a small set of canonical fixtures for each component state, such as card variants, an open and closed accordion, both alert variants, and hero themes. Render the same fixture through Drupal's SDC preview and the Vite demo, then use a browser test to compare normalized rendered DOM and accessibility state:
+
+- Compare semantic element roles, accessible names, IDs, ARIA relationships, and visibility.
+- Compare component class hooks and computed styles at representative viewport sizes.
+- Exercise behavior: accordion toggling, alert dismissal, navigation menus, tabs, and scroll-to-top.
+- Allow known platform differences through explicit per-component assertions instead of broad snapshot ignores.
+
+The most maintainable long-term arrangement is a shared component contract: keep props, variants, slots, required fields, and accessibility requirements in a small JSON manifest; validate Drupal metadata and Lit element declarations against it; then use rendered fixtures to verify output. The existing Drupal YAML remains useful as the Drupal adapter, but it should not be the only source of truth for a cross-platform API.
+
 The components can be used in plain HTML, server-rendered pages, or another frontend framework. Wait for the module to load before creating elements dynamically, or use `customElements.whenDefined("umd-image")` when necessary.
 
 ## Shared SDC styles

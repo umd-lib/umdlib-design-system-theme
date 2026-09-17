@@ -80,7 +80,7 @@ export class UmdAlert extends LitElement {
             `}
             ${this.isSiteWide ? html`
               <div class="alert--button-close s-box-medium-v">
-                <button type="button" aria-label="Close site notification" @click=${this.dismiss}>
+                <button type="button" aria-label="Close site notification" aria-controls=${alertId} @click=${this.dismiss}>
                   <svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none">
                     <path d="M3 3l12 12M15 3L3 15" stroke="currentColor" stroke-width="2" />
                   </svg>

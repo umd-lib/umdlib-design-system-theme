@@ -54,6 +54,7 @@ export class UmdAccordion extends LitElement {
             role="region"
             id=${bodyId}
             class="accordion-child--body-wrapper c-bg-secondary"
+            aria-labelledby=${accordionId}
             aria-hidden=${!this.open}
             style=${this.open ? "height: auto;" : "display: none;"}
           >

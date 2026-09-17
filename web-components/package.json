@@ -5,7 +5,9 @@
   "description": "Standalone Lit web components for the UMD Libraries design system.",
   "type": "module",
   "scripts": {
-    "build": "vite build",
+    "audit:markup": "node scripts/audit-markup.mjs",
+    "audit:markup:strict": "node scripts/audit-markup.mjs --strict",
+    "build": "npm run audit:markup && vite build",
     "dev": "vite"
   },
   "dependencies": {

@@ -21,7 +21,7 @@ props:
   properties:
     variant:
       type: string
-      title: Line Type
+      title: Color 
       description: Line color.
       enum:
         - red
@@ -31,7 +31,7 @@ props:
         - black
     margin:
       type: string
-      title: Height
+      title: Margin Height
       description: Margin height.
       enum:
         - wide

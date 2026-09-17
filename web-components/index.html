@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UMD Libraries Web Components</title>
+    <link rel="stylesheet" href="/src/styles/design-system.css">
+  </head>
+  <body>
+    <main>
+      <umd-separator variant="red" margin="medium"></umd-separator>
+
+      <umd-text label="Example text">
+        <p>This content is supplied through the default slot.</p>
+      </umd-text>
+
+      <umd-text-callout>
+        <p>This is a reusable text callout.</p>
+      </umd-text-callout>
+
+      <umd-accordion default-open heading-level="h3" link-text="Read more" link-url="/more">
+        <span slot="title">Accordion heading</span>
+        <p slot="body">Accordion content is revealed when the heading is activated.</p>
+      </umd-accordion>
+
+      <umd-alert variant="in_page" heading-level="h2">
+        <span slot="title">Service notice</span>
+        <p slot="description">Some services may be unavailable during scheduled maintenance.</p>
+      </umd-alert>
+
+      <umd-tabs id="example-tabs" default-tab="one" tab-label="Example tabs">
+        <button slot="triggers" id="tab-one" type="button" role="tab" aria-controls="tabpanel-one">One</button>
+        <button slot="triggers" id="tab-two" type="button" role="tab" aria-controls="tabpanel-two">Two</button>
+        <div slot="content" id="tabpanel-one" role="tabpanel" aria-labelledby="tab-one">First panel</div>
+        <div slot="content" id="tabpanel-two" role="tabpanel" aria-labelledby="tab-two">Second panel</div>
+      </umd-tabs>
+
+      <umd-scroll-to-top></umd-scroll-to-top>
+
+      <umd-image
+        src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=1200&q=80"
+        alt="Library shelves"
+        variant="three_to_two"
+      >
+        <span slot="caption">A caption supplied through a named slot.</span>
+      </umd-image>
+    </main>
+    <script type="module" src="/src/index.js"></script>
+  </body>
+</html>

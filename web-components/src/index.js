@@ -6,3 +6,8 @@ import "./elements/umd-accordion.js";
 import "./elements/umd-alert.js";
 import "./elements/umd-scroll-to-top.js";
 import "./elements/umd-tabs.js";
+import "./elements/umd-hero.js";
+import "./elements/umd-navigation.js";
+import "./elements/umd-footer.js";
+import "./elements/umd-card.js";
+import "./elements/umd-list.js";

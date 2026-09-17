@@ -1,0 +1,8 @@
+import "./elements/umd-separator.js";
+import "./elements/umd-image.js";
+import "./elements/umd-text.js";
+import "./elements/umd-text-callout.js";
+import "./elements/umd-accordion.js";
+import "./elements/umd-alert.js";
+import "./elements/umd-scroll-to-top.js";
+import "./elements/umd-tabs.js";

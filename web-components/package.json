@@ -1,0 +1,17 @@
+{
+  "name": "@umd-libraries/design-system-components",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Standalone Lit web components for the UMD Libraries design system.",
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite"
+  },
+  "dependencies": {
+    "lit": "^3.3.0"
+  },
+  "devDependencies": {
+    "vite": "^7.1.5"
+  }
+}

@@ -37,6 +37,39 @@
 
       <umd-scroll-to-top></umd-scroll-to-top>
 
+      <umd-hero variant="minimal" image="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=1200&q=80" image-alt="Library shelves">
+        <span slot="eyebrow">UMD Libraries</span>
+        <span slot="title">Find your next resource</span>
+        <p slot="description">Explore books, articles, and collections.</p>
+      </umd-hero>
+
+      <umd-navigation search-option search-url="/search">
+        <li slot="main" class="umd-lib navigation__menu-item"><a class="navigation__menu-link" href="/research">Research</a></li>
+        <li slot="utility" class="umd-lib navigation__menu-item utility-content"><a class="navigation__menu-link" href="/about">About</a></li>
+      </umd-navigation>
+
+      <umd-card variant="standard" card-url="/collections" image-url="https://images.unsplash.com/photo-1550399105-c4db5fb85c18?w=800&q=80" image-alt="Books in a library">
+        <span slot="eyebrow">Collections</span>
+        <span slot="title">Explore the archives</span>
+        <p slot="description">Browse special collections and digital materials.</p>
+      </umd-card>
+
+      <umd-list list-url="/news">
+        <span slot="eyebrow">News</span>
+        <span slot="title">Library updates</span>
+        <p slot="description">Read the latest news from the library.</p>
+      </umd-list>
+
+      <umd-footer telephone="301.555.0123">
+        <span slot="institution">University Libraries</span>
+        <span slot="address">123 Campus Drive, College Park, MD 20742</span>
+        <nav slot="navigation" aria-label="Footer navigation">
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+        </nav>
+        <ul slot="legal"><li><a href="/privacy">Privacy Policy</a></li></ul>
+      </umd-footer>
+
       <umd-image
         src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=1200&q=80"
         alt="Library shelves"

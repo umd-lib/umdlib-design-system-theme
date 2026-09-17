@@ -224,6 +224,151 @@ The element provides roving keyboard focus, Left/Right arrow navigation, Home/En
 </umd-tabs>
 ```
 
+### Hero
+
+`umd-hero` renders the minimal or overlay hero layout. The title slot is the primary heading; image URLs are explicit attributes rather than Drupal theme-path lookups.
+
+Attributes:
+
+- `variant`: `minimal` or `overlay`. Defaults to `minimal`.
+- `theme`: `light` or `dark`. Defaults to `light`.
+- `image`: Optional hero image URL.
+- `image-alt`: Alternative text for the image.
+
+```html
+<umd-hero variant="overlay" theme="dark" image="/images/reading-room.jpg" image-alt="Reading room">
+  <span slot="eyebrow">Special collections</span>
+  <span slot="title">Explore rare materials</span>
+  <p slot="description">Discover collections, exhibits, and digital resources.</p>
+  <span slot="caption">Special Collections reading room</span>
+</umd-hero>
+```
+
+### Navigation
+
+`umd-navigation` renders the responsive navigation shell and enhances consumer-supplied menu items. The main and utility slots should contain menu item elements, including any nested submenu markup and buttons required by the navigation CSS.
+
+Attributes:
+
+- `logo-url`: Logo URL. Defaults to `/logo.svg`.
+- `sub-site`: Boolean attribute. Adds a link to the UMD Libraries main website.
+- `search-option`: Boolean attribute. Adds a search link.
+- `search-label`: Search link label. Defaults to `Search`.
+- `search-url`: Search link URL. Defaults to `/search`.
+
+```html
+<umd-navigation
+  logo-url="/assets/library-logo.svg"
+  search-option
+  search-label="Search the library"
+  search-url="/search"
+>
+  <li slot="main" class="umd-lib navigation__menu-item">
+    <a class="navigation__menu-link" href="/research">Research</a>
+  </li>
+  <li slot="main" class="umd-lib navigation__menu-item">
+    <a class="navigation__menu-link" href="/services">Services</a>
+  </li>
+  <li slot="utility" class="umd-lib navigation__menu-item utility-content">
+    <a class="navigation__menu-link" href="/about">About</a>
+  </li>
+</umd-navigation>
+```
+
+### Footer
+
+`umd-footer` renders the responsive footer. Drupal's `active_theme_path()` is replaced by explicit asset URL attributes, allowing the component to work from any host application.
+
+Attributes:
+
+- `telephone`: Display telephone number. Dots are removed when generating the `tel:` link.
+- `logo-url`: Main footer logo URL. Defaults to `/logo-dark.svg`.
+- `campaign-logo-url`: Fearlessly Forward logo URL. Defaults to `/fearlessly-forward.svg`.
+- `depository-logo-url`: Depository logo URL. Defaults to `/rfdl.svg`.
+
+Slots:
+
+- `institution`: Institution name.
+- `address`: Full address.
+- `navigation`: Footer navigation markup.
+- `social`: Social media markup.
+- `legal`: Legal links or other legal footer markup.
+
+```html
+<umd-footer
+  telephone="301.555.0123"
+  logo-url="/assets/logo-dark.svg"
+  campaign-logo-url="/assets/fearlessly-forward.svg"
+  depository-logo-url="/assets/rfdl.svg"
+>
+  <span slot="institution">University Libraries</span>
+  <span slot="address">123 Campus Drive, College Park, MD 20742</span>
+  <nav slot="navigation" aria-label="Footer navigation">
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </nav>
+  <div slot="social">Social links</div>
+  <ul slot="legal">
+    <li><a href="/privacy">Privacy Policy</a></li>
+  </ul>
+</umd-footer>
+```
+
+### Card
+
+`umd-card` supports standard, overlay, and icon variants.
+
+Attributes:
+
+- `variant`: `standard`, `overlay`, or `icon`. Defaults to `standard`.
+- `heading-level`: `h2` through `h6`. Defaults to `h3`.
+- `card-url`: Optional card link URL.
+- `image-url`, `image-alt`: Standard card image and alternative text.
+- `card-date`: Optional date text.
+- `icon-name`: Optional icon label for the icon variant. Defaults to `info`.
+- `componentid`: Optional element ID.
+
+```html
+<umd-card
+  variant="standard"
+  heading-level="h3"
+  card-url="/collections"
+  image-url="/images/collections.jpg"
+  image-alt="Archival collection boxes"
+  card-date="September 17, 2026"
+>
+  <span slot="eyebrow">Collections</span>
+  <span slot="title">Explore the archives</span>
+  <p slot="description">Browse digitized materials and special collections.</p>
+</umd-card>
+```
+
+### List
+
+`umd-list` renders a linked list item with optional description, date, and image.
+
+Attributes:
+
+- `heading-level`: `h2` through `h6`. Defaults to `h2`.
+- `list-url`: Required destination URL for the title.
+- `image-url`, `image-alt`: Optional image and alternative text.
+- `list-date`: Optional date text.
+- `componentid`: Optional element ID.
+
+```html
+<umd-list
+  heading-level="h3"
+  list-url="/news/library-renovation"
+  image-url="/images/library-renovation.jpg"
+  image-alt="Renovated library reading area"
+  list-date="September 17, 2026"
+>
+  <span slot="eyebrow">Library news</span>
+  <span slot="title">A refreshed space for discovery</span>
+  <p slot="description">See what is new in the renovated reading area.</p>
+</umd-list>
+```
+
 The components use Shadow DOM and preserve the existing variant names and content concepts. Content passed through slots remains in the light DOM, while component markup and imported component styles are encapsulated.
 
 ```html

@@ -1,19 +1,29 @@
 import { LitElement, html, unsafeCSS } from "lit";
-import { property } from "lit/decorators.js";
 import sdcStyles from "../../../components/umd-libraries-card/umd-libraries-card.css?inline";
 import { umdStaticStyles } from "../styles/umd-static.js";
 
 export class UmdCard extends LitElement {
   static styles = [umdStaticStyles, unsafeCSS(sdcStyles)];
 
-  @property() variant = "standard";
-  @property({ attribute: "heading-level" }) headingLevel = "h3";
-  @property({ attribute: "card-url" }) cardUrl = "";
-  @property({ attribute: "image-url" }) imageUrl = "";
-  @property({ attribute: "image-alt" }) imageAlt = "";
-  @property({ attribute: "card-date" }) cardDate = "";
-  @property({ attribute: "icon-name" }) iconName = "info";
-  @property() componentid = "";
+  static properties = {
+    variant: {},
+    headingLevel: { attribute: "heading-level" },
+    cardUrl: { attribute: "card-url" },
+    imageUrl: { attribute: "image-url" },
+    imageAlt: { attribute: "image-alt" },
+    cardDate: { attribute: "card-date" },
+    iconName: { attribute: "icon-name" },
+    componentid: {},
+  };
+
+  variant = "standard";
+  headingLevel = "h3";
+  cardUrl = "";
+  imageUrl = "";
+  imageAlt = "";
+  cardDate = "";
+  iconName = "info";
+  componentid = "";
 
   render() {
     const variant = ["standard", "overlay", "icon"].includes(this.variant) ? this.variant : "standard";

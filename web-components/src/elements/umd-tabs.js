@@ -1,5 +1,4 @@
 import { LitElement, css, html, unsafeCSS } from "lit";
-import { property } from "lit/decorators.js";
 import sdcStyles from "../../../components/umd-libraries-tabs/umd-libraries-tabs.css?inline";
 import { umdStaticStyles } from "../styles/umd-static.js";
 
@@ -38,10 +37,17 @@ export class UmdTabs extends LitElement {
     }
   `];
 
-  @property({ attribute: "default-tab" }) defaultTab = "";
-  @property({ attribute: "tab-label" }) tabLabel = "";
-  @property() componentid = "";
-  @property({ type: Boolean, state: true }) vertical = false;
+  static properties = {
+    defaultTab: { attribute: "default-tab" },
+    tabLabel: { attribute: "tab-label" },
+    componentid: {},
+    vertical: { type: Boolean, state: true },
+  };
+
+  defaultTab = "";
+  tabLabel = "";
+  componentid = "";
+  vertical = false;
 
   firstUpdated() {
     this.triggerSlot = this.shadowRoot.querySelector("slot[name=triggers]");

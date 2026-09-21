@@ -18,7 +18,7 @@ dist/umd-libraries-components.js
 dist/umd-libraries-components.css
 ```
 
-Include both files in the consuming HTML document. The JavaScript must be loaded as a module; it registers all four custom elements. Lit is bundled into this file and does not need to be included separately.
+Include both files in the consuming HTML document. The JavaScript must be loaded as a module; it registers the package's custom elements. Lit is bundled into this file and does not need to be included separately.
 
 ```html
 <link rel="stylesheet" href="/assets/umd-libraries-components.css">
@@ -26,6 +26,8 @@ Include both files in the consuming HTML document. The JavaScript must be loaded
 ```
 
 The filenames are configured in `vite.config.js` through Vite's Rollup output configuration. The JavaScript and CSS files are intentionally un-hashed, so deployment systems should replace or version the assets as a unit when publishing a new build.
+
+The components use Lit's static `properties` declarations rather than JavaScript decorators. This keeps the distributed bundle directly compatible with browsers and avoids requiring a decorator transpilation plugin. If a browser reports `Unsupported decorator location: field`, it is serving an older bundle or a bundle built from source files that still contain `@property` decorators; rebuild and deploy the current `dist/umd-libraries-components.js` file.
 
 ### Markup Audit
 

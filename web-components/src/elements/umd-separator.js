@@ -1,13 +1,18 @@
 import { LitElement, html, unsafeCSS } from "lit";
-import { property } from "lit/decorators.js";
 import sdcStyles from "../../../components/umd-libraries-separator/umd-libraries-separator.css?inline";
 
 export class UmdSeparator extends LitElement {
   static styles = unsafeCSS(sdcStyles);
 
-  @property() variant = "red";
-  @property() margin = "medium";
-  @property() componentid = "";
+  static properties = {
+    variant: {},
+    margin: {},
+    componentid: {},
+  };
+
+  variant = "red";
+  margin = "medium";
+  componentid = "";
 
   render() {
     return html`<hr

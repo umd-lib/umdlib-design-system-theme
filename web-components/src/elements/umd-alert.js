@@ -1,5 +1,4 @@
 import { LitElement, css, html, unsafeCSS } from "lit";
-import { property } from "lit/decorators.js";
 import sdcStyles from "../../../components/umd-libraries-alert/umd-libraries-alert.css?inline";
 import { umdStaticStyles } from "../styles/umd-static.js";
 
@@ -24,15 +23,27 @@ export class UmdAlert extends LitElement {
     }
   `];
 
-  @property() variant = "in_page";
-  @property({ attribute: "heading-level" }) headingLevel = "h2";
-  @property() componentid = "";
-  @property() image = "";
-  @property({ attribute: "image-alt" }) imageAlt = "";
-  @property({ attribute: "link-text" }) linkText = "";
-  @property({ attribute: "link-url" }) linkUrl = "";
-  @property({ attribute: "customization-class" }) customizationClass = "";
-  @property({ type: Boolean, state: true }) dismissed = false;
+  static properties = {
+    variant: {},
+    headingLevel: { attribute: "heading-level" },
+    componentid: {},
+    image: {},
+    imageAlt: { attribute: "image-alt" },
+    linkText: { attribute: "link-text" },
+    linkUrl: { attribute: "link-url" },
+    customizationClass: { attribute: "customization-class" },
+    dismissed: { state: true },
+  };
+
+  variant = "in_page";
+  headingLevel = "h2";
+  componentid = "";
+  image = "";
+  imageAlt = "";
+  linkText = "";
+  linkUrl = "";
+  customizationClass = "";
+  dismissed = false;
 
   get isSiteWide() {
     return this.variant === "site_wide";

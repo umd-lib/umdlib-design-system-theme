@@ -1,5 +1,4 @@
 import { LitElement, css, html, unsafeCSS } from "lit";
-import { property } from "lit/decorators.js";
 import { umdStaticStyles } from "../styles/umd-static.js";
 import sdcStyles from "../../../components/umd-libraries-image/umd-libraries-image.css?inline";
 
@@ -21,11 +20,19 @@ export class UmdImage extends LitElement {
     }
   `];
 
-  @property() src = "";
-  @property() alt = "";
-  @property() variant = "freeform";
-  @property() orientation = "landscape";
-  @property() componentid = "";
+  static properties = {
+    src: {},
+    alt: {},
+    variant: {},
+    orientation: {},
+    componentid: {},
+  };
+
+  src = "";
+  alt = "";
+  variant = "freeform";
+  orientation = "landscape";
+  componentid = "";
 
   render() {
     return html`

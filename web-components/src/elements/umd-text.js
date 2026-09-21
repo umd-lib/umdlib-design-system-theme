@@ -1,5 +1,4 @@
 import { LitElement, css, html, unsafeCSS } from "lit";
-import { property } from "lit/decorators.js";
 import { umdStaticStyles } from "../styles/umd-static.js";
 import sdcStyles from "../../../components/umd-libraries-text/umd-libraries-text.css?inline";
 
@@ -16,9 +15,15 @@ export class UmdText extends LitElement {
     }
   `];
 
-  @property() label = "";
-  @property() componentid = "";
-  @property({ attribute: "component-class" }) componentClass = "";
+  static properties = {
+    label: {},
+    componentid: {},
+    componentClass: { attribute: "component-class" },
+  };
+
+  label = "";
+  componentid = "";
+  componentClass = "";
 
   render() {
     return html`

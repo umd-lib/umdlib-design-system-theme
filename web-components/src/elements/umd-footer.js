@@ -1,15 +1,21 @@
 import { LitElement, html, unsafeCSS } from "lit";
-import { property } from "lit/decorators.js";
 import sdcStyles from "../../../components/umd-libraries-footer/umd-libraries-footer.css?inline";
 import { umdStaticStyles } from "../styles/umd-static.js";
 
 export class UmdFooter extends LitElement {
   static styles = [umdStaticStyles, unsafeCSS(sdcStyles)];
 
-  @property() telephone = "";
-  @property({ attribute: "logo-url" }) logoUrl = "/logo-dark.svg";
-  @property({ attribute: "campaign-logo-url" }) campaignLogoUrl = "/fearlessly-forward.svg";
-  @property({ attribute: "depository-logo-url" }) depositoryLogoUrl = "/rfdl.svg";
+  static properties = {
+    telephone: {},
+    logoUrl: { attribute: "logo-url" },
+    campaignLogoUrl: { attribute: "campaign-logo-url" },
+    depositoryLogoUrl: { attribute: "depository-logo-url" },
+  };
+
+  telephone = "";
+  logoUrl = "/logo-dark.svg";
+  campaignLogoUrl = "/fearlessly-forward.svg";
+  depositoryLogoUrl = "/rfdl.svg";
 
   render() {
     const telephoneUrl = this.telephone.replaceAll(".", "");

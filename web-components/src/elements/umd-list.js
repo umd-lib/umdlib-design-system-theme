@@ -1,5 +1,4 @@
 import { LitElement, html, unsafeCSS } from "lit";
-import { property } from "lit/decorators.js";
 import sdcStyles from "../../../components/umd-libraries-list/umd-libraries-list.css?inline";
 import { umdStaticStyles } from "../styles/umd-static.js";
 
@@ -8,12 +7,21 @@ let listCount = 0;
 export class UmdList extends LitElement {
   static styles = [umdStaticStyles, unsafeCSS(sdcStyles)];
 
-  @property({ attribute: "heading-level" }) headingLevel = "h2";
-  @property({ attribute: "list-url" }) listUrl = "";
-  @property({ attribute: "image-url" }) imageUrl = "";
-  @property({ attribute: "image-alt" }) imageAlt = "";
-  @property({ attribute: "list-date" }) listDate = "";
-  @property() componentid = "";
+  static properties = {
+    headingLevel: { attribute: "heading-level" },
+    listUrl: { attribute: "list-url" },
+    imageUrl: { attribute: "image-url" },
+    imageAlt: { attribute: "image-alt" },
+    listDate: { attribute: "list-date" },
+    componentid: {},
+  };
+
+  headingLevel = "h2";
+  listUrl = "";
+  imageUrl = "";
+  imageAlt = "";
+  listDate = "";
+  componentid = "";
 
   constructor() {
     super();

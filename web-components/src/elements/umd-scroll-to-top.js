@@ -1,12 +1,16 @@
 import { LitElement, html, unsafeCSS } from "lit";
-import { property } from "lit/decorators.js";
 import sdcStyles from "../../../components/umd-libraries-scroll-to-top/umd-libraries-scroll-to-top.css?inline";
 
 export class UmdScrollToTop extends LitElement {
   static styles = unsafeCSS(sdcStyles);
 
-  @property({ type: Number }) threshold = 300;
-  @property({ type: Boolean, state: true }) visible = false;
+  static properties = {
+    threshold: { type: Number },
+    visible: { state: true },
+  };
+
+  threshold = 300;
+  visible = false;
 
   connectedCallback() {
     super.connectedCallback();

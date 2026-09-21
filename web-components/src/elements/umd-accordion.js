@@ -1,5 +1,4 @@
 import { LitElement, html, unsafeCSS } from "lit";
-import { property } from "lit/decorators.js";
 import sdcStyles from "../../../components/umd-libraries-accordion/umd-libraries-accordion.css?inline";
 import { umdStaticStyles } from "../styles/umd-static.js";
 
@@ -8,12 +7,21 @@ let accordionCount = 0;
 export class UmdAccordion extends LitElement {
   static styles = [umdStaticStyles, unsafeCSS(sdcStyles)];
 
-  @property() componentid = "";
-  @property({ attribute: "heading-level" }) headingLevel = "h3";
-  @property({ type: Boolean, attribute: "default-open" }) defaultOpen = false;
-  @property() linkText = "";
-  @property() linkUrl = "";
-  @property({ type: Boolean, state: true }) open = false;
+  static properties = {
+    componentid: {},
+    headingLevel: { attribute: "heading-level" },
+    defaultOpen: { type: Boolean, attribute: "default-open" },
+    linkText: { attribute: "link-text" },
+    linkUrl: { attribute: "link-url" },
+    open: { state: true },
+  };
+
+  componentid = "";
+  headingLevel = "h3";
+  defaultOpen = false;
+  linkText = "";
+  linkUrl = "";
+  open = false;
 
   constructor() {
     super();

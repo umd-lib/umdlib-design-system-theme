@@ -1,15 +1,21 @@
 import { LitElement, html, unsafeCSS } from "lit";
-import { property } from "lit/decorators.js";
 import sdcStyles from "../../../components/umd-libraries-hero/umd-libraries-hero.css?inline";
 import { umdStaticStyles } from "../styles/umd-static.js";
 
 export class UmdHero extends LitElement {
   static styles = [umdStaticStyles, unsafeCSS(sdcStyles)];
 
-  @property() variant = "minimal";
-  @property() theme = "light";
-  @property() image = "";
-  @property({ attribute: "image-alt" }) imageAlt = "";
+  static properties = {
+    variant: {},
+    theme: {},
+    image: {},
+    imageAlt: { attribute: "image-alt" },
+  };
+
+  variant = "minimal";
+  theme = "light";
+  image = "";
+  imageAlt = "";
 
   render() {
     const variant = ["minimal", "overlay"].includes(this.variant) ? this.variant : "minimal";

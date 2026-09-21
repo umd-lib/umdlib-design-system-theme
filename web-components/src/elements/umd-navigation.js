@@ -1,17 +1,25 @@
 import { LitElement, html, unsafeCSS } from "lit";
-import { property } from "lit/decorators.js";
 import sdcStyles from "../../../components/umd-libraries-navigation/umd-libraries-navigation.css?inline";
 import { umdStaticStyles } from "../styles/umd-static.js";
 
 export class UmdNavigation extends LitElement {
   static styles = [umdStaticStyles, unsafeCSS(sdcStyles)];
 
-  @property({ attribute: "logo-url" }) logoUrl = "/logo.svg";
-  @property({ type: Boolean, attribute: "sub-site" }) subSite = false;
-  @property({ type: Boolean, attribute: "search-option" }) searchOption = false;
-  @property({ attribute: "search-label" }) searchLabel = "Search";
-  @property({ attribute: "search-url" }) searchUrl = "/search";
-  @property({ type: Boolean, state: true }) open = false;
+  static properties = {
+    logoUrl: { attribute: "logo-url" },
+    subSite: { type: Boolean, attribute: "sub-site" },
+    searchOption: { type: Boolean, attribute: "search-option" },
+    searchLabel: { attribute: "search-label" },
+    searchUrl: { attribute: "search-url" },
+    open: { state: true },
+  };
+
+  logoUrl = "/logo.svg";
+  subSite = false;
+  searchOption = false;
+  searchLabel = "Search";
+  searchUrl = "/search";
+  open = false;
 
   firstUpdated() {
     this.rows = this.shadowRoot.querySelector(".navigation__rows");

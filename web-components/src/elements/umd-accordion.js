@@ -35,9 +35,9 @@ export class UmdAccordion extends LitElement {
     }
   }
 
-  toggle() {
+  toggle = () => {
     this.open = !this.open;
-  }
+  };
 
   render() {
     const accordionId = this.componentid || this.accordionId;

@@ -1,0 +1,45 @@
+langcode: en
+status: 1
+dependencies: {  }
+id: umdlib_umdds.umd-libraries-info-card.info_card
+label: 'Info Card'
+component_id: 'umdlib_umdds:umd-libraries-info-card'
+form_mode_name: info_card
+content:
+  componentid:
+    widget_settings: {  }
+    source_id: textfield
+    parent: ''
+    weight: '4'
+    region: content
+    third_party_settings: {  }
+  heading_level:
+    widget_settings: {  }
+    source_id: select
+    parent: ''
+    weight: '0'
+    region: content
+    third_party_settings: {  }
+  card_title:
+    widget_settings: {  }
+    source_id: long_text_string
+    parent: ''
+    weight: '1'
+    region: content
+    third_party_settings: {  }
+  description:
+    widget_settings: {  }
+    source_id: wysiwyg
+    parent: ''
+    weight: '2'
+    region: content
+    third_party_settings: {  }
+  links:
+    widget_settings: {  }
+    source_id: block
+    parent: ''
+    weight: '3'
+    region: content
+    third_party_settings: {  }
+hidden:
+  attributes: true

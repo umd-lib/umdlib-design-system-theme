@@ -1,0 +1,95 @@
+langcode: en
+status: 1
+dependencies: {  }
+id: umdlib_umdds.umd-libraries-card.card
+label: Card
+component_id: 'umdlib_umdds:umd-libraries-card'
+form_mode_name: card
+content:
+  variant:
+    widget_settings: {  }
+    source_id: select
+    parent: ''
+    weight: '0'
+    region: content
+    third_party_settings: {  }
+  heading_level:
+    widget_settings: {  }
+    source_id: select
+    parent: ''
+    weight: '4'
+    region: content
+    third_party_settings: {  }
+  card_url_optional:
+    widget_settings: {  }
+    source_id: checkbox
+    parent: ''
+    weight: '6'
+    region: content
+    third_party_settings: {  }
+  componentid:
+    widget_settings: {  }
+    source_id: textfield
+    parent: ''
+    weight: '11'
+    region: content
+    third_party_settings: {  }
+  card_image:
+    widget_settings: {  }
+    source_id: media_image_url
+    parent: ''
+    weight: '1'
+    region: content
+    third_party_settings: {  }
+  card_image_alt:
+    widget_settings: {  }
+    source_id: long_text_string
+    parent: ''
+    weight: '2'
+    region: content
+    third_party_settings: {  }
+  eyebrow:
+    widget_settings: {  }
+    source_id: long_text_string
+    parent: ''
+    weight: '3'
+    region: content
+    third_party_settings: {  }
+  card_title:
+    widget_settings: {  }
+    source_id: long_text_string
+    parent: ''
+    weight: '5'
+    region: content
+    third_party_settings: {  }
+  card_url:
+    widget_settings: {  }
+    source_id: linkit_link
+    parent: ''
+    weight: '7'
+    region: content
+    third_party_settings: {  }
+  card_date:
+    widget_settings: {  }
+    source_id: date
+    parent: ''
+    weight: '8'
+    region: content
+    third_party_settings: {  }
+  description:
+    widget_settings: {  }
+    source_id: long_text_string
+    parent: ''
+    weight: '9'
+    region: content
+    third_party_settings: {  }
+  icon_slot:
+    widget_settings: {  }
+    source_id: textfield
+    parent: ''
+    weight: '10'
+    region: content
+    third_party_settings: {  }
+hidden:
+  attributes: true
+  icon_name: true

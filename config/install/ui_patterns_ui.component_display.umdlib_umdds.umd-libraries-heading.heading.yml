@@ -1,0 +1,73 @@
+langcode: en
+status: 1
+dependencies: {  }
+id: umdlib_umdds.umd-libraries-heading.heading
+label: Heading
+component_id: 'umdlib_umdds:umd-libraries-heading'
+form_mode_name: heading
+content:
+  variant:
+    widget_settings: {  }
+    source_id: select
+    parent: ''
+    weight: '5'
+    region: content
+    third_party_settings: {  }
+  page_title:
+    widget_settings: {  }
+    source_id: checkbox
+    parent: ''
+    weight: '1'
+    region: content
+    third_party_settings: {  }
+  top_margin:
+    widget_settings: {  }
+    source_id: checkbox
+    parent: ''
+    weight: '6'
+    region: content
+    third_party_settings: {  }
+  component_id:
+    widget_settings: {  }
+    source_id: textfield
+    parent: ''
+    weight: '7'
+    region: content
+    third_party_settings: {  }
+  heading_text:
+    widget_settings: {  }
+    source_id: long_text_string
+    parent: ''
+    weight: '0'
+    region: content
+    third_party_settings: {  }
+  link_url:
+    widget_settings: {  }
+    source_id: linkit_link
+    parent: ''
+    weight: '2'
+    region: content
+    third_party_settings: {  }
+  subtitle:
+    widget_settings: {  }
+    source_id: long_text_string
+    parent: ''
+    weight: '3'
+    region: content
+    third_party_settings: {  }
+  date:
+    widget_settings: {  }
+    source_id: date
+    parent: ''
+    weight: '4'
+    region: content
+    third_party_settings: {  }
+  componentid:
+    widget_settings: {  }
+    source_id: textfield
+    parent: ''
+    weight: '7'
+    region: content
+    third_party_settings: {  }
+hidden:
+  attributes: true

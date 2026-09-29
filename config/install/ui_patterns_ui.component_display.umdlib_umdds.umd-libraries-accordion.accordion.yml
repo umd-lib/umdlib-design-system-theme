@@ -1,0 +1,59 @@
+langcode: en
+status: 1
+dependencies: {  }
+id: umdlib_umdds.umd-libraries-accordion.accordion
+label: Accordion
+component_id: 'umdlib_umdds:umd-libraries-accordion'
+form_mode_name: accordion
+content:
+  componentid:
+    widget_settings: {  }
+    source_id: textfield
+    parent: ''
+    weight: '0'
+    region: content
+    third_party_settings: {  }
+  heading_level:
+    widget_settings: {  }
+    source_id: select
+    parent: ''
+    weight: '1'
+    region: content
+    third_party_settings: {  }
+  default_open:
+    widget_settings: {  }
+    source_id: checkbox
+    parent: ''
+    weight: '2'
+    region: content
+    third_party_settings: {  }
+  title:
+    widget_settings: {  }
+    source_id: textfield
+    parent: ''
+    weight: '3'
+    region: content
+    third_party_settings: {  }
+  body:
+    widget_settings: {  }
+    source_id: wysiwyg
+    parent: ''
+    weight: '4'
+    region: content
+    third_party_settings: {  }
+  link_text:
+    widget_settings: {  }
+    source_id: long_text_string
+    parent: ''
+    weight: '5'
+    region: content
+    third_party_settings: {  }
+  link_url:
+    widget_settings: {  }
+    source_id: linkit_link
+    parent: ''
+    weight: '6'
+    region: content
+    third_party_settings: {  }
+hidden:
+  attributes: true

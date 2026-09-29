@@ -1,0 +1,11 @@
+langcode: en
+status: 0
+dependencies: {  }
+id: umdlib_umdds.umd-libraries-table-row.table_row
+label: 'Table Row'
+component_id: 'umdlib_umdds:umd-libraries-table-row'
+form_mode_name: table_row
+content: {  }
+hidden:
+  attributes: true
+  body_slot: true

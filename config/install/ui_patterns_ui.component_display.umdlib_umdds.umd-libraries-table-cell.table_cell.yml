@@ -1,0 +1,38 @@
+langcode: en
+status: 1
+dependencies: {  }
+id: umdlib_umdds.umd-libraries-table-cell.table_cell
+label: 'Table Cell'
+component_id: 'umdlib_umdds:umd-libraries-table-cell'
+form_mode_name: table_cell
+content:
+  header:
+    widget_settings: {  }
+    source_id: checkbox
+    parent: ''
+    weight: '0'
+    region: content
+    third_party_settings: {  }
+  column_span:
+    widget_settings: {  }
+    source_id: textfield
+    parent: ''
+    weight: '1'
+    region: content
+    third_party_settings: {  }
+  row_span:
+    widget_settings: {  }
+    source_id: textfield
+    parent: ''
+    weight: '2'
+    region: content
+    third_party_settings: {  }
+  body_slot:
+    widget_settings: {  }
+    source_id: wysiwyg
+    parent: ''
+    weight: '3'
+    region: content
+    third_party_settings: {  }
+hidden:
+  attributes: true

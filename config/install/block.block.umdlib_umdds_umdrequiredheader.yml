@@ -1,0 +1,61 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - ui_patterns
+    - ui_patterns_blocks
+  theme:
+    - umdlib_umdds
+id: umdlib_umdds_umdrequiredheader
+theme: umdlib_umdds
+region: highlighted
+weight: -4
+provider: null
+plugin: 'ui_patterns:umdlib_umdds:umd-libraries-umdheader'
+settings:
+  id: 'ui_patterns:umdlib_umdds:umd-libraries-umdheader'
+  label: 'UMD Required Header'
+  label_display: '0'
+  provider: ui_patterns_blocks
+  ui_patterns:
+    component_id: 'umdlib_umdds:umd-libraries-umdheader'
+    variant_id: null
+    props:
+      attributes:
+        source_id: attributes
+        source:
+          value: ''
+      show_search:
+        source_id: checkbox
+        source:
+          value: false
+      search_destination:
+        source_id: textfield
+        source:
+          value: ''
+      show_events:
+        source_id: checkbox
+        source:
+          value: false
+      show_news:
+        source_id: checkbox
+        source:
+          value: false
+      show_schools:
+        source_id: checkbox
+        source:
+          value: false
+      show_admissions:
+        source_id: checkbox
+        source:
+          value: false
+      show_support:
+        source_id: checkbox
+        source:
+          value: false
+      support_destination:
+        source_id: textfield
+        source:
+          value: ''
+    slots: {  }
+visibility: {  }

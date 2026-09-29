@@ -1,0 +1,17 @@
+langcode: en
+status: 1
+dependencies: {  }
+id: umdlib_umdds.umd-libraries-table-body.table_body
+label: 'Table Body'
+component_id: 'umdlib_umdds:umd-libraries-table-body'
+form_mode_name: table_body
+content:
+  body_slot:
+    widget_settings: {  }
+    source_id: wysiwyg
+    parent: ''
+    weight: '0'
+    region: content
+    third_party_settings: {  }
+hidden:
+  attributes: true

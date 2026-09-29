@@ -1,0 +1,24 @@
+langcode: en
+status: 1
+dependencies: {  }
+id: umdlib_umdds.umd-libraries-text-callout.callout
+label: Callout
+component_id: 'umdlib_umdds:umd-libraries-text-callout'
+form_mode_name: callout
+content:
+  componentid:
+    widget_settings: {  }
+    source_id: textfield
+    parent: ''
+    weight: '1'
+    region: content
+    third_party_settings: {  }
+  text_callout__text_slot:
+    widget_settings: {  }
+    source_id: wysiwyg
+    parent: ''
+    weight: '0'
+    region: content
+    third_party_settings: {  }
+hidden:
+  attributes: true

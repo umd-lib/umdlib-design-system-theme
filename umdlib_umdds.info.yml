@@ -13,4 +13,12 @@ regions:
   footer: Footer
 dependencies:
   - umdlib_ds_layout_tools:umdlib_ds_layout_tools
-  - ui_patterns:ui_patterns
+  - ui_patterns:ui_patterns_ui
+  - ui_patterns:ui_patterns_layouts
+  - ui_patterns:ui_patterns_blocks
+  - ui_patterns:ui_patterns_settings
+  - umdlib_ui_pattern_sources
+  - schema_metatag:schema_organization
+  - schema_metatag:schema_place
+  - schema_metatag:schema_web_page
+  - schema_metatag:schema_web_site

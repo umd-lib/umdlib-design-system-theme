@@ -4,11 +4,11 @@ dependencies:
   theme:
     - umdlib_umdds
 _core:
-  default_config_hash: nGE3EoPQQaQCuqTUtZgw0-KIzmrqdKDzdNQf2JyPUt4
+  default_config_hash: KPcb0Qv4t2QlE8Q6bG0di4Idd334DJAOOqkiyutHBK8
 id: umdlib_umdds_primary_local_tasks
 theme: umdlib_umdds
 region: highlighted
-weight: -6
+weight: -2
 provider: null
 plugin: local_tasks_block
 settings:
@@ -19,4 +19,3 @@ settings:
   primary: true
   secondary: false
 visibility: {  }
-

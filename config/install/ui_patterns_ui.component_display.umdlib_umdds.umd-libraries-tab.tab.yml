@@ -1,0 +1,31 @@
+langcode: en
+status: 0
+dependencies: {  }
+id: umdlib_umdds.umd-libraries-tab.tab
+label: Tab
+component_id: 'umdlib_umdds:umd-libraries-tab'
+form_mode_name: tab
+content:
+  tab_value:
+    widget_settings: {  }
+    source_id: textfield
+    parent: ''
+    weight: '2'
+    region: content
+    third_party_settings: {  }
+  tab_heading:
+    widget_settings: {  }
+    source_id: long_text_string
+    parent: ''
+    weight: '0'
+    region: content
+    third_party_settings: {  }
+  body_slot:
+    widget_settings: {  }
+    source_id: wysiwyg
+    parent: ''
+    weight: '1'
+    region: content
+    third_party_settings: {  }
+hidden:
+  attributes: true

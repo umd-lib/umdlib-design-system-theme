@@ -97,6 +97,11 @@
   background-color: #e21833 !important;
 }
 
+.hero--overlay.dark-theme .use-button h2 a {
+  padding: 10px 15px;
+  border: 1px solid white;
+}
+
 /* breakpoint */
 /* Tablet */
 @media (min-width: 768px) {

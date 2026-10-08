@@ -221,7 +221,7 @@ Attributes:
 
 ### Tabs
 
-`umd-tabs` manages a tablist, its tab triggers, and associated tab panels. Supply native buttons with `role="tab"` and panels with `role="tabpanel"` through the named slots. Each trigger ID must be `tab-{value}`, and its panel ID must be `tabpanel-{value}`.
+`umd-tabs` manages a tablist, its tab triggers, and associated tab panels. Supply native buttons with `role="tab"` and panels with `role="tabpanel"` through the named slots. The component applies the Drupal tab-trigger classes and styling to slotted tab buttons. Each trigger ID must be `tab-{value}`, and its panel ID must be `tabpanel-{value}`.
 
 Attributes:
 

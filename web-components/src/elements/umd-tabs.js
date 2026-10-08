@@ -11,11 +11,12 @@ export class UmdTabs extends LitElement {
     ::slotted([role="tab"]) {
       width: fit-content;
       display: flex;
-      padding: var(--space-sm) var(--space-md);
+      flex: 0 0 auto;
+      flex-direction: row;
+      align-items: start;
+      text-align: left;
       border: 0;
       background: transparent;
-      color: var(--dark-gray);
-      font: inherit;
       cursor: pointer;
     }
 
@@ -44,10 +45,13 @@ export class UmdTabs extends LitElement {
     vertical: { type: Boolean, state: true },
   };
 
-  defaultTab = "";
-  tabLabel = "";
-  componentid = "";
-  vertical = false;
+  constructor() {
+    super();
+    this.defaultTab = "";
+    this.tabLabel = "";
+    this.componentid = "";
+    this.vertical = false;
+  }
 
   firstUpdated() {
     this.triggerSlot = this.shadowRoot.querySelector("slot[name=triggers]");
@@ -78,6 +82,13 @@ export class UmdTabs extends LitElement {
     if (!triggers.length) return;
 
     triggers.forEach((trigger, index) => {
+      trigger.classList.add(
+        "tab--trigger",
+        "t-interactive",
+        "c-content-tertiary",
+        "s-box-medium-h",
+        "s-box-small-v"
+      );
       trigger.onclick = () => this.selectTab(this.tabValue(trigger), true);
       trigger.onkeydown = (event) => this.handleKeyDown(event, index);
     });

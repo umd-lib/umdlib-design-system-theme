@@ -13,9 +13,9 @@ export class UmdFooter extends LitElement {
   };
 
   telephone = "";
-  logoUrl = "/logo-dark.svg";
-  campaignLogoUrl = "/fearlessly-forward.svg";
-  depositoryLogoUrl = "/rfdl.svg";
+  logoUrl = "https://www.lib.umd.edu/themes/contrib/umdlib-design-system-theme/logo-dark.svg";
+  campaignLogoUrl = "https://www.lib.umd.edu/themes/contrib/umdlib-design-system-theme/fearlessly-forward.svg";
+  depositoryLogoUrl = "https://www.lib.umd.edu/themes/contrib/umdlib-design-system-theme/rfdl.svg";
 
   render() {
     const telephoneUrl = this.telephone.replaceAll(".", "");

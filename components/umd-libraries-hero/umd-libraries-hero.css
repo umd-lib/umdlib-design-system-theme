@@ -97,6 +97,8 @@
   background-color: #e21833 !important;
 }
 
+/* Simple hack to turn h2 > a into a button for the dark theme.
+   Needed for equitable access. */
 .hero--overlay.dark-theme .use-button h2 a {
   padding: 10px 15px;
   border: 1px solid white;

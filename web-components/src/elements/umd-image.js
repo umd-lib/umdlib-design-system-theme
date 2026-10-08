@@ -3,7 +3,7 @@ import { umdStaticStyles } from "../styles/umd-static.js";
 import sdcStyles from "../../../components/umd-libraries-image/umd-libraries-image.css?inline";
 
 export class UmdImage extends LitElement {
-  static styles = [umdStaticStyles, unsafeCSS(sdcStyles), css`
+  static styles = [...umdStaticStyles, unsafeCSS(sdcStyles), css`
     figure {
       margin: 0 0 var(--space-md);
     }

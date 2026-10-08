@@ -3,7 +3,7 @@ import sdcStyles from "../../../components/umd-libraries-navigation/umd-librarie
 import { umdStaticStyles } from "../styles/umd-static.js";
 
 export class UmdNavigation extends LitElement {
-  static styles = [umdStaticStyles, unsafeCSS(sdcStyles)];
+  static styles = [...umdStaticStyles, unsafeCSS(sdcStyles)];
 
   static properties = {
     logoUrl: { attribute: "logo-url" },

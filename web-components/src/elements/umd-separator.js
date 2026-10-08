@@ -1,8 +1,9 @@
 import { LitElement, html, unsafeCSS } from "lit";
 import sdcStyles from "../../../components/umd-libraries-separator/umd-libraries-separator.css?inline";
+import { umdStaticStyles } from "../styles/umd-static.js";
 
 export class UmdSeparator extends LitElement {
-  static styles = unsafeCSS(sdcStyles);
+  static styles = [...umdStaticStyles, unsafeCSS(sdcStyles)];
 
   static properties = {
     variant: {},

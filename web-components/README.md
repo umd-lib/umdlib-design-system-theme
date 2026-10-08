@@ -18,7 +18,7 @@ dist/umd-libraries-components.js
 dist/umd-libraries-components.css
 ```
 
-Include both files in the consuming HTML document. The JavaScript must be loaded as a module; it registers the package's custom elements. Lit is bundled into this file and does not need to be included separately.
+Include both files in the consuming HTML document. The CSS bundle includes the shared Drupal base, fonts, design tokens, and utility stylesheets; the JavaScript bundle also makes the base and utility rules available inside component shadow roots. The JavaScript must be loaded as a module; it registers the package's custom elements. Lit is bundled into this file and does not need to be included separately.
 
 ```html
 <link rel="stylesheet" href="/assets/umd-libraries-components.css">
@@ -68,9 +68,9 @@ The components can be used in plain HTML, server-rendered pages, or another fron
 
 ## Shared SDC styles
 
-The matching Drupal component stylesheets are imported directly from `components/` with Vite's `?inline` import and added to each element's shadow-root stylesheet. The CSS is bundled when this package is built, so it does not require Drupal or a runtime request for the theme files.
+The matching Drupal component stylesheets are imported directly from `components/` with Vite's `?inline` import and added to each element's shadow-root stylesheet. Shared base and utility styles are sourced from `css/base.css` and `css/utilities.css` and added to component shadow roots, while `css/fonts.css` and `css/tokens.css` are included in the global CSS bundle. The CSS is bundled when this package is built, so it does not require Drupal or a runtime request for the theme files.
 
-The standalone package still owns its design-token and utility CSS because those styles are global in Drupal and cannot cross a Shadow DOM boundary automatically. Changes to a matching SDC stylesheet are picked up by the next `npm run build`.
+Changes to the Drupal stylesheets are picked up by the next `npm run build`.
 
 ## Components
 

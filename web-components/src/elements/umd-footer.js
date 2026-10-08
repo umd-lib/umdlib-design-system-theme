@@ -3,7 +3,7 @@ import sdcStyles from "../../../components/umd-libraries-footer/umd-libraries-fo
 import { umdStaticStyles } from "../styles/umd-static.js";
 
 export class UmdFooter extends LitElement {
-  static styles = [umdStaticStyles, unsafeCSS(sdcStyles)];
+  static styles = [...umdStaticStyles, unsafeCSS(sdcStyles)];
 
   static properties = {
     telephone: {},

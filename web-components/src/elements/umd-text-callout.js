@@ -3,7 +3,7 @@ import { umdStaticStyles } from "../styles/umd-static.js";
 import sdcStyles from "../../../components/umd-libraries-text-callout/umd-libraries-text-callout.css?inline";
 
 export class UmdTextCallout extends LitElement {
-  static styles = [umdStaticStyles, unsafeCSS(sdcStyles), css`
+  static styles = [...umdStaticStyles, unsafeCSS(sdcStyles), css`
     .text-callout--feature {
       margin-bottom: var(--space-md);
     }

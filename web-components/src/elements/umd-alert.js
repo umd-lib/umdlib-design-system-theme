@@ -3,7 +3,7 @@ import sdcStyles from "../../../components/umd-libraries-alert/umd-libraries-ale
 import { umdStaticStyles } from "../styles/umd-static.js";
 
 export class UmdAlert extends LitElement {
-  static styles = [umdStaticStyles, unsafeCSS(sdcStyles), css`
+  static styles = [...umdStaticStyles, unsafeCSS(sdcStyles), css`
     .alert--description ::slotted(*) {
       margin-block: 0 var(--space-sm);
     }

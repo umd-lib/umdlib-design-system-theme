@@ -3,7 +3,7 @@ import sdcStyles from "../../../components/umd-libraries-card/umd-libraries-card
 import { umdStaticStyles } from "../styles/umd-static.js";
 
 export class UmdCard extends LitElement {
-  static styles = [umdStaticStyles, unsafeCSS(sdcStyles)];
+  static styles = [...umdStaticStyles, unsafeCSS(sdcStyles)];
 
   static properties = {
     variant: {},

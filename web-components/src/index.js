@@ -1,3 +1,8 @@
+import "../../css/tokens.css";
+import "../../css/fonts.css";
+import "../../css/base.css";
+import "../../css/utilities.css";
+
 import "./elements/umd-separator.js";
 import "./elements/umd-image.js";
 import "./elements/umd-text.js";

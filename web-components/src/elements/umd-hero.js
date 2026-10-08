@@ -3,7 +3,7 @@ import sdcStyles from "../../../components/umd-libraries-hero/umd-libraries-hero
 import { umdStaticStyles } from "../styles/umd-static.js";
 
 export class UmdHero extends LitElement {
-  static styles = [umdStaticStyles, unsafeCSS(sdcStyles)];
+  static styles = [...umdStaticStyles, unsafeCSS(sdcStyles)];
 
   static properties = {
     variant: {},

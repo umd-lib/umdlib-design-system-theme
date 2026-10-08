@@ -1,8 +1,9 @@
 import { LitElement, html, unsafeCSS } from "lit";
 import sdcStyles from "../../../components/umd-libraries-scroll-to-top/umd-libraries-scroll-to-top.css?inline";
+import { umdStaticStyles } from "../styles/umd-static.js";
 
 export class UmdScrollToTop extends LitElement {
-  static styles = unsafeCSS(sdcStyles);
+  static styles = [...umdStaticStyles, unsafeCSS(sdcStyles)];
 
   static properties = {
     threshold: { type: Number },

@@ -5,7 +5,7 @@ import { umdStaticStyles } from "../styles/umd-static.js";
 let listCount = 0;
 
 export class UmdList extends LitElement {
-  static styles = [umdStaticStyles, unsafeCSS(sdcStyles)];
+  static styles = [...umdStaticStyles, unsafeCSS(sdcStyles)];
 
   static properties = {
     headingLevel: { attribute: "heading-level" },

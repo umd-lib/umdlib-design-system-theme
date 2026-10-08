@@ -3,7 +3,7 @@ import { umdStaticStyles } from "../styles/umd-static.js";
 import sdcStyles from "../../../components/umd-libraries-text/umd-libraries-text.css?inline";
 
 export class UmdText extends LitElement {
-  static styles = [umdStaticStyles, unsafeCSS(sdcStyles), css`
+  static styles = [...umdStaticStyles, unsafeCSS(sdcStyles), css`
     .body {
       margin-bottom: var(--space-md);
     }

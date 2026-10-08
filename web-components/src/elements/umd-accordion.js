@@ -5,7 +5,7 @@ import { umdStaticStyles } from "../styles/umd-static.js";
 let accordionCount = 0;
 
 export class UmdAccordion extends LitElement {
-  static styles = [umdStaticStyles, unsafeCSS(sdcStyles)];
+  static styles = [...umdStaticStyles, unsafeCSS(sdcStyles)];
 
   static properties = {
     componentid: {},

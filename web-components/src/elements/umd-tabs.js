@@ -3,7 +3,7 @@ import sdcStyles from "../../../components/umd-libraries-tabs/umd-libraries-tabs
 import { umdStaticStyles } from "../styles/umd-static.js";
 
 export class UmdTabs extends LitElement {
-  static styles = [umdStaticStyles, unsafeCSS(sdcStyles), css`
+  static styles = [...umdStaticStyles, unsafeCSS(sdcStyles), css`
     :host {
       display: block;
     }

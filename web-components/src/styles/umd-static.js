@@ -1,40 +1,21 @@
-import { css } from "lit";
+import { css, unsafeCSS } from "lit";
+import baseStyles from "../../../css/base.css?inline";
+import utilityStyles from "../../../css/utilities.css?inline";
 
-export const umdStaticStyles = css`
-  :host {
-    display: block;
-  }
+export const umdStaticStyles = [
+  unsafeCSS(baseStyles),
+  unsafeCSS(utilityStyles),
+  css`
+    :host {
+      display: block;
+    }
 
-  .s-margin-general-medium {
-    margin-bottom: var(--space-md);
-  }
+    .wysiwyg-editor ::slotted(*) {
+      margin-block: 0 var(--space-sm);
+    }
 
-  .t-body-small {
-    font-size: 1rem;
-    line-height: 1.375rem;
-  }
-
-  .t-italic {
-    font-style: italic;
-  }
-
-  .c-bg-secondary {
-    background-color: var(--lightest-gray);
-  }
-
-  .s-box-medium-h {
-    padding-inline: var(--space-md);
-  }
-
-  .s-box-medium-v {
-    padding-block: var(--space-md);
-  }
-
-  .wysiwyg-editor ::slotted(*) {
-    margin-block: 0 var(--space-sm);
-  }
-
-  .wysiwyg-editor ::slotted(*:last-child) {
-    margin-bottom: 0;
-  }
-`;
+    .wysiwyg-editor ::slotted(*:last-child) {
+      margin-bottom: 0;
+    }
+  `,
+];

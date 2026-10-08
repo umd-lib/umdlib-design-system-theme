@@ -10,8 +10,11 @@ export class UmdScrollToTop extends LitElement {
     visible: { state: true },
   };
 
-  threshold = 300;
-  visible = false;
+  constructor() {
+    super();
+    this.threshold = 300;
+    this.visible = false;
+  }
 
   connectedCallback() {
     super.connectedCallback();

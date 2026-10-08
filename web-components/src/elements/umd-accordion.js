@@ -110,7 +110,6 @@ export class UmdAccordion extends LitElement {
           >
             <div class="accordion-child--body s-box-medium-h s-box-medium-v-bottom wysiwyg-editor">
               <slot name="body"></slot>
-              <p>Test</p>
             </div>
             ${this.linkText && this.linkUrl ? html`
               <div class="accordion-child--body-button s-box-medium-h s-box-medium-v-bottom">

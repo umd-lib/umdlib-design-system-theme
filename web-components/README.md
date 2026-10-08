@@ -158,7 +158,7 @@ Attributes:
 Attributes:
 
 - `heading-level`: `h2`, `h3`, `h4`, `h5`, or `h6`. Defaults to `h3`.
-- `default-open`: Boolean attribute. Opens the item initially when present.
+- `default-open`: Opens the item initially when present; the string value `false` keeps it closed.
 - `link-text`: Optional link text shown below the body.
 - `link-url`: Optional link URL. The link is shown only when both link attributes are present.
 - `componentid`: Optional ID used for the accordion container and generated body relationship.

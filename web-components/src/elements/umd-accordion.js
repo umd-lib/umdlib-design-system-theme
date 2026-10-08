@@ -10,7 +10,13 @@ export class UmdAccordion extends LitElement {
   static properties = {
     componentid: {},
     headingLevel: { attribute: "heading-level" },
-    defaultOpen: { type: Boolean, attribute: "default-open" },
+    defaultOpen: {
+      type: Boolean,
+      attribute: "default-open",
+      converter: {
+        fromAttribute: (value) => value !== null && value !== "false",
+      },
+    },
     linkText: { attribute: "link-text" },
     linkUrl: { attribute: "link-url" },
     open: { state: true },
@@ -23,12 +29,50 @@ export class UmdAccordion extends LitElement {
     this.defaultOpen = false;
     this.linkText = "";
     this.linkUrl = "";
+    this.open = false;
     this.accordionId = `accordion-${++accordionCount}`;
+    this.accordionInitialized = false;
+    this.transitionEndHandler = null;
   }
 
   willUpdate(changedProperties) {
-    if (changedProperties.has("defaultOpen") && !changedProperties.has("open")) {
+    if (changedProperties.has("defaultOpen") && (!this.hasUpdated || !changedProperties.has("open"))) {
       this.open = this.defaultOpen;
+    }
+  }
+
+  updated() {
+    const content = this.shadowRoot.querySelector(".accordion-child--body-wrapper");
+
+    if (!this.accordionInitialized) {
+      content.style.display = this.open ? "block" : "none";
+      content.style.height = this.open ? "auto" : "0px";
+      this.previousOpen = this.open;
+      this.accordionInitialized = true;
+      return;
+    }
+
+    if (this.previousOpen === this.open) return;
+    this.previousOpen = this.open;
+    this.transitionEndHandler && content.removeEventListener("transitionend", this.transitionEndHandler);
+    this.transitionEndHandler = null;
+
+    if (this.open) {
+      content.style.display = "block";
+      content.style.height = "0px";
+      content.offsetHeight;
+      content.style.height = `${content.scrollHeight}px`;
+      this.transitionEndHandler = (event) => {
+        if (event.target !== content || event.propertyName !== "height") return;
+        content.style.height = "auto";
+        content.removeEventListener("transitionend", this.transitionEndHandler);
+        this.transitionEndHandler = null;
+      };
+      content.addEventListener("transitionend", this.transitionEndHandler);
+    } else {
+      content.style.height = `${content.scrollHeight}px`;
+      content.offsetHeight;
+      content.style.height = "0px";
     }
   }
 
@@ -62,7 +106,7 @@ export class UmdAccordion extends LitElement {
             class="accordion-child--body-wrapper c-bg-secondary"
             aria-labelledby=${accordionId}
             aria-hidden=${!this.open}
-            style=${this.open ? "height: auto;" : "display: none;"}
+            style="display: none; height: 0px;"
           >
             <div class="accordion-child--body s-box-medium-h s-box-medium-v-bottom wysiwyg-editor">
               <slot name="body"></slot>

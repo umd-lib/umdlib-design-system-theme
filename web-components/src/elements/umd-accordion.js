@@ -16,20 +16,17 @@ export class UmdAccordion extends LitElement {
     open: { state: true },
   };
 
-  componentid = "";
-  headingLevel = "h3";
-  defaultOpen = false;
-  linkText = "";
-  linkUrl = "";
-  open = false;
-
   constructor() {
     super();
+    this.componentid = "";
+    this.headingLevel = "h3";
+    this.defaultOpen = false;
+    this.linkText = "";
+    this.linkUrl = "";
     this.accordionId = `accordion-${++accordionCount}`;
-    this.open = this.defaultOpen;
   }
 
-  updated(changedProperties) {
+  willUpdate(changedProperties) {
     if (changedProperties.has("defaultOpen") && !changedProperties.has("open")) {
       this.open = this.defaultOpen;
     }
@@ -40,7 +37,7 @@ export class UmdAccordion extends LitElement {
   };
 
   render() {
-    const accordionId = this.componentid || this.accordionId;
+    const accordionId = this.accordionId;
     const headingTag = /^h[2-6]$/.test(this.headingLevel) ? this.headingLevel : "h3";
     const bodyId = `${accordionId}-body`;
 
@@ -50,6 +47,7 @@ export class UmdAccordion extends LitElement {
           ${this.renderHeading(headingTag, html`
             <button
               type="button"
+              id=${accordionId}
               class="accordion-child--headline c-bg-secondary s-box-medium-v s-box-medium-h"
               aria-expanded=${this.open}
               aria-controls=${bodyId}

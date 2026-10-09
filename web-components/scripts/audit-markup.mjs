@@ -20,6 +20,10 @@ const components = [
   "footer",
   "card",
   "list",
+  "emphasized-link",
+  "heading",
+  "info-card",
+  "quote",
 ];
 
 function read(relativePath) {

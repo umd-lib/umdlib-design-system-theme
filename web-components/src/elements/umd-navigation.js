@@ -14,7 +14,7 @@ export class UmdNavigation extends LitElement {
     open: { state: true },
   };
 
-  logoUrl = "/logo.svg";
+  logoUrl = "https://www.lib.umd.edu/themes/contrib/umdlib-design-system-theme/logo.svg";
   subSite = false;
   searchOption = false;
   searchLabel = "Search";

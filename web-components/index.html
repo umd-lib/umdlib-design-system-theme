@@ -13,6 +13,14 @@
   </head>
   <body>
     <main>
+      <umd-header
+        show-search
+        show-news
+        search-destination="https://www.lib.umd.edu/search"
+        support-destination="https://giving.umd.edu/"
+        >
+      </umd-header>
+      
       <umd-separator variant="red" margin="medium"></umd-separator>
 
       <umd-text label="Example text">
@@ -22,6 +30,32 @@
       <umd-text-callout>
         <p>This is a reusable text callout.</p>
       </umd-text-callout>
+
+      <umd-heading variant="h2" top-margin="false">
+        <span slot="heading-text">Explore the Libraries</span>
+      </umd-heading>
+
+      <umd-emphasized-link
+        link-text="Browse research guides"
+        link-url="/research-guides"
+        bottom-margin
+      ></umd-emphasized-link>
+
+      <umd-info-card heading-level="h3" componentid="demo-info-card">
+        <span slot="card-title">Need help getting started?</span>
+        <p slot="description">Connect with a librarian for research support.</p>
+        <umd-emphasized-link
+          slot="links"
+          link-text="Contact a librarian"
+          link-url="/ask"
+        ></umd-emphasized-link>
+      </umd-info-card>
+
+      <umd-quote variant="feature" theme="light">
+        <p slot="quote-text">Libraries open doors to knowledge and discovery.</p>
+        <span slot="author-name">University Libraries</span>
+        <span slot="author-title">Our mission</span>
+      </umd-quote>
 
       <umd-accordion default-open heading-level="h3" link-text="Read more" link-url="/more">
         <span slot="title">Accordion heading</span>

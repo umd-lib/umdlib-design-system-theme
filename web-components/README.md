@@ -66,13 +66,112 @@ The most maintainable long-term arrangement is a shared component contract: keep
 
 The components can be used in plain HTML, server-rendered pages, or another frontend framework. Wait for the module to load before creating elements dynamically, or use `customElements.whenDefined("umd-image")` when necessary.
 
+### UMD Header
+
+`umd-header` loads the hosted University of Maryland header script, matching the Drupal `umd-libraries-umdheader` component. The hosted script inserts its header outside the element's shadow root; the component's Drupal CSS overrides are included in the global CSS bundle.
+
+Attributes:
+
+- `show-search`, `show-events`, `show-news`, `show-schools`, `show-admissions`, `show-support`: Boolean flags for the corresponding header features.
+- `search-destination`: Search destination URL.
+- `support-destination`: Support/giving destination URL.
+
+```html
+<umd-header
+  show-search
+  show-news
+  search-destination="https://www.lib.umd.edu/search"
+  support-destination="https://giving.umd.edu/"
+></umd-header>
+```
+
+If the hosted script fails to load, the component dispatches a bubbling, composed `umd-header-error` event.
+
 ## Shared SDC styles
 
-The matching Drupal component stylesheets are imported directly from `components/` with Vite's `?inline` import and added to each element's shadow-root stylesheet. Shared base and utility styles are sourced from `css/base.css` and `css/utilities.css` and added to component shadow roots, while `css/fonts.css` and `css/tokens.css` are included in the global CSS bundle. The CSS is bundled when this package is built, so it does not require Drupal or a runtime request for the theme files.
+The matching Drupal component stylesheets are imported directly from `components/` with Vite's `?inline` import and added to each element's shadow-root stylesheet. Shared base, token, and utility styles are sourced from `css/base.css`, `css/tokens.css`, and `css/utilities.css` and added to component shadow roots, while `css/fonts.css` and `css/tokens.css` are included in the global CSS bundle. The CSS is bundled when this package is built, so it does not require Drupal or a runtime request for the theme files.
 
 Changes to the Drupal stylesheets are picked up by the next `npm run build`.
 
 ## Components
+
+### Emphasized Link
+
+`umd-emphasized-link` renders the SDC's underlined emphasized link and chooses an internal chevron or external-link icon based on the link destination.
+
+Attributes:
+
+- `link-text`: Link label.
+- `link-url`: Destination URL.
+- `bottom-margin`: Adds the standard component bottom margin when present.
+- `componentid`: Optional ID for the link container.
+
+```html
+<umd-emphasized-link link-text="Explore research guides" link-url="/research-guides"></umd-emphasized-link>
+```
+
+### Heading
+
+`umd-heading` renders an SDC-styled heading, with optional page-title subtitle/date and link.
+
+Attributes:
+
+- `variant`: `h1` through `h6`. Defaults to `h2`; `page-title` always selects `h1`.
+- `page-title`: Enables page-title styling and subtitle/date content.
+- `top-margin`: Uses the heading top margin when present; defaults to true.
+- `screen-reader-only`: Visually hides the heading while preserving it for assistive technology.
+- `link-url`: Optional heading link. The icon indicates an internal or external destination.
+- `componentid`: Optional ID for the heading container.
+
+Slots:
+
+- `heading-text`: Heading content.
+- `subtitle`, `date`: Optional page-title details.
+
+```html
+<umd-heading variant="h2" link-url="/collections">
+  <span slot="heading-text">Explore the collections</span>
+</umd-heading>
+```
+
+### Info Card
+
+`umd-info-card` renders the SDC's flexible information card with optional title, rich description, and link content.
+
+Attributes:
+
+- `heading-level`: `h2` through `h6`. Defaults to `h3`.
+- `componentid`: Optional ID for the card.
+
+Slots:
+
+- `card-title`: Optional title.
+- `description`: Optional rich description.
+- `links`: Optional footer content, such as an `umd-emphasized-link`.
+
+### Quote
+
+`umd-quote` renders a simple or feature quote with light or dark styling.
+
+Attributes:
+
+- `variant`: `simple` or `feature`. Defaults to `simple`; feature quotes include decorative background graphics.
+- `theme`: `light` or `dark`. Defaults to `dark`.
+- `componentid`: Optional ID for the quote region.
+
+Slots:
+
+- `quote-text`: Quote content.
+- `author-name`: Author name.
+- `author-title`: Optional author title.
+
+```html
+<umd-quote variant="feature" theme="light">
+  <p slot="quote-text">Libraries open doors to knowledge and discovery.</p>
+  <span slot="author-name">University Libraries</span>
+  <span slot="author-title">Our mission</span>
+</umd-quote>
+```
 
 ### Separator
 

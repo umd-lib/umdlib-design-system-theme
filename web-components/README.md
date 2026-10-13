@@ -87,6 +87,19 @@ Attributes:
 
 If the hosted script fails to load, the component dispatches a bubbling, composed `umd-header-error` event.
 
+### Environment Banner
+
+`umd-environment-banner` is a standalone Lit component that displays a 25-pixel-high banner across its containing width. Place it immediately after `umd-header` to show the current environment. Its styles are encapsulated in the component.
+
+The `environment` attribute accepts `test`, `qa`, or `production` and defaults to `production`:
+
+```html
+<umd-header></umd-header>
+<umd-environment-banner environment="qa"></umd-environment-banner>
+```
+
+Test uses a yellow background (`#ffd200`), QA uses blue (`#0066cc`), and production uses red (`#e21833`).
+
 ## Shared SDC styles
 
 The matching Drupal component stylesheets are imported directly from `components/` with Vite's `?inline` import and added to each element's shadow-root stylesheet. Shared base, token, and utility styles are sourced from `css/base.css`, `css/tokens.css`, and `css/utilities.css` and added to component shadow roots, while `css/fonts.css` and `css/tokens.css` are included in the global CSS bundle. The CSS is bundled when this package is built, so it does not require Drupal or a runtime request for the theme files.

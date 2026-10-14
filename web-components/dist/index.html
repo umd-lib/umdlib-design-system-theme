@@ -32,8 +32,10 @@
 
     <!-- umd-navigation options:
          logo-url: logo image URL; default is the UMD Libraries logo URL.
+         search-option: boolean, default false; adds the secondary search navigation when present.
+         search-label: search link text, default Search. search-url: link URL, required when search-option is set.
          Slot: main accepts direct <a> children. The component wraps each link in a menu list item. -->
-    <umd-navigation>
+    <umd-navigation search-option search-label="Search the Libraries" search-url="/search">
       <a slot="main" href="/research">Research</a>
       <a slot="main" href="/about">About</a>
     </umd-navigation>

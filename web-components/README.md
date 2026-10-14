@@ -395,14 +395,22 @@ Attributes:
 
 ### Navigation
 
-`umd-navigation` renders a responsive navigation shell and turns each direct anchor in its `main` slot into a menu item. The component supplies the navigation list markup; provide simple anchors rather than prebuilt list items. The optional logo URL defaults to the UMD Libraries logo.
+`umd-navigation` renders a responsive navigation shell and turns each direct anchor in its `main` slot into a menu item. The component supplies the navigation list markup; provide simple anchors rather than prebuilt list items. When `search-option` is enabled, it adds the search link in a separate secondary navigation list.
 
 Attributes:
 
 - `logo-url`: Logo URL. Defaults to the UMD Libraries logo URL.
+- `search-option`: Boolean attribute. Adds the secondary search link when present.
+- `search-label`: Search link text. Defaults to `Search`.
+- `search-url`: Search page URL. Required when `search-option` is enabled.
 
 ```html
-<umd-navigation logo-url="/assets/library-logo.svg">
+<umd-navigation
+  logo-url="/assets/library-logo.svg"
+  search-option
+  search-label="Search the library"
+  search-url="/search"
+>
   <a slot="main" href="/research">Research</a>
   <a slot="main" href="/services">Services</a>
 </umd-navigation>

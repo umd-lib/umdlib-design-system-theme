@@ -7,6 +7,9 @@ export class UmdNavigation extends LitElement {
 
   static properties = {
     logoUrl: { attribute: "logo-url" },
+    searchOption: { type: Boolean, attribute: "search-option" },
+    searchLabel: { attribute: "search-label" },
+    searchUrl: { attribute: "search-url" },
     open: { state: true },
     links: { state: true },
   };
@@ -14,6 +17,9 @@ export class UmdNavigation extends LitElement {
   constructor() {
     super();
     this.logoUrl = "https://www.lib.umd.edu/themes/contrib/umdlib-design-system-theme/logo.svg";
+    this.searchOption = false;
+    this.searchLabel = "Search";
+    this.searchUrl = "";
     this.open = false;
     this.links = [];
   }
@@ -77,6 +83,17 @@ export class UmdNavigation extends LitElement {
                 </ul>
               </nav>
             </div>
+            ${this.searchOption ? html`
+              <div class="navigation__row-sec">
+                <nav aria-label="Secondary navigation" class="navigation__sec-menu">
+                  <ul class="navigation__secmenu-list">
+                    <li class="umd-lib navigation__menu-item utility-content" id="website-search">
+                      <a href=${this.searchUrl} class="navigation__menu-link">${this.searchLabel}</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            ` : ""}
           </div>
         </div>
       </div>

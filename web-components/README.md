@@ -431,7 +431,7 @@ Slots:
 
 - `institution`: Institution name.
 - `address`: Full address.
-- `navigation`: Footer navigation markup.
+- `navigation`: One or more `<nav>` elements with an `aria-label` for each column heading and direct `<a>` children. The component renders each as a heading and styled link list.
 - `social`: Social media markup.
 - `legal`: Legal links or other legal footer markup.
 
@@ -444,9 +444,13 @@ Slots:
 >
   <span slot="institution">University Libraries</span>
   <span slot="address">123 Campus Drive, College Park, MD 20742</span>
-  <nav slot="navigation" aria-label="Footer navigation">
+  <nav slot="navigation" aria-label="About the Libraries">
     <a href="/about">About</a>
     <a href="/contact">Contact</a>
+  </nav>
+  <nav slot="navigation" aria-label="Visit">
+    <a href="/hours">Library hours</a>
+    <a href="/visit">Visit the Libraries</a>
   </nav>
   <div slot="social">Social links</div>
   <ul slot="legal">

@@ -196,13 +196,18 @@
          logo-url: defaults to https://www.lib.umd.edu/themes/contrib/umdlib-design-system-theme/logo-dark.svg.
          campaign-logo-url: defaults to https://www.lib.umd.edu/themes/contrib/umdlib-design-system-theme/fearlessly-forward.svg.
          depository-logo-url: defaults to https://www.lib.umd.edu/themes/contrib/umdlib-design-system-theme/rfdl.svg.
-         Slots: institution, address, navigation, social, legal. -->
+         Slots: institution, address, navigation, social, legal.
+         Each navigation slot must be a <nav> with an aria-label for its column heading and direct <a> children. -->
     <umd-footer telephone="301.555.0123">
       <span slot="institution">University Libraries</span>
       <span slot="address">123 Campus Drive, College Park, MD 20742</span>
-      <nav slot="navigation" aria-label="Footer navigation">
+      <nav slot="navigation" aria-label="About the Libraries">
         <a href="/about">About</a>
         <a href="/contact">Contact</a>
+      </nav>
+      <nav slot="navigation" aria-label="Visit">
+        <a href="/hours">Library hours</a>
+        <a href="/visit">Visit the Libraries</a>
       </nav>
       <ul slot="legal"><li><a href="/privacy">Privacy Policy</a></li></ul>
     </umd-footer>

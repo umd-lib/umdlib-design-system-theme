@@ -2,6 +2,8 @@ import { LitElement, html, unsafeCSS } from "lit";
 import sdcStyles from "../../../components/umd-libraries-footer/umd-libraries-footer.css?inline";
 import { umdStaticStyles } from "../styles/umd-static.js";
 
+let footerCount = 0;
+
 export class UmdFooter extends LitElement {
   static styles = [...umdStaticStyles, unsafeCSS(sdcStyles)];
 
@@ -10,12 +12,34 @@ export class UmdFooter extends LitElement {
     logoUrl: { attribute: "logo-url" },
     campaignLogoUrl: { attribute: "campaign-logo-url" },
     depositoryLogoUrl: { attribute: "depository-logo-url" },
+    navigationColumns: { state: true },
   };
 
-  telephone = "";
-  logoUrl = "https://www.lib.umd.edu/themes/contrib/umdlib-design-system-theme/logo-dark.svg";
-  campaignLogoUrl = "https://www.lib.umd.edu/themes/contrib/umdlib-design-system-theme/fearlessly-forward.svg";
-  depositoryLogoUrl = "https://www.lib.umd.edu/themes/contrib/umdlib-design-system-theme/rfdl.svg";
+  constructor() {
+    super();
+    this.telephone = "";
+    this.logoUrl = "https://www.lib.umd.edu/themes/contrib/umdlib-design-system-theme/logo-dark.svg";
+    this.campaignLogoUrl = "https://www.lib.umd.edu/themes/contrib/umdlib-design-system-theme/fearlessly-forward.svg";
+    this.depositoryLogoUrl = "https://www.lib.umd.edu/themes/contrib/umdlib-design-system-theme/rfdl.svg";
+    this.footerId = `footer-${++footerCount}`;
+    this.navigationColumns = [];
+  }
+
+  handleNavigationSlotChange = (event) => {
+    this.navigationColumns = event.target.assignedElements()
+      .filter((element) => element.localName === "nav")
+      .map((nav, index) => ({
+        heading: nav.getAttribute("aria-label") || "",
+        headingId: `${this.footerId}-navigation-${index + 1}`,
+        links: [...nav.children]
+          .filter((element) => element.localName === "a")
+          .map((link) => {
+            const clone = link.cloneNode(true);
+            clone.classList.add("ani-underline", "t-body-small", "c-underline-dark-primary");
+            return clone;
+          }),
+      }));
+  };
 
   render() {
     const telephoneUrl = this.telephone.replaceAll(".", "");
@@ -34,7 +58,16 @@ export class UmdFooter extends LitElement {
           </div>
           <div class="footer--columns">
             <div class="footer--columns-main s-stack-large">
-              <slot name="navigation"></slot>
+              ${this.navigationColumns.map((column) => html`
+                <nav aria-labelledby=${column.headingId} class="s-stack-large">
+                  <h3 id=${column.headingId} class="t-title-small c-content-dark-primary s-stack-medium">
+                    <span>${column.heading}</span>
+                  </h3>
+                  <ul class="s-box-medium-h">
+                    ${column.links.map((link) => html`<li class="s-stack-small">${link}</li>`)}
+                  </ul>
+                </nav>
+              `)}
               <slot name="social"></slot>
             </div>
             <div class="footer--columns-secondary">
@@ -55,6 +88,7 @@ export class UmdFooter extends LitElement {
           </div>
         </div>
       </footer>
+      <slot name="navigation" @slotchange=${this.handleNavigationSlotChange} hidden></slot>
     `;
   }
 }

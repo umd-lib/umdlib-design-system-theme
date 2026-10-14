@@ -13,6 +13,7 @@ export class UmdFooter extends LitElement {
     campaignLogoUrl: { attribute: "campaign-logo-url" },
     depositoryLogoUrl: { attribute: "depository-logo-url" },
     navigationColumns: { state: true },
+    legalContent: { state: true },
   };
 
   constructor() {
@@ -23,6 +24,7 @@ export class UmdFooter extends LitElement {
     this.depositoryLogoUrl = "https://www.lib.umd.edu/themes/contrib/umdlib-design-system-theme/rfdl.svg";
     this.footerId = `footer-${++footerCount}`;
     this.navigationColumns = [];
+    this.legalContent = [];
   }
 
   handleNavigationSlotChange = (event) => {
@@ -39,6 +41,21 @@ export class UmdFooter extends LitElement {
             return clone;
           }),
       }));
+  };
+
+  handleLegalSlotChange = (event) => {
+    this.legalContent = event.target.assignedElements().map((element) => {
+      const clone = element.cloneNode(true);
+      clone.removeAttribute("slot");
+      const links = [
+        ...(clone.matches("a") ? [clone] : []),
+        ...clone.querySelectorAll("a"),
+      ];
+      links.forEach((link) => {
+        link.classList.add("ani-underline", "t-label", "c-underline-dark-primary");
+      });
+      return clone;
+    });
   };
 
   render() {
@@ -83,12 +100,13 @@ export class UmdFooter extends LitElement {
         </div>
         <div class="footer--sub c-bg-dark-secondary">
           <div class="footer--sub-content s-box-page-small-v s-box-page-medium-h s-center">
-            <slot name="legal"></slot>
+            ${this.legalContent}
             <div><p class="t-label c-content-dark-primary">© ${new Date().getFullYear()} UNIVERSITY OF MARYLAND</p></div>
           </div>
         </div>
       </footer>
       <slot name="navigation" @slotchange=${this.handleNavigationSlotChange} hidden></slot>
+      <slot name="legal" @slotchange=${this.handleLegalSlotChange} hidden></slot>
     `;
   }
 }

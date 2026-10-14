@@ -433,7 +433,7 @@ Slots:
 - `address`: Full address.
 - `navigation`: One or more `<nav>` elements with an `aria-label` for each column heading and direct `<a>` children. The component renders each as a heading and styled link list.
 - `social`: Social media markup.
-- `legal`: Legal links or other legal footer markup.
+- `legal`: Legal links or other legal footer markup. The component adds `ani-underline t-label c-underline-dark-primary` to each rendered anchor.
 
 ```html
 <umd-footer

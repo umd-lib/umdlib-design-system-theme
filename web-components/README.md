@@ -395,32 +395,16 @@ Attributes:
 
 ### Navigation
 
-`umd-navigation` renders the responsive navigation shell and enhances consumer-supplied menu items. The main and utility slots should contain menu item elements, including any nested submenu markup and buttons required by the navigation CSS.
+`umd-navigation` renders a responsive navigation shell and turns each direct anchor in its `main` slot into a menu item. The component supplies the navigation list markup; provide simple anchors rather than prebuilt list items. The optional logo URL defaults to the UMD Libraries logo.
 
 Attributes:
 
-- `logo-url`: Logo URL. Defaults to `/logo.svg`.
-- `sub-site`: Boolean attribute. Adds a link to the UMD Libraries main website.
-- `search-option`: Boolean attribute. Adds a search link.
-- `search-label`: Search link label. Defaults to `Search`.
-- `search-url`: Search link URL. Defaults to `/search`.
+- `logo-url`: Logo URL. Defaults to the UMD Libraries logo URL.
 
 ```html
-<umd-navigation
-  logo-url="/assets/library-logo.svg"
-  search-option
-  search-label="Search the library"
-  search-url="/search"
->
-  <li slot="main" class="umd-lib navigation__menu-item">
-    <a class="navigation__menu-link" href="/research">Research</a>
-  </li>
-  <li slot="main" class="umd-lib navigation__menu-item">
-    <a class="navigation__menu-link" href="/services">Services</a>
-  </li>
-  <li slot="utility" class="umd-lib navigation__menu-item utility-content">
-    <a class="navigation__menu-link" href="/about">About</a>
-  </li>
+<umd-navigation logo-url="/assets/library-logo.svg">
+  <a slot="main" href="/research">Research</a>
+  <a slot="main" href="/services">Services</a>
 </umd-navigation>
 ```
 

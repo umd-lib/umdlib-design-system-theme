@@ -7,31 +7,26 @@ export class UmdNavigation extends LitElement {
 
   static properties = {
     logoUrl: { attribute: "logo-url" },
-    subSite: { type: Boolean, attribute: "sub-site" },
-    searchOption: { type: Boolean, attribute: "search-option" },
-    searchLabel: { attribute: "search-label" },
-    searchUrl: { attribute: "search-url" },
     open: { state: true },
+    links: { state: true },
   };
 
-  logoUrl = "https://www.lib.umd.edu/themes/contrib/umdlib-design-system-theme/logo.svg";
-  subSite = false;
-  searchOption = false;
-  searchLabel = "Search";
-  searchUrl = "/search";
-  open = false;
+  constructor() {
+    super();
+    this.logoUrl = "https://www.lib.umd.edu/themes/contrib/umdlib-design-system-theme/logo.svg";
+    this.open = false;
+    this.links = [];
+  }
 
   firstUpdated() {
     this.rows = this.shadowRoot.querySelector(".navigation__rows");
     this.menuButton = this.shadowRoot.querySelector(".navigation__menu-button");
     this.menuButton.addEventListener("click", this.toggleMenu);
-    this.addEventListener("click", this.handleClick);
     this.addEventListener("keydown", this.handleKeydown);
   }
 
   disconnectedCallback() {
     this.menuButton?.removeEventListener("click", this.toggleMenu);
-    this.removeEventListener("click", this.handleClick);
     this.removeEventListener("keydown", this.handleKeydown);
     document.body.style.overflow = "";
     super.disconnectedCallback();
@@ -49,21 +44,15 @@ export class UmdNavigation extends LitElement {
     if (event.key === "Escape" && this.open) this.toggleMenu();
   };
 
-  handleClick = (event) => {
-    const submenuButton = event.target.closest(".navigation__submenu-button");
-    const backButton = event.target.closest(".navigation__back-button");
-    if (submenuButton) {
-      const target = this.querySelector(`#${CSS.escape(submenuButton.getAttribute("aria-controls"))}`);
-      if (target) {
-        const active = target.classList.toggle("is-active");
-        submenuButton.setAttribute("aria-expanded", String(active));
-        this.rows.classList.toggle("submenu-open", active);
-      }
-    }
-    if (backButton) {
-      this.shadowRoot.querySelectorAll(".navigation__submenu.is-active").forEach((submenu) => submenu.classList.remove("is-active"));
-      this.rows.classList.remove("submenu-open");
-    }
+  handleMainSlotChange = (event) => {
+    this.links = event.target.assignedElements()
+      .filter((element) => element.localName === "a")
+      .map((link) => {
+        const clone = link.cloneNode(true);
+        clone.removeAttribute("slot");
+        clone.classList.add("navigation__menu-link");
+        return clone;
+      });
   };
 
   render() {
@@ -82,18 +71,16 @@ export class UmdNavigation extends LitElement {
           </button>
           <div class="navigation__rows" id="navigation-rows">
             <div class="navigation__row-main">
-              <nav role="navigation" aria-label="Main navigation"><ul class="navigation__menu-list"><slot name="main"></slot></ul></nav>
-            </div>
-            <div class="navigation__row-sec">
-              <nav aria-label="Secondary navigation"><ul class="navigation__secmenu-list">
-                ${this.subSite ? html`<li class="umd-lib navigation__menu-item utility-content"><a href="https://lib.umd.edu/" class="navigation__menu-link">Libraries' Main Website</a></li>` : ""}
-                <slot name="utility"></slot>
-                ${this.searchOption ? html`<li class="umd-lib navigation__menu-item utility-content" id="website-search"><a href=${this.searchUrl} class="navigation__menu-link">${this.searchLabel}</a></li>` : ""}
-              </ul></nav>
+              <nav role="navigation" aria-label="Main navigation" class="navigation__main-menu">
+                <ul class="navigation__menu-list">
+                  ${this.links.map((link) => html`<li class="navigation__menu-item"><div>${link}</div></li>`)}
+                </ul>
+              </nav>
             </div>
           </div>
         </div>
       </div>
+      <slot name="main" @slotchange=${this.handleMainSlotChange} hidden></slot>
     `;
   }
 }

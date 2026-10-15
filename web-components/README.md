@@ -470,7 +470,7 @@ Attributes:
 - `card-url`: Optional card link URL.
 - `image-url`, `image-alt`: Standard card image and alternative text.
 - `card-date`: Optional date text.
-- `icon-name`: Optional icon label for the icon variant. Defaults to `info`.
+- `icon-name`: Optional Lucide icon name for the icon variant. Defaults to `info`. Lucide is loaded from unpkg only when an icon card is used and no Lucide API is already available. Listen for `umd-card-icon-error` to handle a script load or initialization failure.
 - `componentid`: Optional element ID.
 
 ```html

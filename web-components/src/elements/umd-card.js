@@ -2,6 +2,37 @@ import { LitElement, html, unsafeCSS } from "lit";
 import sdcStyles from "../../../components/umd-libraries-card/umd-libraries-card.css?inline";
 import { umdStaticStyles } from "../styles/umd-static.js";
 
+const lucideScriptUrl = "https://unpkg.com/lucide@latest";
+let lucideScriptPromise;
+
+function loadLucide() {
+  if (window.lucide?.createIcons) return Promise.resolve(window.lucide);
+
+  if (!lucideScriptPromise) {
+    lucideScriptPromise = new Promise((resolve, reject) => {
+      const script = document.createElement("script");
+      script.src = lucideScriptUrl;
+      script.async = true;
+      script.addEventListener("load", () => {
+        if (window.lucide?.createIcons) {
+          resolve(window.lucide);
+        } else {
+          lucideScriptPromise = undefined;
+          reject(new Error("Lucide loaded but its createIcons API was not found."));
+        }
+      }, { once: true });
+      script.addEventListener("error", () => {
+        script.remove();
+        lucideScriptPromise = undefined;
+        reject(new Error(`Failed to load Lucide from ${lucideScriptUrl}.`));
+      }, { once: true });
+      document.head.append(script);
+    });
+  }
+
+  return lucideScriptPromise;
+}
+
 export class UmdCard extends LitElement {
   static styles = [...umdStaticStyles, unsafeCSS(sdcStyles)];
 
@@ -16,14 +47,33 @@ export class UmdCard extends LitElement {
     componentid: {},
   };
 
-  variant = "standard";
-  headingLevel = "h3";
-  cardUrl = "";
-  imageUrl = "";
-  imageAlt = "";
-  cardDate = "";
-  iconName = "info";
-  componentid = "";
+  constructor() {
+    super();
+    this.variant = "standard";
+    this.headingLevel = "h3";
+    this.cardUrl = "";
+    this.imageUrl = "";
+    this.imageAlt = "";
+    this.cardDate = "";
+    this.iconName = "info";
+    this.componentid = "";
+  }
+
+  updated(changedProperties) {
+    if (this.variant !== "icon" || (!changedProperties.has("variant") && !changedProperties.has("iconName"))) {
+      return;
+    }
+
+    loadLucide()
+      .then((lucide) => lucide.createIcons({ root: this.shadowRoot }))
+      .catch((error) => {
+        this.dispatchEvent(new CustomEvent("umd-card-icon-error", {
+          bubbles: true,
+          composed: true,
+          detail: { error, src: lucideScriptUrl },
+        }));
+      });
+  }
 
   render() {
     const variant = ["standard", "overlay", "icon"].includes(this.variant) ? this.variant : "standard";
@@ -32,7 +82,7 @@ export class UmdCard extends LitElement {
         ${variant === "standard" && this.imageUrl ? html`<div class="card--image"><img alt=${this.imageAlt} src=${this.imageUrl} loading="lazy"></div>` : ""}
         <div class="card--content s-box-medium-v ${variant === "standard" ? "" : "s-box-medium-h"}">
           ${variant === "icon" ? html`<div class="card--content-text">${this.renderContent(variant)}</div>` : this.renderContent(variant)}
-          ${variant === "icon" ? html`<div class="card--content-icon"><span class="card--icon-lucide" aria-hidden="true">${this.iconName}</span></div>` : ""}
+          ${variant === "icon" ? html`<div class="card--content-icon"><i data-lucide=${this.iconName} class="card--icon-lucide" aria-hidden="true"></i></div>` : ""}
         </div>
       </div>
     `;

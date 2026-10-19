@@ -91,14 +91,15 @@ If the hosted script fails to load, the component dispatches a bubbling, compose
 
 `umd-environment-banner` is a standalone Lit component that displays a 25-pixel-high banner across its containing width. Place it immediately after `umd-header` to show the current environment. Its styles are encapsulated in the component.
 
-The `environment` attribute accepts `test`, `qa`, or `production` and defaults to `production`:
+The `environment` attribute accepts `test`, `qa`, `production`, or `sandbox` and defaults to `production`. `color` overrides the background color and `message` overrides the displayed text; either can be used independently with an environment:
 
 ```html
 <umd-header></umd-header>
 <umd-environment-banner environment="qa"></umd-environment-banner>
+<umd-environment-banner color="#00843d" message="Preview"></umd-environment-banner>
 ```
 
-Test uses a yellow background (`#ffd200`), QA uses blue (`#0066cc`), and production uses red (`#e21833`).
+Test uses a yellow background (`#ffd200`), QA uses blue (`#0066cc`), production uses red (`#e21833`), and sandbox uses green (`#00843d`).
 
 ## Shared SDC styles
 

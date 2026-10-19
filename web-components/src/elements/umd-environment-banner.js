@@ -1,4 +1,5 @@
 import { LitElement, css, html, nothing } from "lit";
+import { styleMap } from "lit/directives/style-map.js";
 
 export class UmdEnvironmentBanner extends LitElement {
   static styles = css`
@@ -35,28 +36,43 @@ export class UmdEnvironmentBanner extends LitElement {
       background-color: #e21833;
       color: #ffffff;
     }
+
+    .banner--sandbox {
+      background-color: #00843d;
+      color: #ffffff;
+    }
   `;
 
   static properties = {
     environment: {},
+    color: {},
+    message: {},
   };
 
   constructor() {
     super();
     this.environment = "production";
+    this.color = "";
+    this.message = "";
   }
 
   render() {
-    switch (this.environment) {
-      case "test":
-        return html`<div class="banner banner--test" role="status">Test</div>`;
-      case "qa":
-        return html`<div class="banner banner--qa" role="status">QA</div>`;
-      case "production":
-        return html`<div class="banner banner--production" role="status">Production</div>`;
-      default:
-        return nothing;
-    }
+    const environments = {
+      test: { message: "Test", textColor: "#000000" },
+      qa: { message: "QA", textColor: "#ffffff" },
+      production: { message: "Production", textColor: "#ffffff" },
+      sandbox: { message: "Sandbox", textColor: "#ffffff" },
+    };
+    const environment = environments[this.environment];
+    const message = this.message || environment?.message;
+    if (!message) return nothing;
+
+    const className = environment ? `banner--${this.environment}` : "";
+    const customStyles = this.color
+      ? styleMap({ backgroundColor: this.color, color: environment?.textColor ?? "#ffffff" })
+      : nothing;
+
+    return html`<div class="banner ${className}" role="status" style=${customStyles}>${message}</div>`;
   }
 }
 

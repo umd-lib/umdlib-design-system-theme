@@ -1,0 +1,31 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - ui_patterns
+    - ui_patterns_blocks
+  theme:
+    - umdlib_umdds
+id: umdlib_umdds_umdlibscrolltotopbutton
+theme: umdlib_umdds
+region: footer
+weight: 0
+provider: null
+plugin: 'ui_patterns:umdlib_umdds:umd-libraries-scroll-to-top'
+settings:
+  id: 'ui_patterns:umdlib_umdds:umd-libraries-scroll-to-top'
+  label: 'UMD Lib Scroll To Top Button'
+  label_display: '0'
+  provider: ui_patterns_blocks
+  ui_patterns:
+    component_id: 'umdlib_umdds:umd-libraries-scroll-to-top'
+    variant_id: null
+    props:
+      attributes:
+        source_id: attributes
+        source:
+          value: ''
+    slots: {  }
+    third_party_settings: null
+    node_id: null
+visibility: {  }

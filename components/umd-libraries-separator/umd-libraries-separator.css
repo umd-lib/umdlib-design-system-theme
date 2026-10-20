@@ -1,0 +1,39 @@
+.separator {
+	width: 100%;
+	margin: var(--space-lg) auto;
+	border: 0;
+	border-top: 1px solid;
+
+}
+
+.separator--red {
+	border-color: #e21833;
+}
+
+.separator--yellow {
+	border-color: #ffd200;
+}
+
+.separator--gray {
+	border-color: #e6e6e6;
+}
+
+.separator--bronze {
+	border-color: #ad7231;
+}
+
+.separator--black {
+	border-color: #000;
+}
+
+.separator--wide {
+	margin: var(--space-lg) auto;
+}
+
+.separator--medium {
+	margin: var(--space-sm) auto;
+}
+
+.separator--small {
+	margin: var(--space-xs) auto;
+}

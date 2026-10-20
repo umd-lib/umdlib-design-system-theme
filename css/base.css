@@ -566,11 +566,11 @@ strong {
 }
 
 /* table under wysiwyg */
-div:has(> table.table) {
+.wysiwyg-editor div:has(> table) {
   overflow-x: auto;
 }
 
-.wysiwyg-editor table.table {
+.wysiwyg-editor table {
   width: 100%;
   margin-bottom: var(--space-sm);
 
@@ -579,7 +579,7 @@ div:has(> table.table) {
   background-color: var(--white) !important;
 }
 
-.wysiwyg-editor table.table caption {
+.wysiwyg-editor table caption {
   padding: 0 var(--space-sm);
   padding-top: 1rem;
   font-style: italic;
@@ -588,32 +588,32 @@ div:has(> table.table) {
   line-height: 1.375rem;
 }
 
-.wysiwyg-editor table.table thead tr {
+.wysiwyg-editor table thead tr {
   background-color: var(--black);
   color: var(--white);
   font-weight: 700;
 }
 
-.wysiwyg-editor table.table tbody tr {
+.wysiwyg-editor table tbody tr {
   border: none;
   border-bottom: 1px solid var(--light-gray);
 }
 
-.wysiwyg-editor table.table tbody tr:hover,
-.wysiwyg-editor table.table tbody tr:focus {
+.wysiwyg-editor table tbody tr:hover,
+.wysiwyg-editor table tbody tr:focus {
   background-color: var(--lightest-gray);
 }
 
-.wysiwyg-editor table.table td,
-.wysiwyg-editor table.table th {
+.wysiwyg-editor table td,
+.wysiwyg-editor table th {
   padding: var(--space-sm);
   vertical-align: top;
   text-align: start;
   border: none;
 }
 
-.wysiwyg-editor table.table td > *:first-child,
-.wysiwyg-editor table.table th > *:first-child {
+.wysiwyg-editor table td > *:first-child,
+.wysiwyg-editor table th > *:first-child {
   margin-top: 0;
 }
 
@@ -718,17 +718,17 @@ div:has(> table.table) {
     line-height: 1.74375rem;
   }
 
-  .wysiwyg-editor table.table {
+  .wysiwyg-editor table {
     margin-bottom: var(--space-md);
   }
 
-  .wysiwyg-editor table.table caption {
+  .wysiwyg-editor table caption {
     padding: 0 var(--space-md);
     padding-top: 1rem;
   }
 
-  .wysiwyg-editor table.table td,
-  .wysiwyg-editor table.table th {
+  .wysiwyg-editor table td,
+  .wysiwyg-editor table th {
     padding: var(--space-md);
     font-size: 1.125rem;
     line-height: 1.74375rem;

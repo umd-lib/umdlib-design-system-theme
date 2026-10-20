@@ -1,0 +1,19 @@
+{
+  "name": "@umd-libraries/design-system-components",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Standalone Lit web components for the UMD Libraries design system.",
+  "type": "module",
+  "scripts": {
+    "audit:markup": "node scripts/audit-markup.mjs",
+    "audit:markup:strict": "node scripts/audit-markup.mjs --strict",
+    "build": "npm run audit:markup && vite build",
+    "dev": "vite"
+  },
+  "dependencies": {
+    "lit": "^3.3.0"
+  },
+  "devDependencies": {
+    "vite": "^7.1.5"
+  }
+}

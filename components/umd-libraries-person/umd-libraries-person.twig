@@ -41,7 +41,9 @@
       <div class="person--bio-top s-stack-medium">
     {% endif %}
 
-    {% if person_image is defined and person_image_alt is defined %}
+    {% if person_image is defined and person_image_alt is defined and
+         person_image is not empty and person_image_alt is not empty and
+         person_image|render|trim != '' and person_image_alt|render|trim != '' %}
       {% set applied_image = person_image %}
       {% set applied_image_alt = person_image_alt %}
     {% else %}

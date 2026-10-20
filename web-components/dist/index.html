@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UMD Libraries Web Components</title>
+    <style>
+      main {
+        margin: 0 auto;
+        padding: var(--space-lg);
+      }
+    </style>
+    <script type="module" crossorigin src="./v0.1/umd-libraries-components.js"></script>
+    <link rel="stylesheet" crossorigin href="./v0.1/umd-libraries-components.css">
+  </head>
+  <body>
+    <!-- umd-header options:
+         show-search, show-events, show-news, show-schools, show-admissions, show-support: boolean, default false.
+         search-destination and support-destination: URL strings, default empty.
+         No slots. Dispatches umd-header-error if the remote header script fails to load. -->
+    <umd-header
+      show-search
+      show-news
+      search-destination="https://www.lib.umd.edu/search"
+      support-destination="https://giving.umd.edu/"
+      >
+    </umd-header>
+    <!-- umd-environment-banner options:
+         environment: test, qa, production, or sandbox; default production. Unknown values hide the banner.
+         color: optional custom background color; message: optional custom banner message.
+         Either custom option overrides that part of the environment banner.
+         No slots. -->
+    <umd-environment-banner environment="test"></umd-environment-banner>
+
+    <!-- umd-navigation options:
+         logo-url: logo image URL; default is the UMD Libraries logo URL.
+         search-option: boolean, default false; adds the secondary search navigation when present.
+         search-label: search link text, default Search. search-url: link URL, required when search-option is set.
+         Slot: main accepts direct <a> children. The component wraps each link in a menu list item. -->
+    <umd-navigation search-option search-label="Search the Libraries" search-url="/search">
+      <a slot="main" href="/research">Research</a>
+      <a slot="main" href="/about">About</a>
+    </umd-navigation>
+
+    <!-- umd-hero options:
+         variant: minimal or overlay; default minimal. theme: light or dark; default light.
+         image: optional image URL; image-alt: alternative text, default empty.
+         Slots: eyebrow, title, description, caption. Caption is shown with an image. -->
+    <umd-hero variant="minimal" image="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=1200&q=80" image-alt="Library shelves">
+      <span slot="eyebrow">UMD Libraries</span>
+      <span slot="title">Find your next resource</span>
+      <p slot="description">Explore books, articles, and collections.</p>
+    </umd-hero>
+
+    <main>
+      
+      <!-- umd-separator options:
+           variant: red, yellow, gray, bronze, or black; default red.
+           margin: wide, medium, or small; default medium. componentid: optional element ID. No slots. -->
+      <umd-separator variant="red" margin="medium"></umd-separator>
+
+      <!-- umd-text options:
+           label: optional text label, default empty. componentid: optional element ID.
+           component-class: optional additional CSS class, default empty. Default slot accepts content. -->
+      <umd-text label="Example text">
+        <p>This content is supplied through the default slot.</p>
+      </umd-text>
+
+      <!-- umd-text-callout options:
+           componentid: optional element ID. Default slot accepts callout content. -->
+      <umd-text-callout>
+        <p>This is a reusable text callout.</p>
+      </umd-text-callout>
+
+      <!-- umd-heading options:
+           variant: h1 through h6; default h2. page-title: boolean, default false; when true renders h1.
+           top-margin: boolean, default true; use top-margin="false" to disable it.
+           screen-reader-only: boolean, default false. link-url: optional heading link URL.
+           componentid: optional element ID.
+           Slots: heading-text (required heading content), subtitle and date (shown for page-title). -->
+      <umd-heading variant="h2" top-margin="false">
+        <span slot="heading-text">Explore the Libraries</span>
+      </umd-heading>
+
+      <!-- umd-emphasized-link options:
+           link-text and link-url are both required to render the link.
+           bottom-margin: boolean, default false. componentid: optional element ID. No slots. -->
+      <umd-emphasized-link
+        link-text="Browse research guides"
+        link-url="/research-guides"
+        bottom-margin
+      ></umd-emphasized-link>
+
+      <!-- umd-info-card options:
+           heading-level: h2 through h6; default h3. componentid: optional element ID.
+           Slots: card-title, description, links. Each section is shown when its slot has content. -->
+      <umd-info-card heading-level="h3" componentid="demo-info-card">
+        <span slot="card-title">Need help getting started?</span>
+        <p slot="description">Connect with a librarian for research support.</p>
+        <!-- umd-emphasized-link options:
+             link-text and link-url are both required to render the link.
+             bottom-margin: boolean, default false. componentid: optional element ID. No slots. -->
+        <umd-emphasized-link
+          slot="links"
+          link-text="Contact a librarian"
+          link-url="/ask"
+        ></umd-emphasized-link>
+      </umd-info-card>
+
+      <!-- umd-quote options:
+           variant: simple or feature; default simple. theme: dark or light; default dark.
+           componentid: optional element ID.
+           Slots: quote-text, author-name, author-title (optional). -->
+      <umd-quote variant="feature" theme="light">
+        <p slot="quote-text">Libraries open doors to knowledge and discovery.</p>
+        <span slot="author-name">University Libraries</span>
+        <span slot="author-title">Our mission</span>
+      </umd-quote>
+
+      <!-- umd-accordion options:
+           heading-level: h2 through h6; default h3. default-open: boolean, default false.
+           link-text and link-url: optional follow-up link; both must be set to render.
+           componentid: optional element ID. Slots: title and body. -->
+      <umd-accordion default-open heading-level="h3" link-text="Read more" link-url="/more">
+        <span slot="title">Accordion heading</span>
+        <p slot="body">Accordion content is revealed when the heading is activated.</p>
+      </umd-accordion>
+
+      <!-- umd-alert options:
+           variant: in_page or site_wide; default in_page.
+           heading-level: h2 through h6 for in_page alerts; default h2.
+           componentid: optional element ID. image and image-alt: image URL and alternative text;
+           shown only for site_wide when both are provided.
+           link-text and link-url: optional link; both must be set to render.
+           customization-class: optional additional CSS class.
+           Slots: title and description. site_wide alerts include a dismiss button. -->
+      <umd-alert variant="in_page" heading-level="h2">
+        <span slot="title">Service notice</span>
+        <p slot="description">Some services may be unavailable during scheduled maintenance.</p>
+      </umd-alert>
+
+      <!-- umd-tabs options:
+           default-tab: tab value to initially select, default empty (selects the first trigger).
+           tab-label: accessible tab-list label, default Tabs. componentid: optional container ID
+           used to scope URL hashes; the native id attribute is also used when componentid is empty.
+           Slots: triggers must contain buttons/elements with role="tab" and IDs prefixed "tab-";
+           content must contain panels with role="tabpanel" and IDs "tabpanel-{tab-value}". -->
+      <umd-tabs id="example-tabs" default-tab="one" tab-label="Example tabs">
+        <button slot="triggers" id="tab-one" type="button" role="tab" aria-controls="tabpanel-one">One</button>
+        <button slot="triggers" id="tab-two" type="button" role="tab" aria-controls="tabpanel-two">Two</button>
+        <div slot="content" id="tabpanel-one" role="tabpanel" aria-labelledby="tab-one">First panel</div>
+        <div slot="content" id="tabpanel-two" role="tabpanel" aria-labelledby="tab-two">Second panel</div>
+      </umd-tabs>
+
+      <!-- umd-scroll-to-top options:
+           threshold: number of vertical scroll pixels before showing the button; default 300.
+           No slots. -->
+      <umd-scroll-to-top></umd-scroll-to-top>
+
+      <!-- umd-card options:
+           variant: standard, overlay, or icon; default standard.
+           heading-level: h2 through h6; default h3. card-url: optional title link URL.
+           image-url and image-alt: image URL and alternative text (image appears in standard variant).
+           card-date: optional date text. icon-name: icon name, default info (icon variant only).
+           componentid: optional element ID.
+           Slots: eyebrow, title, description. -->
+      <umd-card variant="standard" card-url="/collections" image-url="https://images.unsplash.com/photo-1550399105-c4db5fb85c18?w=800&q=80" image-alt="Books in a library">
+        <span slot="eyebrow">Collections</span>
+        <span slot="title">Explore the archives</span>
+        <p slot="description">Browse special collections and digital materials.</p>
+      </umd-card>
+
+      <!-- umd-list options:
+           heading-level: h2 through h6; default h2. list-url: title link URL.
+           image-url and image-alt: optional image URL and alternative text.
+           list-date: optional date text. componentid: optional element ID.
+           Slots: eyebrow, title, description. -->
+      <umd-list list-url="/news">
+        <span slot="eyebrow">News</span>
+        <span slot="title">Library updates</span>
+        <p slot="description">Read the latest news from the library.</p>
+      </umd-list>
+
+      <!-- umd-image options:
+           src: image URL. alt: alternative text. componentid: optional figure ID.
+           variant: freeform, sixteen_to_nine, three_to_two, four_to_three, or one_to_one;
+           default freeform. orientation: landscape or portrait; default landscape.
+           Slot: caption. -->
+      <umd-image
+        src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=1200&q=80"
+        alt="Library shelves"
+        variant="three_to_two"
+      >
+        <span slot="caption">A caption supplied through a named slot.</span>
+      </umd-image>
+    </main>
+
+    <!-- umd-footer options:
+         telephone: displayed phone number and telephone link target; default empty.
+         logo-url: defaults to https://www.lib.umd.edu/themes/contrib/umdlib-design-system-theme/logo-dark.svg.
+         campaign-logo-url: defaults to https://www.lib.umd.edu/themes/contrib/umdlib-design-system-theme/fearlessly-forward.svg.
+         depository-logo-url: defaults to https://www.lib.umd.edu/themes/contrib/umdlib-design-system-theme/rfdl.svg.
+         Slots: institution, address, navigation, social, legal.
+         Each navigation slot must be a <nav> with an aria-label for its column heading and direct <a> children. -->
+    <umd-footer telephone="301.555.0123">
+      <span slot="institution">University Libraries</span>
+      <span slot="address">123 Campus Drive, College Park, MD 20742</span>
+      <nav slot="navigation" aria-label="About the Libraries">
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </nav>
+      <nav slot="navigation" aria-label="Visit">
+        <a href="/hours">Library hours</a>
+        <a href="/visit">Visit the Libraries</a>
+      </nav>
+      <ul slot="legal"><li><a href="/privacy">Privacy Policy</a></li></ul>
+    </umd-footer>
+
+  </body>
+</html>

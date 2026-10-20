@@ -46,7 +46,7 @@
         
         {# Hero description #}
         {% if description_slot %}
-          <div class="hero--description c-content-secondary t-body-medium wysiwyg-editor">
+          <div class="hero--description c-content-secondary t-body-medium wysiwyg-editor {{ component_class | default('') }}">
             {% block description_slot %}{% endblock %}
           </div>
         {% endif %}

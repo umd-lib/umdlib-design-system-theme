@@ -6,7 +6,7 @@ dependencies:
   theme:
     - umdlib_umdds
 _core:
-  default_config_hash: erQSEZF2XUjNmgTl0uNRBzmg18ZGXwUcw2FhApoeuHk
+  default_config_hash: ZAwJ9oxVIEfSmWFJ1fMzPIqf84QkxJjdrDoo-CGtEwE
 id: umdlib_umdds_content
 theme: umdlib_umdds
 region: content
@@ -19,4 +19,3 @@ settings:
   label_display: '0'
   provider: system
 visibility: {  }
-

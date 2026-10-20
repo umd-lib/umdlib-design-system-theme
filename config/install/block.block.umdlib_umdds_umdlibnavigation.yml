@@ -1,0 +1,66 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+    - ui_patterns
+    - ui_patterns_blocks
+  theme:
+    - umdlib_umdds
+id: umdlib_umdds_umdlibnavigation
+theme: umdlib_umdds
+region: header
+weight: -3
+provider: null
+plugin: 'ui_patterns:umdlib_umdds:umd-libraries-navigation'
+settings:
+  id: 'ui_patterns:umdlib_umdds:umd-libraries-navigation'
+  label: 'UMD Lib Navigation'
+  label_display: '0'
+  provider: ui_patterns_blocks
+  ui_patterns:
+    component_id: 'umdlib_umdds:umd-libraries-navigation'
+    variant_id: null
+    props:
+      attributes:
+        source_id: attributes
+        source:
+          value: ''
+      logo_url:
+        source_id: textfield
+        source:
+          value: '' 
+      sub_site:
+        source_id: checkbox
+        source:
+          value: false
+      search_option:
+        source_id: checkbox
+        source:
+          value: false
+      search_label:
+        source_id: textfield
+        source:
+          value: ''
+      search_url:
+        source_id: textfield
+        source:
+          value: ''
+    slots:
+      main_navigation_slot:
+        sources:
+          -
+            source_id: block
+            source:
+              plugin_id: 'system_menu_block:main'
+              'system_menu_block:main':
+                level: '1'
+                depth: '2'
+                expand_all_items: '1'
+            third_party_settings: ''
+            _weight: 0
+            node_id: ''
+      utility_navigation_slot: {  }
+visibility: {  }

@@ -1,0 +1,94 @@
+langcode: en
+status: 1
+dependencies: {  }
+id: umdlib_umdds.umd-libraries-event.event
+label: Event
+component_id: 'umdlib_umdds:umd-libraries-event'
+form_mode_name: event
+content:
+  component_id:
+    widget_settings: {  }
+    source_id: textfield
+    parent: ''
+    weight: '8'
+    region: content
+    third_party_settings: {  }
+  event_title:
+    widget_settings: {  }
+    source_id: long_text_string
+    parent: ''
+    weight: '1'
+    region: content
+    third_party_settings: {  }
+  event_url:
+    widget_settings: {  }
+    source_id: linkit_link
+    parent: ''
+    weight: '2'
+    region: content
+    third_party_settings: {  }
+  event_description:
+    widget_settings: {  }
+    source_id: wysiwyg
+    parent: ''
+    weight: '3'
+    region: content
+    third_party_settings: {  }
+  event_date:
+    widget_settings: {  }
+    source_id: date
+    parent: ''
+    weight: '4'
+    region: content
+    third_party_settings: {  }
+  event_time:
+    widget_settings: {  }
+    source_id: long_text_string
+    parent: ''
+    weight: '5'
+    region: content
+    third_party_settings: {  }
+  event_location:
+    widget_settings: {  }
+    source_id: long_text_string
+    parent: ''
+    weight: '6'
+    region: content
+    third_party_settings: {  }
+  event_image:
+    widget_settings: {  }
+    source_id: media_image_url
+    parent: ''
+    weight: '7'
+    region: content
+    third_party_settings: {  }
+  event_image_alt:
+    widget_settings: {  }
+    source_id: long_text_string
+    parent: ''
+    weight: '8'
+    region: content
+    third_party_settings: {  }
+  componentid:
+    widget_settings: {  }
+    source_id: textfield
+    parent: ''
+    weight: '9'
+    region: content
+    third_party_settings: {  }
+  heading_level:
+    widget_settings: {  }
+    source_id: select
+    parent: ''
+    weight: '10'
+    region: content
+    third_party_settings: {  }
+  homepage_events:
+    widget_settings: {  }
+    source_id: checkbox
+    parent: ''
+    weight: '0'
+    region: content
+    third_party_settings: {  }
+hidden:
+  attributes: true

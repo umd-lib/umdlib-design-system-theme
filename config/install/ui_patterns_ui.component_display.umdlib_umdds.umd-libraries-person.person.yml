@@ -1,0 +1,136 @@
+langcode: en
+status: 1
+dependencies: {  }
+id: umdlib_umdds.umd-libraries-person.person
+label: Person
+component_id: 'umdlib_umdds:umd-libraries-person'
+form_mode_name: person
+content:
+  variant:
+    widget_settings: {  }
+    source_id: select
+    parent: ''
+    weight: '14'
+    region: content
+    third_party_settings: {  }
+  component_id:
+    widget_settings: {  }
+    source_id: textfield
+    parent: ''
+    weight: '15'
+    region: content
+    third_party_settings: {  }
+  person_name:
+    widget_settings: {  }
+    source_id: long_text_string
+    parent: ''
+    weight: '0'
+    region: content
+    third_party_settings: {  }
+  person_phone:
+    widget_settings: {  }
+    source_id: long_text_string
+    parent: ''
+    weight: '2'
+    region: content
+    third_party_settings: {  }
+  person_title:
+    widget_settings: {  }
+    source_id: long_text_string
+    parent: ''
+    weight: '1'
+    region: content
+    third_party_settings: {  }
+  person_email:
+    widget_settings: {  }
+    source_id: long_text_string
+    parent: ''
+    weight: '3'
+    region: content
+    third_party_settings: {  }
+  person_department:
+    widget_settings: {  }
+    source_id: long_text_string
+    parent: ''
+    weight: '4'
+    region: content
+    third_party_settings: {  }
+  person_branch:
+    widget_settings: {  }
+    source_id: long_text_string
+    parent: ''
+    weight: '5'
+    region: content
+    third_party_settings: {  }
+  person_pronouns:
+    widget_settings: {  }
+    source_id: long_text_string
+    parent: ''
+    weight: '6'
+    region: content
+    third_party_settings: {  }
+  person_office:
+    widget_settings: {  }
+    source_id: long_text_string
+    parent: ''
+    weight: '7'
+    region: content
+    third_party_settings: {  }
+  person_image:
+    widget_settings: {  }
+    source_id: media_image_url
+    parent: ''
+    weight: '8'
+    region: content
+    third_party_settings: {  }
+  person_image_alt:
+    widget_settings: {  }
+    source_id: long_text_string
+    parent: ''
+    weight: '9'
+    region: content
+    third_party_settings: {  }
+  person_profile_link:
+    widget_settings: {  }
+    source_id: linkit_link
+    parent: ''
+    weight: '10'
+    region: content
+    third_party_settings: {  }
+  person_external_link:
+    widget_settings: {  }
+    source_id: linkit_link
+    parent: ''
+    weight: '12'
+    region: content
+    third_party_settings: {  }
+  person_external_link_text:
+    widget_settings: {  }
+    source_id: long_text_string
+    parent: ''
+    weight: '11'
+    region: content
+    third_party_settings: {  }
+  bio_description_slot:
+    widget_settings: {  }
+    source_id: wysiwyg
+    parent: ''
+    weight: '13'
+    region: content
+    third_party_settings: {  }
+  componentid:
+    widget_settings: {  }
+    source_id: textfield
+    parent: ''
+    weight: '15'
+    region: content
+    third_party_settings: {  }
+  heading_level:
+    widget_settings: {  }
+    source_id: ''
+    parent: ''
+    weight: '16'
+    region: content
+    third_party_settings: {  }
+hidden:
+  attributes: true

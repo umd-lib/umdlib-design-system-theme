@@ -1,0 +1,65 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - ui_patterns
+    - ui_patterns_blocks
+  theme:
+    - umdlib_umdds
+id: umdlib_umdds_umdlibfooter
+theme: umdlib_umdds
+region: footer
+weight: 0
+provider: null
+plugin: 'ui_patterns:umdlib_umdds:umd-libraries-footer'
+settings:
+  id: 'ui_patterns:umdlib_umdds:umd-libraries-footer'
+  label: 'UMD Lib Footer'
+  label_display: '0'
+  provider: ui_patterns_blocks
+  ui_patterns:
+    component_id: 'umdlib_umdds:umd-libraries-footer'
+    variant_id: null
+    props:
+      attributes:
+        source_id: attributes
+        source:
+          value: ''
+      telephone:
+        source_id: textfield
+        source:
+          value: ''
+    slots:
+      institution_name:
+        sources:
+          -
+            source_id: textfield
+            source:
+              value: 'University of Maryland Libraries'
+            third_party_settings: ''
+            _weight: 0
+            node_id: ''
+            _remove:
+              dropdown_actions: {  }
+        add_more_button: ''
+      full_address:
+        sources:
+          -
+            source_id: long_text_string
+            source:
+              long_text_string: ' University Libraries, College Park, MD 20742-7011'
+            third_party_settings: ''
+            _weight: 0
+            node_id: ''
+            _remove:
+              dropdown_actions: {  }
+        add_more_button: ''
+      navigation_menu_slot:
+        add_more_button: ''
+      legal_menu_slot:
+        add_more_button: ''
+      social_media_slot:
+        add_more_button: ''
+    third_party_settings: null
+    node_id: null
+visibility: {  }

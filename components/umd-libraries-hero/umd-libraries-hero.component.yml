@@ -24,6 +24,10 @@ props:
       type: string
       title: Theme (Light or Dark)
       description: 'Enter "light" or "dark" to choose the theme for the hero section.'
+    component_class:
+      type: string
+      title: CSS Class
+      description: (Optional) A CSS class to apply to the component. E.g., "use-button"
 
 slots:
   eyebrow:

@@ -1,0 +1,24 @@
+langcode: en
+status: 1
+dependencies: {  }
+id: umdlib_umdds.umd-libraries-tab-trigger.tab_trigger
+label: 'Tab Trigger'
+component_id: 'umdlib_umdds:umd-libraries-tab-trigger'
+form_mode_name: tab_trigger
+content:
+  tab_value:
+    widget_settings: {  }
+    source_id: textfield
+    parent: ''
+    weight: '0'
+    region: content
+    third_party_settings: {  }
+  tab_label:
+    widget_settings: {  }
+    source_id: long_text_string
+    parent: ''
+    weight: '1'
+    region: content
+    third_party_settings: {  }
+hidden:
+  attributes: true

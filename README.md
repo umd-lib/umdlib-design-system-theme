@@ -22,3 +22,8 @@ composer require umd-lib/umdlib-design-system-theme
 ## Documentation for UMD Libraries Theme
 
 Please refer to the [Wiki](https://github.com/umd-lib/umdlib-design-system-theme/wiki) for documentation on this Drupal theme.
+
+## Platform Independent Web Components
+
+To use this theme outside of Drupal, reference the source [Web Components](web-components/dist/index.html), which includes complete
+usage and parameters in the comments.

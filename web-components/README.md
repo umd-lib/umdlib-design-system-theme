@@ -11,23 +11,25 @@ npm install
 npm run build
 ```
 
-The build produces predictable JavaScript and CSS bundle names in `dist/`:
+The build reads the package version and writes the JavaScript and CSS bundles under a major/minor version directory in `dist/`. For package version `1.1.0`, the output paths are:
 
 ```text
-dist/umd-libraries-components.js
-dist/umd-libraries-components.css
+dist/v1.1/umd-libraries-components.js
+dist/v1.1/umd-libraries-components.css
 ```
+
+`dist/index.html` is rebuilt to reference only the current version's bundles. Existing version directories are retained when building, so bump the package's major or minor version in `package.json` to publish a new retained bundle directory. Patch versions share their major/minor directory.
 
 Include both files in the consuming HTML document. The CSS bundle includes the shared Drupal base, fonts, design tokens, and utility stylesheets; the JavaScript bundle also makes the base and utility rules available inside component shadow roots. The JavaScript must be loaded as a module; it registers the package's custom elements. Lit is bundled into this file and does not need to be included separately.
 
 ```html
-<link rel="stylesheet" href="/assets/umd-libraries-components.css">
-<script type="module" src="/assets/umd-libraries-components.js"></script>
+<link rel="stylesheet" href="/assets/v1.1/umd-libraries-components.css">
+<script type="module" src="/assets/v1.1/umd-libraries-components.js"></script>
 ```
 
-The filenames are configured in `vite.config.js` through Vite's Rollup output configuration. The JavaScript and CSS files are intentionally un-hashed, so deployment systems should replace or version the assets as a unit when publishing a new build.
+The filenames and version directory are configured in `vite.config.js` through Vite's Rollup output configuration. The JavaScript and CSS files are intentionally un-hashed within each version directory.
 
-The components use Lit's static `properties` declarations rather than JavaScript decorators. This keeps the distributed bundle directly compatible with browsers and avoids requiring a decorator transpilation plugin. If a browser reports `Unsupported decorator location: field`, it is serving an older bundle or a bundle built from source files that still contain `@property` decorators; rebuild and deploy the current `dist/umd-libraries-components.js` file.
+The components use Lit's static `properties` declarations rather than JavaScript decorators. This keeps the distributed bundle directly compatible with browsers and avoids requiring a decorator transpilation plugin. If a browser reports `Unsupported decorator location: field`, it is serving an older bundle or a bundle built from source files that still contain `@property` decorators; rebuild and deploy the current versioned bundle referenced by `dist/index.html`.
 
 ### Markup Audit
 

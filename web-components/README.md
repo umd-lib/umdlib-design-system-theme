@@ -429,13 +429,14 @@ Attributes:
 - `logo-url`: Main footer logo URL. Defaults to `/logo-dark.svg`.
 - `campaign-logo-url`: Fearlessly Forward logo URL. Defaults to `/fearlessly-forward.svg`.
 - `depository-logo-url`: Depository logo URL. Defaults to `/rfdl.svg`.
+- `facebook`, `instagram`, `youtube`: Optional social profile URLs. Only configured links are rendered as social icons.
 
 Slots:
 
 - `institution`: Institution name.
 - `address`: Full address.
 - `navigation`: One or more `<nav>` elements with an `aria-label` for each column heading and direct `<a>` children. The component renders each as a heading and styled link list.
-- `social`: Social media markup.
+- `social`: Optional additional social media markup. The `facebook`, `instagram`, and `youtube` attributes render their corresponding icons in a “Stay Connected” list.
 - `legal`: Legal links or other legal footer markup. The component adds `ani-underline t-label c-underline-dark-primary` to each rendered anchor.
 
 ```html
@@ -444,6 +445,9 @@ Slots:
   logo-url="/assets/logo-dark.svg"
   campaign-logo-url="/assets/fearlessly-forward.svg"
   depository-logo-url="/assets/rfdl.svg"
+  facebook="https://www.facebook.com/UMDLibraries"
+  instagram="https://www.instagram.com/umdlibraries"
+  youtube="https://www.youtube.com/user/UMDLibraries1"
 >
   <span slot="institution">University Libraries</span>
   <span slot="address">123 Campus Drive, College Park, MD 20742</span>

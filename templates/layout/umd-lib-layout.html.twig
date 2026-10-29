@@ -88,24 +88,26 @@
           {% endif %}
         </div>
       {% endfor %}
-      <div class="region-info" aria-hidden="true">Orphaned Blocks</div>
-      <div {{ region_attributes.('orphan_blocks').addClass('orphan_blocks').addClass('preview') }}">
-        {% for i in 1..num_rows %}
-          {% set row_conf = column_config['row_' ~ i] %}
-          {% if row_conf.card_group %}
-            {% for r in 1..4 %}
-              {% set orphan_reg_key = 'main_' ~ i ~ '_' ~ r %}
+      <div class="row row--1 layout--1-column" id="orphans">
+        <div class="region-info" aria-hidden="true">Orphaned Blocks</div>
+        <div {{ region_attributes.('orphan_blocks').addClass('orphan_blocks') }}">
+          {% for i in 1..num_rows %}
+            {% set row_conf = column_config['row_' ~ i] %}
+            {% if row_conf.card_group %}
+              {% for r in 1..4 %}
+                {% set orphan_reg_key = 'main_' ~ i ~ '_' ~ r %}
+                {% if content.(orphan_reg_key) %}
+                  {{ content.(orphan_reg_key) }}
+                {% endif %}
+              {% endfor %}
+            {% else %}
+              {% set orphan_reg_key = 'main_' ~ i ~ '_card_group' %}
               {% if content.(orphan_reg_key) %}
                 {{ content.(orphan_reg_key) }}
               {% endif %}
-            {% endfor %}
-          {% else %}
-            {% set orphan_reg_key = 'main_' ~ i ~ '_card_group' %}
-            {% if content.(orphan_reg_key) %}
-              {{ content.(orphan_reg_key) }}
             {% endif %}
-          {% endif %}
-        {% endfor %}
+          {% endfor %}
+        </div>
       </div>
     </div>
   </div>

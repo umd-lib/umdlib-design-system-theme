@@ -90,7 +90,7 @@
       {% endfor %}
       <div class="row row--1 layout--1-column" id="orphans">
         <div class="region-info" aria-hidden="true">Orphaned Blocks</div>
-        <div {{ region_attributes.('orphan_blocks').addClass('orphan_blocks') }}">
+        <div {{ attributes.addClass('orphan_blocks') }}>
           {% for i in 1..num_rows %}
             {% set row_conf = column_config['row_' ~ i] %}
             {% if row_conf.card_group %}

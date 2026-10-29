@@ -99,6 +99,11 @@
                 {{ content.(orphan_reg_key) }}
               {% endif %}
             {% endfor %}
+          {% else %}
+            {% set orphan_reg_key = 'main_' ~ i ~ '_card_group' %}
+            {% if content.(orphan_reg_key) %}
+              {{ content.(orphan_reg_key) }}
+            {% endif %}
           {% endif %}
         {% endfor %}
       </div>

@@ -109,6 +109,8 @@ custom:
       label: Row Ten, Column Four
     main_10_card_group:
       label: Row Ten, Card Group
+    orphan_blocks:
+      label: Orphaned Blocks
   icon_map:
     - [a, a, b, b, b, b, b, b]
     - [a, a, b, b, b, b, b, b]

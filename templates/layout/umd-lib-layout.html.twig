@@ -88,8 +88,8 @@
           {% endif %}
         </div>
 
-      {% if in_preview %}                                                                                                                                 
-        <div class="column row row--{{ i }} layout--1-column" id="orphans-{{ i }}">
+      {% if in_preview %}
+        <div class="column row row--{{ i }} layout--1-column orphans" id="orphans-{{ i }}">
           <div class="region-info" aria-hidden="true">Orphaned Blocks (Layout Builder Only)</div>
             <div class="col column--1 col-child">
               {% set orph_key = 'orphan_blocks_' ~ i %}

@@ -472,6 +472,10 @@ ul.ui-autocomplete li.linkit-result-line {
   top: 0rem;
 }
 
+.preview .main-column .orphans {
+  background-color: pink;
+}
+
 /* reset layout for layout builder  */
 .layout-builder__layout.umd-lib-layout.layout--custom {
   margin-top: 1.5rem !important;

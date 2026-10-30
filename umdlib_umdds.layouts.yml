@@ -109,7 +109,13 @@ custom:
       label: Row Ten, Column Four
     main_10_card_group:
       label: Row Ten, Card Group
-    orphan_blocks:
+    orphan_blocks_1:              
+      label: Orphaned Blocks  
+    orphan_blocks_2:              
+      label: Orphaned Blocks  
+    orphan_blocks_3:                
+      label: Orphaned Blocks  
+    orphan_blocks_4:               
       label: Orphaned Blocks
   icon_map:
     - [a, a, b, b, b, b, b, b]

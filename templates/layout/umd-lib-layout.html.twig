@@ -88,29 +88,33 @@
           {% endif %}
         </div>
       {% endfor %}
-      {% if in_preview %}
-        <div class="row row--1 layout--1-column" id="orphans">
-          <div class="region-info" aria-hidden="true">Orphaned Blocks (Layout Builder Only)</div>
-          <div {{ attributes.addClass('orphan_blocks') }}>
-            {% for i in 1..num_rows %}
-              {% set row_conf = column_config['row_' ~ i] %}
-              {% if row_conf.card_group %}
-                {% for r in 1..4 %}
-                  {% set orphan_reg_key = 'main_' ~ i ~ '_' ~ r %}
-                  {% if content.(orphan_reg_key) %}
-                    {{ content.(orphan_reg_key) }}
-                  {% endif %}
-                {% endfor %}
-              {% else %}
-                {% set orphan_reg_key = 'main_' ~ i ~ '_card_group' %}
-                {% if content.(orphan_reg_key) %}
-                  {{ content.(orphan_reg_key) }}
-                {% endif %}
-              {% endif %}
-            {% endfor %}
-          </div>
-        </div>
+
+      {% if in_preview %}                                                                                                                                 
+        <div class="column row row--1 layout--1-column" id="orphans">                                                     
+          <div class="region-info" aria-hidden="true">Orphaned Blocks (Layout Builder Only)</div>                                                         
+          <div class="col column--' ~ i ~ ' col-child">                                                                                                 
+            <div {{ region_attributes.('orphan_blocks').addClass('orphan_blocks') }}>                                       
+              {% for i in 1..num_rows %}                                                                                                                    
+                {% set row_conf = column_config['row_' ~ i] %}                                                                                              
+                {% if row_conf.card_group %}                                                                                                                
+                  {% for r in 1..4 %}                                                                                                                       
+                    {% set orphan_reg_key = 'main_' ~ i ~ '_' ~ r %}                                                                                        
+                    {% if content.(orphan_reg_key) %}                                                                                                       
+                      {{ content.(orphan_reg_key) }}                                                                        
+                    {% endif %}                                                                                                                             
+                  {% endfor %}                                                                                                                              
+                {% else %}                                                                                                                                  
+                  {% set orphan_reg_key = 'main_' ~ i ~ '_card_group' %}                                                                                    
+                  {% if content.(orphan_reg_key) %}                                                                                                         
+                    {{ content.(orphan_reg_key) }}                                                                                                          
+                  {% endif %}                                                                                                                               
+                {% endif %}                                                                                                                                 
+              {% endfor %}                                                                                                                                  
+            </div>                                                                                                                                          
+          </div>                                                                                                                                        
+        </div>                                                                                                                                            
       {% endif %}
+                
     </div>
   </div>
   {% if use_search %}

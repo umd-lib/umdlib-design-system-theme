@@ -31,7 +31,13 @@ function umdlib_umdds_preprocess_layout(&$variables) : void {
   $variables['region_has_blocks'] = [];
   foreach ($variables['content'] ?? [] as $region => $region_content) {
     if (is_array($region_content)) {
-      $variables['region_has_blocks'][$region] = (bool) \Drupal\Core\Render\Element::children($region_content);
+      foreach ($region_content as $key => $child) {
+        if (is_array($child) && (!is_string($key) || !str_starts_with($key, '#'))) {
+          $variables['region_has_blocks'][$region] = TRUE;
+          continue 2;
+        }
+      }
+      $variables['region_has_blocks'][$region] = FALSE;
     }
   }
 }

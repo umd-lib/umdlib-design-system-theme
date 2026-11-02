@@ -24,6 +24,18 @@ function umdlib_umdds_preprocess_image(&$variables) : void {
   }
 }
 
+/**
+ * Implements hook_preprocess_layout().
+ */
+function umdlib_umdds_preprocess_layout(&$variables) : void {
+  $variables['region_has_blocks'] = [];
+  foreach ($variables['content'] ?? [] as $region => $region_content) {
+    if (is_array($region_content)) {
+      $variables['region_has_blocks'][$region] = (bool) \Drupal\Core\Render\Element::children($region_content);
+    }
+  }
+}
+
 
 /**
  * Implements hook_preprocess_breadcrumb() for node.html.twig.

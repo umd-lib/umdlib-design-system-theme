@@ -91,17 +91,17 @@
         {% if in_preview %}
           {% set orph_key = 'orphan_blocks_' ~ i %}
           {% set row_conf = column_config['row_' ~ i] %}
-          {% if row_conf.card_group and (content.('main_' ~ i ~ '_1') or 
-                                          content.('main_' ~ i ~ '_2') or
-                                          content.('main_' ~ i ~ '_3') or
-                                          content.('main_' ~ i ~ '_4')) %}
+          {% if row_conf.card_group and (region_has_blocks.('main_' ~ i ~ '_1') or
+                                          region_has_blocks.('main_' ~ i ~ '_2') or
+                                          region_has_blocks.('main_' ~ i ~ '_3') or
+                                          region_has_blocks.('main_' ~ i ~ '_4')) %}
             <div class="column row row--{{ i }} layout--1-column orphans" id="orphans-{{ i }}">
             <div class="region-info" aria-hidden="true">Orphaned Blocks (Layout Builder Only)</div>
               <div class="col column--1 col-child">
                 <div {{ region_attributes.(orph_key).addClass(orph_key) }}>
                   {% for r in 1..4 %}
                     {% set orphan_reg_key = 'main_' ~ i ~ '_' ~ r %}
-                    {% if content.(orphan_reg_key) %}
+                    {% if region_has_blocks.(orphan_reg_key) %}
                       {{ content.(orphan_reg_key) }}
                     {% endif %}
                   {% endfor %}
@@ -110,7 +110,7 @@
             </div>
           {% else %}
             {% set orphan_reg_key = 'main_' ~ i ~ '_card_group' %}
-            {% if content.(orphan_reg_key) %}
+            {% if region_has_blocks.(orphan_reg_key) %}
               <div class="column row row--{{ i }} layout--1-column orphans" id="orphans-{{ i }}">
                 <div class="region-info" aria-hidden="true">Orphaned Blocks (Layout Builder Only)</div>
                 <div class="col column--1 col-child">

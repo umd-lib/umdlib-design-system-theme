@@ -7,7 +7,7 @@
 }
 
 .search-box .search-box-action-area,
-.reusable-search-box {
+.reusable-search-box .inner-form {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -47,6 +47,7 @@
 .reusable-search-box input.search-box-submit {
   border: 0px !important;
   background-color: #fafafa !important;
+  margin-left: 0.5rem !important;
 } 
 
 /* description in the search box */

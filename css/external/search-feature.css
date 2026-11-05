@@ -7,7 +7,7 @@
 }
 
 .search-box .search-box-action-area,
-.reusable-search-box .search-box-action-area {
+.reusable-search-box {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -16,19 +16,19 @@
 }
 
 .search-box .search-box-action-area input,
-.reusable-search-box .search-box-action-area input {
+.reusable-search-box input {
   width: 100%;
   padding: 0.5rem;
 }
 
 .search-box .search-box-action-area input::placeholder,
-.reusable-search-box .search-box-action-area input::placeholder,
+.reusable-search-box input::placeholder,
 .umd-form-element input::placeholder {
   color: var(--medium-gray);
 }
 
 .search-box .search-box-action-area button,
-.reusable-search-box .search-box-action-area input.search-box-submit,
+.reusable-search-box input.search-box-submit,
 .hero-search-input button {
   width: 44px;
   min-width: 44px;
@@ -48,7 +48,7 @@
 }
 
 /* reusable search box */
-.reusable-search-box .search-box-action-area {
+.reusable-search-box {
   align-items: end;
 }
 

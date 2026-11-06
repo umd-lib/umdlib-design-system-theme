@@ -1,15 +1,26 @@
-.align-left .umd-lib.image {
+.wysiwyg-editor .align-left .umd-lib.image {
   margin-right: var(--space-lg);
 }
 
-.align-right .umd-lib.image {
+.wysiwyg-editor .align-right .umd-lib.image {
   margin-left: var(--space-lg);
+}
+
+.wysiwyg-editor .align-center .umd-lib.image {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+
+.wysiwyg-editor .align-center {
+  width: 75% !important;
 }
 
 .wysiwyg-editor .align-right,
 .wysiwyg-editor .align-left {
   width: 50% !important;
-} 
+}
 
 .umd-lib.image {
   width: 100%;

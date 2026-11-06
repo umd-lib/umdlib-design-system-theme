@@ -1,3 +1,16 @@
+.align-left .umd-lib.image {
+  margin-right: var(--space-lg);
+}
+
+.align-right .umd-lib.image {
+  margin-left: var(--space-lg);
+}
+
+.wysiwyg-editor .align-right,
+.wysiwyg-editor .align-left {
+  width: 50% !important;
+} 
+
 .umd-lib.image {
   width: 100%;
   height: auto;

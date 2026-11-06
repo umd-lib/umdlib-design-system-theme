@@ -48,6 +48,7 @@
   border: 0px !important;
   background-color: #fafafa !important;
   margin-left: 0.5rem !important;
+  cursor:pointer;
 } 
 
 /* description in the search box */

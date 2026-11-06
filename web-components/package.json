@@ -1,6 +1,6 @@
 {
   "name": "@umd-libraries/design-system-components",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "description": "Standalone Lit web components for the UMD Libraries design system.",
   "type": "module",

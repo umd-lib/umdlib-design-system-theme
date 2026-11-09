@@ -33,8 +33,12 @@ function umdlib_umdds_preprocess_layout(&$variables) : void {
     if (is_array($region_content)) {
       foreach ($region_content as $key => $child) {
         if (is_array($child) && (!is_string($key) || !str_starts_with($key, '#'))) {
-          $variables['region_has_blocks'][$region] = TRUE;
-          continue 2;
+          foreach ($child as $child_key => $child_val) {
+            if (!empty($child_key) && $child_key == '#theme' && !empty($child_val) && $child_val == "block") {
+              $variables['region_has_blocks'][$region] = TRUE;
+              continue 3;
+            }
+          }
         }
       }
       $variables['region_has_blocks'][$region] = FALSE;

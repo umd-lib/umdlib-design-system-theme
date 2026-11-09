@@ -473,7 +473,11 @@ ul.ui-autocomplete li.linkit-result-line {
 }
 
 .preview .main-column .orphans {
-  background-color: pink;
+  background-color: rgb(98, 98, 98);
+}
+
+.preview .main-column .orphans .region-info {
+  color: white;
 }
 
 /* reset layout for layout builder  */

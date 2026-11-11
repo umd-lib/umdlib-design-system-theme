@@ -95,6 +95,7 @@
   width: 0;
   min-width: 100%;
   overflow-wrap: break-word;
+  padding-top: var(--space-md);
 }
 
 /* tablet */

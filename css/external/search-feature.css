@@ -7,34 +7,36 @@
 }
 
 .search-box .search-box-action-area,
-.reusable-search-box .search-box-action-area {
+.reusable-search-box .inner-form {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
 
+.search-box .search-box-action-area {
   border-bottom: 1px solid var(--darker-gray);
 }
 
 .search-box .search-box-action-area input,
-.reusable-search-box .search-box-action-area input {
+.reusable-search-box input {
   width: 100%;
   padding: 0.5rem;
 }
 
 .search-box .search-box-action-area input::placeholder,
-.reusable-search-box .search-box-action-area input::placeholder,
+.reusable-search-box input::placeholder,
 .umd-form-element input::placeholder {
   color: var(--medium-gray);
 }
 
 .search-box .search-box-action-area button,
-.reusable-search-box .search-box-action-area input.search-box-submit,
+.reusable-search-box input.search-box-submit,
 .hero-search-input button {
-  width: 44px;
-  min-width: 44px;
-  height: 44px;
+  width: 44px !important;
+  min-width: 44px !important;
+  height: 44px !important;
 
-  padding: 0.5rem;
+  padding: 0.5rem !important;
 
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26' fill='none'%3E%3Cpath d='M10.3539 2.4375C5.38347 2.43765 1.35388 6.46706 1.35388 11.4375C1.35391 16.4079 5.38349 20.4374 10.3539 20.4375C12.094 20.4375 13.7182 19.9421 15.0951 19.0869L19.4398 23.4326H24.6459L17.8148 16.4736C18.7868 15.0365 19.3539 13.3031 19.3539 11.4375C19.3539 6.46697 15.3244 2.4375 10.3539 2.4375ZM10.3539 5.5957C13.5804 5.5957 16.1967 8.21101 16.1967 11.4375C16.1966 14.664 13.5804 17.2793 10.3539 17.2793C7.12754 17.2791 4.51211 14.6639 4.51208 11.4375C4.51208 8.2111 7.12752 5.59585 10.3539 5.5957Z' fill='black'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
@@ -42,24 +44,31 @@
   background-position-y: center;
 }
 
+.reusable-search-box input.search-box-submit {
+  border: 0px !important;
+  background-color: #fafafa !important;
+  margin-left: 0.5rem !important;
+  cursor:pointer;
+} 
+
 /* description in the search box */
 .search-box p.description {
   margin-top: 0.5rem;
 }
 
 /* reusable search box */
-.reusable-search-box .search-box-action-area {
+.reusable-search-box {
   align-items: end;
 }
 
-.reusable-search-box form div.form-item-searchbar-search {
+.reusable-search-box div.form-item-searchbar-search {
   flex-grow: 1;
 
   display: flex;
   flex-direction: column;
 }
 
-.reusable-search-box form div.form-actions {
+.reusable-search-box div.form-actions {
   display: flex;
   justify-content: end;
 }

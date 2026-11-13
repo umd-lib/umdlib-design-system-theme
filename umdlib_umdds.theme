@@ -24,6 +24,28 @@ function umdlib_umdds_preprocess_image(&$variables) : void {
   }
 }
 
+/**
+ * Implements hook_preprocess_layout().
+ */
+function umdlib_umdds_preprocess_layout(&$variables) : void {
+  $variables['region_has_blocks'] = [];
+  foreach ($variables['content'] ?? [] as $region => $region_content) {
+    if (is_array($region_content)) {
+      foreach ($region_content as $key => $child) {
+        if (is_array($child) && (!is_string($key) || !str_starts_with($key, '#'))) {
+          foreach ($child as $child_key => $child_val) {
+            if (!empty($child_key) && $child_key == '#theme' && !empty($child_val) && $child_val == "block") {
+              $variables['region_has_blocks'][$region] = TRUE;
+              continue 3;
+            }
+          }
+        }
+      }
+      $variables['region_has_blocks'][$region] = FALSE;
+    }
+  }
+}
+
 
 /**
  * Implements hook_preprocess_breadcrumb() for node.html.twig.

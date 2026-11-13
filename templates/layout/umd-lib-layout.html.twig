@@ -71,18 +71,58 @@
           {# render card group #}
             {% set reg_key = 'main_' ~ i ~ '_card_group' %}
             <div class="region-info" aria-hidden="true">Card Group - {{ row_conf.cols }} column</div>
-            <div {{ region_attributes.(reg_key).addClass(reg_key).addClass('card-group-content') }}>{{ content.(reg_key) }}</div>
+            <div {{ region_attributes.(reg_key).addClass(reg_key).addClass('card-group-content') }}>
+              {{ content[reg_key] }}
+            </div>
           {% else %}
           {# render column #}
             <div class="region-info" aria-hidden="true">{{ row_conf.cols }} column</div>
             {% for r in 1..row_conf.cols %}
               {% set reg_key = 'main_' ~ i ~ '_' ~ r %}
               <div class="col column--{{ r }} col-child">
-                <div {{ region_attributes.(reg_key).addClass(reg_key) }}>{{ content.(reg_key) }}</div>
+                <div {{ region_attributes.(reg_key).addClass(reg_key) }}>
+                  {{ content.(reg_key) }}
+                </div>
               </div>
             {% endfor %}
           {% endif %}
         </div>
+
+        {% if in_preview %}
+          {% set orph_key = 'orphan_blocks_' ~ i %}
+          {% set row_conf = column_config['row_' ~ i] %}
+          {% if row_conf.card_group and (region_has_blocks.('main_' ~ i ~ '_1') or
+                                         region_has_blocks.('main_' ~ i ~ '_2') or
+                                         region_has_blocks.('main_' ~ i ~ '_3') or
+                                         region_has_blocks.('main_' ~ i ~ '_4')) %}
+            <div class="column row row--{{ i }} layout--1-column orphans" id="orphans-{{ i }}">
+            <div class="region-info" aria-hidden="true">Orphaned Blocks (Layout Builder Only)</div>
+              <div class="col column--1 col-child">
+                <div {{ region_attributes.(orph_key).addClass(orph_key) }}>
+                  {% for r in 1..4 %}
+                    {% set orphan_reg_key = 'main_' ~ i ~ '_' ~ r %}
+                    {% if region_has_blocks.(orphan_reg_key) %}
+                      {{ content.(orphan_reg_key) }}
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          {% else %}
+            {% set orphan_reg_key = 'main_' ~ i ~ '_card_group' %}
+            {% if region_has_blocks.(orphan_reg_key) and row_conf.card_group == 0 %}
+              <div class="column row row--{{ i }} layout--1-column orphans" id="orphans-{{ i }}">
+                <div class="region-info" aria-hidden="true">Orphaned Blocks (Layout Builder Only)</div>
+                <div class="col column--1 col-child">
+                  <div {{ region_attributes.(orph_key).addClass(orph_key) }}>
+                    {{ content.(orphan_reg_key) }}
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          {% endif %}
+        {% endif %}
+
       {% endfor %}
     </div>
   </div>

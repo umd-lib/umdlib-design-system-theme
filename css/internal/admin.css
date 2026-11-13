@@ -472,6 +472,14 @@ ul.ui-autocomplete li.linkit-result-line {
   top: 0rem;
 }
 
+.preview .main-column .orphans {
+  background-color: rgb(98, 98, 98);
+}
+
+.preview .main-column .orphans .region-info {
+  color: white;
+}
+
 /* reset layout for layout builder  */
 .layout-builder__layout.umd-lib-layout.layout--custom {
   margin-top: 1.5rem !important;
